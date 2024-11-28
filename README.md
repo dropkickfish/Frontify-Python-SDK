@@ -10,7 +10,7 @@ The goal is to eventually publish this as a PyPI package, but it works just fine
 Import and initialise the client as follows:
 ```python
 import os
-from frontify.asyncFrontifyClient import asyncFrontifyClient as FrontifyClient
+from frontify.asyncFrontifyClient import AsyncFrontifyClient as FrontifyClient
 
 frontify_access_token = os.getenv('frontify_access_token')
 frontifyHeaders = {'Authorization': f"Bearer {frontify_access_token}",
