@@ -1,0 +1,5 @@
+mutation addCustomMetadata($input: AddCustomMetadataInput!){
+    addCustomMetadata(input: $input){
+        parentIds
+    }
+}

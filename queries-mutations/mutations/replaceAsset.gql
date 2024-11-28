@@ -1,0 +1,7 @@
+mutation replaceAsset($input: ReplaceAssetInput!){
+    replaceAsset(input: $input){
+        job{
+            assetId
+        }
+    }
+}

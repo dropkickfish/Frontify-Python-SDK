@@ -1,0 +1,22 @@
+mutation editComment($input: EditCommentInput!){
+    editComment(input: $input){
+        comment{
+            id
+            creator{
+                id
+                email
+                name
+                avatar
+            }
+            createdAt
+            modifier{
+                id
+                email
+                name
+                avatar
+            }
+            modifiedAt
+            content
+        }
+    }
+}

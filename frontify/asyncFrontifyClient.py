@@ -118,7 +118,7 @@ def gql(q: str) -> str:
     return q
 
 
-class asyncFrontifyClient(AsyncBaseClient):
+class AsyncFrontifyClient(AsyncBaseClient):
     async def add_asset_license(
         self,
         input: AddAssetLicenseInput,

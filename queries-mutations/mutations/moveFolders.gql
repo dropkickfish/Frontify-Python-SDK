@@ -1,0 +1,5 @@
+mutation moveFolders($input: MoveFoldersInput!){
+    moveFolders(input: $input){
+        ids
+    }
+}

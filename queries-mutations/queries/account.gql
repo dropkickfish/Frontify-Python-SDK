@@ -1,0 +1,33 @@
+query account($limit: Int, $page: Int, $limit1: Int, $page1: Int, $limit2: Int, $page2: Int){
+    account{
+        id
+        users(limit: $limit, page: $page){
+            total
+            page
+            limit
+            hasNextPage
+            items{
+                id
+                email
+                name
+                avatar
+            }
+        }
+        userGroups(limit: $limit2, page: $page2){
+            total
+            page
+            limit
+            hasNextPage
+            items{
+                id
+                name
+                users(limit: $limit1, page: $page1){
+                    total
+                    page
+                    limit
+                    hasNextPage
+                }
+            }
+        }
+    }
+}

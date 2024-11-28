@@ -1,0 +1,5 @@
+mutation removeCustomMetadata($input: RemoveCustomMetadataInput!){
+    removeCustomMetadata(input: $input){
+        parentIds
+    }
+}

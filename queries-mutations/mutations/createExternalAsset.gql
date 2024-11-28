@@ -1,0 +1,7 @@
+mutation createExternalAsset($input: CreateExternalAssetInput!){
+    createExternalAsset(input: $input){
+        job{
+            assetId
+        }
+    }
+}

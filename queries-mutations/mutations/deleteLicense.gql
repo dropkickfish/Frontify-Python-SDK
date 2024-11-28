@@ -1,0 +1,5 @@
+mutation deleteLicense($input: DeleteLicenseInput!){
+    deleteLicense(input: $input){
+        id
+    }
+}

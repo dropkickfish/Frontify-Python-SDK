@@ -1,0 +1,7 @@
+mutation addAssetPreviewImage($input: AddAssetPreviewImageInput!){
+    addAssetPreviewImage(input: $input){
+        job{
+            assetId
+        }
+    }
+}

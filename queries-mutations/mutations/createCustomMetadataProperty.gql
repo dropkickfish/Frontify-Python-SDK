@@ -1,0 +1,28 @@
+mutation createCustomMetadataProperty($input: CreateCustomMetadataPropertyInput!){
+    createCustomMetadataProperty(input: $input){
+        property{
+            id
+            creator{
+                id
+                email
+                name
+                avatar
+            }
+            createdAt
+            modifier{
+                id
+                email
+                name
+                avatar
+            }
+            modifiedAt
+            name
+            type{
+                name
+            }
+            helpText
+            isRequired
+            defaultValue
+        }
+    }
+}

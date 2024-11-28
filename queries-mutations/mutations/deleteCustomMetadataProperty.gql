@@ -1,0 +1,5 @@
+mutation deleteCustomMetadataProperty($input: DeleteCustomMetadataPropertyInput!){
+    deleteCustomMetadataProperty(input: $input){
+        id
+    }
+}

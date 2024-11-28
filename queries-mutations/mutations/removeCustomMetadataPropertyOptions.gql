@@ -1,0 +1,28 @@
+mutation removeCustomMetadataPropertyOptions($input: RemoveCustomMetadataPropertyOptionsInput!){
+    removeCustomMetadataPropertyOptions(input: $input){
+        customMetadataProperty{
+            id
+            creator{
+                id
+                email
+                name
+                avatar
+            }
+            createdAt
+            modifier{
+                id
+                email
+                name
+                avatar
+            }
+            modifiedAt
+            name
+            type{
+                name
+            }
+            helpText
+            isRequired
+            defaultValue
+        }
+    }
+}

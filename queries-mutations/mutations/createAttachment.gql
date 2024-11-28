@@ -1,0 +1,7 @@
+mutation createAttachment($input: CreateAttachmentInput!){
+    createAttachment(input: $input){
+        job{
+            attachmentId
+        }
+    }
+}

@@ -1,0 +1,85 @@
+mutation removeCollectionAssets($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $input: RemoveCollectionAssetsInput!){
+    removeCollectionAssets(input: $input){
+        collection{
+            id
+            name
+            assets(limit: $limit2, page: $page2){
+                total
+                page
+                limit
+                hasNextPage
+                items{
+                    id
+                    creator{
+                        id
+                        email
+                        name
+                        avatar
+                    }
+                    createdAt
+                    modifier{
+                        id
+                        email
+                        name
+                        avatar
+                    }
+                    modifiedAt
+                    title
+                    description
+                    attachments{
+                        id
+                        createdAt
+                        modifiedAt
+                        name
+                        filename
+                        type
+                        externalId
+                        extension
+                        size
+                        downloadUrl(validityInDays: $validityInDays, permanent: $permanent)
+                    }
+                    externalId
+                    tags{
+                        value
+                        source
+                    }
+                    copyright{
+                        status
+                        notice
+                    }
+                    expiresAt
+                    licenses{
+                        id
+                        title
+                        license
+                        addByDefault
+                        requireConsensus
+                    }
+                    status
+                    relatedAssets(limit: $limit, page: $page){
+                        total
+                        page
+                        limit
+                        hasNextPage
+                    }
+                    comments(limit: $limit1, page: $page1, query: $query){
+                        total
+                        page
+                        limit
+                        hasNextPage
+                    }
+                    currentUserPermissions{
+                        canEdit
+                        canDelete
+                        canDownload
+                        canComment
+                    }
+                }
+            }
+            currentUserPermissions{
+                canAddAssets
+                canRemoveAssets
+            }
+        }
+    }
+}

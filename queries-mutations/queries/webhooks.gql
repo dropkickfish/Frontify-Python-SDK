@@ -1,0 +1,21 @@
+query webhooks($limit: Int, $page: Int){
+    webhooks(limit: $limit, page: $page){
+        total
+        page
+        limit
+        hasNextPage
+        items{
+            id
+            creator{
+                id
+                email
+                name
+                avatar
+            }
+            createdAt
+            name
+            notificationUrl
+            secret
+        }
+    }
+}

@@ -1,0 +1,28 @@
+mutation replyToComment($input: ReplyToCommentInput!){
+    replyToComment(input: $input){
+        reply{
+            id
+            creator{
+                id
+                email
+                name
+                avatar
+            }
+            createdAt
+            modifier{
+                id
+                email
+                name
+                avatar
+            }
+            modifiedAt
+            content
+            mentionedUsers{
+                id
+                email
+                name
+                avatar
+            }
+        }
+    }
+}

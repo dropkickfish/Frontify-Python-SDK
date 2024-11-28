@@ -1,0 +1,11 @@
+mutation createLicense($input: CreateLicenseInput!){
+    createLicense(input: $input){
+        license{
+            id
+            title
+            license
+            addByDefault
+            requireConsensus
+        }
+    }
+}

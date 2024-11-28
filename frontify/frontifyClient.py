@@ -13,7 +13,7 @@ from .add_custom_metadata import AddCustomMetadata
 from .add_custom_metadata_property_options import AddCustomMetadataPropertyOptions
 from .asset import Asset
 from .assets import Assets
-from .async_base_client import AsyncBaseClient
+from .base_client import BaseClient
 from .base_model import UNSET, UnsetType
 from .brand import Brand
 from .brands import Brands
@@ -118,8 +118,8 @@ def gql(q: str) -> str:
     return q
 
 
-class FrontifyClient(AsyncBaseClient):
-    async def add_asset_license(
+class FrontifyClient(BaseClient):
+    def add_asset_license(
         self,
         input: AddAssetLicenseInput,
         validity_in_days: Union[Optional[int], UnsetType] = UNSET,
@@ -400,7 +400,7 @@ class FrontifyClient(AsyncBaseClient):
             "query1": query_1,
             "input": input,
         }
-        response = await self.execute(
+        response = self.execute(
             query=_query,
             operation_name="addAssetLicense",
             variables=variables,
@@ -409,7 +409,7 @@ class FrontifyClient(AsyncBaseClient):
         data = self.get_data(response)
         return AddAssetLicense.model_validate(data)
 
-    async def add_asset_preview_image(
+    def add_asset_preview_image(
         self, input: AddAssetPreviewImageInput, **kwargs: Any
     ) -> AddAssetPreviewImage:
         query = gql(
@@ -424,7 +424,7 @@ class FrontifyClient(AsyncBaseClient):
             """
         )
         variables: Dict[str, object] = {"input": input}
-        response = await self.execute(
+        response = self.execute(
             query=query,
             operation_name="addAssetPreviewImage",
             variables=variables,
@@ -433,7 +433,7 @@ class FrontifyClient(AsyncBaseClient):
         data = self.get_data(response)
         return AddAssetPreviewImage.model_validate(data)
 
-    async def add_asset_relations(
+    def add_asset_relations(
         self,
         input: AddAssetRelationsInput,
         validity_in_days: Union[Optional[int], UnsetType] = UNSET,
@@ -791,7 +791,7 @@ class FrontifyClient(AsyncBaseClient):
             "query2": query_2,
             "input": input,
         }
-        response = await self.execute(
+        response = self.execute(
             query=_query,
             operation_name="addAssetRelations",
             variables=variables,
@@ -800,7 +800,7 @@ class FrontifyClient(AsyncBaseClient):
         data = self.get_data(response)
         return AddAssetRelations.model_validate(data)
 
-    async def add_asset_tags(
+    def add_asset_tags(
         self,
         input: AddAssetTagsInput,
         validity_in_days: Union[Optional[int], UnsetType] = UNSET,
@@ -1074,13 +1074,13 @@ class FrontifyClient(AsyncBaseClient):
             "query1": query_1,
             "input": input,
         }
-        response = await self.execute(
+        response = self.execute(
             query=_query, operation_name="addAssetTags", variables=variables, **kwargs
         )
         data = self.get_data(response)
         return AddAssetTags.model_validate(data)
 
-    async def add_collection_assets(
+    def add_collection_assets(
         self,
         input: AddCollectionAssetsInput,
         validity_in_days: Union[Optional[int], UnsetType] = UNSET,
@@ -1198,7 +1198,7 @@ class FrontifyClient(AsyncBaseClient):
             "page2": page_2,
             "input": input,
         }
-        response = await self.execute(
+        response = self.execute(
             query=_query,
             operation_name="addCollectionAssets",
             variables=variables,
@@ -1207,7 +1207,7 @@ class FrontifyClient(AsyncBaseClient):
         data = self.get_data(response)
         return AddCollectionAssets.model_validate(data)
 
-    async def add_custom_metadata(
+    def add_custom_metadata(
         self, input: AddCustomMetadataInput, **kwargs: Any
     ) -> AddCustomMetadata:
         query = gql(
@@ -1220,7 +1220,7 @@ class FrontifyClient(AsyncBaseClient):
             """
         )
         variables: Dict[str, object] = {"input": input}
-        response = await self.execute(
+        response = self.execute(
             query=query,
             operation_name="addCustomMetadata",
             variables=variables,
@@ -1229,7 +1229,7 @@ class FrontifyClient(AsyncBaseClient):
         data = self.get_data(response)
         return AddCustomMetadata.model_validate(data)
 
-    async def add_custom_metadata_property_options(
+    def add_custom_metadata_property_options(
         self, input: AddCustomMetadataPropertyOptionsInput, **kwargs: Any
     ) -> AddCustomMetadataPropertyOptions:
         query = gql(
@@ -1268,7 +1268,7 @@ class FrontifyClient(AsyncBaseClient):
             """
         )
         variables: Dict[str, object] = {"input": input}
-        response = await self.execute(
+        response = self.execute(
             query=query,
             operation_name="addCustomMetadataPropertyOptions",
             variables=variables,
@@ -1277,7 +1277,7 @@ class FrontifyClient(AsyncBaseClient):
         data = self.get_data(response)
         return AddCustomMetadataPropertyOptions.model_validate(data)
 
-    async def create_asset(self, input: CreateAssetInput, **kwargs: Any) -> CreateAsset:
+    def create_asset(self, input: CreateAssetInput, **kwargs: Any) -> CreateAsset:
         query = gql(
             """
             mutation createAsset($input: CreateAssetInput!) {
@@ -1290,13 +1290,13 @@ class FrontifyClient(AsyncBaseClient):
             """
         )
         variables: Dict[str, object] = {"input": input}
-        response = await self.execute(
+        response = self.execute(
             query=query, operation_name="createAsset", variables=variables, **kwargs
         )
         data = self.get_data(response)
         return CreateAsset.model_validate(data)
 
-    async def create_asset_comment(
+    def create_asset_comment(
         self,
         input: CreateAssetCommentInput,
         limit: Union[Optional[int], UnsetType] = UNSET,
@@ -1389,7 +1389,7 @@ class FrontifyClient(AsyncBaseClient):
             """
         )
         variables: Dict[str, object] = {"limit": limit, "page": page, "input": input}
-        response = await self.execute(
+        response = self.execute(
             query=query,
             operation_name="createAssetComment",
             variables=variables,
@@ -1398,7 +1398,7 @@ class FrontifyClient(AsyncBaseClient):
         data = self.get_data(response)
         return CreateAssetComment.model_validate(data)
 
-    async def create_attachment(
+    def create_attachment(
         self, input: CreateAttachmentInput, **kwargs: Any
     ) -> CreateAttachment:
         query = gql(
@@ -1413,7 +1413,7 @@ class FrontifyClient(AsyncBaseClient):
             """
         )
         variables: Dict[str, object] = {"input": input}
-        response = await self.execute(
+        response = self.execute(
             query=query,
             operation_name="createAttachment",
             variables=variables,
@@ -1422,7 +1422,7 @@ class FrontifyClient(AsyncBaseClient):
         data = self.get_data(response)
         return CreateAttachment.model_validate(data)
 
-    async def create_collection(
+    def create_collection(
         self,
         input: CreateCollectionInput,
         validity_in_days: Union[Optional[int], UnsetType] = UNSET,
@@ -1540,7 +1540,7 @@ class FrontifyClient(AsyncBaseClient):
             "page2": page_2,
             "input": input,
         }
-        response = await self.execute(
+        response = self.execute(
             query=_query,
             operation_name="createCollection",
             variables=variables,
@@ -1549,7 +1549,7 @@ class FrontifyClient(AsyncBaseClient):
         data = self.get_data(response)
         return CreateCollection.model_validate(data)
 
-    async def create_custom_metadata_property(
+    def create_custom_metadata_property(
         self, input: CreateCustomMetadataPropertyInput, **kwargs: Any
     ) -> CreateCustomMetadataProperty:
         query = gql(
@@ -1588,7 +1588,7 @@ class FrontifyClient(AsyncBaseClient):
             """
         )
         variables: Dict[str, object] = {"input": input}
-        response = await self.execute(
+        response = self.execute(
             query=query,
             operation_name="createCustomMetadataProperty",
             variables=variables,
@@ -1597,7 +1597,7 @@ class FrontifyClient(AsyncBaseClient):
         data = self.get_data(response)
         return CreateCustomMetadataProperty.model_validate(data)
 
-    async def create_external_asset(
+    def create_external_asset(
         self, input: CreateExternalAssetInput, **kwargs: Any
     ) -> CreateExternalAsset:
         query = gql(
@@ -1612,7 +1612,7 @@ class FrontifyClient(AsyncBaseClient):
             """
         )
         variables: Dict[str, object] = {"input": input}
-        response = await self.execute(
+        response = self.execute(
             query=query,
             operation_name="createExternalAsset",
             variables=variables,
@@ -1621,7 +1621,7 @@ class FrontifyClient(AsyncBaseClient):
         data = self.get_data(response)
         return CreateExternalAsset.model_validate(data)
 
-    async def create_folder(
+    def create_folder(
         self,
         input: CreateFolderInput,
         limit: Union[Optional[int], UnsetType] = UNSET,
@@ -1797,15 +1797,13 @@ class FrontifyClient(AsyncBaseClient):
             "page5": page_5,
             "input": input,
         }
-        response = await self.execute(
+        response = self.execute(
             query=_query, operation_name="createFolder", variables=variables, **kwargs
         )
         data = self.get_data(response)
         return CreateFolder.model_validate(data)
 
-    async def create_license(
-        self, input: CreateLicenseInput, **kwargs: Any
-    ) -> CreateLicense:
+    def create_license(self, input: CreateLicenseInput, **kwargs: Any) -> CreateLicense:
         query = gql(
             """
             mutation createLicense($input: CreateLicenseInput!) {
@@ -1822,13 +1820,13 @@ class FrontifyClient(AsyncBaseClient):
             """
         )
         variables: Dict[str, object] = {"input": input}
-        response = await self.execute(
+        response = self.execute(
             query=query, operation_name="createLicense", variables=variables, **kwargs
         )
         data = self.get_data(response)
         return CreateLicense.model_validate(data)
 
-    async def create_workspace_project(
+    def create_workspace_project(
         self,
         input: CreateWorkspaceProjectInput,
         validity_in_days: Union[Optional[int], UnsetType] = UNSET,
@@ -2039,7 +2037,7 @@ class FrontifyClient(AsyncBaseClient):
             "page5": page_5,
             "input": input,
         }
-        response = await self.execute(
+        response = self.execute(
             query=_query,
             operation_name="createWorkspaceProject",
             variables=variables,
@@ -2048,7 +2046,7 @@ class FrontifyClient(AsyncBaseClient):
         data = self.get_data(response)
         return CreateWorkspaceProject.model_validate(data)
 
-    async def delete_asset(self, input: DeleteAssetInput, **kwargs: Any) -> DeleteAsset:
+    def delete_asset(self, input: DeleteAssetInput, **kwargs: Any) -> DeleteAsset:
         query = gql(
             """
             mutation deleteAsset($input: DeleteAssetInput!) {
@@ -2059,13 +2057,13 @@ class FrontifyClient(AsyncBaseClient):
             """
         )
         variables: Dict[str, object] = {"input": input}
-        response = await self.execute(
+        response = self.execute(
             query=query, operation_name="deleteAsset", variables=variables, **kwargs
         )
         data = self.get_data(response)
         return DeleteAsset.model_validate(data)
 
-    async def delete_attachment(
+    def delete_attachment(
         self, input: DeleteAttachmentInput, **kwargs: Any
     ) -> DeleteAttachment:
         query = gql(
@@ -2078,7 +2076,7 @@ class FrontifyClient(AsyncBaseClient):
             """
         )
         variables: Dict[str, object] = {"input": input}
-        response = await self.execute(
+        response = self.execute(
             query=query,
             operation_name="deleteAttachment",
             variables=variables,
@@ -2087,7 +2085,7 @@ class FrontifyClient(AsyncBaseClient):
         data = self.get_data(response)
         return DeleteAttachment.model_validate(data)
 
-    async def delete_collection(
+    def delete_collection(
         self, input: DeleteCollectionInput, **kwargs: Any
     ) -> DeleteCollection:
         query = gql(
@@ -2100,7 +2098,7 @@ class FrontifyClient(AsyncBaseClient):
             """
         )
         variables: Dict[str, object] = {"input": input}
-        response = await self.execute(
+        response = self.execute(
             query=query,
             operation_name="deleteCollection",
             variables=variables,
@@ -2109,9 +2107,7 @@ class FrontifyClient(AsyncBaseClient):
         data = self.get_data(response)
         return DeleteCollection.model_validate(data)
 
-    async def delete_comment(
-        self, input: DeleteCommentInput, **kwargs: Any
-    ) -> DeleteComment:
+    def delete_comment(self, input: DeleteCommentInput, **kwargs: Any) -> DeleteComment:
         query = gql(
             """
             mutation deleteComment($input: DeleteCommentInput!) {
@@ -2122,13 +2118,13 @@ class FrontifyClient(AsyncBaseClient):
             """
         )
         variables: Dict[str, object] = {"input": input}
-        response = await self.execute(
+        response = self.execute(
             query=query, operation_name="deleteComment", variables=variables, **kwargs
         )
         data = self.get_data(response)
         return DeleteComment.model_validate(data)
 
-    async def delete_custom_metadata_property(
+    def delete_custom_metadata_property(
         self, input: DeleteCustomMetadataPropertyInput, **kwargs: Any
     ) -> DeleteCustomMetadataProperty:
         query = gql(
@@ -2141,7 +2137,7 @@ class FrontifyClient(AsyncBaseClient):
             """
         )
         variables: Dict[str, object] = {"input": input}
-        response = await self.execute(
+        response = self.execute(
             query=query,
             operation_name="deleteCustomMetadataProperty",
             variables=variables,
@@ -2150,9 +2146,7 @@ class FrontifyClient(AsyncBaseClient):
         data = self.get_data(response)
         return DeleteCustomMetadataProperty.model_validate(data)
 
-    async def delete_folders(
-        self, input: DeleteFoldersInput, **kwargs: Any
-    ) -> DeleteFolders:
+    def delete_folders(self, input: DeleteFoldersInput, **kwargs: Any) -> DeleteFolders:
         query = gql(
             """
             mutation deleteFolders($input: DeleteFoldersInput!) {
@@ -2163,15 +2157,13 @@ class FrontifyClient(AsyncBaseClient):
             """
         )
         variables: Dict[str, object] = {"input": input}
-        response = await self.execute(
+        response = self.execute(
             query=query, operation_name="deleteFolders", variables=variables, **kwargs
         )
         data = self.get_data(response)
         return DeleteFolders.model_validate(data)
 
-    async def delete_license(
-        self, input: DeleteLicenseInput, **kwargs: Any
-    ) -> DeleteLicense:
+    def delete_license(self, input: DeleteLicenseInput, **kwargs: Any) -> DeleteLicense:
         query = gql(
             """
             mutation deleteLicense($input: DeleteLicenseInput!) {
@@ -2182,13 +2174,13 @@ class FrontifyClient(AsyncBaseClient):
             """
         )
         variables: Dict[str, object] = {"input": input}
-        response = await self.execute(
+        response = self.execute(
             query=query, operation_name="deleteLicense", variables=variables, **kwargs
         )
         data = self.get_data(response)
         return DeleteLicense.model_validate(data)
 
-    async def edit_comment(self, input: EditCommentInput, **kwargs: Any) -> EditComment:
+    def edit_comment(self, input: EditCommentInput, **kwargs: Any) -> EditComment:
         query = gql(
             """
             mutation editComment($input: EditCommentInput!) {
@@ -2219,13 +2211,13 @@ class FrontifyClient(AsyncBaseClient):
             """
         )
         variables: Dict[str, object] = {"input": input}
-        response = await self.execute(
+        response = self.execute(
             query=query, operation_name="editComment", variables=variables, **kwargs
         )
         data = self.get_data(response)
         return EditComment.model_validate(data)
 
-    async def install_project_webhook(
+    def install_project_webhook(
         self, input: InstallProjectWebhookInput, **kwargs: Any
     ) -> InstallProjectWebhook:
         query = gql(
@@ -2252,7 +2244,7 @@ class FrontifyClient(AsyncBaseClient):
             """
         )
         variables: Dict[str, object] = {"input": input}
-        response = await self.execute(
+        response = self.execute(
             query=query,
             operation_name="installProjectWebhook",
             variables=variables,
@@ -2261,7 +2253,7 @@ class FrontifyClient(AsyncBaseClient):
         data = self.get_data(response)
         return InstallProjectWebhook.model_validate(data)
 
-    async def invite_project_user(
+    def invite_project_user(
         self,
         input: InviteProjectUserInput,
         validity_in_days: Union[Optional[int], UnsetType] = UNSET,
@@ -2594,7 +2586,7 @@ class FrontifyClient(AsyncBaseClient):
             "page8": page_8,
             "input": input,
         }
-        response = await self.execute(
+        response = self.execute(
             query=_query,
             operation_name="inviteProjectUser",
             variables=variables,
@@ -2603,7 +2595,7 @@ class FrontifyClient(AsyncBaseClient):
         data = self.get_data(response)
         return InviteProjectUser.model_validate(data)
 
-    async def move_assets(
+    def move_assets(
         self,
         input: MoveAssetsInput,
         validity_in_days: Union[Optional[int], UnsetType] = UNSET,
@@ -2877,13 +2869,13 @@ class FrontifyClient(AsyncBaseClient):
             "query1": query_1,
             "input": input,
         }
-        response = await self.execute(
+        response = self.execute(
             query=_query, operation_name="moveAssets", variables=variables, **kwargs
         )
         data = self.get_data(response)
         return MoveAssets.model_validate(data)
 
-    async def move_folders(self, input: MoveFoldersInput, **kwargs: Any) -> MoveFolders:
+    def move_folders(self, input: MoveFoldersInput, **kwargs: Any) -> MoveFolders:
         query = gql(
             """
             mutation moveFolders($input: MoveFoldersInput!) {
@@ -2894,13 +2886,13 @@ class FrontifyClient(AsyncBaseClient):
             """
         )
         variables: Dict[str, object] = {"input": input}
-        response = await self.execute(
+        response = self.execute(
             query=query, operation_name="moveFolders", variables=variables, **kwargs
         )
         data = self.get_data(response)
         return MoveFolders.model_validate(data)
 
-    async def remove_asset_license(
+    def remove_asset_license(
         self,
         input: RemoveAssetLicenseInput,
         validity_in_days: Union[Optional[int], UnsetType] = UNSET,
@@ -3181,7 +3173,7 @@ class FrontifyClient(AsyncBaseClient):
             "query1": query_1,
             "input": input,
         }
-        response = await self.execute(
+        response = self.execute(
             query=_query,
             operation_name="removeAssetLicense",
             variables=variables,
@@ -3190,7 +3182,7 @@ class FrontifyClient(AsyncBaseClient):
         data = self.get_data(response)
         return RemoveAssetLicense.model_validate(data)
 
-    async def remove_asset_preview_image(
+    def remove_asset_preview_image(
         self,
         input: RemoveAssetPreviewImageInput,
         validity_in_days: Union[Optional[int], UnsetType] = UNSET,
@@ -3464,7 +3456,7 @@ class FrontifyClient(AsyncBaseClient):
             "query1": query_1,
             "input": input,
         }
-        response = await self.execute(
+        response = self.execute(
             query=_query,
             operation_name="removeAssetPreviewImage",
             variables=variables,
@@ -3473,7 +3465,7 @@ class FrontifyClient(AsyncBaseClient):
         data = self.get_data(response)
         return RemoveAssetPreviewImage.model_validate(data)
 
-    async def remove_asset_tags(
+    def remove_asset_tags(
         self,
         input: RemoveAssetTagsInput,
         validity_in_days: Union[Optional[int], UnsetType] = UNSET,
@@ -3747,7 +3739,7 @@ class FrontifyClient(AsyncBaseClient):
             "query1": query_1,
             "input": input,
         }
-        response = await self.execute(
+        response = self.execute(
             query=_query,
             operation_name="removeAssetTags",
             variables=variables,
@@ -3756,7 +3748,7 @@ class FrontifyClient(AsyncBaseClient):
         data = self.get_data(response)
         return RemoveAssetTags.model_validate(data)
 
-    async def remove_collection_assets(
+    def remove_collection_assets(
         self,
         input: RemoveCollectionAssetsInput,
         validity_in_days: Union[Optional[int], UnsetType] = UNSET,
@@ -3874,7 +3866,7 @@ class FrontifyClient(AsyncBaseClient):
             "page2": page_2,
             "input": input,
         }
-        response = await self.execute(
+        response = self.execute(
             query=_query,
             operation_name="removeCollectionAssets",
             variables=variables,
@@ -3883,7 +3875,7 @@ class FrontifyClient(AsyncBaseClient):
         data = self.get_data(response)
         return RemoveCollectionAssets.model_validate(data)
 
-    async def remove_custom_metadata(
+    def remove_custom_metadata(
         self, input: RemoveCustomMetadataInput, **kwargs: Any
     ) -> RemoveCustomMetadata:
         query = gql(
@@ -3896,7 +3888,7 @@ class FrontifyClient(AsyncBaseClient):
             """
         )
         variables: Dict[str, object] = {"input": input}
-        response = await self.execute(
+        response = self.execute(
             query=query,
             operation_name="removeCustomMetadata",
             variables=variables,
@@ -3905,7 +3897,7 @@ class FrontifyClient(AsyncBaseClient):
         data = self.get_data(response)
         return RemoveCustomMetadata.model_validate(data)
 
-    async def remove_custom_metadata_property_options(
+    def remove_custom_metadata_property_options(
         self, input: RemoveCustomMetadataPropertyOptionsInput, **kwargs: Any
     ) -> RemoveCustomMetadataPropertyOptions:
         query = gql(
@@ -3944,7 +3936,7 @@ class FrontifyClient(AsyncBaseClient):
             """
         )
         variables: Dict[str, object] = {"input": input}
-        response = await self.execute(
+        response = self.execute(
             query=query,
             operation_name="removeCustomMetadataPropertyOptions",
             variables=variables,
@@ -3953,7 +3945,7 @@ class FrontifyClient(AsyncBaseClient):
         data = self.get_data(response)
         return RemoveCustomMetadataPropertyOptions.model_validate(data)
 
-    async def reopen_asset_comment(
+    def reopen_asset_comment(
         self,
         input: ReopenAssetCommentInput,
         limit: Union[Optional[int], UnsetType] = UNSET,
@@ -4046,7 +4038,7 @@ class FrontifyClient(AsyncBaseClient):
             """
         )
         variables: Dict[str, object] = {"limit": limit, "page": page, "input": input}
-        response = await self.execute(
+        response = self.execute(
             query=query,
             operation_name="reopenAssetComment",
             variables=variables,
@@ -4055,9 +4047,7 @@ class FrontifyClient(AsyncBaseClient):
         data = self.get_data(response)
         return ReopenAssetComment.model_validate(data)
 
-    async def replace_asset(
-        self, input: ReplaceAssetInput, **kwargs: Any
-    ) -> ReplaceAsset:
+    def replace_asset(self, input: ReplaceAssetInput, **kwargs: Any) -> ReplaceAsset:
         query = gql(
             """
             mutation replaceAsset($input: ReplaceAssetInput!) {
@@ -4070,13 +4060,13 @@ class FrontifyClient(AsyncBaseClient):
             """
         )
         variables: Dict[str, object] = {"input": input}
-        response = await self.execute(
+        response = self.execute(
             query=query, operation_name="replaceAsset", variables=variables, **kwargs
         )
         data = self.get_data(response)
         return ReplaceAsset.model_validate(data)
 
-    async def reply_to_comment(
+    def reply_to_comment(
         self, input: ReplyToCommentInput, **kwargs: Any
     ) -> ReplyToComment:
         query = gql(
@@ -4115,13 +4105,13 @@ class FrontifyClient(AsyncBaseClient):
             """
         )
         variables: Dict[str, object] = {"input": input}
-        response = await self.execute(
+        response = self.execute(
             query=query, operation_name="replyToComment", variables=variables, **kwargs
         )
         data = self.get_data(response)
         return ReplyToComment.model_validate(data)
 
-    async def resolve_asset_comment(
+    def resolve_asset_comment(
         self,
         input: ResolveAssetCommentInput,
         limit: Union[Optional[int], UnsetType] = UNSET,
@@ -4214,7 +4204,7 @@ class FrontifyClient(AsyncBaseClient):
             """
         )
         variables: Dict[str, object] = {"limit": limit, "page": page, "input": input}
-        response = await self.execute(
+        response = self.execute(
             query=query,
             operation_name="resolveAssetComment",
             variables=variables,
@@ -4223,7 +4213,7 @@ class FrontifyClient(AsyncBaseClient):
         data = self.get_data(response)
         return ResolveAssetComment.model_validate(data)
 
-    async def set_collection_assets(
+    def set_collection_assets(
         self,
         input: SetCollectionAssetsInput,
         validity_in_days: Union[Optional[int], UnsetType] = UNSET,
@@ -4341,7 +4331,7 @@ class FrontifyClient(AsyncBaseClient):
             "page2": page_2,
             "input": input,
         }
-        response = await self.execute(
+        response = self.execute(
             query=_query,
             operation_name="setCollectionAssets",
             variables=variables,
@@ -4350,7 +4340,7 @@ class FrontifyClient(AsyncBaseClient):
         data = self.get_data(response)
         return SetCollectionAssets.model_validate(data)
 
-    async def sync_asset_tags(
+    def sync_asset_tags(
         self,
         input: SyncAssetTagsInput,
         validity_in_days: Union[Optional[int], UnsetType] = UNSET,
@@ -4624,13 +4614,13 @@ class FrontifyClient(AsyncBaseClient):
             "query1": query_1,
             "input": input,
         }
-        response = await self.execute(
+        response = self.execute(
             query=_query, operation_name="syncAssetTags", variables=variables, **kwargs
         )
         data = self.get_data(response)
         return SyncAssetTags.model_validate(data)
 
-    async def uninstall_webhook(
+    def uninstall_webhook(
         self, input: UninstallWebhookInput, **kwargs: Any
     ) -> UninstallWebhook:
         query = gql(
@@ -4657,7 +4647,7 @@ class FrontifyClient(AsyncBaseClient):
             """
         )
         variables: Dict[str, object] = {"input": input}
-        response = await self.execute(
+        response = self.execute(
             query=query,
             operation_name="uninstallWebhook",
             variables=variables,
@@ -4666,7 +4656,7 @@ class FrontifyClient(AsyncBaseClient):
         data = self.get_data(response)
         return UninstallWebhook.model_validate(data)
 
-    async def update_asset(
+    def update_asset(
         self,
         input: UpdateAssetInput,
         validity_in_days: Union[Optional[int], UnsetType] = UNSET,
@@ -4940,13 +4930,13 @@ class FrontifyClient(AsyncBaseClient):
             "query1": query_1,
             "input": input,
         }
-        response = await self.execute(
+        response = self.execute(
             query=_query, operation_name="updateAsset", variables=variables, **kwargs
         )
         data = self.get_data(response)
         return UpdateAsset.model_validate(data)
 
-    async def update_collection(
+    def update_collection(
         self,
         input: UpdateCollectionInput,
         validity_in_days: Union[Optional[int], UnsetType] = UNSET,
@@ -5064,7 +5054,7 @@ class FrontifyClient(AsyncBaseClient):
             "page2": page_2,
             "input": input,
         }
-        response = await self.execute(
+        response = self.execute(
             query=_query,
             operation_name="updateCollection",
             variables=variables,
@@ -5073,7 +5063,7 @@ class FrontifyClient(AsyncBaseClient):
         data = self.get_data(response)
         return UpdateCollection.model_validate(data)
 
-    async def update_custom_metadata_property(
+    def update_custom_metadata_property(
         self, input: UpdateCustomMetadataPropertyInput, **kwargs: Any
     ) -> UpdateCustomMetadataProperty:
         query = gql(
@@ -5112,7 +5102,7 @@ class FrontifyClient(AsyncBaseClient):
             """
         )
         variables: Dict[str, object] = {"input": input}
-        response = await self.execute(
+        response = self.execute(
             query=query,
             operation_name="updateCustomMetadataProperty",
             variables=variables,
@@ -5121,7 +5111,7 @@ class FrontifyClient(AsyncBaseClient):
         data = self.get_data(response)
         return UpdateCustomMetadataProperty.model_validate(data)
 
-    async def update_folder(
+    def update_folder(
         self,
         input: UpdateFolderInput,
         limit: Union[Optional[int], UnsetType] = UNSET,
@@ -5297,13 +5287,13 @@ class FrontifyClient(AsyncBaseClient):
             "page5": page_5,
             "input": input,
         }
-        response = await self.execute(
+        response = self.execute(
             query=_query, operation_name="updateFolder", variables=variables, **kwargs
         )
         data = self.get_data(response)
         return UpdateFolder.model_validate(data)
 
-    async def upload_file(self, input: UploadFileInput, **kwargs: Any) -> UploadFile:
+    def upload_file(self, input: UploadFileInput, **kwargs: Any) -> UploadFile:
         query = gql(
             """
             mutation uploadFile($input: UploadFileInput!) {
@@ -5315,13 +5305,13 @@ class FrontifyClient(AsyncBaseClient):
             """
         )
         variables: Dict[str, object] = {"input": input}
-        response = await self.execute(
+        response = self.execute(
             query=query, operation_name="uploadFile", variables=variables, **kwargs
         )
         data = self.get_data(response)
         return UploadFile.model_validate(data)
 
-    async def account(
+    def account(
         self,
         limit: Union[Optional[int], UnsetType] = UNSET,
         page: Union[Optional[int], UnsetType] = UNSET,
@@ -5377,13 +5367,13 @@ class FrontifyClient(AsyncBaseClient):
             "limit2": limit_2,
             "page2": page_2,
         }
-        response = await self.execute(
+        response = self.execute(
             query=query, operation_name="account", variables=variables, **kwargs
         )
         data = self.get_data(response)
         return Account.model_validate(data)
 
-    async def asset(
+    def asset(
         self,
         id: str,
         validity_in_days: Union[Optional[int], UnsetType] = UNSET,
@@ -5616,13 +5606,13 @@ class FrontifyClient(AsyncBaseClient):
             "query1": query_1,
             "id": id,
         }
-        response = await self.execute(
+        response = self.execute(
             query=_query, operation_name="asset", variables=variables, **kwargs
         )
         data = self.get_data(response)
         return Asset.model_validate(data)
 
-    async def assets(
+    def assets(
         self,
         ids: List[str],
         validity_in_days: Union[Optional[int], UnsetType] = UNSET,
@@ -5855,13 +5845,13 @@ class FrontifyClient(AsyncBaseClient):
             "query1": query_1,
             "ids": ids,
         }
-        response = await self.execute(
+        response = self.execute(
             query=_query, operation_name="assets", variables=variables, **kwargs
         )
         data = self.get_data(response)
         return Assets.model_validate(data)
 
-    async def brand(
+    def brand(
         self,
         id: str,
         limit: Union[Optional[int], UnsetType] = UNSET,
@@ -6053,13 +6043,13 @@ class FrontifyClient(AsyncBaseClient):
             "page6": page_6,
             "id": id,
         }
-        response = await self.execute(
+        response = self.execute(
             query=_query, operation_name="brand", variables=variables, **kwargs
         )
         data = self.get_data(response)
         return Brand.model_validate(data)
 
-    async def brands(
+    def brands(
         self,
         limit: Union[Optional[int], UnsetType] = UNSET,
         page: Union[Optional[int], UnsetType] = UNSET,
@@ -6249,13 +6239,13 @@ class FrontifyClient(AsyncBaseClient):
             "limit6": limit_6,
             "page6": page_6,
         }
-        response = await self.execute(
+        response = self.execute(
             query=_query, operation_name="brands", variables=variables, **kwargs
         )
         data = self.get_data(response)
         return Brands.model_validate(data)
 
-    async def client_tracking_id(self, **kwargs: Any) -> ClientTrackingId:
+    def client_tracking_id(self, **kwargs: Any) -> ClientTrackingId:
         query = gql(
             """
             query clientTrackingId {
@@ -6264,7 +6254,7 @@ class FrontifyClient(AsyncBaseClient):
             """
         )
         variables: Dict[str, object] = {}
-        response = await self.execute(
+        response = self.execute(
             query=query,
             operation_name="clientTrackingId",
             variables=variables,
@@ -6273,7 +6263,7 @@ class FrontifyClient(AsyncBaseClient):
         data = self.get_data(response)
         return ClientTrackingId.model_validate(data)
 
-    async def current_user(self, **kwargs: Any) -> CurrentUser:
+    def current_user(self, **kwargs: Any) -> CurrentUser:
         query = gql(
             """
             query currentUser {
@@ -6288,13 +6278,13 @@ class FrontifyClient(AsyncBaseClient):
             """
         )
         variables: Dict[str, object] = {}
-        response = await self.execute(
+        response = self.execute(
             query=query, operation_name="currentUser", variables=variables, **kwargs
         )
         data = self.get_data(response)
         return CurrentUser.model_validate(data)
 
-    async def library(
+    def library(
         self,
         id: str,
         validity_in_days: Union[Optional[int], UnsetType] = UNSET,
@@ -6602,13 +6592,13 @@ class FrontifyClient(AsyncBaseClient):
             "page8": page_8,
             "id": id,
         }
-        response = await self.execute(
+        response = self.execute(
             query=_query, operation_name="library", variables=variables, **kwargs
         )
         data = self.get_data(response)
         return Library.model_validate(data)
 
-    async def node(self, id: str, **kwargs: Any) -> Node:
+    def node(self, id: str, **kwargs: Any) -> Node:
         query = gql(
             """
             query node($id: ID!) {
@@ -6620,13 +6610,13 @@ class FrontifyClient(AsyncBaseClient):
             """
         )
         variables: Dict[str, object] = {"id": id}
-        response = await self.execute(
+        response = self.execute(
             query=query, operation_name="node", variables=variables, **kwargs
         )
         data = self.get_data(response)
         return Node.model_validate(data)
 
-    async def webhooks(
+    def webhooks(
         self,
         limit: Union[Optional[int], UnsetType] = UNSET,
         page: Union[Optional[int], UnsetType] = UNSET,
@@ -6660,13 +6650,13 @@ class FrontifyClient(AsyncBaseClient):
             """
         )
         variables: Dict[str, object] = {"limit": limit, "page": page}
-        response = await self.execute(
+        response = self.execute(
             query=query, operation_name="webhooks", variables=variables, **kwargs
         )
         data = self.get_data(response)
         return Webhooks.model_validate(data)
 
-    async def workspace_project(
+    def workspace_project(
         self,
         id: str,
         validity_in_days: Union[Optional[int], UnsetType] = UNSET,
@@ -6931,7 +6921,7 @@ class FrontifyClient(AsyncBaseClient):
             "page7": page_7,
             "id": id,
         }
-        response = await self.execute(
+        response = self.execute(
             query=_query,
             operation_name="workspaceProject",
             variables=variables,

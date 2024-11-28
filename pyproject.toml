@@ -2,7 +2,7 @@
 queries_path = "queries-mutations"
 schema_path = "public.graphql"
 target_package_name = "frontify"
-client_name = "syncFrontifyClient"
-client_file_name = "syncFrontifyClient"
+client_name = "FrontifyClient"
+client_file_name = "frontifyClient"
 async_client = false
 enable_custom_operations = true

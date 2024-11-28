@@ -450,6 +450,7 @@ from .exceptions import (
     GraphQLClientHttpError,
     GraphQLClientInvalidResponseError,
 )
+from .frontifyClient import FrontifyClient
 from .input_types import (
     AddAssetLicenseInput,
     AddAssetMetadataFieldValueInput,
@@ -925,7 +926,6 @@ from .sync_asset_tags import (
     SyncAssetTagsSyncAssetTagsAssetRelatedAssetsItemsTags,
     SyncAssetTagsSyncAssetTagsAssetTags,
 )
-from .syncFrontifyClient import syncFrontifyClient
 from .uninstall_webhook import (
     UninstallWebhook,
     UninstallWebhookUninstallWebhook,
@@ -1512,6 +1512,7 @@ __all__ = [
     "EditCommentEditCommentCommentCreator",
     "EditCommentEditCommentCommentModifier",
     "EditCommentInput",
+    "FrontifyClient",
     "GraphQLClientError",
     "GraphQLClientGraphQLError",
     "GraphQLClientGraphQLMultiError",
@@ -2055,5 +2056,4 @@ __all__ = [
     "WorkspaceProjectWorkspaceProjectColor",
     "WorkspaceProjectWorkspaceProjectCurrentUserPermissions",
     "WorkspaceProjectWorkspaceProjectLicenses",
-    "syncFrontifyClient",
 ]

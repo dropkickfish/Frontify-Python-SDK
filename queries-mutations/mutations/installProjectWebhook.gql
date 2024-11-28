@@ -1,0 +1,17 @@
+mutation installProjectWebhook($input: InstallProjectWebhookInput!){
+    installProjectWebhook(input: $input){
+        webhook{
+            id
+            creator{
+                id
+                email
+                name
+                avatar
+            }
+            createdAt
+            name
+            notificationUrl
+            secret
+        }
+    }
+}
