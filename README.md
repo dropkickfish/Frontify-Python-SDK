@@ -144,14 +144,14 @@ print(data)
 ```
 
 ## Notes on synchronous usage
-If using `syncFrontifyClient` it is not necessary to utilise `asyncio` and queries/mutations can be made without awaiting, for example:
+If using `FrontifyClient` it is not necessary to utilise `asyncio` and queries/mutations can be made without awaiting, for example:
 
 ### Import
 ```python
 import os
 
 from dotenv import load_dotenv
-from frontify.syncFrontifyClient import syncFrontifyClient as FrontifyClient
+from frontify.frontifyClient import FrontifyClient
 
 load_dotenv(verbose=True, override=True)
 
