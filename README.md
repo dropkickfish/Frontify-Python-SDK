@@ -6,6 +6,9 @@ Bootstrapped with [gql-generator](https://www.npmjs.com/package/gql-generator) t
 The goal is to eventually publish this as a PyPI package, but it works just fine imported as a module for now.
 
 # Usage
+## Local package installation (optional)
+To install the package in your environment, you can run `python setup.py install` and then `pip install frontify` which will allow you to use it as a regular import instead of importing the entire module.
+
 ## Client
 Import and initialise the client as follows:
 ```python

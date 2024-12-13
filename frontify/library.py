@@ -373,7 +373,12 @@ class LibraryLibraryCustomMetadataPropertiesType(BaseModel):
         "CustomMetadataPropertyTypeUrl",
     ] = Field(alias="__typename")
     name: str
+    options: Optional[List[Optional["LibraryLibraryCustomMetadataPropertiesTypeOptions"]]] = None
 
+class LibraryLibraryCustomMetadataPropertiesTypeOptions(BaseModel):
+    id: str
+    value: str
+    isDefault: Optional[bool] = None
 
 Library.model_rebuild()
 LibraryLibrary.model_rebuild()

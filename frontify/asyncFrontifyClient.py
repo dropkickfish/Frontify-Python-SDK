@@ -6566,8 +6566,22 @@ class AsyncFrontifyClient(AsyncBaseClient):
                   modifiedAt
                   name
                   type {
-                    __typename
-                    name
+                    ... on CustomMetadataPropertyType {
+                      __typename
+                      name
+                      ... on CustomMetadataPropertyTypeSelect {
+                        options {
+                          id
+                          value
+                        }
+                      }
+                      ... on CustomMetadataPropertyTypeMultiSelect{
+                        options {
+                          id
+                          value
+                        }
+                      }
+                    }
                   }
                   helpText
                   isRequired
