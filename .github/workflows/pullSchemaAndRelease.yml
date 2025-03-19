@@ -1,4 +1,4 @@
-name: Pull Schema and Release
+name: Release on new schema
 
 on:
   workflow_dispatch:
@@ -9,31 +9,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '16'
-          cache: 'npm'
-
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: 'pip'
-
-      - name: Install dependencies
-        run: |
-          npm install -g gql-generator@2.0.0
-          pip install ariadne-codegen==0.13.0
-
-      - name: Pull GraphQL Schema
-        run: |
-          curl -H "Authorization: Bearer ${{ secrets.GRAPHQL_TOKEN }}" \
-               -H "Content-Type: application/json" \
-               -H "Accept: application/json" \
-               -o public-beta.graphql \
-               ${{ secrets.GRAPHQL_SCHEMA_URL }}
-
       - name: Generate queries and mutations
         run: |
           gqlg --schemaFilePath public-beta.graphql --destDirPath ./queries-mutations --depthLimit 5
