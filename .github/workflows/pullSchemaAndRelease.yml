@@ -21,7 +21,7 @@ jobs:
           node-version: '18'
 
       - name: Install gqlg
-        run: npm install -g gqlg
+        run: npm install -g gql-generator
 
       - name: Generate queries and mutations
         run: |
