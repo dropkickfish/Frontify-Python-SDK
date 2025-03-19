@@ -61,6 +61,9 @@ jobs:
               print("No version found in setup.py")
               exit(1)
           '
+          
+      - name: Create distribution package
+        run: python setup.py sdist
 
       - name: Commit changes
         run: |
@@ -69,9 +72,6 @@ jobs:
           git add public-beta.graphql queries-mutations/ frontify/ setup.py
           git commit -m "chore: update schema and increment version" || exit 0
           git push
-    
-      - name: Create distribution package
-        run: python setup.py sdist
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
