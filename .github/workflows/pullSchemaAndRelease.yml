@@ -1,4 +1,4 @@
-name: Pull Schema and Update Codegen
+name: Pull Schema and Release
 
 on:
   workflow_dispatch:
@@ -73,12 +73,11 @@ jobs:
       - name: Create distribution package
         run: python setup.py sdist
 
-      - name: Create a release
-        uses: actions/create-release@v2
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
           tag_name: v${{ steps.version.outputs.new_version }}
-          release_name: Release v${{ steps.version.outputs.new_version }}
+          name: Release v${{ steps.version.outputs.new_version }}
           body: |
             This release includes the updated GraphQL schema and code generation.
           files: |
