@@ -25,6 +25,12 @@ type Audio implements Node & Asset {
   "Description of the `Asset`."
   description: String
 
+  "**BETA** Alternative text for the `Asset`. Used by screen readers when the asset is not decorative."
+  alternativeText: String
+
+  "**BETA** Indicates whether the `Asset` is decorative and not meant to be read by screen readers. If true, alternative text is ignored."
+  isDecorative: Boolean!
+
   "`Attachment` items linked to `Asset`."
   attachments: [AssetAttachment]
 
@@ -34,8 +40,8 @@ type Audio implements Node & Asset {
   "List of `Tag` items linked to `Asset`"
   tags: [Tag]
 
-  "**DEPRECATED** `MetadataValue` items linked to `Asset`. This field will be removed. Use `customMetadata` instead. | Date: 2025-01-01T00:00:00.000+00:00"
-  metadataValues: [MetadataValue] @deprecated(reason: "This field will be removed. Use `customMetadata` instead. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** `MetadataValue` items linked to `Asset`. This field will be removed. Use `customMetadata` instead. | Date: 2025-07-01T00:00:00.000+00:00"
+  metadataValues: [MetadataValue] @deprecated(reason: "This field will be removed. Use `customMetadata` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 
   "**DEPRECATED** `ExternalProduct` items linked to `Asset`. This field will be removed. | Date: 2025-01-01T00:00:00.000+00:00"
   externalProducts: [ExternalProduct] @deprecated(reason: "This field will be removed. | Date: 2025-01-01T00:00:00.000+00:00")
@@ -187,8 +193,8 @@ interface Asset {
   "List of `Asset`'s licenses."
   licenses: [License]
 
-  "**DEPRECATED** Metadata values details. This field will be removed. Use `customMetadata` instead. | Date: 2025-01-01T00:00:00.000+00:00"
-  metadataValues: [MetadataValue] @deprecated(reason: "This field will be removed. Use `customMetadata` instead. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** Metadata values details. This field will be removed. Use `customMetadata` instead. | Date: 2025-07-01T00:00:00.000+00:00"
+  metadataValues: [MetadataValue] @deprecated(reason: "This field will be removed. Use `customMetadata` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 
   "Represents the conversion status of the `Asset`. Example: FINISHED."
   status: AssetStatusType!
@@ -244,14 +250,14 @@ interface User {
   "`User` Id."
   id: ID!
 
-  "`User` email."
-  email: Email!
+  "**DEPRECATED** `User` email. This field will be removed. Use `AccountUser.email` instead. | Date: 2025-07-01T00:00:00.000+00:00"
+  email: Email! @deprecated(reason: "This field will be removed. Use `AccountUser.email` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 
   "`User` name."
   name: String
 
-  "`User` avatar."
-  avatar: Url
+  "**DEPRECATED** `User` avatar. This field will be removed. Use `AccountUser.avatar` instead. | Date: 2025-07-01T00:00:00.000+00:00"
+  avatar: Url @deprecated(reason: "This field will be removed. Use `AccountUser.avatar` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 }
 
 "The `Email` scalar type represents email addresses."
@@ -357,78 +363,78 @@ type License {
 }
 
 type MetadataValue {
-  "**DEPRECATED** `MetadataValue` Id. This field will be removed. | Date: 2025-01-01T00:00:00.000+00:00"
-  id: ID! @deprecated(reason: "This field will be removed. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** `MetadataValue` Id. This field will be removed. | Date: 2025-07-01T00:00:00.000+00:00"
+  id: ID! @deprecated(reason: "This field will be removed. | Date: 2025-07-01T00:00:00.000+00:00")
 
-  "**DEPRECATED** `User` who created the `MetadataValue`. This field will be removed. | Date: 2025-01-01T00:00:00.000+00:00"
-  creator: User! @deprecated(reason: "This field will be removed. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** `User` who created the `MetadataValue`. This field will be removed. | Date: 2025-07-01T00:00:00.000+00:00"
+  creator: User! @deprecated(reason: "This field will be removed. | Date: 2025-07-01T00:00:00.000+00:00")
 
-  "**DEPRECATED** `DateTime` of the `MetadataValue` creation. This field will be removed. | Date: 2025-01-01T00:00:00.000+00:00"
-  createdAt: DateTime! @deprecated(reason: "This field will be removed. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** `DateTime` of the `MetadataValue` creation. This field will be removed. | Date: 2025-07-01T00:00:00.000+00:00"
+  createdAt: DateTime! @deprecated(reason: "This field will be removed. | Date: 2025-07-01T00:00:00.000+00:00")
 
-  "**DEPRECATED** `User` who last modified the `MetadataValue`. This field will be removed. | Date: 2025-01-01T00:00:00.000+00:00"
-  modifier: User @deprecated(reason: "This field will be removed. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** `User` who last modified the `MetadataValue`. This field will be removed. | Date: 2025-07-01T00:00:00.000+00:00"
+  modifier: User @deprecated(reason: "This field will be removed. | Date: 2025-07-01T00:00:00.000+00:00")
 
-  "**DEPRECATED** `DateTime` of the `MetadataValue`'s last modification. This field will be removed. | Date: 2025-01-01T00:00:00.000+00:00"
-  modifiedAt: DateTime @deprecated(reason: "This field will be removed. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** `DateTime` of the `MetadataValue`'s last modification. This field will be removed. | Date: 2025-07-01T00:00:00.000+00:00"
+  modifiedAt: DateTime @deprecated(reason: "This field will be removed. | Date: 2025-07-01T00:00:00.000+00:00")
 
-  "**DEPRECATED** `MetadataField` associated to `MetadataValue`. This field will be removed. | Date: 2025-01-01T00:00:00.000+00:00"
-  metadataField: MetadataField! @deprecated(reason: "This field will be removed. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** `MetadataField` associated to `MetadataValue`. This field will be removed. | Date: 2025-07-01T00:00:00.000+00:00"
+  metadataField: MetadataField! @deprecated(reason: "This field will be removed. | Date: 2025-07-01T00:00:00.000+00:00")
 
-  "**DEPRECATED** `MetadataValue`'s value. This field will be removed. Use `CustomMetadataValueType.value` instead. | Date: 2025-01-01T00:00:00.000+00:00"
-  value: String! @deprecated(reason: "This field will be removed. Use `CustomMetadataValueType.value` instead. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** `MetadataValue`'s value. This field will be removed. Use `CustomMetadataValueType.value` instead. | Date: 2025-07-01T00:00:00.000+00:00"
+  value: String! @deprecated(reason: "This field will be removed. Use `CustomMetadataValueType.value` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 }
 
 type MetadataField {
-  "**DEPRECATED** `MetadataField` Id. This field will be removed. Use `CustomMetadataProperty.id` instead. | Date: 2025-01-01T00:00:00.000+00:00"
-  id: ID! @deprecated(reason: "This field will be removed. Use `CustomMetadataProperty.id` instead. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** `MetadataField` Id. This field will be removed. Use `CustomMetadataProperty.id` instead. | Date: 2025-07-01T00:00:00.000+00:00"
+  id: ID! @deprecated(reason: "This field will be removed. Use `CustomMetadataProperty.id` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 
-  "**DEPRECATED** `User` who created the `MetadataField`. This field will be removed. Use `CustomMetadataProperty.creator` instead. | Date: 2025-01-01T00:00:00.000+00:00"
-  creator: User! @deprecated(reason: "This field will be removed. Use `CustomMetadataProperty.creator` instead. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** `User` who created the `MetadataField`. This field will be removed. Use `CustomMetadataProperty.creator` instead. | Date: 2025-07-01T00:00:00.000+00:00"
+  creator: User! @deprecated(reason: "This field will be removed. Use `CustomMetadataProperty.creator` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 
-  "**DEPRECATED** `DateTime` of the `MetadataField` creation. This field will be removed. Use `CustomMetadataProperty.createdAt` instead. | Date: 2025-01-01T00:00:00.000+00:00"
-  createdAt: DateTime! @deprecated(reason: "This field will be removed. Use `CustomMetadataProperty.createdAt` instead. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** `DateTime` of the `MetadataField` creation. This field will be removed. Use `CustomMetadataProperty.createdAt` instead. | Date: 2025-07-01T00:00:00.000+00:00"
+  createdAt: DateTime! @deprecated(reason: "This field will be removed. Use `CustomMetadataProperty.createdAt` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 
-  "**DEPRECATED** `User` who last modified `MetadataField`. This field will be removed. Use `CustomMetadataProperty.modifier` instead. | Date: 2025-01-01T00:00:00.000+00:00"
-  modifier: User @deprecated(reason: "This field will be removed. Use `CustomMetadataProperty.modifier` instead. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** `User` who last modified `MetadataField`. This field will be removed. Use `CustomMetadataProperty.modifier` instead. | Date: 2025-07-01T00:00:00.000+00:00"
+  modifier: User @deprecated(reason: "This field will be removed. Use `CustomMetadataProperty.modifier` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 
-  "**DEPRECATED** `DateTime` of the `MetadataField`'s last modification. This field will be removed. Use `CustomMetadataProperty.modifiedAt` instead. | Date: 2025-01-01T00:00:00.000+00:00"
-  modifiedAt: DateTime @deprecated(reason: "This field will be removed. Use `CustomMetadataProperty.modifiedAt` instead. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** `DateTime` of the `MetadataField`'s last modification. This field will be removed. Use `CustomMetadataProperty.modifiedAt` instead. | Date: 2025-07-01T00:00:00.000+00:00"
+  modifiedAt: DateTime @deprecated(reason: "This field will be removed. Use `CustomMetadataProperty.modifiedAt` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 
-  "**DEPRECATED** `MetadataField`'s name. This field will be removed. Use `CustomMetadataProperty.name` instead. | Date: 2025-01-01T00:00:00.000+00:00"
-  label: String! @deprecated(reason: "This field will be removed. Use `CustomMetadataProperty.name` instead. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** `MetadataField`'s name. This field will be removed. Use `CustomMetadataProperty.name` instead. | Date: 2025-07-01T00:00:00.000+00:00"
+  label: String! @deprecated(reason: "This field will be removed. Use `CustomMetadataProperty.name` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 
-  "**DEPRECATED** `MetadataField`'s type. This field will be removed. Use `CustomMetadataProperty.type.name` instead. | Date: 2025-01-01T00:00:00.000+00:00"
-  type: String! @deprecated(reason: "This field will be removed. Use `CustomMetadataProperty.type.name` instead. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** `MetadataField`'s type. This field will be removed. Use `CustomMetadataProperty.type.name` instead. | Date: 2025-07-01T00:00:00.000+00:00"
+  type: String! @deprecated(reason: "This field will be removed. Use `CustomMetadataProperty.type.name` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 
-  "**DEPRECATED** Possible values for `SELECT` type `MetadataField`. This field will be removed. Use `CustomMetadataProperty.type.options` instead. | Date: 2025-01-01T00:00:00.000+00:00"
-  values: [MetadataFieldValues] @deprecated(reason: "This field will be removed. Use `CustomMetadataProperty.type.options` instead. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** Possible values for `SELECT` type `MetadataField`. This field will be removed. Use `CustomMetadataProperty.type.options` instead. | Date: 2025-07-01T00:00:00.000+00:00"
+  values: [MetadataFieldValues] @deprecated(reason: "This field will be removed. Use `CustomMetadataProperty.type.options` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 
-  "**DEPRECATED** Optional default value of the `MetadataField`. This field will be removed. Use `CustomMetadataProperty.defaultValue` instead. | Date: 2025-01-01T00:00:00.000+00:00"
-  defaultValue: String @deprecated(reason: "This field will be removed. Use `CustomMetadataProperty.defaultValue` instead. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** Optional default value of the `MetadataField`. This field will be removed. Use `CustomMetadataProperty.defaultValue` instead. | Date: 2025-07-01T00:00:00.000+00:00"
+  defaultValue: String @deprecated(reason: "This field will be removed. Use `CustomMetadataProperty.defaultValue` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 
-  "**DEPRECATED** Allow multiple values in `SELECT` type `MetadataField`. This field will be removed. | Date: 2025-01-01T00:00:00.000+00:00"
-  allowMultipleValues: Boolean! @deprecated(reason: "This field will be removed. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** Allow multiple values in `SELECT` type `MetadataField`. This field will be removed. | Date: 2025-07-01T00:00:00.000+00:00"
+  allowMultipleValues: Boolean! @deprecated(reason: "This field will be removed. | Date: 2025-07-01T00:00:00.000+00:00")
 
-  "**DEPRECATED** Allow an empty value as a valid `SELECT` type `MetadataField` value. This field will be removed. | Date: 2025-01-01T00:00:00.000+00:00"
-  allowEmptyValue: Boolean! @deprecated(reason: "This field will be removed. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** Allow an empty value as a valid `SELECT` type `MetadataField` value. This field will be removed. | Date: 2025-07-01T00:00:00.000+00:00"
+  allowEmptyValue: Boolean! @deprecated(reason: "This field will be removed. | Date: 2025-07-01T00:00:00.000+00:00")
 
-  "**DEPRECATED** Allow users to search for `MetadataField` values. This field will be removed. Use `CustomMetadataProperty.isSearchable` instead. | Date: 2025-01-01T00:00:00.000+00:00"
-  isSearchable: Boolean! @deprecated(reason: "This field will be removed. Use `CustomMetadataProperty.isSearchable` instead. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** Allow users to search for `MetadataField` values. This field will be removed. Use `CustomMetadataProperty.isSearchable` instead. | Date: 2025-07-01T00:00:00.000+00:00"
+  isSearchable: Boolean! @deprecated(reason: "This field will be removed. Use `CustomMetadataProperty.isSearchable` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 
-  "**DEPRECATED** Allow users to edit `MetadataField` values. This field will be removed. | Date: 2025-01-01T00:00:00.000+00:00"
-  isEditable: Boolean! @deprecated(reason: "This field will be removed. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** Allow users to edit `MetadataField` values. This field will be removed. | Date: 2025-07-01T00:00:00.000+00:00"
+  isEditable: Boolean! @deprecated(reason: "This field will be removed. | Date: 2025-07-01T00:00:00.000+00:00")
 
-  "**DEPRECATED** Show\/hide `MetadataField` values. This field will be removed. Use `CustomMetadataProperty.isViewable` instead. | Date: 2025-01-01T00:00:00.000+00:00"
-  isVisible: Boolean! @deprecated(reason: "This field will be removed. Use `CustomMetadataProperty.isViewable` instead. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** Show\/hide `MetadataField` values. This field will be removed. Use `CustomMetadataProperty.isViewable` instead. | Date: 2025-07-01T00:00:00.000+00:00"
+  isVisible: Boolean! @deprecated(reason: "This field will be removed. Use `CustomMetadataProperty.isViewable` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 }
 
 type MetadataFieldValues {
-  "**DEPRECATED** Value of `SELECT` type `Metadata Field`. This field will be removed. Use `CustomMetadataProperty.type.options.value` instead. | Date: 2025-01-01T00:00:00.000+00:00"
-  value: String @deprecated(reason: "This field will be removed. Use `CustomMetadataProperty.type.options.value` instead. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** Value of `SELECT` type `Metadata Field`. This field will be removed. Use `CustomMetadataProperty.type.options.value` instead. | Date: 2025-07-01T00:00:00.000+00:00"
+  value: String @deprecated(reason: "This field will be removed. Use `CustomMetadataProperty.type.options.value` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 
-  "**DEPRECATED** Default value for `SELECT` type `Metadata Field`. This field will be removed. Use `CustomMetadataProperty.type.options.isDefault` instead. | Date: 2025-01-01T00:00:00.000+00:00"
-  default: Boolean @deprecated(reason: "This field will be removed. Use `CustomMetadataProperty.type.options.isDefault` instead. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** Default value for `SELECT` type `Metadata Field`. This field will be removed. Use `CustomMetadataProperty.type.options.isDefault` instead. | Date: 2025-07-01T00:00:00.000+00:00"
+  default: Boolean @deprecated(reason: "This field will be removed. Use `CustomMetadataProperty.type.options.isDefault` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 }
 
 "List of possible `Asset` status types."
@@ -854,6 +860,12 @@ type Document implements Node & Asset {
   "Description of the `Asset`."
   description: String
 
+  "**BETA** Alternative text for the `Asset`. Used by screen readers when the asset is not decorative."
+  alternativeText: String
+
+  "**BETA** Indicates whether the `Asset` is decorative and not meant to be read by screen readers. If true, alternative text is ignored."
+  isDecorative: Boolean!
+
   "`Attachment` items linked to `Asset`."
   attachments: [AssetAttachment]
 
@@ -863,8 +875,8 @@ type Document implements Node & Asset {
   "List of `Tag` items linked to `Asset`"
   tags: [Tag]
 
-  "**DEPRECATED** `MetadataValue` items linked to `Asset`. This field will be removed. Use `customMetadata` instead. | Date: 2025-01-01T00:00:00.000+00:00"
-  metadataValues: [MetadataValue] @deprecated(reason: "This field will be removed. Use `customMetadata` instead. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** `MetadataValue` items linked to `Asset`. This field will be removed. Use `customMetadata` instead. | Date: 2025-07-01T00:00:00.000+00:00"
+  metadataValues: [MetadataValue] @deprecated(reason: "This field will be removed. Use `customMetadata` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 
   "**DEPRECATED** `ExternalProduct` items linked to `Asset`. This field will be removed. | Date: 2025-01-01T00:00:00.000+00:00"
   externalProducts: [ExternalProduct] @deprecated(reason: "This field will be removed. | Date: 2025-01-01T00:00:00.000+00:00")
@@ -1003,6 +1015,12 @@ type Image implements Node & Asset {
   "Description of the `Asset`."
   description: String
 
+  "**BETA** Alternative text for the `Asset`. Used by screen readers when the asset is not decorative."
+  alternativeText: String
+
+  "**BETA** Indicates whether the `Asset` is decorative and not meant to be read by screen readers. If true, alternative text is ignored."
+  isDecorative: Boolean!
+
   "`Attachment` items linked to `Asset`."
   attachments: [AssetAttachment]
 
@@ -1012,8 +1030,8 @@ type Image implements Node & Asset {
   "List of `Tag` items linked to `Asset`"
   tags: [Tag]
 
-  "**DEPRECATED** `MetadataValue` items linked to `Asset`. This field will be removed. Use `customMetadata` instead. | Date: 2025-01-01T00:00:00.000+00:00"
-  metadataValues: [MetadataValue] @deprecated(reason: "This field will be removed. Use `customMetadata` instead. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** `MetadataValue` items linked to `Asset`. This field will be removed. Use `customMetadata` instead. | Date: 2025-07-01T00:00:00.000+00:00"
+  metadataValues: [MetadataValue] @deprecated(reason: "This field will be removed. Use `customMetadata` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 
   "**DEPRECATED** `ExternalProduct` items linked to `Asset`. This field will be removed. | Date: 2025-01-01T00:00:00.000+00:00"
   externalProducts: [ExternalProduct] @deprecated(reason: "This field will be removed. | Date: 2025-01-01T00:00:00.000+00:00")
@@ -1146,6 +1164,12 @@ type Video implements Node & Asset {
   "Description of the `Asset`."
   description: String
 
+  "**BETA** Alternative text for the `Asset`. Used by screen readers when the asset is not decorative."
+  alternativeText: String
+
+  "**BETA** Indicates whether the `Asset` is decorative and not meant to be read by screen readers. If true, alternative text is ignored."
+  isDecorative: Boolean!
+
   "`Attachment` items linked to `Asset`."
   attachments: [AssetAttachment]
 
@@ -1155,8 +1179,8 @@ type Video implements Node & Asset {
   "List of `Tag` items linked to `Asset`"
   tags: [Tag]
 
-  "**DEPRECATED** `MetadataValue` items linked to `Asset`. This field will be removed. Use `customMetadata` instead. | Date: 2025-01-01T00:00:00.000+00:00"
-  metadataValues: [MetadataValue] @deprecated(reason: "This field will be removed. Use `customMetadata` instead. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** `MetadataValue` items linked to `Asset`. This field will be removed. Use `customMetadata` instead. | Date: 2025-07-01T00:00:00.000+00:00"
+  metadataValues: [MetadataValue] @deprecated(reason: "This field will be removed. Use `customMetadata` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 
   "**DEPRECATED** `ExternalProduct` items linked to `Asset`. This field will be removed. | Date: 2025-01-01T00:00:00.000+00:00"
   externalProducts: [ExternalProduct] @deprecated(reason: "This field will be removed. | Date: 2025-01-01T00:00:00.000+00:00")
@@ -1292,6 +1316,12 @@ type File implements Node & Asset {
   "Description of the `Asset`."
   description: String
 
+  "**BETA** Alternative text for the `Asset`. Used by screen readers when the asset is not decorative."
+  alternativeText: String
+
+  "**BETA** Indicates whether the `Asset` is decorative and not meant to be read by screen readers. If true, alternative text is ignored."
+  isDecorative: Boolean!
+
   "`Attachment` items linked to `Asset`."
   attachments: [AssetAttachment]
 
@@ -1301,8 +1331,8 @@ type File implements Node & Asset {
   "List of `Tag` items linked to `Asset`"
   tags: [Tag]
 
-  "**DEPRECATED** `MetadataValue` items linked to `Asset`. This field will be removed. Use `customMetadata` instead. | Date: 2025-01-01T00:00:00.000+00:00"
-  metadataValues: [MetadataValue] @deprecated(reason: "This field will be removed. Use `customMetadata` instead. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** `MetadataValue` items linked to `Asset`. This field will be removed. Use `customMetadata` instead. | Date: 2025-07-01T00:00:00.000+00:00"
+  metadataValues: [MetadataValue] @deprecated(reason: "This field will be removed. Use `customMetadata` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 
   "**DEPRECATED** `ExternalProduct` items linked to `Asset`. This field will be removed. | Date: 2025-01-01T00:00:00.000+00:00"
   externalProducts: [ExternalProduct] @deprecated(reason: "This field will be removed. | Date: 2025-01-01T00:00:00.000+00:00")
@@ -1420,6 +1450,12 @@ type EmbeddedContent implements Node & Asset {
   "Description of the `Asset`."
   description: String
 
+  "**BETA** Alternative text for the `Asset`. Used by screen readers when the asset is not decorative."
+  alternativeText: String
+
+  "**BETA** Indicates whether the `Asset` is decorative and not meant to be read by screen readers. If true, alternative text is ignored."
+  isDecorative: Boolean!
+
   "`Attachment` items linked to `Asset`."
   attachments: [AssetAttachment]
 
@@ -1429,8 +1465,8 @@ type EmbeddedContent implements Node & Asset {
   "List of `Tag` items linked to `Asset`"
   tags: [Tag]
 
-  "**DEPRECATED** `MetadataValue` items linked to `Asset`. This field will be removed. Use `customMetadata` instead. | Date: 2025-01-01T00:00:00.000+00:00"
-  metadataValues: [MetadataValue] @deprecated(reason: "This field will be removed. Use `customMetadata` instead. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** `MetadataValue` items linked to `Asset`. This field will be removed. Use `customMetadata` instead. | Date: 2025-07-01T00:00:00.000+00:00"
+  metadataValues: [MetadataValue] @deprecated(reason: "This field will be removed. Use `customMetadata` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 
   "**DEPRECATED** `ExternalProduct` items linked to `Asset`. This field will be removed. | Date: 2025-01-01T00:00:00.000+00:00"
   externalProducts: [ExternalProduct] @deprecated(reason: "This field will be removed. | Date: 2025-01-01T00:00:00.000+00:00")
@@ -1789,14 +1825,14 @@ type SubFolder implements Node & Folder {
   "A list of `Breadcrumb` items representing the parent folders structure for the current `SubFolder`."
   breadcrumbs: [Breadcrumb!]!
 
-  "**DEPRECATED** The `SubFolderItems` of the current `SubFolder`. This field will be removed. Use `folders` instead. | Date: 2024-07-01T00:00:00.000+00:00"
+  "**DEPRECATED** The `SubFolderItems` of the current `SubFolder`. This field will be removed. Use `folders` instead. | Date: 2025-07-01T00:00:00.000+00:00"
   subFolders(
     "How many `SubFolderItems` to show per query. Min: 1, Max: 100."
     limit: Int = 25
 
     "Current `SubFolderItems` listing page number."
     page: Int = 1
-  ): SubFolderItems! @deprecated(reason: "This field will be removed. Use `folders` instead. | Date: 2024-07-01T00:00:00.000+00:00")
+  ): SubFolderItems! @deprecated(reason: "This field will be removed. Use `folders` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 
   "The `FolderItems` of the current `Folder`."
   folders(
@@ -1843,14 +1879,14 @@ interface Folder {
   "A list of `Breadcrumb` items representing the parent folders structure for the current `SubFolder`."
   breadcrumbs: [Breadcrumb!]!
 
-  "**DEPRECATED** The `SubFolderItems` of the current `Library`\/`Workspace`\/`SubFolder`. This field will be removed. Use `folders` instead. | Date: 2024-07-01T00:00:00.000+00:00"
+  "**DEPRECATED** The `SubFolderItems` of the current `Library`\/`Workspace`\/`SubFolder`. This field will be removed. Use `folders` instead. | Date: 2025-07-01T00:00:00.000+00:00"
   subFolders(
     "How many `SubFolderItems` to show per query. Min: 1, Max: 100."
     limit: Int = 25
 
     "Current `SubFolderItems` listing page number."
     page: Int = 1
-  ): SubFolderItems! @deprecated(reason: "This field will be removed. Use `folders` instead. | Date: 2024-07-01T00:00:00.000+00:00")
+  ): SubFolderItems! @deprecated(reason: "This field will be removed. Use `folders` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 
   "The `FolderItems` of the current `Library`\/`Workspace`\/`Folder`."
   folders(
@@ -1959,8 +1995,8 @@ type MediaLibrary implements Node & Library {
   "`Library`\/`Workspace` `License` items list."
   licenses: [License]
 
-  "**DEPRECATED** `Library`\/`Workspace` `MetadataField` items list. This field will be removed. Use `customMetadataProperties` instead. | Date: 2025-01-01T00:00:00.000+00:00"
-  metadataFields: [MetadataField] @deprecated(reason: "This field will be removed. Use `customMetadataProperties` instead. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** `Library`\/`Workspace` `MetadataField` items list. This field will be removed. Use `customMetadataProperties` instead. | Date: 2025-07-01T00:00:00.000+00:00"
+  metadataFields: [MetadataField] @deprecated(reason: "This field will be removed. Use `customMetadataProperties` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 
   "**BETA** The `Workflow` belonging to the given `Library`\/`Workspace`."
   workflow: Workflow!
@@ -2004,8 +2040,8 @@ interface Library {
   "**DEPRECATED** Amount of `Assets` contained in this `Library`. This field will be removed. Use `assets`.`total` instead. | Date: 2024-07-01T00:00:00.000+00:00"
   assetCount: Int @deprecated(reason: "This field will be removed. Use `assets`.`total` instead. | Date: 2024-07-01T00:00:00.000+00:00")
 
-  "**DEPRECATED** Retrieve list of all `MetadataFields` belonging to this `Library`. This field will be removed. Use `customMetadataProperties` instead. | Date: 2025-01-01T00:00:00.000+00:00"
-  metadataFields: [MetadataField] @deprecated(reason: "This field will be removed. Use `customMetadataProperties` instead. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** Retrieve list of all `MetadataFields` belonging to this `Library`. This field will be removed. Use `customMetadataProperties` instead. | Date: 2025-07-01T00:00:00.000+00:00"
+  metadataFields: [MetadataField] @deprecated(reason: "This field will be removed. Use `customMetadataProperties` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 
   "Search or list `Assets` in this `Library`."
   assets(
@@ -2166,14 +2202,14 @@ type CollectionUserPermissions {
 }
 
 type LibraryRootFolder {
-  "**DEPRECATED** The `SubFolderItems` of the current `Library`\/`Workspace`. This field will be removed. Use `folders` instead. | Date: 2024-07-01T00:00:00.000+00:00"
+  "**DEPRECATED** The `SubFolderItems` of the current `Library`\/`Workspace`. This field will be removed. Use `folders` instead. | Date: 2025-07-01T00:00:00.000+00:00"
   subFolders(
     "How many `SubFolderItems` to show per query. Min: 1, Max: 100."
     limit: Int = 25
 
     "Current `SubFolderItems` listing page number."
     page: Int = 1
-  ): SubFolderItems! @deprecated(reason: "This field will be removed. Use `folders` instead. | Date: 2024-07-01T00:00:00.000+00:00")
+  ): SubFolderItems! @deprecated(reason: "This field will be removed. Use `folders` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 
   "The `FolderItems` of the current `Library`\/`Workspace`."
   folders(
@@ -2248,6 +2284,9 @@ type LibraryUserPermissions {
 }
 
 type Workflow {
+  "**BETA** `Workflow` Id."
+  id: ID!
+
   "**BETA** Multiple statuses define a `Workflow`. They represent a line\/row in the Kanban board of the current `Workflow`."
   statuses: [WorkflowStatus]!
 }
@@ -2312,8 +2351,8 @@ type IconLibrary implements Node & Library {
   "`Library`\/`Workspace` `License` items list."
   licenses: [License]
 
-  "**DEPRECATED** `Library`\/`Workspace` `MetadataField` items list. This field will be removed. Use `customMetadataProperties` instead. | Date: 2025-01-01T00:00:00.000+00:00"
-  metadataFields: [MetadataField] @deprecated(reason: "This field will be removed. Use `customMetadataProperties` instead. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** `Library`\/`Workspace` `MetadataField` items list. This field will be removed. Use `customMetadataProperties` instead. | Date: 2025-07-01T00:00:00.000+00:00"
+  metadataFields: [MetadataField] @deprecated(reason: "This field will be removed. Use `customMetadataProperties` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 
   "**BETA** The `Workflow` belonging to the given `Library`\/`Workspace`."
   workflow: Workflow!
@@ -2371,8 +2410,8 @@ type LogoLibrary implements Node & Library {
   "`Library`\/`Workspace` `License` items list."
   licenses: [License]
 
-  "**DEPRECATED** `Library`\/`Workspace` `MetadataField` items list. This field will be removed. Use `customMetadataProperties` instead. | Date: 2025-01-01T00:00:00.000+00:00"
-  metadataFields: [MetadataField] @deprecated(reason: "This field will be removed. Use `customMetadataProperties` instead. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** `Library`\/`Workspace` `MetadataField` items list. This field will be removed. Use `customMetadataProperties` instead. | Date: 2025-07-01T00:00:00.000+00:00"
+  metadataFields: [MetadataField] @deprecated(reason: "This field will be removed. Use `customMetadataProperties` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 
   "**BETA** The `Workflow` belonging to the given `Library`\/`Workspace`."
   workflow: Workflow!
@@ -2430,8 +2469,8 @@ type DocumentLibrary implements Node & Library {
   "`Library`\/`Workspace` `License` items list."
   licenses: [License]
 
-  "**DEPRECATED** `Library`\/`Workspace` `MetadataField` items list. This field will be removed. Use `customMetadataProperties` instead. | Date: 2025-01-01T00:00:00.000+00:00"
-  metadataFields: [MetadataField] @deprecated(reason: "This field will be removed. Use `customMetadataProperties` instead. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** `Library`\/`Workspace` `MetadataField` items list. This field will be removed. Use `customMetadataProperties` instead. | Date: 2025-07-01T00:00:00.000+00:00"
+  metadataFields: [MetadataField] @deprecated(reason: "This field will be removed. Use `customMetadataProperties` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 
   "**BETA** The `Workflow` belonging to the given `Library`\/`Workspace`."
   workflow: Workflow!
@@ -2712,6 +2751,9 @@ type Brand implements Node {
 
   "**BETA** Paginated list of `Guideline` items for `Brand`."
   guidelines(
+    "**BETA** Specifies the language in which the Guidelines should be delivered. This field must be set at the highest level in the GraphQL hierarchy. If the requested language is unavailable, the default language will be used as a fallback."
+    language: LanguageCode
+
     "**BETA** How many `GuidelineItems` to show per query. Min: 1, Max: 100."
     limit: Int = 25
 
@@ -2747,14 +2789,14 @@ enum ProjectType {
 union Project = MediaLibrary | IconLibrary | LogoLibrary | DocumentLibrary | Workspace
 
 type WorkspaceRootFolder {
-  "**DEPRECATED** The `SubFolderItems` of the current `Library`\/`Workspace`. This field will be removed. Use `folders` instead. | Date: 2024-07-01T00:00:00.000+00:00"
+  "**DEPRECATED** The `SubFolderItems` of the current `Library`\/`Workspace`. This field will be removed. Use `folders` instead. | Date: 2025-07-01T00:00:00.000+00:00"
   subFolders(
     "How many `SubFolderItems` to show per query. Min: 1, Max: 100."
     limit: Int = 25
 
     "Current `SubFolderItems` listing page number."
     page: Int = 1
-  ): SubFolderItems! @deprecated(reason: "This field will be removed. Use `folders` instead. | Date: 2024-07-01T00:00:00.000+00:00")
+  ): SubFolderItems! @deprecated(reason: "This field will be removed. Use `folders` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 
   "The `FolderItems` of the current `Library`\/`Workspace`."
   folders(
@@ -3005,6 +3047,561 @@ type WorkspaceItems {
   items: [Workspace]
 }
 
+"Language code based on the ISO 639-1 standard, represented as two-letter codes such as en (English), de (German), and es (Spanish)."
+enum LanguageCode {
+  "Abkhazian"
+  AB
+
+  "Afar"
+  AA
+
+  "Afrikaans"
+  AF
+
+  "Akan"
+  AK
+
+  "Albanian"
+  SQ
+
+  "Amharic"
+  AM
+
+  "Arabic"
+  AR
+
+  "Aragonese"
+  AN
+
+  "Armenian"
+  HY
+
+  "Assamese"
+  AS
+
+  "Avaric"
+  AV
+
+  "Avestan"
+  AE
+
+  "Aymara"
+  AY
+
+  "Azerbaijani"
+  AZ
+
+  "Bambara"
+  BM
+
+  "Bashkir"
+  BA
+
+  "Basque"
+  EU
+
+  "Belarusian"
+  BE
+
+  "Bengali"
+  BN
+
+  "Bihari languages"
+  BH
+
+  "Bislama"
+  BI
+
+  "Bosnian"
+  BS
+
+  "Breton"
+  BR
+
+  "Bulgarian"
+  BG
+
+  "Burmese"
+  MY
+
+  "Catalan, Valencian"
+  CA
+
+  "Central Khmer"
+  KM
+
+  "Chamorro"
+  CH
+
+  "Chechen"
+  CE
+
+  "Chichewa, Chewa, Nyanja"
+  NY
+
+  "Chinese"
+  ZH
+
+  "Church Slavonic, Old Bulgarian, Old Church Slavonic"
+  CU
+
+  "Chuvash"
+  CV
+
+  "Cornish"
+  KW
+
+  "Corsican"
+  CO
+
+  "Cree"
+  CR
+
+  "Croatian"
+  HR
+
+  "Czech"
+  CS
+
+  "Danish"
+  DA
+
+  "Divehi, Dhivehi, Maldivian"
+  DV
+
+  "Dutch, Flemish"
+  NL
+
+  "Dzongkha"
+  DZ
+
+  "English"
+  EN
+
+  "Esperanto"
+  EO
+
+  "Estonian"
+  ET
+
+  "Ewe"
+  EE
+
+  "Faroese"
+  FO
+
+  "Fijian"
+  FJ
+
+  "Finnish"
+  FI
+
+  "French"
+  FR
+
+  "Fulah"
+  FF
+
+  "Gaelic, Scottish Gaelic"
+  GD
+
+  "Galician"
+  GL
+
+  "Ganda"
+  LG
+
+  "Georgian"
+  KA
+
+  "German"
+  DE
+
+  "Gikuyu, Kikuyu"
+  KI
+
+  "Greek (Modern)"
+  EL
+
+  "Greenlandic, Kalaallisut"
+  KL
+
+  "Guarani"
+  GN
+
+  "Gujarati"
+  GU
+
+  "Haitian, Haitian Creole"
+  HT
+
+  "Hausa"
+  HA
+
+  "Hebrew"
+  HE
+
+  "Herero"
+  HZ
+
+  "Hindi"
+  HI
+
+  "Hiri Motu"
+  HO
+
+  "Hungarian"
+  HU
+
+  "Icelandic"
+  IS
+
+  "Ido"
+  IO
+
+  "Igbo"
+  IG
+
+  "Indonesian"
+  ID
+
+  "Interlingua (International Auxiliary Language Association)"
+  IA
+
+  "Interlingue"
+  IE
+
+  "Inuktitut"
+  IU
+
+  "Inupiaq"
+  IK
+
+  "Irish"
+  GA
+
+  "Italian"
+  IT
+
+  "Japanese"
+  JA
+
+  "Javanese"
+  JV
+
+  "Kannada"
+  KN
+
+  "Kanuri"
+  KR
+
+  "Kashmiri"
+  KS
+
+  "Kazakh"
+  KK
+
+  "Kinyarwanda"
+  RW
+
+  "Komi"
+  KV
+
+  "Kongo"
+  KG
+
+  "Korean"
+  KO
+
+  "Kwanyama, Kuanyama"
+  KJ
+
+  "Kurdish"
+  KU
+
+  "Kyrgyz"
+  KY
+
+  "Lao"
+  LO
+
+  "Latin"
+  LA
+
+  "Latvian"
+  LV
+
+  "Letzeburgesch, Luxembourgish"
+  LB
+
+  "Limburgish, Limburgan, Limburger"
+  LI
+
+  "Lingala"
+  LN
+
+  "Lithuanian"
+  LT
+
+  "Luba-Katanga"
+  LU
+
+  "Macedonian"
+  MK
+
+  "Malagasy"
+  MG
+
+  "Malay"
+  MS
+
+  "Malayalam"
+  ML
+
+  "Maltese"
+  MT
+
+  "Manx"
+  GV
+
+  "Maori"
+  MI
+
+  "Marathi"
+  MR
+
+  "Marshallese"
+  MH
+
+  "Moldovan, Moldavian, Romanian"
+  RO
+
+  "Mongolian"
+  MN
+
+  "Nauru"
+  NA
+
+  "Navajo, Navaho"
+  NV
+
+  "Northern Ndebele"
+  ND
+
+  "Ndonga"
+  NG
+
+  "Nepali"
+  NE
+
+  "Northern Sami"
+  SE
+
+  "Norwegian"
+  NO
+
+  "Norwegian Bokmål"
+  NB
+
+  "Norwegian Nynorsk"
+  NN
+
+  "Nuosu, Sichuan Yi"
+  II
+
+  "Occitan (post 1500)"
+  OC
+
+  "Ojibwa"
+  OJ
+
+  "Oriya"
+  OR
+
+  "Oromo"
+  OM
+
+  "Ossetian, Ossetic"
+  OS
+
+  "Pali"
+  PI
+
+  "Panjabi, Punjabi"
+  PA
+
+  "Pashto, Pushto"
+  PS
+
+  "Persian"
+  FA
+
+  "Polish"
+  PL
+
+  "Portuguese"
+  PT
+
+  "Quechua"
+  QU
+
+  "Romansh"
+  RM
+
+  "Rundi"
+  RN
+
+  "Russian"
+  RU
+
+  "Samoan"
+  SM
+
+  "Sango"
+  SG
+
+  "Sanskrit"
+  SA
+
+  "Sardinian"
+  SC
+
+  "Serbian"
+  SR
+
+  "Shona"
+  SN
+
+  "Sindhi"
+  SD
+
+  "Sinhala, Sinhalese"
+  SI
+
+  "Slovak"
+  SK
+
+  "Slovenian"
+  SL
+
+  "Somali"
+  SO
+
+  "Sotho, Southern"
+  ST
+
+  "South Ndebele"
+  NR
+
+  "Spanish, Castilian"
+  ES
+
+  "Sundanese"
+  SU
+
+  "Swahili"
+  SW
+
+  "Swati"
+  SS
+
+  "Swedish"
+  SV
+
+  "Tagalog"
+  TL
+
+  "Tahitian"
+  TY
+
+  "Tajik"
+  TG
+
+  "Tamil"
+  TA
+
+  "Tatar"
+  TT
+
+  "Telugu"
+  TE
+
+  "Thai"
+  TH
+
+  "Tibetan"
+  BO
+
+  "Tigrinya"
+  TI
+
+  "Tonga (Tonga Islands)"
+  TO
+
+  "Tsonga"
+  TS
+
+  "Tswana"
+  TN
+
+  "Turkish"
+  TR
+
+  "Turkmen"
+  TK
+
+  "Twi"
+  TW
+
+  "Uighur, Uyghur"
+  UG
+
+  "Ukrainian"
+  UK
+
+  "Urdu"
+  UR
+
+  "Uzbek"
+  UZ
+
+  "Venda"
+  VE
+
+  "Vietnamese"
+  VI
+
+  "Volap_k"
+  VO
+
+  "Walloon"
+  WA
+
+  "Welsh"
+  CY
+
+  "Western Frisian"
+  FY
+
+  "Wolof"
+  WO
+
+  "Xhosa"
+  XH
+
+  "Yiddish"
+  YI
+
+  "Yoruba"
+  YO
+
+  "Zhuang, Chuang"
+  ZA
+
+  "Zulu"
+  ZU
+}
+
 type GuidelineItems {
   "Total amount of results."
   total: Int!
@@ -3020,6 +3617,14 @@ type GuidelineItems {
 
   "List of `Guideline` type projects."
   items: [Guideline]
+}
+
+type Language {
+  "**BETA** The ISO code of the language."
+  code: LanguageCode!
+
+  "**BETA** The name of the language in English."
+  name: String!
 }
 
 type LibraryPageItems {
@@ -3106,6 +3711,126 @@ type LibraryPageAssetItems {
   items: [Asset]
 }
 
+type GuidelinePageItems {
+  "Total amount of results."
+  total: Int!
+
+  "Current page number."
+  page: Int!
+
+  "Number of results per page."
+  limit: Int!
+
+  "Indicates if a next page is available or not"
+  hasNextPage: Boolean!
+
+  "**BETA** List of `GuidelinePage` items."
+  items: [GuidelinePage]
+}
+
+type GuidelinePage {
+  "**BETA** The `GuidelinePage` id."
+  id: ID!
+
+  "**BETA** The title of the `GuidelinePage`"
+  title: String!
+
+  "**BETA** The url of the `GuidelinePage`"
+  url: Url!
+
+  "**BETA** A list of `GuidelinePageSection`s that belong to this `GuidelinePage`"
+  sections(
+    "**BETA** How many `GuidelinePageSection` to show per query."
+    limit: Int = 25
+
+    "**BETA** Current page number."
+    page: Int = 1
+  ): GuidelinePageSectionItems
+}
+
+type GuidelinePageSectionItems {
+  "Total amount of results."
+  total: Int!
+
+  "Current page number."
+  page: Int!
+
+  "Number of results per page."
+  limit: Int!
+
+  "Indicates if a next page is available or not"
+  hasNextPage: Boolean!
+
+  "**BETA** List of `GuidelinePageSection` items."
+  items: [GuidelinePageSection]
+}
+
+type GuidelinePageSection {
+  "**BETA** `GuidelinePageSection` id."
+  id: ID!
+
+  "**BETA** `GuidelinePageSectionElement` that are located within this `GuidelinePageSection`."
+  elements(
+    "**BETA** Current page number."
+    page: Int = 1
+
+    "How many `GuidelinePageSectionElement` to show per query."
+    limit: Int = 25
+  ): GuidelinePageSectionElementItems
+}
+
+type GuidelinePageSectionElementItems {
+  "Total amount of results."
+  total: Int!
+
+  "Current page number."
+  page: Int!
+
+  "Number of results per page."
+  limit: Int!
+
+  "Indicates if a next page is available or not"
+  hasNextPage: Boolean!
+
+  "**BETA** `GuidelinePageSectionElementUnion` items list."
+  items: [GuidelinePageSectionElement]
+}
+
+union GuidelinePageSectionElement = GuidelinePageHeading | GuidelinePageBlock | GuidelinePageBlockReference
+
+type GuidelinePageHeading {
+  "**BETA** `GuidelinePageHeading` id."
+  id: ID!
+
+  "**BETA** `GuidelinePageHeading` title."
+  title: String!
+
+  "**BETA** The timestamp of the most recent modification to the `GuidelinePageHeading`. If not modified, this represents the creation time."
+  lastModified: DateTime!
+}
+
+type GuidelinePageBlock {
+  "**BETA** The id of the `GuidelinePageBlock`."
+  id: ID!
+
+  "**BETA** The searchable content of the `GuidelinePageBlock`. When the block cannot be serialized, this field is `null`."
+  content: String
+
+  "**BETA** The url of the `GuidelinePageBlock`"
+  url: Url!
+
+  "**BETA** The timestamp of the most recent modification to the `GuidelinePageBlock`. If not modified, this represents the creation time."
+  lastModified: DateTime!
+}
+
+type GuidelinePageBlockReference {
+  "**BETA** The id of the `GuidelinePageBlockReference`."
+  id: ID!
+
+  "**BETA** The `GuidelinePageBlock` that this reference resolves to."
+  block: GuidelinePageBlock!
+}
+
 input CreativeTemplateQueryInput {
   "**BETA** Sort order of the `CreativeTemplate` query result set."
   sortBy: CreativeTemplateQuerySort
@@ -3153,11 +3878,20 @@ type CreativeTemplate {
   "**BETA** Retrieve list of all `CreativeTemplatePage` items belonging to `CreativeTemplate`."
   pages: [CreativeTemplatePage!]!
 
+  "**BETA** Retrieve a `CreativeTemplateVariable` item by `CreativeTemplateVariable` key."
+  variable(
+    "**BETA** `CreativeTemplateVariable` key."
+    key: String!
+  ): CreativeTemplateVariable
+
   "**BETA** Retrieve list of all `CreativeTemplateVariable` items belonging to `CreativeTemplate`."
   variables: [CreativeTemplateVariable!]!
 
   "**BETA** Retrieve Asset ID."
   assetId: ID
+
+  "**BETA** Tags of the `CreativeTemplate`."
+  tags: [Tag]!
 }
 
 type CreativeTemplatePage {
@@ -3172,6 +3906,9 @@ type CreativeTemplatePage {
 
   "**BETA** `CreativeTemplatePage` unique identifier."
   pageIndex: Int!
+
+  "**BETA** Name of the `CreativeTemplatePage`."
+  name: String
 }
 
 type CreativeTemplateVariable {
@@ -3257,6 +3994,12 @@ type Guideline implements Node {
   "`Guideline` internal url."
   url: Url!
 
+  "**BETA** The default language of the `Guideline`, or `null` if not set."
+  defaultLanguage: Language
+
+  "**BETA** Languages in which the `Guideline` is available."
+  translationLanguages: [Language]!
+
   "Paginated list of `LibraryPage` items for `Guideline`."
   libraryPages(
     "How many `LibraryPageItems` to show per query. Min: 1, Max: 100."
@@ -3265,6 +4008,15 @@ type Guideline implements Node {
     "Current page number."
     page: Int = 1
   ): LibraryPageItems!
+
+  "**BETA** A list of `GuidelinePage`s that belong to this `Guideline`"
+  pages(
+    "**BETA** How many `GuidelinePage` to show per query."
+    limit: Int = 25
+
+    "**BETA** Current page number."
+    page: Int = 1
+  ): GuidelinePageItems
 }
 
 type Collection implements Node {
@@ -3411,8 +4163,8 @@ type Workspace implements Node {
   "`Library`\/`Workspace` `License` items list."
   licenses: [License]
 
-  "**DEPRECATED** `Library`\/`Workspace` `MetadataField` items list. This field will be removed. Use `customMetadataProperties` instead. | Date: 2025-01-01T00:00:00.000+00:00"
-  metadataFields: [MetadataField] @deprecated(reason: "This field will be removed. Use `customMetadataProperties` instead. | Date: 2025-01-01T00:00:00.000+00:00")
+  "**DEPRECATED** `Library`\/`Workspace` `MetadataField` items list. This field will be removed. Use `customMetadataProperties` instead. | Date: 2025-07-01T00:00:00.000+00:00"
+  metadataFields: [MetadataField] @deprecated(reason: "This field will be removed. Use `customMetadataProperties` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 
   "**BETA** The `Workflow` belonging to the given `Library`\/`Workspace`."
   workflow: Workflow!
@@ -3436,12 +4188,6 @@ type Workspace implements Node {
 type RootQuery {
   "Get the current `User`."
   currentUser: User!
-
-  "Retrieve a `Brand` by its Id."
-  brand(
-    "`Brand` Id."
-    id: ID!
-  ): Brand
 
   "Retrieve current `Account` details."
   account: Account!
@@ -3479,9 +4225,6 @@ type RootQuery {
     ids: [ID!]!
   ): [Asset]
 
-  "Retrieve `Brand` list for current `Account`."
-  brands: [Brand]
-
   "Retrieve `Asset` details by Id."
   asset(
     "`Asset` Id."
@@ -3502,6 +4245,24 @@ type RootQuery {
     "**BETA** `CreativeJob` Id."
     id: ID!
   ): CreativeExport
+
+  "Retrieve a `Brand` by its Id."
+  brand(
+    "`Brand` Id."
+    id: ID!
+  ): Brand
+
+  "Retrieve `Brand` list for current `Account`."
+  brands: [Brand]
+
+  "**BETA** Retrieve a `GuidelinePage` by its id."
+  guidelinePage(
+    "**BETA** The id of the `GuidelinePage` to retrieve."
+    id: ID!
+
+    "**BETA** Specifies the language in which the GuidelinePage should be delivered. If the requested language is unavailable, the default language will be used as a fallback."
+    language: LanguageCode
+  ): GuidelinePage
 
   "Retrieve `Node` details by Id."
   node(
@@ -3540,8 +4301,14 @@ type CreativeExport {
 
 "List of possible `Creative Job` statuses."
 enum CreativeJobStatus {
-  "The job is currently processing."
+  "The job is currently being prepared and is awaiting rendering."
   PROCESSING
+
+  "The job is currently rendering."
+  RENDERING
+
+  "The job has been canceled successfully."
+  CANCELED
 
   "The job has been completed successfully."
   FINISHED
@@ -3568,11 +4335,11 @@ type RootMutation {
     input: AddAssetLicenseInput!
   ): AddAssetLicense
 
-  "**DEPRECATED** Add a new relation between an existing `Asset` and an existing `MetadataField` with its value. The value will be automatically created and linked to its `MetadataField`. Requires `basic:write` scope to be accessible and `Asset` permission level `EDIT`. This field will be removed. Use `addCustomMetadata` instead. | Date: 2025-01-01T00:00:00.000+00:00"
+  "**DEPRECATED** Add a new relation between an existing `Asset` and an existing `MetadataField` with its value. The value will be automatically created and linked to its `MetadataField`. Requires `basic:write` scope to be accessible and `Asset` permission level `EDIT`. This field will be removed. Use `addCustomMetadata` instead. | Date: 2025-07-01T00:00:00.000+00:00"
   addAssetMetadataFieldValue(
     "`AddAssetMetadataFieldValue` input argument."
     input: AddAssetMetadataFieldValueInput!
-  ): AddAssetMetadataFieldValue @deprecated(reason: "This field will be removed. Use `addCustomMetadata` instead. | Date: 2025-01-01T00:00:00.000+00:00")
+  ): AddAssetMetadataFieldValue @deprecated(reason: "This field will be removed. Use `addCustomMetadata` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 
   "Add new `Asset` preview image. Requires `basic:write` scope to be accessible and `Asset` permission level `EDIT`."
   addAssetPreviewImage(
@@ -3652,6 +4419,12 @@ type RootMutation {
     input: CreateAssetCommentInput!
   ): CreateAssetComment
 
+  "**BETA** Create a new permission token for multiple `Assets` or for a single `Collection` or `Folder`."
+  createPermissionToken(
+    "**BETA** `CreatePermissionToken` input argument."
+    input: CreatePermissionTokenInput!
+  ): CreatePermissionToken
+
   "**BETA** Create new `AssetSubmission` item(s). Requires a valid `AssetSubmissionRequest` `token` input."
   createAssetSubmissions(
     "**BETA** `CreateAssetSubmissions` input argument."
@@ -3700,11 +4473,17 @@ type RootMutation {
     input: CreateLicenseInput!
   ): CreateLicense
 
-  "**DEPRECATED** Create a new `Project` `MetadataField` with your desired configuration. Requires `basic:write` scope to be accessible and `Project` permission level `EDIT`. This field will be removed. Use `createCustomMetadataProperty` instead. | Date: 2025-01-01T00:00:00.000+00:00"
+  "**DEPRECATED** Create a new `Project` `MetadataField` with your desired configuration. Requires `basic:write` scope to be accessible and `Project` permission level `EDIT`. This field will be removed. Use `createCustomMetadataProperty` instead. | Date: 2025-07-01T00:00:00.000+00:00"
   createMetadataField(
     "`CreateMetadataField` input argument."
     input: CreateMetadataFieldInput!
-  ): CreateMetadataField @deprecated(reason: "This field will be removed. Use `createCustomMetadataProperty` instead. | Date: 2025-01-01T00:00:00.000+00:00")
+  ): CreateMetadataField @deprecated(reason: "This field will be removed. Use `createCustomMetadataProperty` instead. | Date: 2025-07-01T00:00:00.000+00:00")
+
+  "**BETA** Create a new `ShareLink` Requires `basic:write` scope to be accessible and a valid permission token."
+  createShareLink(
+    "**BETA** `CreateShareLink` input argument."
+    input: CreateShareLinkInput!
+  ): CreateShareLink
 
   "**BETA** Create new `WorkflowStatus` in a given `Workflow`. Requires `basic:write` scope to be accessible and `Project` permission level `EDIT`."
   createWorkflowStatus(
@@ -3778,11 +4557,11 @@ type RootMutation {
     input: DeleteLicenseInput!
   ): DeleteLicense
 
-  "**DEPRECATED** Delete an existing `Project` `MetadataField`. Existing `MetadataField`'s with the same value with be automatically removed. Requires `basic:write` scope to be accessible and `Project` permission level `EDIT`. This field will be removed. Use `deleteCustomMetadataProperty` instead. | Date: 2025-01-01T00:00:00.000+00:00"
+  "**DEPRECATED** Delete an existing `Project` `MetadataField`. Existing `MetadataField`'s with the same value with be automatically removed. Requires `basic:write` scope to be accessible and `Project` permission level `EDIT`. This field will be removed. Use `deleteCustomMetadataProperty` instead. | Date: 2025-07-01T00:00:00.000+00:00"
   deleteMetadataField(
     "`DeleteMetadataField` input argument."
     input: DeleteMetadataFieldInput!
-  ): DeleteMetadataField @deprecated(reason: "This field will be removed. Use `deleteCustomMetadataProperty` instead. | Date: 2025-01-01T00:00:00.000+00:00")
+  ): DeleteMetadataField @deprecated(reason: "This field will be removed. Use `deleteCustomMetadataProperty` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 
   "**BETA** Delete an existing `WorkflowStatus`. Requires `basic:write` scope to be accessible and `Project` permission level `EDIT`."
   deleteWorkflowStatus(
@@ -3874,11 +4653,11 @@ type RootMutation {
     input: RemoveCustomMetadataPropertyOptionsInput!
   ): RemoveCustomMetadataPropertyOptions
 
-  "**DEPRECATED** Remove existing `MetadataField` value.Existing relations to that `MetadataField` with the same value will be automatically removed.Requires `basic:write` scope to be accessible and `Asset` permission level `EDIT`. This field will be removed. Use `removeCustomMetadata` instead. | Date: 2025-01-01T00:00:00.000+00:00"
+  "**DEPRECATED** Remove existing `MetadataField` value.Existing relations to that `MetadataField` with the same value will be automatically removed.Requires `basic:write` scope to be accessible and `Asset` permission level `EDIT`. This field will be removed. Use `removeCustomMetadata` instead. | Date: 2025-07-01T00:00:00.000+00:00"
   removeMetadataValue(
     "`RemoveMetadataValue` input argument."
     input: RemoveMetadataValueInput!
-  ): RemoveMetadataValue @deprecated(reason: "This field will be removed. Use `removeCustomMetadata` instead. | Date: 2025-01-01T00:00:00.000+00:00")
+  ): RemoveMetadataValue @deprecated(reason: "This field will be removed. Use `removeCustomMetadata` instead. | Date: 2025-07-01T00:00:00.000+00:00")
 
   "**BETA** Remove a `WorkflowChecklistItem`.Requires `basic:write` scope to be accessible and `Project` permission level `EDIT`."
   removeWorkflowChecklistItem(
@@ -4041,6 +4820,12 @@ type RootMutation {
     "`UpdateBrand` input argument."
     input: UpdateBrandInput!
   ): UpdateBrand
+
+  "**BETA** Cancels `CreativeJobs` by provided parameters. `CreativeJob` can be canceled prior to the `RENDERING` status. Requires `basic:write` scope to be accessible and `Project` permission level `EDIT`."
+  cancelExportCreatives(
+    "**BETA** `CancelExportCreatives` input argument."
+    input: CancelExportCreativesInput!
+  ): CancelExportCreatives
 }
 
 input AddAssetLicenseInput {
@@ -4418,6 +5203,16 @@ type CreateAssetComment {
   comment: AssetComment!
 }
 
+input CreatePermissionTokenInput {
+  "**BETA** List of `parentIds` used on the permission token."
+  parentIds: [ID!]!
+}
+
+type CreatePermissionToken {
+  "**BETA** Permission token with the requested scope for `Assets` or `Collections`."
+  permissionToken: String!
+}
+
 input CreateAssetSubmissionsInput {
   "`AssetSubmissionRequest` token."
   token: String!
@@ -4746,6 +5541,33 @@ input MetadataFieldValuesInput {
 type CreateMetadataField {
   "Created `MetadataField`."
   metadataField: MetadataField!
+}
+
+input CreateShareLinkInput {
+  "**BETA** The `parentId` of the `ShareLink`. Supported types of `parentId` are `project` and `libraryDocument` Id."
+  parentId: ID!
+
+  "**BETA** Permission token composed of timestamp, payload and scope."
+  permissionToken: String!
+
+  "**BETA** The usage key of the resource to which the `ShareLink` is attached. Example: `asset:15`."
+  usageKey: String!
+
+  "**BETA** `ShareLink` expiration date."
+  expiresAt: DateTime
+
+  "**BETA** `ShareLink` password."
+  password: String
+}
+
+type CreateShareLink {
+  "**BETA** The created `ShareLink`."
+  shareLink: ShareLink!
+}
+
+type ShareLink {
+  "**BETA** `ShareLink` `Url`."
+  url: Url!
 }
 
 input CreateWorkflowStatusInput {
@@ -5650,7 +6472,7 @@ input UploadFileInput {
   "`File` size in bytes. Value must be a positive integer up to 5TB."
   size: BigInt!
 
-  "`File` chunk size in bytes. Value must be integer between 5MB and 1GB."
+  "**DEPRECATED** `File` chunk size in bytes. Value must be integer between 5MB and 1GB. Please, consider using bigger chunk sizes for huge files to prevent issues. This field will be removed. | Date: 2025-07-01T00:00:00.000+00:00"
   chunkSize: BigInt = 104857600
 }
 
@@ -5704,4 +6526,14 @@ input UpdateBrandDataInput {
 type UpdateBrand {
   "The updated `Brand`."
   brand: Brand!
+}
+
+input CancelExportCreativesInput {
+  "**BETA** List of `CreativeJob` Ids that should be canceled."
+  ids: [ID]!
+}
+
+type CancelExportCreatives {
+  "**BETA** A list of `CreativeJobs` that have been canceled successfully."
+  canceledJobs: [CreativeExport]!
 }
