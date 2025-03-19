@@ -14,6 +14,15 @@ jobs:
         with:
           python-version: '3.11'
           cache: 'pip'
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install gqlg
+        run: npm install -g gqlg
+
       - name: Generate queries and mutations
         run: |
           gqlg --schemaFilePath public-beta.graphql --destDirPath ./queries-mutations --depthLimit 5
