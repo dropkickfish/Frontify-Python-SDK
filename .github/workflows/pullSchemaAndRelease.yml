@@ -26,7 +26,11 @@ jobs:
       - name: Generate queries and mutations
         run: |
           gqlg --schemaFilePath public-beta.graphql --destDirPath ./queries-mutations --depthLimit 5
-
+      
+      - name: Install python dependencies
+        run: |
+          pip install ariadne-codegen
+      
       - name: Run initial codegen
         run: ariadne-codegen
 
