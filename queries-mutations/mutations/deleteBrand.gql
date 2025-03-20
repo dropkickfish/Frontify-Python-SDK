@@ -1,0 +1,5 @@
+mutation deleteBrand($input: DeleteBrandInput!){
+    deleteBrand(input: $input){
+        id
+    }
+}

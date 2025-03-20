@@ -6,7 +6,7 @@ from typing import Any, List, Literal, Optional
 from pydantic import Field
 
 from .base_model import BaseModel
-from .enums import AssetStatusType, CopyrightStatus, TagSource
+from .enums import AssetStatusType, CopyrightStatus, TagSource, WorkflowStatusEnterRule
 
 
 class Library(BaseModel):
@@ -28,8 +28,12 @@ class LibraryLibrary(BaseModel):
     current_user_permissions: "LibraryLibraryCurrentUserPermissions" = Field(
         alias="currentUserPermissions"
     )
+    workflow: "LibraryLibraryWorkflow"
     custom_metadata_properties: List["LibraryLibraryCustomMetadataProperties"] = Field(
         alias="customMetadataProperties"
+    )
+    asset_submission_requests: List["LibraryLibraryAssetSubmissionRequests"] = Field(
+        alias="assetSubmissionRequests"
     )
 
 
@@ -63,6 +67,7 @@ class LibraryLibraryAssetsItems(BaseModel):
     external_id: Optional[str] = Field(alias="externalId")
     tags: Optional[List[Optional["LibraryLibraryAssetsItemsTags"]]]
     copyright: Optional["LibraryLibraryAssetsItemsCopyright"]
+    availability: "LibraryLibraryAssetsItemsAvailability"
     expires_at: Optional[Any] = Field(alias="expiresAt")
     licenses: Optional[List[Optional["LibraryLibraryAssetsItemsLicenses"]]]
     status: AssetStatusType
@@ -76,23 +81,26 @@ class LibraryLibraryAssetsItems(BaseModel):
     custom_metadata: List["LibraryLibraryAssetsItemsCustomMetadata"] = Field(
         alias="customMetadata"
     )
+    workflow_task: Optional["LibraryLibraryAssetsItemsWorkflowTask"] = Field(
+        alias="workflowTask"
+    )
+    variants: Optional["LibraryLibraryAssetsItemsVariants"]
     location: "LibraryLibraryAssetsItemsLocation"
+    preview_background_color: Optional[
+        "LibraryLibraryAssetsItemsPreviewBackgroundColor"
+    ] = Field(alias="previewBackgroundColor")
 
 
 class LibraryLibraryAssetsItemsCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class LibraryLibraryAssetsItemsModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class LibraryLibraryAssetsItemsAttachments(BaseModel):
@@ -113,17 +121,13 @@ class LibraryLibraryAssetsItemsAttachments(BaseModel):
 class LibraryLibraryAssetsItemsAttachmentsCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class LibraryLibraryAssetsItemsAttachmentsModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class LibraryLibraryAssetsItemsTags(BaseModel):
@@ -134,6 +138,11 @@ class LibraryLibraryAssetsItemsTags(BaseModel):
 class LibraryLibraryAssetsItemsCopyright(BaseModel):
     status: CopyrightStatus
     notice: Optional[str]
+
+
+class LibraryLibraryAssetsItemsAvailability(BaseModel):
+    from_: Optional[Any] = Field(alias="from")
+    to: Optional[Any]
 
 
 class LibraryLibraryAssetsItemsLicenses(BaseModel):
@@ -206,6 +215,67 @@ class LibraryLibraryAssetsItemsCustomMetadataProperty(BaseModel):
     default_value: Optional[Any] = Field(alias="defaultValue")
 
 
+class LibraryLibraryAssetsItemsWorkflowTask(BaseModel):
+    id: str
+    assigned_users: List[
+        Optional["LibraryLibraryAssetsItemsWorkflowTaskAssignedUsers"]
+    ] = Field(alias="assignedUsers")
+    asset: Optional["LibraryLibraryAssetsItemsWorkflowTaskAsset"]
+    title: Optional[str]
+    description: Optional[str]
+    status: "LibraryLibraryAssetsItemsWorkflowTaskStatus"
+    checklist_item: "LibraryLibraryAssetsItemsWorkflowTaskChecklistItem" = Field(
+        alias="checklistItem"
+    )
+
+
+class LibraryLibraryAssetsItemsWorkflowTaskAssignedUsers(BaseModel):
+    typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
+    id: str
+    name: Optional[str]
+
+
+class LibraryLibraryAssetsItemsWorkflowTaskAsset(BaseModel):
+    typename__: Literal[
+        "Asset", "Audio", "Document", "EmbeddedContent", "File", "Image", "Video"
+    ] = Field(alias="__typename")
+    id: str
+    created_at: Any = Field(alias="createdAt")
+    modified_at: Optional[Any] = Field(alias="modifiedAt")
+    title: str
+    description: Optional[str]
+    external_id: Optional[str] = Field(alias="externalId")
+    expires_at: Optional[Any] = Field(alias="expiresAt")
+    status: AssetStatusType
+
+
+class LibraryLibraryAssetsItemsWorkflowTaskStatus(BaseModel):
+    id: str
+    name: str
+    enter_rules: List[Optional[WorkflowStatusEnterRule]] = Field(alias="enterRules")
+
+
+class LibraryLibraryAssetsItemsWorkflowTaskChecklistItem(BaseModel):
+    total: int
+    page: int
+    limit: int
+    has_next_page: bool = Field(alias="hasNextPage")
+
+
+class LibraryLibraryAssetsItemsVariants(BaseModel):
+    total: int
+    page: int
+    limit: int
+    has_next_page: bool = Field(alias="hasNextPage")
+    items: List[Optional["LibraryLibraryAssetsItemsVariantsItems"]]
+
+
+class LibraryLibraryAssetsItemsVariantsItems(BaseModel):
+    key: str
+    filename: Optional[str]
+    download_url: Optional[Any] = Field(alias="downloadUrl")
+
+
 class LibraryLibraryAssetsItemsLocation(BaseModel):
     brand: Optional["LibraryLibraryAssetsItemsLocationBrand"]
     library: Optional["LibraryLibraryAssetsItemsLocationLibrary"]
@@ -233,6 +303,13 @@ class LibraryLibraryAssetsItemsLocationWorkspaceProject(BaseModel):
 class LibraryLibraryAssetsItemsLocationFolder(BaseModel):
     id: str
     name: str
+
+
+class LibraryLibraryAssetsItemsPreviewBackgroundColor(BaseModel):
+    red: Any
+    green: Any
+    blue: Any
+    alpha: Any
 
 
 class LibraryLibraryLicenses(BaseModel):
@@ -316,20 +393,90 @@ class LibraryLibraryCollaboratorsUsers(BaseModel):
     limit: int
     has_next_page: bool = Field(alias="hasNextPage")
     items: List[Optional["LibraryLibraryCollaboratorsUsersItems"]]
+    edges: List["LibraryLibraryCollaboratorsUsersEdges"]
 
 
 class LibraryLibraryCollaboratorsUsersItems(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
+
+
+class LibraryLibraryCollaboratorsUsersEdges(BaseModel):
+    node: "LibraryLibraryCollaboratorsUsersEdgesNode"
+    role: str
+
+
+class LibraryLibraryCollaboratorsUsersEdgesNode(BaseModel):
+    typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
+    id: str
+    name: Optional[str]
 
 
 class LibraryLibraryCurrentUserPermissions(BaseModel):
     can_create_assets: bool = Field(alias="canCreateAssets")
     can_view_collaborators: bool = Field(alias="canViewCollaborators")
     can_create_collections: bool = Field(alias="canCreateCollections")
+
+
+class LibraryLibraryWorkflow(BaseModel):
+    id: str
+    statuses: List[Optional["LibraryLibraryWorkflowStatuses"]]
+
+
+class LibraryLibraryWorkflowStatuses(BaseModel):
+    id: str
+    name: str
+    color: "LibraryLibraryWorkflowStatusesColor"
+    assigned_users: List[Optional["LibraryLibraryWorkflowStatusesAssignedUsers"]] = (
+        Field(alias="assignedUsers")
+    )
+    checklist_presets: List[
+        Optional["LibraryLibraryWorkflowStatusesChecklistPresets"]
+    ] = Field(alias="checklistPresets")
+    tasks: "LibraryLibraryWorkflowStatusesTasks"
+    enter_rules: List[Optional[WorkflowStatusEnterRule]] = Field(alias="enterRules")
+
+
+class LibraryLibraryWorkflowStatusesColor(BaseModel):
+    red: Any
+    green: Any
+    blue: Any
+    alpha: Any
+
+
+class LibraryLibraryWorkflowStatusesAssignedUsers(BaseModel):
+    typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
+    id: str
+    name: Optional[str]
+
+
+class LibraryLibraryWorkflowStatusesChecklistPresets(BaseModel):
+    id: str
+    content: str
+    assigned_user: Optional[
+        "LibraryLibraryWorkflowStatusesChecklistPresetsAssignedUser"
+    ] = Field(alias="assignedUser")
+
+
+class LibraryLibraryWorkflowStatusesChecklistPresetsAssignedUser(BaseModel):
+    typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
+    id: str
+    name: Optional[str]
+
+
+class LibraryLibraryWorkflowStatusesTasks(BaseModel):
+    total: int
+    page: int
+    limit: int
+    has_next_page: bool = Field(alias="hasNextPage")
+    items: Optional[List[Optional["LibraryLibraryWorkflowStatusesTasksItems"]]]
+
+
+class LibraryLibraryWorkflowStatusesTasksItems(BaseModel):
+    id: str
+    title: Optional[str]
+    description: Optional[str]
 
 
 class LibraryLibraryCustomMetadataProperties(BaseModel):
@@ -348,17 +495,13 @@ class LibraryLibraryCustomMetadataProperties(BaseModel):
 class LibraryLibraryCustomMetadataPropertiesCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class LibraryLibraryCustomMetadataPropertiesModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class LibraryLibraryCustomMetadataPropertiesType(BaseModel):
@@ -373,12 +516,31 @@ class LibraryLibraryCustomMetadataPropertiesType(BaseModel):
         "CustomMetadataPropertyTypeUrl",
     ] = Field(alias="__typename")
     name: str
-    options: Optional[List[Optional["LibraryLibraryCustomMetadataPropertiesTypeOptions"]]] = None
 
-class LibraryLibraryCustomMetadataPropertiesTypeOptions(BaseModel):
+
+class LibraryLibraryAssetSubmissionRequests(BaseModel):
     id: str
-    value: str
-    isDefault: Optional[bool] = None
+    creator: "LibraryLibraryAssetSubmissionRequestsCreator"
+    created_at: Any = Field(alias="createdAt")
+    modifier: Optional["LibraryLibraryAssetSubmissionRequestsModifier"]
+    modified_at: Optional[Any] = Field(alias="modifiedAt")
+    project_id: str = Field(alias="projectId")
+    title: str
+    description: str
+    configuration: Optional[Any]
+
+
+class LibraryLibraryAssetSubmissionRequestsCreator(BaseModel):
+    typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
+    id: str
+    name: Optional[str]
+
+
+class LibraryLibraryAssetSubmissionRequestsModifier(BaseModel):
+    typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
+    id: str
+    name: Optional[str]
+
 
 Library.model_rebuild()
 LibraryLibrary.model_rebuild()
@@ -388,6 +550,8 @@ LibraryLibraryAssetsItemsAttachments.model_rebuild()
 LibraryLibraryAssetsItemsRelatedAssets.model_rebuild()
 LibraryLibraryAssetsItemsComments.model_rebuild()
 LibraryLibraryAssetsItemsCustomMetadata.model_rebuild()
+LibraryLibraryAssetsItemsWorkflowTask.model_rebuild()
+LibraryLibraryAssetsItemsVariants.model_rebuild()
 LibraryLibraryAssetsItemsLocation.model_rebuild()
 LibraryLibraryCollections.model_rebuild()
 LibraryLibraryCollectionsItems.model_rebuild()
@@ -396,4 +560,10 @@ LibraryLibraryBrowseFolders.model_rebuild()
 LibraryLibraryBrowseFoldersItems.model_rebuild()
 LibraryLibraryCollaborators.model_rebuild()
 LibraryLibraryCollaboratorsUsers.model_rebuild()
+LibraryLibraryCollaboratorsUsersEdges.model_rebuild()
+LibraryLibraryWorkflow.model_rebuild()
+LibraryLibraryWorkflowStatuses.model_rebuild()
+LibraryLibraryWorkflowStatusesChecklistPresets.model_rebuild()
+LibraryLibraryWorkflowStatusesTasks.model_rebuild()
 LibraryLibraryCustomMetadataProperties.model_rebuild()
+LibraryLibraryAssetSubmissionRequests.model_rebuild()

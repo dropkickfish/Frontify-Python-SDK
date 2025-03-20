@@ -31,9 +31,7 @@ class UninstallWebhookUninstallWebhookWebhook(BaseModel):
 class UninstallWebhookUninstallWebhookWebhookCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 UninstallWebhook.model_rebuild()

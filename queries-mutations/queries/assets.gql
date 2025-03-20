@@ -1,18 +1,14 @@
-query assets($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $permanent1: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $query1: AssetCommentQueryInput, $ids: [ID!]!){
+query assets($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $permanent1: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $validityInDays2: Int, $permanent2: Boolean, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $limit5: Int, $page5: Int, $query1: AssetCommentQueryInput, $limit6: Int, $page6: Int, $ids: [ID!]!){
     assets(ids: $ids){
         id
         creator{
             id
-            email
             name
-            avatar
         }
         createdAt
         modifier{
             id
-            email
             name
-            avatar
         }
         modifiedAt
         title
@@ -21,16 +17,12 @@ query assets($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $
             id
             creator{
                 id
-                email
                 name
-                avatar
             }
             createdAt
             modifier{
                 id
-                email
                 name
-                avatar
             }
             modifiedAt
             name
@@ -50,6 +42,10 @@ query assets($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $
             status
             notice
         }
+        availability{
+            from
+            to
+        }
         expiresAt
         licenses{
             id
@@ -59,7 +55,7 @@ query assets($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $
             requireConsensus
         }
         status
-        relatedAssets(limit: $limit2, page: $page2){
+        relatedAssets(limit: $limit4, page: $page4){
             total
             page
             limit
@@ -68,16 +64,12 @@ query assets($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $
                 id
                 creator{
                     id
-                    email
                     name
-                    avatar
                 }
                 createdAt
                 modifier{
                     id
-                    email
                     name
-                    avatar
                 }
                 modifiedAt
                 title
@@ -102,6 +94,10 @@ query assets($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $
                 copyright{
                     status
                     notice
+                }
+                availability{
+                    from
+                    to
                 }
                 expiresAt
                 licenses{
@@ -148,6 +144,47 @@ query assets($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $
                         defaultValue
                     }
                 }
+                workflowTask{
+                    id
+                    assignedUsers{
+                        id
+                        name
+                    }
+                    asset{
+                        id
+                        createdAt
+                        modifiedAt
+                        title
+                        description
+                        externalId
+                        expiresAt
+                        status
+                    }
+                    title
+                    description
+                    status{
+                        id
+                        name
+                        enterRules
+                    }
+                    checklistItem(limit: $limit2, page: $page2){
+                        total
+                        page
+                        limit
+                        hasNextPage
+                    }
+                }
+                variants(limit: $limit3, page: $page3){
+                    total
+                    page
+                    limit
+                    hasNextPage
+                    items{
+                        key
+                        filename
+                        downloadUrl(validityInDays: $validityInDays2, permanent: $permanent2)
+                    }
+                }
                 location{
                     brand{
                         id
@@ -166,9 +203,15 @@ query assets($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $
                         name
                     }
                 }
+                previewBackgroundColor{
+                    red
+                    green
+                    blue
+                    alpha
+                }
             }
         }
-        comments(limit: $limit3, page: $page3, query: $query1){
+        comments(limit: $limit5, page: $page5, query: $query1){
             total
             page
             limit
@@ -179,6 +222,23 @@ query assets($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $
             canDelete
             canDownload
             canComment
+        }
+        workflowTask{
+            id
+            title
+            description
+        }
+        variants(limit: $limit6, page: $page6){
+            total
+            page
+            limit
+            hasNextPage
+        }
+        previewBackgroundColor{
+            red
+            green
+            blue
+            alpha
         }
     }
 }

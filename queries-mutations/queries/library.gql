@@ -1,4 +1,4 @@
-query library($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $query1: AssetQueryInput, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $limit5: Int, $page5: Int, $limit6: Int, $page6: Int, $limit7: Int, $page7: Int, $limit8: Int, $page8: Int, $id: ID!){
+query library($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $validityInDays1: Int, $permanent1: Boolean, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $query1: AssetQueryInput, $limit5: Int, $page5: Int, $limit6: Int, $page6: Int, $limit7: Int, $page7: Int, $limit8: Int, $page8: Int, $limit9: Int, $page9: Int, $query2: FolderAssetQueryInput, $limit10: Int, $page10: Int, $limit11: Int, $page11: Int, $id: ID!){
     library(id: $id){
         id
         name
@@ -8,7 +8,7 @@ query library($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int
             blue
             alpha
         }
-        assets(limit: $limit2, page: $page2, query: $query1){
+        assets(limit: $limit4, page: $page4, query: $query1){
             total
             page
             limit
@@ -17,16 +17,12 @@ query library($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int
                 id
                 creator{
                     id
-                    email
                     name
-                    avatar
                 }
                 createdAt
                 modifier{
                     id
-                    email
                     name
-                    avatar
                 }
                 modifiedAt
                 title
@@ -35,16 +31,12 @@ query library($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int
                     id
                     creator{
                         id
-                        email
                         name
-                        avatar
                     }
                     createdAt
                     modifier{
                         id
-                        email
                         name
-                        avatar
                     }
                     modifiedAt
                     name
@@ -63,6 +55,10 @@ query library($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int
                 copyright{
                     status
                     notice
+                }
+                availability{
+                    from
+                    to
                 }
                 expiresAt
                 licenses{
@@ -119,6 +115,47 @@ query library($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int
                         defaultValue
                     }
                 }
+                workflowTask{
+                    id
+                    assignedUsers{
+                        id
+                        name
+                    }
+                    asset{
+                        id
+                        createdAt
+                        modifiedAt
+                        title
+                        description
+                        externalId
+                        expiresAt
+                        status
+                    }
+                    title
+                    description
+                    status{
+                        id
+                        name
+                        enterRules
+                    }
+                    checklistItem(limit: $limit2, page: $page2){
+                        total
+                        page
+                        limit
+                        hasNextPage
+                    }
+                }
+                variants(limit: $limit3, page: $page3){
+                    total
+                    page
+                    limit
+                    hasNextPage
+                    items{
+                        key
+                        filename
+                        downloadUrl(validityInDays: $validityInDays1, permanent: $permanent1)
+                    }
+                }
                 location{
                     brand{
                         id
@@ -137,6 +174,12 @@ query library($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int
                         name
                     }
                 }
+                previewBackgroundColor{
+                    red
+                    green
+                    blue
+                    alpha
+                }
             }
         }
         licenses{
@@ -146,7 +189,7 @@ query library($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int
             addByDefault
             requireConsensus
         }
-        collections(limit: $limit4, page: $page4){
+        collections(limit: $limit6, page: $page6){
             total
             page
             limit
@@ -154,7 +197,7 @@ query library($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int
             items{
                 id
                 name
-                assets(limit: $limit3, page: $page3){
+                assets(limit: $limit5, page: $page5){
                     total
                     page
                     limit
@@ -163,7 +206,7 @@ query library($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int
             }
         }
         browse{
-            folders(limit: $limit6, page: $page6){
+            folders(limit: $limit8, page: $page8){
                 total
                 page
                 limit
@@ -177,7 +220,7 @@ query library($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int
                         id
                         name
                     }
-                    folders(limit: $limit5, page: $page5){
+                    folders(limit: $limit7, page: $page7){
                         total
                         page
                         limit
@@ -185,7 +228,7 @@ query library($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int
                     }
                 }
             }
-            assets(limit: $limit7, page: $page7){
+            assets(limit: $limit9, page: $page9, query: $query2){
                 total
                 page
                 limit
@@ -193,16 +236,21 @@ query library($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int
             }
         }
         collaborators{
-            users(limit: $limit8, page: $page8){
+            users(limit: $limit10, page: $page10){
                 total
                 page
                 limit
                 hasNextPage
                 items{
                     id
-                    email
                     name
-                    avatar
+                }
+                edges{
+                    node{
+                        id
+                        name
+                    }
+                    role
                 }
             }
         }
@@ -211,20 +259,53 @@ query library($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int
             canViewCollaborators
             canCreateCollections
         }
+        workflow{
+            id
+            statuses{
+                id
+                name
+                color{
+                    red
+                    green
+                    blue
+                    alpha
+                }
+                assignedUsers{
+                    id
+                    name
+                }
+                checklistPresets{
+                    id
+                    content
+                    assignedUser{
+                        id
+                        name
+                    }
+                }
+                tasks(limit: $limit11, page: $page11){
+                    total
+                    page
+                    limit
+                    hasNextPage
+                    items{
+                        id
+                        title
+                        description
+                    }
+                }
+                enterRules
+            }
+        }
         customMetadataProperties{
             id
             creator{
                 id
-                email
                 name
-                avatar
             }
             createdAt
             modifier{
                 id
-                email
                 name
-                avatar
             }
             modifiedAt
             name
@@ -234,6 +315,23 @@ query library($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int
             helpText
             isRequired
             defaultValue
+        }
+        assetSubmissionRequests{
+            id
+            creator{
+                id
+                name
+            }
+            createdAt
+            modifier{
+                id
+                name
+            }
+            modifiedAt
+            projectId
+            title
+            description
+            configuration
         }
     }
 }

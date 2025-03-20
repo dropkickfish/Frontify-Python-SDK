@@ -4,9 +4,7 @@ mutation uninstallWebhook($input: UninstallWebhookInput!){
             id
             creator{
                 id
-                email
                 name
-                avatar
             }
             createdAt
             name

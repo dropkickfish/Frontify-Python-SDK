@@ -1,0 +1,7 @@
+mutation createShareLink($input: CreateShareLinkInput!){
+    createShareLink(input: $input){
+        shareLink{
+            url
+        }
+    }
+}

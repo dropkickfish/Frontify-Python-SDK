@@ -6,7 +6,7 @@ from typing import Any, List, Literal, Optional
 from pydantic import Field
 
 from .base_model import BaseModel
-from .enums import AssetStatusType, CopyrightStatus, TagSource
+from .enums import AssetStatusType, CopyrightStatus, TagSource, WorkflowStatusEnterRule
 
 
 class RemoveAssetPreviewImage(BaseModel):
@@ -38,6 +38,7 @@ class RemoveAssetPreviewImageRemoveAssetPreviewImageAsset(BaseModel):
         List[Optional["RemoveAssetPreviewImageRemoveAssetPreviewImageAssetTags"]]
     ]
     copyright: Optional["RemoveAssetPreviewImageRemoveAssetPreviewImageAssetCopyright"]
+    availability: "RemoveAssetPreviewImageRemoveAssetPreviewImageAssetAvailability"
     expires_at: Optional[Any] = Field(alias="expiresAt")
     licenses: Optional[
         List[Optional["RemoveAssetPreviewImageRemoveAssetPreviewImageAssetLicenses"]]
@@ -53,23 +54,21 @@ class RemoveAssetPreviewImageRemoveAssetPreviewImageAsset(BaseModel):
     custom_metadata: List[
         "RemoveAssetPreviewImageRemoveAssetPreviewImageAssetCustomMetadata"
     ] = Field(alias="customMetadata")
-    location: "RemoveAssetPreviewImageRemoveAssetPreviewImageAssetLocation"
+    workflow_task: Optional[
+        "RemoveAssetPreviewImageRemoveAssetPreviewImageAssetWorkflowTask"
+    ] = Field(alias="workflowTask")
 
 
 class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetAttachments(BaseModel):
@@ -92,17 +91,13 @@ class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetAttachments(BaseModel):
 class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetAttachmentsCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetAttachmentsModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetTags(BaseModel):
@@ -113,6 +108,11 @@ class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetTags(BaseModel):
 class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetCopyright(BaseModel):
     status: CopyrightStatus
     notice: Optional[str]
+
+
+class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetAvailability(BaseModel):
+    from_: Optional[Any] = Field(alias="from")
+    to: Optional[Any]
 
 
 class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetLicenses(BaseModel):
@@ -170,6 +170,7 @@ class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetRelatedAssetsItems(Base
     copyright: Optional[
         "RemoveAssetPreviewImageRemoveAssetPreviewImageAssetRelatedAssetsItemsCopyright"
     ]
+    availability: "RemoveAssetPreviewImageRemoveAssetPreviewImageAssetRelatedAssetsItemsAvailability"
     expires_at: Optional[Any] = Field(alias="expiresAt")
     licenses: Optional[
         List[
@@ -188,6 +189,15 @@ class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetRelatedAssetsItems(Base
     current_user_permissions: (
         "RemoveAssetPreviewImageRemoveAssetPreviewImageAssetRelatedAssetsItemsCurrentUserPermissions"
     ) = Field(alias="currentUserPermissions")
+    workflow_task: Optional[
+        "RemoveAssetPreviewImageRemoveAssetPreviewImageAssetRelatedAssetsItemsWorkflowTask"
+    ] = Field(alias="workflowTask")
+    variants: Optional[
+        "RemoveAssetPreviewImageRemoveAssetPreviewImageAssetRelatedAssetsItemsVariants"
+    ]
+    preview_background_color: Optional[
+        "RemoveAssetPreviewImageRemoveAssetPreviewImageAssetRelatedAssetsItemsPreviewBackgroundColor"
+    ] = Field(alias="previewBackgroundColor")
 
 
 class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetRelatedAssetsItemsCreator(
@@ -195,9 +205,7 @@ class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetRelatedAssetsItemsCreat
 ):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetRelatedAssetsItemsModifier(
@@ -205,9 +213,7 @@ class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetRelatedAssetsItemsModif
 ):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetRelatedAssetsItemsAttachments(
@@ -237,6 +243,13 @@ class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetRelatedAssetsItemsCopyr
 ):
     status: CopyrightStatus
     notice: Optional[str]
+
+
+class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetRelatedAssetsItemsAvailability(
+    BaseModel
+):
+    from_: Optional[Any] = Field(alias="from")
+    to: Optional[Any]
 
 
 class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetRelatedAssetsItemsLicenses(
@@ -276,6 +289,32 @@ class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetRelatedAssetsItemsCurre
     can_comment: bool = Field(alias="canComment")
 
 
+class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetRelatedAssetsItemsWorkflowTask(
+    BaseModel
+):
+    id: str
+    title: Optional[str]
+    description: Optional[str]
+
+
+class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetRelatedAssetsItemsVariants(
+    BaseModel
+):
+    total: int
+    page: int
+    limit: int
+    has_next_page: bool = Field(alias="hasNextPage")
+
+
+class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetRelatedAssetsItemsPreviewBackgroundColor(
+    BaseModel
+):
+    red: Any
+    green: Any
+    blue: Any
+    alpha: Any
+
+
 class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetComments(BaseModel):
     total: int
     page: int
@@ -307,9 +346,7 @@ class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetCommentsItemsMentionedU
 ):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetCommentsItemsReplies(
@@ -363,9 +400,7 @@ class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetCustomMetadataPropertyC
 ):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetCustomMetadataPropertyModifier(
@@ -373,9 +408,7 @@ class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetCustomMetadataPropertyM
 ):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetCustomMetadataPropertyType(
@@ -394,49 +427,142 @@ class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetCustomMetadataPropertyT
     name: str
 
 
-class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetLocation(BaseModel):
-    brand: Optional["RemoveAssetPreviewImageRemoveAssetPreviewImageAssetLocationBrand"]
-    library: Optional[
-        "RemoveAssetPreviewImageRemoveAssetPreviewImageAssetLocationLibrary"
-    ]
-    workspace_project: Optional[
-        "RemoveAssetPreviewImageRemoveAssetPreviewImageAssetLocationWorkspaceProject"
-    ] = Field(alias="workspaceProject")
-    folder: Optional[
-        "RemoveAssetPreviewImageRemoveAssetPreviewImageAssetLocationFolder"
-    ]
-
-
-class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetLocationBrand(BaseModel):
+class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetWorkflowTask(BaseModel):
     id: str
-    name: str
+    assigned_users: List[
+        Optional[
+            "RemoveAssetPreviewImageRemoveAssetPreviewImageAssetWorkflowTaskAssignedUsers"
+        ]
+    ] = Field(alias="assignedUsers")
+    asset: Optional[
+        "RemoveAssetPreviewImageRemoveAssetPreviewImageAssetWorkflowTaskAsset"
+    ]
+    title: Optional[str]
+    description: Optional[str]
+    status: "RemoveAssetPreviewImageRemoveAssetPreviewImageAssetWorkflowTaskStatus"
+    checklist_item: (
+        "RemoveAssetPreviewImageRemoveAssetPreviewImageAssetWorkflowTaskChecklistItem"
+    ) = Field(alias="checklistItem")
 
 
-class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetLocationLibrary(BaseModel):
+class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetWorkflowTaskAssignedUsers(
+    BaseModel
+):
+    typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
     name: Optional[str]
 
 
-class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetLocationWorkspaceProject(
+class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetWorkflowTaskAsset(BaseModel):
+    typename__: Literal[
+        "Asset", "Audio", "Document", "EmbeddedContent", "File", "Image", "Video"
+    ] = Field(alias="__typename")
+    id: str
+    created_at: Any = Field(alias="createdAt")
+    modified_at: Optional[Any] = Field(alias="modifiedAt")
+    title: str
+    description: Optional[str]
+    external_id: Optional[str] = Field(alias="externalId")
+    expires_at: Optional[Any] = Field(alias="expiresAt")
+    status: AssetStatusType
+    variants: Optional[
+        "RemoveAssetPreviewImageRemoveAssetPreviewImageAssetWorkflowTaskAssetVariants"
+    ]
+    preview_background_color: Optional[
+        "RemoveAssetPreviewImageRemoveAssetPreviewImageAssetWorkflowTaskAssetPreviewBackgroundColor"
+    ] = Field(alias="previewBackgroundColor")
+
+
+class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetWorkflowTaskAssetVariants(
+    BaseModel
+):
+    total: int
+    page: int
+    limit: int
+    has_next_page: bool = Field(alias="hasNextPage")
+
+
+class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetWorkflowTaskAssetPreviewBackgroundColor(
+    BaseModel
+):
+    red: Any
+    green: Any
+    blue: Any
+    alpha: Any
+
+
+class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetWorkflowTaskStatus(BaseModel):
+    id: str
+    name: str
+    color: "RemoveAssetPreviewImageRemoveAssetPreviewImageAssetWorkflowTaskStatusColor"
+    assigned_users: List[
+        Optional[
+            "RemoveAssetPreviewImageRemoveAssetPreviewImageAssetWorkflowTaskStatusAssignedUsers"
+        ]
+    ] = Field(alias="assignedUsers")
+    checklist_presets: List[
+        Optional[
+            "RemoveAssetPreviewImageRemoveAssetPreviewImageAssetWorkflowTaskStatusChecklistPresets"
+        ]
+    ] = Field(alias="checklistPresets")
+    tasks: "RemoveAssetPreviewImageRemoveAssetPreviewImageAssetWorkflowTaskStatusTasks"
+    enter_rules: List[Optional[WorkflowStatusEnterRule]] = Field(alias="enterRules")
+
+
+class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetWorkflowTaskStatusColor(
+    BaseModel
+):
+    red: Any
+    green: Any
+    blue: Any
+    alpha: Any
+
+
+class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetWorkflowTaskStatusAssignedUsers(
+    BaseModel
+):
+    typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
+    id: str
+    name: Optional[str]
+
+
+class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetWorkflowTaskStatusChecklistPresets(
     BaseModel
 ):
     id: str
-    name: Optional[str]
+    content: str
 
 
-class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetLocationFolder(BaseModel):
-    id: str
-    name: str
-    breadcrumbs: List[
-        "RemoveAssetPreviewImageRemoveAssetPreviewImageAssetLocationFolderBreadcrumbs"
+class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetWorkflowTaskStatusTasks(
+    BaseModel
+):
+    total: int
+    page: int
+    limit: int
+    has_next_page: bool = Field(alias="hasNextPage")
+
+
+class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetWorkflowTaskChecklistItem(
+    BaseModel
+):
+    total: int
+    page: int
+    limit: int
+    has_next_page: bool = Field(alias="hasNextPage")
+    items: Optional[
+        List[
+            Optional[
+                "RemoveAssetPreviewImageRemoveAssetPreviewImageAssetWorkflowTaskChecklistItemItems"
+            ]
+        ]
     ]
 
 
-class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetLocationFolderBreadcrumbs(
+class RemoveAssetPreviewImageRemoveAssetPreviewImageAssetWorkflowTaskChecklistItemItems(
     BaseModel
 ):
-    id: Optional[str]
-    name: Optional[str]
+    id: str
+    content: str
 
 
 RemoveAssetPreviewImage.model_rebuild()
@@ -449,5 +575,7 @@ RemoveAssetPreviewImageRemoveAssetPreviewImageAssetComments.model_rebuild()
 RemoveAssetPreviewImageRemoveAssetPreviewImageAssetCommentsItems.model_rebuild()
 RemoveAssetPreviewImageRemoveAssetPreviewImageAssetCustomMetadata.model_rebuild()
 RemoveAssetPreviewImageRemoveAssetPreviewImageAssetCustomMetadataProperty.model_rebuild()
-RemoveAssetPreviewImageRemoveAssetPreviewImageAssetLocation.model_rebuild()
-RemoveAssetPreviewImageRemoveAssetPreviewImageAssetLocationFolder.model_rebuild()
+RemoveAssetPreviewImageRemoveAssetPreviewImageAssetWorkflowTask.model_rebuild()
+RemoveAssetPreviewImageRemoveAssetPreviewImageAssetWorkflowTaskAsset.model_rebuild()
+RemoveAssetPreviewImageRemoveAssetPreviewImageAssetWorkflowTaskStatus.model_rebuild()
+RemoveAssetPreviewImageRemoveAssetPreviewImageAssetWorkflowTaskChecklistItem.model_rebuild()

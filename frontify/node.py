@@ -30,6 +30,7 @@ class NodeNode(BaseModel):
         "IconLibrary",
         "Image",
         "LibraryPage",
+        "LibraryPageCollection",
         "LogoLibrary",
         "MediaLibrary",
         "Node",

@@ -6,7 +6,7 @@ from typing import Any, List, Literal, Optional
 from pydantic import Field
 
 from .base_model import BaseModel
-from .enums import AssetStatusType, CopyrightStatus, TagSource
+from .enums import AssetStatusType, CopyrightStatus, TagSource, WorkflowStatusEnterRule
 
 
 class AddAssetLicense(BaseModel):
@@ -37,6 +37,7 @@ class AddAssetLicenseAddAssetLicenseAsset(BaseModel):
     external_id: Optional[str] = Field(alias="externalId")
     tags: Optional[List[Optional["AddAssetLicenseAddAssetLicenseAssetTags"]]]
     copyright: Optional["AddAssetLicenseAddAssetLicenseAssetCopyright"]
+    availability: "AddAssetLicenseAddAssetLicenseAssetAvailability"
     expires_at: Optional[Any] = Field(alias="expiresAt")
     licenses: Optional[List[Optional["AddAssetLicenseAddAssetLicenseAssetLicenses"]]]
     status: AssetStatusType
@@ -50,23 +51,21 @@ class AddAssetLicenseAddAssetLicenseAsset(BaseModel):
     custom_metadata: List["AddAssetLicenseAddAssetLicenseAssetCustomMetadata"] = Field(
         alias="customMetadata"
     )
-    location: "AddAssetLicenseAddAssetLicenseAssetLocation"
+    workflow_task: Optional["AddAssetLicenseAddAssetLicenseAssetWorkflowTask"] = Field(
+        alias="workflowTask"
+    )
 
 
 class AddAssetLicenseAddAssetLicenseAssetCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class AddAssetLicenseAddAssetLicenseAssetModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class AddAssetLicenseAddAssetLicenseAssetAttachments(BaseModel):
@@ -87,17 +86,13 @@ class AddAssetLicenseAddAssetLicenseAssetAttachments(BaseModel):
 class AddAssetLicenseAddAssetLicenseAssetAttachmentsCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class AddAssetLicenseAddAssetLicenseAssetAttachmentsModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class AddAssetLicenseAddAssetLicenseAssetTags(BaseModel):
@@ -108,6 +103,11 @@ class AddAssetLicenseAddAssetLicenseAssetTags(BaseModel):
 class AddAssetLicenseAddAssetLicenseAssetCopyright(BaseModel):
     status: CopyrightStatus
     notice: Optional[str]
+
+
+class AddAssetLicenseAddAssetLicenseAssetAvailability(BaseModel):
+    from_: Optional[Any] = Field(alias="from")
+    to: Optional[Any]
 
 
 class AddAssetLicenseAddAssetLicenseAssetLicenses(BaseModel):
@@ -151,6 +151,7 @@ class AddAssetLicenseAddAssetLicenseAssetRelatedAssetsItems(BaseModel):
     copyright: Optional[
         "AddAssetLicenseAddAssetLicenseAssetRelatedAssetsItemsCopyright"
     ]
+    availability: "AddAssetLicenseAddAssetLicenseAssetRelatedAssetsItemsAvailability"
     expires_at: Optional[Any] = Field(alias="expiresAt")
     licenses: Optional[
         List[Optional["AddAssetLicenseAddAssetLicenseAssetRelatedAssetsItemsLicenses"]]
@@ -163,22 +164,25 @@ class AddAssetLicenseAddAssetLicenseAssetRelatedAssetsItems(BaseModel):
     current_user_permissions: (
         "AddAssetLicenseAddAssetLicenseAssetRelatedAssetsItemsCurrentUserPermissions"
     ) = Field(alias="currentUserPermissions")
+    workflow_task: Optional[
+        "AddAssetLicenseAddAssetLicenseAssetRelatedAssetsItemsWorkflowTask"
+    ] = Field(alias="workflowTask")
+    variants: Optional["AddAssetLicenseAddAssetLicenseAssetRelatedAssetsItemsVariants"]
+    preview_background_color: Optional[
+        "AddAssetLicenseAddAssetLicenseAssetRelatedAssetsItemsPreviewBackgroundColor"
+    ] = Field(alias="previewBackgroundColor")
 
 
 class AddAssetLicenseAddAssetLicenseAssetRelatedAssetsItemsCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class AddAssetLicenseAddAssetLicenseAssetRelatedAssetsItemsModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class AddAssetLicenseAddAssetLicenseAssetRelatedAssetsItemsAttachments(BaseModel):
@@ -202,6 +206,11 @@ class AddAssetLicenseAddAssetLicenseAssetRelatedAssetsItemsTags(BaseModel):
 class AddAssetLicenseAddAssetLicenseAssetRelatedAssetsItemsCopyright(BaseModel):
     status: CopyrightStatus
     notice: Optional[str]
+
+
+class AddAssetLicenseAddAssetLicenseAssetRelatedAssetsItemsAvailability(BaseModel):
+    from_: Optional[Any] = Field(alias="from")
+    to: Optional[Any]
 
 
 class AddAssetLicenseAddAssetLicenseAssetRelatedAssetsItemsLicenses(BaseModel):
@@ -235,6 +244,28 @@ class AddAssetLicenseAddAssetLicenseAssetRelatedAssetsItemsCurrentUserPermission
     can_comment: bool = Field(alias="canComment")
 
 
+class AddAssetLicenseAddAssetLicenseAssetRelatedAssetsItemsWorkflowTask(BaseModel):
+    id: str
+    title: Optional[str]
+    description: Optional[str]
+
+
+class AddAssetLicenseAddAssetLicenseAssetRelatedAssetsItemsVariants(BaseModel):
+    total: int
+    page: int
+    limit: int
+    has_next_page: bool = Field(alias="hasNextPage")
+
+
+class AddAssetLicenseAddAssetLicenseAssetRelatedAssetsItemsPreviewBackgroundColor(
+    BaseModel
+):
+    red: Any
+    green: Any
+    blue: Any
+    alpha: Any
+
+
 class AddAssetLicenseAddAssetLicenseAssetComments(BaseModel):
     total: int
     page: int
@@ -258,9 +289,7 @@ class AddAssetLicenseAddAssetLicenseAssetCommentsItems(BaseModel):
 class AddAssetLicenseAddAssetLicenseAssetCommentsItemsMentionedUsers(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class AddAssetLicenseAddAssetLicenseAssetCommentsItemsReplies(BaseModel):
@@ -302,17 +331,13 @@ class AddAssetLicenseAddAssetLicenseAssetCustomMetadataProperty(BaseModel):
 class AddAssetLicenseAddAssetLicenseAssetCustomMetadataPropertyCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class AddAssetLicenseAddAssetLicenseAssetCustomMetadataPropertyModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class AddAssetLicenseAddAssetLicenseAssetCustomMetadataPropertyType(BaseModel):
@@ -329,39 +354,118 @@ class AddAssetLicenseAddAssetLicenseAssetCustomMetadataPropertyType(BaseModel):
     name: str
 
 
-class AddAssetLicenseAddAssetLicenseAssetLocation(BaseModel):
-    brand: Optional["AddAssetLicenseAddAssetLicenseAssetLocationBrand"]
-    library: Optional["AddAssetLicenseAddAssetLicenseAssetLocationLibrary"]
-    workspace_project: Optional[
-        "AddAssetLicenseAddAssetLicenseAssetLocationWorkspaceProject"
-    ] = Field(alias="workspaceProject")
-    folder: Optional["AddAssetLicenseAddAssetLicenseAssetLocationFolder"]
+class AddAssetLicenseAddAssetLicenseAssetWorkflowTask(BaseModel):
+    id: str
+    assigned_users: List[
+        Optional["AddAssetLicenseAddAssetLicenseAssetWorkflowTaskAssignedUsers"]
+    ] = Field(alias="assignedUsers")
+    asset: Optional["AddAssetLicenseAddAssetLicenseAssetWorkflowTaskAsset"]
+    title: Optional[str]
+    description: Optional[str]
+    status: "AddAssetLicenseAddAssetLicenseAssetWorkflowTaskStatus"
+    checklist_item: "AddAssetLicenseAddAssetLicenseAssetWorkflowTaskChecklistItem" = (
+        Field(alias="checklistItem")
+    )
 
 
-class AddAssetLicenseAddAssetLicenseAssetLocationBrand(BaseModel):
+class AddAssetLicenseAddAssetLicenseAssetWorkflowTaskAssignedUsers(BaseModel):
+    typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
+    id: str
+    name: Optional[str]
+
+
+class AddAssetLicenseAddAssetLicenseAssetWorkflowTaskAsset(BaseModel):
+    typename__: Literal[
+        "Asset", "Audio", "Document", "EmbeddedContent", "File", "Image", "Video"
+    ] = Field(alias="__typename")
+    id: str
+    created_at: Any = Field(alias="createdAt")
+    modified_at: Optional[Any] = Field(alias="modifiedAt")
+    title: str
+    description: Optional[str]
+    external_id: Optional[str] = Field(alias="externalId")
+    expires_at: Optional[Any] = Field(alias="expiresAt")
+    status: AssetStatusType
+    variants: Optional["AddAssetLicenseAddAssetLicenseAssetWorkflowTaskAssetVariants"]
+    preview_background_color: Optional[
+        "AddAssetLicenseAddAssetLicenseAssetWorkflowTaskAssetPreviewBackgroundColor"
+    ] = Field(alias="previewBackgroundColor")
+
+
+class AddAssetLicenseAddAssetLicenseAssetWorkflowTaskAssetVariants(BaseModel):
+    total: int
+    page: int
+    limit: int
+    has_next_page: bool = Field(alias="hasNextPage")
+
+
+class AddAssetLicenseAddAssetLicenseAssetWorkflowTaskAssetPreviewBackgroundColor(
+    BaseModel
+):
+    red: Any
+    green: Any
+    blue: Any
+    alpha: Any
+
+
+class AddAssetLicenseAddAssetLicenseAssetWorkflowTaskStatus(BaseModel):
     id: str
     name: str
+    color: "AddAssetLicenseAddAssetLicenseAssetWorkflowTaskStatusColor"
+    assigned_users: List[
+        Optional["AddAssetLicenseAddAssetLicenseAssetWorkflowTaskStatusAssignedUsers"]
+    ] = Field(alias="assignedUsers")
+    checklist_presets: List[
+        Optional[
+            "AddAssetLicenseAddAssetLicenseAssetWorkflowTaskStatusChecklistPresets"
+        ]
+    ] = Field(alias="checklistPresets")
+    tasks: "AddAssetLicenseAddAssetLicenseAssetWorkflowTaskStatusTasks"
+    enter_rules: List[Optional[WorkflowStatusEnterRule]] = Field(alias="enterRules")
 
 
-class AddAssetLicenseAddAssetLicenseAssetLocationLibrary(BaseModel):
+class AddAssetLicenseAddAssetLicenseAssetWorkflowTaskStatusColor(BaseModel):
+    red: Any
+    green: Any
+    blue: Any
+    alpha: Any
+
+
+class AddAssetLicenseAddAssetLicenseAssetWorkflowTaskStatusAssignedUsers(BaseModel):
+    typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
     name: Optional[str]
 
 
-class AddAssetLicenseAddAssetLicenseAssetLocationWorkspaceProject(BaseModel):
+class AddAssetLicenseAddAssetLicenseAssetWorkflowTaskStatusChecklistPresets(BaseModel):
     id: str
-    name: Optional[str]
+    content: str
 
 
-class AddAssetLicenseAddAssetLicenseAssetLocationFolder(BaseModel):
+class AddAssetLicenseAddAssetLicenseAssetWorkflowTaskStatusTasks(BaseModel):
+    total: int
+    page: int
+    limit: int
+    has_next_page: bool = Field(alias="hasNextPage")
+
+
+class AddAssetLicenseAddAssetLicenseAssetWorkflowTaskChecklistItem(BaseModel):
+    total: int
+    page: int
+    limit: int
+    has_next_page: bool = Field(alias="hasNextPage")
+    items: Optional[
+        List[
+            Optional[
+                "AddAssetLicenseAddAssetLicenseAssetWorkflowTaskChecklistItemItems"
+            ]
+        ]
+    ]
+
+
+class AddAssetLicenseAddAssetLicenseAssetWorkflowTaskChecklistItemItems(BaseModel):
     id: str
-    name: str
-    breadcrumbs: List["AddAssetLicenseAddAssetLicenseAssetLocationFolderBreadcrumbs"]
-
-
-class AddAssetLicenseAddAssetLicenseAssetLocationFolderBreadcrumbs(BaseModel):
-    id: Optional[str]
-    name: Optional[str]
+    content: str
 
 
 class AddAssetLicenseAddAssetLicenseLicense(BaseModel):
@@ -382,5 +486,7 @@ AddAssetLicenseAddAssetLicenseAssetComments.model_rebuild()
 AddAssetLicenseAddAssetLicenseAssetCommentsItems.model_rebuild()
 AddAssetLicenseAddAssetLicenseAssetCustomMetadata.model_rebuild()
 AddAssetLicenseAddAssetLicenseAssetCustomMetadataProperty.model_rebuild()
-AddAssetLicenseAddAssetLicenseAssetLocation.model_rebuild()
-AddAssetLicenseAddAssetLicenseAssetLocationFolder.model_rebuild()
+AddAssetLicenseAddAssetLicenseAssetWorkflowTask.model_rebuild()
+AddAssetLicenseAddAssetLicenseAssetWorkflowTaskAsset.model_rebuild()
+AddAssetLicenseAddAssetLicenseAssetWorkflowTaskStatus.model_rebuild()
+AddAssetLicenseAddAssetLicenseAssetWorkflowTaskChecklistItem.model_rebuild()

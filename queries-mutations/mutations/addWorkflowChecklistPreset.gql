@@ -1,0 +1,12 @@
+mutation addWorkflowChecklistPreset($input: AddWorkflowChecklistPresetInput!){
+    addWorkflowChecklistPreset(input: $input){
+        checklistPreset{
+            id
+            content
+            assignedUser{
+                id
+                name
+            }
+        }
+    }
+}

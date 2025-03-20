@@ -6,7 +6,7 @@ from typing import Annotated, Any, List, Literal, Optional, Union
 from pydantic import Field
 
 from .base_model import BaseModel
-from .enums import AssetStatusType, CopyrightStatus, TagSource
+from .enums import AssetStatusType, CopyrightStatus, TagSource, WorkflowStatusEnterRule
 
 
 class InviteProjectUser(BaseModel):
@@ -40,6 +40,7 @@ class InviteProjectUserInviteProjectUserProjectMediaLibrary(BaseModel):
     licenses: Optional[
         List[Optional["InviteProjectUserInviteProjectUserProjectMediaLibraryLicenses"]]
     ]
+    workflow: "InviteProjectUserInviteProjectUserProjectMediaLibraryWorkflow"
     browse: "InviteProjectUserInviteProjectUserProjectMediaLibraryBrowse"
     collaborators: Optional[
         "InviteProjectUserInviteProjectUserProjectMediaLibraryCollaborators"
@@ -51,6 +52,9 @@ class InviteProjectUserInviteProjectUserProjectMediaLibrary(BaseModel):
         "InviteProjectUserInviteProjectUserProjectMediaLibraryCustomMetadataProperties"
     ] = Field(alias="customMetadataProperties")
     collections: "InviteProjectUserInviteProjectUserProjectMediaLibraryCollections"
+    asset_submission_requests: List[
+        "InviteProjectUserInviteProjectUserProjectMediaLibraryAssetSubmissionRequests"
+    ] = Field(alias="assetSubmissionRequests")
 
 
 class InviteProjectUserInviteProjectUserProjectMediaLibraryColor(BaseModel):
@@ -103,6 +107,9 @@ class InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItems(BaseModel
     copyright: Optional[
         "InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsCopyright"
     ]
+    availability: (
+        "InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsAvailability"
+    )
     expires_at: Optional[Any] = Field(alias="expiresAt")
     licenses: Optional[
         List[
@@ -124,7 +131,16 @@ class InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItems(BaseModel
     custom_metadata: List[
         "InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsCustomMetadata"
     ] = Field(alias="customMetadata")
+    workflow_task: Optional[
+        "InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsWorkflowTask"
+    ] = Field(alias="workflowTask")
+    variants: Optional[
+        "InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsVariants"
+    ]
     location: "InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsLocation"
+    preview_background_color: Optional[
+        "InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsPreviewBackgroundColor"
+    ] = Field(alias="previewBackgroundColor")
 
 
 class InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsCreator(
@@ -132,9 +148,7 @@ class InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsCreator(
 ):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsModifier(
@@ -142,9 +156,7 @@ class InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsModifier(
 ):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsAttachments(
@@ -171,9 +183,7 @@ class InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsAttachment
 ):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsAttachmentsModifier(
@@ -181,9 +191,7 @@ class InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsAttachment
 ):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsTags(BaseModel):
@@ -196,6 +204,13 @@ class InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsCopyright(
 ):
     status: CopyrightStatus
     notice: Optional[str]
+
+
+class InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsAvailability(
+    BaseModel
+):
+    from_: Optional[Any] = Field(alias="from")
+    to: Optional[Any]
 
 
 class InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsLicenses(
@@ -296,6 +311,89 @@ class InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsCustomMeta
     default_value: Optional[Any] = Field(alias="defaultValue")
 
 
+class InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsWorkflowTask(
+    BaseModel
+):
+    id: str
+    assigned_users: List[
+        Optional[
+            "InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsWorkflowTaskAssignedUsers"
+        ]
+    ] = Field(alias="assignedUsers")
+    asset: Optional[
+        "InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsWorkflowTaskAsset"
+    ]
+    title: Optional[str]
+    description: Optional[str]
+    status: "InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsWorkflowTaskStatus"
+    checklist_item: (
+        "InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsWorkflowTaskChecklistItem"
+    ) = Field(alias="checklistItem")
+
+
+class InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsWorkflowTaskAssignedUsers(
+    BaseModel
+):
+    typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
+    id: str
+    name: Optional[str]
+
+
+class InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsWorkflowTaskAsset(
+    BaseModel
+):
+    typename__: Literal[
+        "Asset", "Audio", "Document", "EmbeddedContent", "File", "Image", "Video"
+    ] = Field(alias="__typename")
+    id: str
+    created_at: Any = Field(alias="createdAt")
+    modified_at: Optional[Any] = Field(alias="modifiedAt")
+    title: str
+    description: Optional[str]
+    external_id: Optional[str] = Field(alias="externalId")
+    expires_at: Optional[Any] = Field(alias="expiresAt")
+    status: AssetStatusType
+
+
+class InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsWorkflowTaskStatus(
+    BaseModel
+):
+    id: str
+    name: str
+    enter_rules: List[Optional[WorkflowStatusEnterRule]] = Field(alias="enterRules")
+
+
+class InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsWorkflowTaskChecklistItem(
+    BaseModel
+):
+    total: int
+    page: int
+    limit: int
+    has_next_page: bool = Field(alias="hasNextPage")
+
+
+class InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsVariants(
+    BaseModel
+):
+    total: int
+    page: int
+    limit: int
+    has_next_page: bool = Field(alias="hasNextPage")
+    items: List[
+        Optional[
+            "InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsVariantsItems"
+        ]
+    ]
+
+
+class InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsVariantsItems(
+    BaseModel
+):
+    key: str
+    filename: Optional[str]
+    download_url: Optional[Any] = Field(alias="downloadUrl")
+
+
 class InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsLocation(
     BaseModel
 ):
@@ -341,12 +439,107 @@ class InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsLocationFo
     name: str
 
 
+class InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsPreviewBackgroundColor(
+    BaseModel
+):
+    red: Any
+    green: Any
+    blue: Any
+    alpha: Any
+
+
 class InviteProjectUserInviteProjectUserProjectMediaLibraryLicenses(BaseModel):
     id: str
     title: str
     license: str
     add_by_default: bool = Field(alias="addByDefault")
     require_consensus: bool = Field(alias="requireConsensus")
+
+
+class InviteProjectUserInviteProjectUserProjectMediaLibraryWorkflow(BaseModel):
+    id: str
+    statuses: List[
+        Optional[
+            "InviteProjectUserInviteProjectUserProjectMediaLibraryWorkflowStatuses"
+        ]
+    ]
+
+
+class InviteProjectUserInviteProjectUserProjectMediaLibraryWorkflowStatuses(BaseModel):
+    id: str
+    name: str
+    color: "InviteProjectUserInviteProjectUserProjectMediaLibraryWorkflowStatusesColor"
+    assigned_users: List[
+        Optional[
+            "InviteProjectUserInviteProjectUserProjectMediaLibraryWorkflowStatusesAssignedUsers"
+        ]
+    ] = Field(alias="assignedUsers")
+    checklist_presets: List[
+        Optional[
+            "InviteProjectUserInviteProjectUserProjectMediaLibraryWorkflowStatusesChecklistPresets"
+        ]
+    ] = Field(alias="checklistPresets")
+    tasks: "InviteProjectUserInviteProjectUserProjectMediaLibraryWorkflowStatusesTasks"
+    enter_rules: List[Optional[WorkflowStatusEnterRule]] = Field(alias="enterRules")
+
+
+class InviteProjectUserInviteProjectUserProjectMediaLibraryWorkflowStatusesColor(
+    BaseModel
+):
+    red: Any
+    green: Any
+    blue: Any
+    alpha: Any
+
+
+class InviteProjectUserInviteProjectUserProjectMediaLibraryWorkflowStatusesAssignedUsers(
+    BaseModel
+):
+    typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
+    id: str
+    name: Optional[str]
+
+
+class InviteProjectUserInviteProjectUserProjectMediaLibraryWorkflowStatusesChecklistPresets(
+    BaseModel
+):
+    id: str
+    content: str
+    assigned_user: Optional[
+        "InviteProjectUserInviteProjectUserProjectMediaLibraryWorkflowStatusesChecklistPresetsAssignedUser"
+    ] = Field(alias="assignedUser")
+
+
+class InviteProjectUserInviteProjectUserProjectMediaLibraryWorkflowStatusesChecklistPresetsAssignedUser(
+    BaseModel
+):
+    typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
+    id: str
+    name: Optional[str]
+
+
+class InviteProjectUserInviteProjectUserProjectMediaLibraryWorkflowStatusesTasks(
+    BaseModel
+):
+    total: int
+    page: int
+    limit: int
+    has_next_page: bool = Field(alias="hasNextPage")
+    items: Optional[
+        List[
+            Optional[
+                "InviteProjectUserInviteProjectUserProjectMediaLibraryWorkflowStatusesTasksItems"
+            ]
+        ]
+    ]
+
+
+class InviteProjectUserInviteProjectUserProjectMediaLibraryWorkflowStatusesTasksItems(
+    BaseModel
+):
+    id: str
+    title: Optional[str]
+    description: Optional[str]
 
 
 class InviteProjectUserInviteProjectUserProjectMediaLibraryBrowse(BaseModel):
@@ -435,6 +628,9 @@ class InviteProjectUserInviteProjectUserProjectMediaLibraryCollaboratorsUsers(
             "InviteProjectUserInviteProjectUserProjectMediaLibraryCollaboratorsUsersItems"
         ]
     ]
+    edges: List[
+        "InviteProjectUserInviteProjectUserProjectMediaLibraryCollaboratorsUsersEdges"
+    ]
 
 
 class InviteProjectUserInviteProjectUserProjectMediaLibraryCollaboratorsUsersItems(
@@ -442,9 +638,22 @@ class InviteProjectUserInviteProjectUserProjectMediaLibraryCollaboratorsUsersIte
 ):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
+
+
+class InviteProjectUserInviteProjectUserProjectMediaLibraryCollaboratorsUsersEdges(
+    BaseModel
+):
+    node: "InviteProjectUserInviteProjectUserProjectMediaLibraryCollaboratorsUsersEdgesNode"
+    role: str
+
+
+class InviteProjectUserInviteProjectUserProjectMediaLibraryCollaboratorsUsersEdgesNode(
+    BaseModel
+):
+    typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
+    id: str
+    name: Optional[str]
 
 
 class InviteProjectUserInviteProjectUserProjectMediaLibraryCurrentUserPermissions(
@@ -477,9 +686,7 @@ class InviteProjectUserInviteProjectUserProjectMediaLibraryCustomMetadataPropert
 ):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class InviteProjectUserInviteProjectUserProjectMediaLibraryCustomMetadataPropertiesModifier(
@@ -487,9 +694,7 @@ class InviteProjectUserInviteProjectUserProjectMediaLibraryCustomMetadataPropert
 ):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class InviteProjectUserInviteProjectUserProjectMediaLibraryCustomMetadataPropertiesType(
@@ -527,6 +732,38 @@ class InviteProjectUserInviteProjectUserProjectMediaLibraryCollectionsItems(Base
     name: str
 
 
+class InviteProjectUserInviteProjectUserProjectMediaLibraryAssetSubmissionRequests(
+    BaseModel
+):
+    id: str
+    creator: "InviteProjectUserInviteProjectUserProjectMediaLibraryAssetSubmissionRequestsCreator"
+    created_at: Any = Field(alias="createdAt")
+    modifier: Optional[
+        "InviteProjectUserInviteProjectUserProjectMediaLibraryAssetSubmissionRequestsModifier"
+    ]
+    modified_at: Optional[Any] = Field(alias="modifiedAt")
+    project_id: str = Field(alias="projectId")
+    title: str
+    description: str
+    configuration: Optional[Any]
+
+
+class InviteProjectUserInviteProjectUserProjectMediaLibraryAssetSubmissionRequestsCreator(
+    BaseModel
+):
+    typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
+    id: str
+    name: Optional[str]
+
+
+class InviteProjectUserInviteProjectUserProjectMediaLibraryAssetSubmissionRequestsModifier(
+    BaseModel
+):
+    typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
+    id: str
+    name: Optional[str]
+
+
 class InviteProjectUserInviteProjectUserProjectIconLibrary(BaseModel):
     typename__: Literal["IconLibrary"] = Field(alias="__typename")
     id: str
@@ -553,6 +790,7 @@ class InviteProjectUserInviteProjectUserProjectWorkspace(BaseModel):
     id: str
     name: str
     asset_count: Optional[int] = Field(alias="assetCount")
+    is_archived: bool = Field(alias="isArchived")
 
 
 InviteProjectUser.model_rebuild()
@@ -564,11 +802,19 @@ InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsAttachments.mode
 InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsRelatedAssets.model_rebuild()
 InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsComments.model_rebuild()
 InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsCustomMetadata.model_rebuild()
+InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsWorkflowTask.model_rebuild()
+InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsVariants.model_rebuild()
 InviteProjectUserInviteProjectUserProjectMediaLibraryAssetsItemsLocation.model_rebuild()
+InviteProjectUserInviteProjectUserProjectMediaLibraryWorkflow.model_rebuild()
+InviteProjectUserInviteProjectUserProjectMediaLibraryWorkflowStatuses.model_rebuild()
+InviteProjectUserInviteProjectUserProjectMediaLibraryWorkflowStatusesChecklistPresets.model_rebuild()
+InviteProjectUserInviteProjectUserProjectMediaLibraryWorkflowStatusesTasks.model_rebuild()
 InviteProjectUserInviteProjectUserProjectMediaLibraryBrowse.model_rebuild()
 InviteProjectUserInviteProjectUserProjectMediaLibraryBrowseFolders.model_rebuild()
 InviteProjectUserInviteProjectUserProjectMediaLibraryBrowseFoldersItems.model_rebuild()
 InviteProjectUserInviteProjectUserProjectMediaLibraryCollaborators.model_rebuild()
 InviteProjectUserInviteProjectUserProjectMediaLibraryCollaboratorsUsers.model_rebuild()
+InviteProjectUserInviteProjectUserProjectMediaLibraryCollaboratorsUsersEdges.model_rebuild()
 InviteProjectUserInviteProjectUserProjectMediaLibraryCustomMetadataProperties.model_rebuild()
 InviteProjectUserInviteProjectUserProjectMediaLibraryCollections.model_rebuild()
+InviteProjectUserInviteProjectUserProjectMediaLibraryAssetSubmissionRequests.model_rebuild()

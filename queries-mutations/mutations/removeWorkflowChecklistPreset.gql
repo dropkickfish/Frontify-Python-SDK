@@ -1,0 +1,12 @@
+mutation removeWorkflowChecklistPreset($input: RemoveWorkflowChecklistPresetInput!){
+    removeWorkflowChecklistPreset(input: $input){
+        checklistPreset{
+            id
+            content
+            assignedUser{
+                id
+                name
+            }
+        }
+    }
+}

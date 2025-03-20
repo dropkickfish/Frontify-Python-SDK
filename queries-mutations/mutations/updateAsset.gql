@@ -1,19 +1,15 @@
-mutation updateAsset($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $permanent1: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $query1: AssetCommentQueryInput, $input: UpdateAssetInput!){
+mutation updateAsset($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $permanent1: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $limit5: Int, $page5: Int, $query1: AssetCommentQueryInput, $limit6: Int, $page6: Int, $limit7: Int, $page7: Int, $limit8: Int, $page8: Int, $input: UpdateAssetInput!){
     updateAsset(input: $input){
         asset{
             id
             creator{
                 id
-                email
                 name
-                avatar
             }
             createdAt
             modifier{
                 id
-                email
                 name
-                avatar
             }
             modifiedAt
             title
@@ -22,16 +18,12 @@ mutation updateAsset($validityInDays: Int, $permanent: Boolean, $validityInDays1
                 id
                 creator{
                     id
-                    email
                     name
-                    avatar
                 }
                 createdAt
                 modifier{
                     id
-                    email
                     name
-                    avatar
                 }
                 modifiedAt
                 name
@@ -51,6 +43,10 @@ mutation updateAsset($validityInDays: Int, $permanent: Boolean, $validityInDays1
                 status
                 notice
             }
+            availability{
+                from
+                to
+            }
             expiresAt
             licenses{
                 id
@@ -60,7 +56,7 @@ mutation updateAsset($validityInDays: Int, $permanent: Boolean, $validityInDays1
                 requireConsensus
             }
             status
-            relatedAssets(limit: $limit2, page: $page2){
+            relatedAssets(limit: $limit3, page: $page3){
                 total
                 page
                 limit
@@ -69,16 +65,12 @@ mutation updateAsset($validityInDays: Int, $permanent: Boolean, $validityInDays1
                     id
                     creator{
                         id
-                        email
                         name
-                        avatar
                     }
                     createdAt
                     modifier{
                         id
-                        email
                         name
-                        avatar
                     }
                     modifiedAt
                     title
@@ -103,6 +95,10 @@ mutation updateAsset($validityInDays: Int, $permanent: Boolean, $validityInDays1
                     copyright{
                         status
                         notice
+                    }
+                    availability{
+                        from
+                        to
                     }
                     expiresAt
                     licenses{
@@ -131,9 +127,26 @@ mutation updateAsset($validityInDays: Int, $permanent: Boolean, $validityInDays1
                         canDownload
                         canComment
                     }
+                    workflowTask{
+                        id
+                        title
+                        description
+                    }
+                    variants(limit: $limit2, page: $page2){
+                        total
+                        page
+                        limit
+                        hasNextPage
+                    }
+                    previewBackgroundColor{
+                        red
+                        green
+                        blue
+                        alpha
+                    }
                 }
             }
-            comments(limit: $limit4, page: $page4, query: $query1){
+            comments(limit: $limit5, page: $page5, query: $query1){
                 total
                 page
                 limit
@@ -145,12 +158,10 @@ mutation updateAsset($validityInDays: Int, $permanent: Boolean, $validityInDays1
                     content
                     mentionedUsers{
                         id
-                        email
                         name
-                        avatar
                     }
                     isResolved
-                    replies(limit: $limit3, page: $page3){
+                    replies(limit: $limit4, page: $page4){
                         total
                         page
                         limit
@@ -169,16 +180,12 @@ mutation updateAsset($validityInDays: Int, $permanent: Boolean, $validityInDays1
                     id
                     creator{
                         id
-                        email
                         name
-                        avatar
                     }
                     createdAt
                     modifier{
                         id
-                        email
                         name
-                        avatar
                     }
                     modifiedAt
                     name
@@ -190,25 +197,69 @@ mutation updateAsset($validityInDays: Int, $permanent: Boolean, $validityInDays1
                     defaultValue
                 }
             }
-            location{
-                brand{
+            workflowTask{
+                id
+                assignedUsers{
                     id
                     name
                 }
-                library{
+                asset{
                     id
-                    name
+                    createdAt
+                    modifiedAt
+                    title
+                    description
+                    externalId
+                    expiresAt
+                    status
+                    variants(limit: $limit6, page: $page6){
+                        total
+                        page
+                        limit
+                        hasNextPage
+                    }
+                    previewBackgroundColor{
+                        red
+                        green
+                        blue
+                        alpha
+                    }
                 }
-                workspaceProject{
+                title
+                description
+                status{
                     id
                     name
-                }
-                folder{
-                    id
-                    name
-                    breadcrumbs{
+                    color{
+                        red
+                        green
+                        blue
+                        alpha
+                    }
+                    assignedUsers{
                         id
                         name
+                    }
+                    checklistPresets{
+                        id
+                        content
+                    }
+                    tasks(limit: $limit7, page: $page7){
+                        total
+                        page
+                        limit
+                        hasNextPage
+                    }
+                    enterRules
+                }
+                checklistItem(limit: $limit8, page: $page8){
+                    total
+                    page
+                    limit
+                    hasNextPage
+                    items{
+                        id
+                        content
                     }
                 }
             }

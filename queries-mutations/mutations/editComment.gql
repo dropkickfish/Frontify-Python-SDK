@@ -4,16 +4,12 @@ mutation editComment($input: EditCommentInput!){
             id
             creator{
                 id
-                email
                 name
-                avatar
             }
             createdAt
             modifier{
                 id
-                email
                 name
-                avatar
             }
             modifiedAt
             content

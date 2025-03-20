@@ -6,7 +6,7 @@ from typing import Any, List, Literal, Optional
 from pydantic import Field
 
 from .base_model import BaseModel
-from .enums import AssetStatusType, CopyrightStatus, TagSource
+from .enums import AssetStatusType, CopyrightStatus, TagSource, WorkflowStatusEnterRule
 
 
 class UpdateAsset(BaseModel):
@@ -32,6 +32,7 @@ class UpdateAssetUpdateAssetAsset(BaseModel):
     external_id: Optional[str] = Field(alias="externalId")
     tags: Optional[List[Optional["UpdateAssetUpdateAssetAssetTags"]]]
     copyright: Optional["UpdateAssetUpdateAssetAssetCopyright"]
+    availability: "UpdateAssetUpdateAssetAssetAvailability"
     expires_at: Optional[Any] = Field(alias="expiresAt")
     licenses: Optional[List[Optional["UpdateAssetUpdateAssetAssetLicenses"]]]
     status: AssetStatusType
@@ -45,23 +46,21 @@ class UpdateAssetUpdateAssetAsset(BaseModel):
     custom_metadata: List["UpdateAssetUpdateAssetAssetCustomMetadata"] = Field(
         alias="customMetadata"
     )
-    location: "UpdateAssetUpdateAssetAssetLocation"
+    workflow_task: Optional["UpdateAssetUpdateAssetAssetWorkflowTask"] = Field(
+        alias="workflowTask"
+    )
 
 
 class UpdateAssetUpdateAssetAssetCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class UpdateAssetUpdateAssetAssetModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class UpdateAssetUpdateAssetAssetAttachments(BaseModel):
@@ -82,17 +81,13 @@ class UpdateAssetUpdateAssetAssetAttachments(BaseModel):
 class UpdateAssetUpdateAssetAssetAttachmentsCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class UpdateAssetUpdateAssetAssetAttachmentsModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class UpdateAssetUpdateAssetAssetTags(BaseModel):
@@ -103,6 +98,11 @@ class UpdateAssetUpdateAssetAssetTags(BaseModel):
 class UpdateAssetUpdateAssetAssetCopyright(BaseModel):
     status: CopyrightStatus
     notice: Optional[str]
+
+
+class UpdateAssetUpdateAssetAssetAvailability(BaseModel):
+    from_: Optional[Any] = Field(alias="from")
+    to: Optional[Any]
 
 
 class UpdateAssetUpdateAssetAssetLicenses(BaseModel):
@@ -138,6 +138,7 @@ class UpdateAssetUpdateAssetAssetRelatedAssetsItems(BaseModel):
     external_id: Optional[str] = Field(alias="externalId")
     tags: Optional[List[Optional["UpdateAssetUpdateAssetAssetRelatedAssetsItemsTags"]]]
     copyright: Optional["UpdateAssetUpdateAssetAssetRelatedAssetsItemsCopyright"]
+    availability: "UpdateAssetUpdateAssetAssetRelatedAssetsItemsAvailability"
     expires_at: Optional[Any] = Field(alias="expiresAt")
     licenses: Optional[
         List[Optional["UpdateAssetUpdateAssetAssetRelatedAssetsItemsLicenses"]]
@@ -150,22 +151,25 @@ class UpdateAssetUpdateAssetAssetRelatedAssetsItems(BaseModel):
     current_user_permissions: (
         "UpdateAssetUpdateAssetAssetRelatedAssetsItemsCurrentUserPermissions"
     ) = Field(alias="currentUserPermissions")
+    workflow_task: Optional[
+        "UpdateAssetUpdateAssetAssetRelatedAssetsItemsWorkflowTask"
+    ] = Field(alias="workflowTask")
+    variants: Optional["UpdateAssetUpdateAssetAssetRelatedAssetsItemsVariants"]
+    preview_background_color: Optional[
+        "UpdateAssetUpdateAssetAssetRelatedAssetsItemsPreviewBackgroundColor"
+    ] = Field(alias="previewBackgroundColor")
 
 
 class UpdateAssetUpdateAssetAssetRelatedAssetsItemsCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class UpdateAssetUpdateAssetAssetRelatedAssetsItemsModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class UpdateAssetUpdateAssetAssetRelatedAssetsItemsAttachments(BaseModel):
@@ -189,6 +193,11 @@ class UpdateAssetUpdateAssetAssetRelatedAssetsItemsTags(BaseModel):
 class UpdateAssetUpdateAssetAssetRelatedAssetsItemsCopyright(BaseModel):
     status: CopyrightStatus
     notice: Optional[str]
+
+
+class UpdateAssetUpdateAssetAssetRelatedAssetsItemsAvailability(BaseModel):
+    from_: Optional[Any] = Field(alias="from")
+    to: Optional[Any]
 
 
 class UpdateAssetUpdateAssetAssetRelatedAssetsItemsLicenses(BaseModel):
@@ -220,6 +229,26 @@ class UpdateAssetUpdateAssetAssetRelatedAssetsItemsCurrentUserPermissions(BaseMo
     can_comment: bool = Field(alias="canComment")
 
 
+class UpdateAssetUpdateAssetAssetRelatedAssetsItemsWorkflowTask(BaseModel):
+    id: str
+    title: Optional[str]
+    description: Optional[str]
+
+
+class UpdateAssetUpdateAssetAssetRelatedAssetsItemsVariants(BaseModel):
+    total: int
+    page: int
+    limit: int
+    has_next_page: bool = Field(alias="hasNextPage")
+
+
+class UpdateAssetUpdateAssetAssetRelatedAssetsItemsPreviewBackgroundColor(BaseModel):
+    red: Any
+    green: Any
+    blue: Any
+    alpha: Any
+
+
 class UpdateAssetUpdateAssetAssetComments(BaseModel):
     total: int
     page: int
@@ -243,9 +272,7 @@ class UpdateAssetUpdateAssetAssetCommentsItems(BaseModel):
 class UpdateAssetUpdateAssetAssetCommentsItemsMentionedUsers(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class UpdateAssetUpdateAssetAssetCommentsItemsReplies(BaseModel):
@@ -285,17 +312,13 @@ class UpdateAssetUpdateAssetAssetCustomMetadataProperty(BaseModel):
 class UpdateAssetUpdateAssetAssetCustomMetadataPropertyCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class UpdateAssetUpdateAssetAssetCustomMetadataPropertyModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class UpdateAssetUpdateAssetAssetCustomMetadataPropertyType(BaseModel):
@@ -312,39 +335,110 @@ class UpdateAssetUpdateAssetAssetCustomMetadataPropertyType(BaseModel):
     name: str
 
 
-class UpdateAssetUpdateAssetAssetLocation(BaseModel):
-    brand: Optional["UpdateAssetUpdateAssetAssetLocationBrand"]
-    library: Optional["UpdateAssetUpdateAssetAssetLocationLibrary"]
-    workspace_project: Optional[
-        "UpdateAssetUpdateAssetAssetLocationWorkspaceProject"
-    ] = Field(alias="workspaceProject")
-    folder: Optional["UpdateAssetUpdateAssetAssetLocationFolder"]
+class UpdateAssetUpdateAssetAssetWorkflowTask(BaseModel):
+    id: str
+    assigned_users: List[
+        Optional["UpdateAssetUpdateAssetAssetWorkflowTaskAssignedUsers"]
+    ] = Field(alias="assignedUsers")
+    asset: Optional["UpdateAssetUpdateAssetAssetWorkflowTaskAsset"]
+    title: Optional[str]
+    description: Optional[str]
+    status: "UpdateAssetUpdateAssetAssetWorkflowTaskStatus"
+    checklist_item: "UpdateAssetUpdateAssetAssetWorkflowTaskChecklistItem" = Field(
+        alias="checklistItem"
+    )
 
 
-class UpdateAssetUpdateAssetAssetLocationBrand(BaseModel):
+class UpdateAssetUpdateAssetAssetWorkflowTaskAssignedUsers(BaseModel):
+    typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
+    id: str
+    name: Optional[str]
+
+
+class UpdateAssetUpdateAssetAssetWorkflowTaskAsset(BaseModel):
+    typename__: Literal[
+        "Asset", "Audio", "Document", "EmbeddedContent", "File", "Image", "Video"
+    ] = Field(alias="__typename")
+    id: str
+    created_at: Any = Field(alias="createdAt")
+    modified_at: Optional[Any] = Field(alias="modifiedAt")
+    title: str
+    description: Optional[str]
+    external_id: Optional[str] = Field(alias="externalId")
+    expires_at: Optional[Any] = Field(alias="expiresAt")
+    status: AssetStatusType
+    variants: Optional["UpdateAssetUpdateAssetAssetWorkflowTaskAssetVariants"]
+    preview_background_color: Optional[
+        "UpdateAssetUpdateAssetAssetWorkflowTaskAssetPreviewBackgroundColor"
+    ] = Field(alias="previewBackgroundColor")
+
+
+class UpdateAssetUpdateAssetAssetWorkflowTaskAssetVariants(BaseModel):
+    total: int
+    page: int
+    limit: int
+    has_next_page: bool = Field(alias="hasNextPage")
+
+
+class UpdateAssetUpdateAssetAssetWorkflowTaskAssetPreviewBackgroundColor(BaseModel):
+    red: Any
+    green: Any
+    blue: Any
+    alpha: Any
+
+
+class UpdateAssetUpdateAssetAssetWorkflowTaskStatus(BaseModel):
     id: str
     name: str
+    color: "UpdateAssetUpdateAssetAssetWorkflowTaskStatusColor"
+    assigned_users: List[
+        Optional["UpdateAssetUpdateAssetAssetWorkflowTaskStatusAssignedUsers"]
+    ] = Field(alias="assignedUsers")
+    checklist_presets: List[
+        Optional["UpdateAssetUpdateAssetAssetWorkflowTaskStatusChecklistPresets"]
+    ] = Field(alias="checklistPresets")
+    tasks: "UpdateAssetUpdateAssetAssetWorkflowTaskStatusTasks"
+    enter_rules: List[Optional[WorkflowStatusEnterRule]] = Field(alias="enterRules")
 
 
-class UpdateAssetUpdateAssetAssetLocationLibrary(BaseModel):
+class UpdateAssetUpdateAssetAssetWorkflowTaskStatusColor(BaseModel):
+    red: Any
+    green: Any
+    blue: Any
+    alpha: Any
+
+
+class UpdateAssetUpdateAssetAssetWorkflowTaskStatusAssignedUsers(BaseModel):
+    typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
     name: Optional[str]
 
 
-class UpdateAssetUpdateAssetAssetLocationWorkspaceProject(BaseModel):
+class UpdateAssetUpdateAssetAssetWorkflowTaskStatusChecklistPresets(BaseModel):
     id: str
-    name: Optional[str]
+    content: str
 
 
-class UpdateAssetUpdateAssetAssetLocationFolder(BaseModel):
+class UpdateAssetUpdateAssetAssetWorkflowTaskStatusTasks(BaseModel):
+    total: int
+    page: int
+    limit: int
+    has_next_page: bool = Field(alias="hasNextPage")
+
+
+class UpdateAssetUpdateAssetAssetWorkflowTaskChecklistItem(BaseModel):
+    total: int
+    page: int
+    limit: int
+    has_next_page: bool = Field(alias="hasNextPage")
+    items: Optional[
+        List[Optional["UpdateAssetUpdateAssetAssetWorkflowTaskChecklistItemItems"]]
+    ]
+
+
+class UpdateAssetUpdateAssetAssetWorkflowTaskChecklistItemItems(BaseModel):
     id: str
-    name: str
-    breadcrumbs: List["UpdateAssetUpdateAssetAssetLocationFolderBreadcrumbs"]
-
-
-class UpdateAssetUpdateAssetAssetLocationFolderBreadcrumbs(BaseModel):
-    id: Optional[str]
-    name: Optional[str]
+    content: str
 
 
 UpdateAsset.model_rebuild()
@@ -357,5 +451,7 @@ UpdateAssetUpdateAssetAssetComments.model_rebuild()
 UpdateAssetUpdateAssetAssetCommentsItems.model_rebuild()
 UpdateAssetUpdateAssetAssetCustomMetadata.model_rebuild()
 UpdateAssetUpdateAssetAssetCustomMetadataProperty.model_rebuild()
-UpdateAssetUpdateAssetAssetLocation.model_rebuild()
-UpdateAssetUpdateAssetAssetLocationFolder.model_rebuild()
+UpdateAssetUpdateAssetAssetWorkflowTask.model_rebuild()
+UpdateAssetUpdateAssetAssetWorkflowTaskAsset.model_rebuild()
+UpdateAssetUpdateAssetAssetWorkflowTaskStatus.model_rebuild()
+UpdateAssetUpdateAssetAssetWorkflowTaskChecklistItem.model_rebuild()

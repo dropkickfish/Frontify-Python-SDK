@@ -1,4 +1,4 @@
-mutation createWorkspaceProject($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $query1: AssetQueryInput, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $limit5: Int, $page5: Int, $input: CreateWorkspaceProjectInput!){
+mutation createWorkspaceProject($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $query1: AssetQueryInput, $limit4: Int, $page4: Int, $limit5: Int, $page5: Int, $limit6: Int, $page6: Int, $query2: FolderAssetQueryInput, $limit7: Int, $page7: Int, $input: CreateWorkspaceProjectInput!){
     createWorkspaceProject(input: $input){
         project{
             id
@@ -9,7 +9,7 @@ mutation createWorkspaceProject($validityInDays: Int, $permanent: Boolean, $limi
                 blue
                 alpha
             }
-            assets(limit: $limit2, page: $page2, query: $query1){
+            assets(limit: $limit3, page: $page3, query: $query1){
                 total
                 page
                 limit
@@ -18,16 +18,12 @@ mutation createWorkspaceProject($validityInDays: Int, $permanent: Boolean, $limi
                     id
                     creator{
                         id
-                        email
                         name
-                        avatar
                     }
                     createdAt
                     modifier{
                         id
-                        email
                         name
-                        avatar
                     }
                     modifiedAt
                     title
@@ -52,6 +48,10 @@ mutation createWorkspaceProject($validityInDays: Int, $permanent: Boolean, $limi
                     copyright{
                         status
                         notice
+                    }
+                    availability{
+                        from
+                        to
                     }
                     expiresAt
                     licenses{
@@ -80,6 +80,23 @@ mutation createWorkspaceProject($validityInDays: Int, $permanent: Boolean, $limi
                         canDownload
                         canComment
                     }
+                    workflowTask{
+                        id
+                        title
+                        description
+                    }
+                    variants(limit: $limit2, page: $page2){
+                        total
+                        page
+                        limit
+                        hasNextPage
+                    }
+                    previewBackgroundColor{
+                        red
+                        green
+                        blue
+                        alpha
+                    }
                 }
             }
             licenses{
@@ -89,8 +106,36 @@ mutation createWorkspaceProject($validityInDays: Int, $permanent: Boolean, $limi
                 addByDefault
                 requireConsensus
             }
+            workflow{
+                id
+                statuses{
+                    id
+                    name
+                    color{
+                        red
+                        green
+                        blue
+                        alpha
+                    }
+                    assignedUsers{
+                        id
+                        name
+                    }
+                    checklistPresets{
+                        id
+                        content
+                    }
+                    tasks(limit: $limit4, page: $page4){
+                        total
+                        page
+                        limit
+                        hasNextPage
+                    }
+                    enterRules
+                }
+            }
             browse{
-                folders(limit: $limit3, page: $page3){
+                folders(limit: $limit5, page: $page5){
                     total
                     page
                     limit
@@ -102,7 +147,7 @@ mutation createWorkspaceProject($validityInDays: Int, $permanent: Boolean, $limi
                         modifiedAt
                     }
                 }
-                assets(limit: $limit4, page: $page4){
+                assets(limit: $limit6, page: $page6, query: $query2){
                     total
                     page
                     limit
@@ -110,16 +155,17 @@ mutation createWorkspaceProject($validityInDays: Int, $permanent: Boolean, $limi
                 }
             }
             collaborators{
-                users(limit: $limit5, page: $page5){
+                users(limit: $limit7, page: $page7){
                     total
                     page
                     limit
                     hasNextPage
                     items{
                         id
-                        email
                         name
-                        avatar
+                    }
+                    edges{
+                        role
                     }
                 }
             }
@@ -127,21 +173,18 @@ mutation createWorkspaceProject($validityInDays: Int, $permanent: Boolean, $limi
                 canCreateAssets
                 canViewCollaborators
             }
+            isArchived
             customMetadata{
                 property{
                     id
                     creator{
                         id
-                        email
                         name
-                        avatar
                     }
                     createdAt
                     modifier{
                         id
-                        email
                         name
-                        avatar
                     }
                     modifiedAt
                     name

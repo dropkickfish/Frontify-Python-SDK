@@ -1,0 +1,63 @@
+mutation createWorkflowStatus($limit: Int, $page: Int, $limit1: Int, $page1: Int, $input: CreateWorkflowStatusInput!){
+    createWorkflowStatus(input: $input){
+        workflowStatus{
+            id
+            name
+            color{
+                red
+                green
+                blue
+                alpha
+            }
+            assignedUsers{
+                id
+                name
+            }
+            checklistPresets{
+                id
+                content
+                assignedUser{
+                    id
+                    name
+                }
+            }
+            tasks(limit: $limit1, page: $page1){
+                total
+                page
+                limit
+                hasNextPage
+                items{
+                    id
+                    assignedUsers{
+                        id
+                        name
+                    }
+                    asset{
+                        id
+                        createdAt
+                        modifiedAt
+                        title
+                        description
+                        externalId
+                        expiresAt
+                        status
+                    }
+                    title
+                    description
+                    status{
+                        id
+                        name
+                        enterRules
+                    }
+                    checklistItem(limit: $limit, page: $page){
+                        total
+                        page
+                        limit
+                        hasNextPage
+                    }
+                }
+            }
+            enterRules
+        }
+    }
+}

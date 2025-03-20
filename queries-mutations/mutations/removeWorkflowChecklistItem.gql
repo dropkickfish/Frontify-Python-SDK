@@ -1,0 +1,12 @@
+mutation removeWorkflowChecklistItem($input: RemoveWorkflowChecklistItemInput!){
+    removeWorkflowChecklistItem(input: $input){
+        checklistItem{
+            id
+            content
+            assignedUser{
+                id
+                name
+            }
+        }
+    }
+}

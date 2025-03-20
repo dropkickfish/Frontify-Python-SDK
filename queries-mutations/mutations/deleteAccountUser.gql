@@ -1,0 +1,5 @@
+mutation deleteAccountUser($input: DeleteAccountUserInput!){
+    deleteAccountUser(input: $input){
+        id
+    }
+}

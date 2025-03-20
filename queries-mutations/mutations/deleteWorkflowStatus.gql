@@ -1,0 +1,5 @@
+mutation deleteWorkflowStatus($input: DeleteWorkflowStatusInput!){
+    deleteWorkflowStatus(input: $input){
+        id
+    }
+}

@@ -4,16 +4,12 @@ mutation addCustomMetadataPropertyOptions($input: AddCustomMetadataPropertyOptio
             id
             creator{
                 id
-                email
                 name
-                avatar
             }
             createdAt
             modifier{
                 id
-                email
                 name
-                avatar
             }
             modifiedAt
             name

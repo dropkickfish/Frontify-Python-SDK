@@ -33,25 +33,19 @@ class ReplyToCommentReplyToCommentReply(BaseModel):
 class ReplyToCommentReplyToCommentReplyCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class ReplyToCommentReplyToCommentReplyModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class ReplyToCommentReplyToCommentReplyMentionedUsers(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 ReplyToComment.model_rebuild()

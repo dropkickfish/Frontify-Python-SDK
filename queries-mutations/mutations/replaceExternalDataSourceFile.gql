@@ -1,0 +1,5 @@
+mutation replaceExternalDataSourceFile($input: ReplaceExternalDataSourceFileInput!){
+    replaceExternalDataSourceFile(input: $input){
+        externalDataSourceId
+    }
+}

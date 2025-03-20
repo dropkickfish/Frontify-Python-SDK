@@ -1,0 +1,12 @@
+mutation updateWorkflowChecklistItem($input: UpdateWorkflowChecklistItemInput!){
+    updateWorkflowChecklistItem(input: $input){
+        checklistItem{
+            id
+            content
+            assignedUser{
+                id
+                name
+            }
+        }
+    }
+}

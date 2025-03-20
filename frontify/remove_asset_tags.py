@@ -6,7 +6,7 @@ from typing import Any, List, Literal, Optional
 from pydantic import Field
 
 from .base_model import BaseModel
-from .enums import AssetStatusType, CopyrightStatus, TagSource
+from .enums import AssetStatusType, CopyrightStatus, TagSource, WorkflowStatusEnterRule
 
 
 class RemoveAssetTags(BaseModel):
@@ -36,6 +36,7 @@ class RemoveAssetTagsRemoveAssetTagsAsset(BaseModel):
     external_id: Optional[str] = Field(alias="externalId")
     tags: Optional[List[Optional["RemoveAssetTagsRemoveAssetTagsAssetTags"]]]
     copyright: Optional["RemoveAssetTagsRemoveAssetTagsAssetCopyright"]
+    availability: "RemoveAssetTagsRemoveAssetTagsAssetAvailability"
     expires_at: Optional[Any] = Field(alias="expiresAt")
     licenses: Optional[List[Optional["RemoveAssetTagsRemoveAssetTagsAssetLicenses"]]]
     status: AssetStatusType
@@ -49,23 +50,21 @@ class RemoveAssetTagsRemoveAssetTagsAsset(BaseModel):
     custom_metadata: List["RemoveAssetTagsRemoveAssetTagsAssetCustomMetadata"] = Field(
         alias="customMetadata"
     )
-    location: "RemoveAssetTagsRemoveAssetTagsAssetLocation"
+    workflow_task: Optional["RemoveAssetTagsRemoveAssetTagsAssetWorkflowTask"] = Field(
+        alias="workflowTask"
+    )
 
 
 class RemoveAssetTagsRemoveAssetTagsAssetCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class RemoveAssetTagsRemoveAssetTagsAssetModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class RemoveAssetTagsRemoveAssetTagsAssetAttachments(BaseModel):
@@ -86,17 +85,13 @@ class RemoveAssetTagsRemoveAssetTagsAssetAttachments(BaseModel):
 class RemoveAssetTagsRemoveAssetTagsAssetAttachmentsCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class RemoveAssetTagsRemoveAssetTagsAssetAttachmentsModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class RemoveAssetTagsRemoveAssetTagsAssetTags(BaseModel):
@@ -107,6 +102,11 @@ class RemoveAssetTagsRemoveAssetTagsAssetTags(BaseModel):
 class RemoveAssetTagsRemoveAssetTagsAssetCopyright(BaseModel):
     status: CopyrightStatus
     notice: Optional[str]
+
+
+class RemoveAssetTagsRemoveAssetTagsAssetAvailability(BaseModel):
+    from_: Optional[Any] = Field(alias="from")
+    to: Optional[Any]
 
 
 class RemoveAssetTagsRemoveAssetTagsAssetLicenses(BaseModel):
@@ -150,6 +150,7 @@ class RemoveAssetTagsRemoveAssetTagsAssetRelatedAssetsItems(BaseModel):
     copyright: Optional[
         "RemoveAssetTagsRemoveAssetTagsAssetRelatedAssetsItemsCopyright"
     ]
+    availability: "RemoveAssetTagsRemoveAssetTagsAssetRelatedAssetsItemsAvailability"
     expires_at: Optional[Any] = Field(alias="expiresAt")
     licenses: Optional[
         List[Optional["RemoveAssetTagsRemoveAssetTagsAssetRelatedAssetsItemsLicenses"]]
@@ -162,22 +163,25 @@ class RemoveAssetTagsRemoveAssetTagsAssetRelatedAssetsItems(BaseModel):
     current_user_permissions: (
         "RemoveAssetTagsRemoveAssetTagsAssetRelatedAssetsItemsCurrentUserPermissions"
     ) = Field(alias="currentUserPermissions")
+    workflow_task: Optional[
+        "RemoveAssetTagsRemoveAssetTagsAssetRelatedAssetsItemsWorkflowTask"
+    ] = Field(alias="workflowTask")
+    variants: Optional["RemoveAssetTagsRemoveAssetTagsAssetRelatedAssetsItemsVariants"]
+    preview_background_color: Optional[
+        "RemoveAssetTagsRemoveAssetTagsAssetRelatedAssetsItemsPreviewBackgroundColor"
+    ] = Field(alias="previewBackgroundColor")
 
 
 class RemoveAssetTagsRemoveAssetTagsAssetRelatedAssetsItemsCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class RemoveAssetTagsRemoveAssetTagsAssetRelatedAssetsItemsModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class RemoveAssetTagsRemoveAssetTagsAssetRelatedAssetsItemsAttachments(BaseModel):
@@ -201,6 +205,11 @@ class RemoveAssetTagsRemoveAssetTagsAssetRelatedAssetsItemsTags(BaseModel):
 class RemoveAssetTagsRemoveAssetTagsAssetRelatedAssetsItemsCopyright(BaseModel):
     status: CopyrightStatus
     notice: Optional[str]
+
+
+class RemoveAssetTagsRemoveAssetTagsAssetRelatedAssetsItemsAvailability(BaseModel):
+    from_: Optional[Any] = Field(alias="from")
+    to: Optional[Any]
 
 
 class RemoveAssetTagsRemoveAssetTagsAssetRelatedAssetsItemsLicenses(BaseModel):
@@ -234,6 +243,28 @@ class RemoveAssetTagsRemoveAssetTagsAssetRelatedAssetsItemsCurrentUserPermission
     can_comment: bool = Field(alias="canComment")
 
 
+class RemoveAssetTagsRemoveAssetTagsAssetRelatedAssetsItemsWorkflowTask(BaseModel):
+    id: str
+    title: Optional[str]
+    description: Optional[str]
+
+
+class RemoveAssetTagsRemoveAssetTagsAssetRelatedAssetsItemsVariants(BaseModel):
+    total: int
+    page: int
+    limit: int
+    has_next_page: bool = Field(alias="hasNextPage")
+
+
+class RemoveAssetTagsRemoveAssetTagsAssetRelatedAssetsItemsPreviewBackgroundColor(
+    BaseModel
+):
+    red: Any
+    green: Any
+    blue: Any
+    alpha: Any
+
+
 class RemoveAssetTagsRemoveAssetTagsAssetComments(BaseModel):
     total: int
     page: int
@@ -257,9 +288,7 @@ class RemoveAssetTagsRemoveAssetTagsAssetCommentsItems(BaseModel):
 class RemoveAssetTagsRemoveAssetTagsAssetCommentsItemsMentionedUsers(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class RemoveAssetTagsRemoveAssetTagsAssetCommentsItemsReplies(BaseModel):
@@ -301,17 +330,13 @@ class RemoveAssetTagsRemoveAssetTagsAssetCustomMetadataProperty(BaseModel):
 class RemoveAssetTagsRemoveAssetTagsAssetCustomMetadataPropertyCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class RemoveAssetTagsRemoveAssetTagsAssetCustomMetadataPropertyModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class RemoveAssetTagsRemoveAssetTagsAssetCustomMetadataPropertyType(BaseModel):
@@ -328,39 +353,118 @@ class RemoveAssetTagsRemoveAssetTagsAssetCustomMetadataPropertyType(BaseModel):
     name: str
 
 
-class RemoveAssetTagsRemoveAssetTagsAssetLocation(BaseModel):
-    brand: Optional["RemoveAssetTagsRemoveAssetTagsAssetLocationBrand"]
-    library: Optional["RemoveAssetTagsRemoveAssetTagsAssetLocationLibrary"]
-    workspace_project: Optional[
-        "RemoveAssetTagsRemoveAssetTagsAssetLocationWorkspaceProject"
-    ] = Field(alias="workspaceProject")
-    folder: Optional["RemoveAssetTagsRemoveAssetTagsAssetLocationFolder"]
+class RemoveAssetTagsRemoveAssetTagsAssetWorkflowTask(BaseModel):
+    id: str
+    assigned_users: List[
+        Optional["RemoveAssetTagsRemoveAssetTagsAssetWorkflowTaskAssignedUsers"]
+    ] = Field(alias="assignedUsers")
+    asset: Optional["RemoveAssetTagsRemoveAssetTagsAssetWorkflowTaskAsset"]
+    title: Optional[str]
+    description: Optional[str]
+    status: "RemoveAssetTagsRemoveAssetTagsAssetWorkflowTaskStatus"
+    checklist_item: "RemoveAssetTagsRemoveAssetTagsAssetWorkflowTaskChecklistItem" = (
+        Field(alias="checklistItem")
+    )
 
 
-class RemoveAssetTagsRemoveAssetTagsAssetLocationBrand(BaseModel):
+class RemoveAssetTagsRemoveAssetTagsAssetWorkflowTaskAssignedUsers(BaseModel):
+    typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
+    id: str
+    name: Optional[str]
+
+
+class RemoveAssetTagsRemoveAssetTagsAssetWorkflowTaskAsset(BaseModel):
+    typename__: Literal[
+        "Asset", "Audio", "Document", "EmbeddedContent", "File", "Image", "Video"
+    ] = Field(alias="__typename")
+    id: str
+    created_at: Any = Field(alias="createdAt")
+    modified_at: Optional[Any] = Field(alias="modifiedAt")
+    title: str
+    description: Optional[str]
+    external_id: Optional[str] = Field(alias="externalId")
+    expires_at: Optional[Any] = Field(alias="expiresAt")
+    status: AssetStatusType
+    variants: Optional["RemoveAssetTagsRemoveAssetTagsAssetWorkflowTaskAssetVariants"]
+    preview_background_color: Optional[
+        "RemoveAssetTagsRemoveAssetTagsAssetWorkflowTaskAssetPreviewBackgroundColor"
+    ] = Field(alias="previewBackgroundColor")
+
+
+class RemoveAssetTagsRemoveAssetTagsAssetWorkflowTaskAssetVariants(BaseModel):
+    total: int
+    page: int
+    limit: int
+    has_next_page: bool = Field(alias="hasNextPage")
+
+
+class RemoveAssetTagsRemoveAssetTagsAssetWorkflowTaskAssetPreviewBackgroundColor(
+    BaseModel
+):
+    red: Any
+    green: Any
+    blue: Any
+    alpha: Any
+
+
+class RemoveAssetTagsRemoveAssetTagsAssetWorkflowTaskStatus(BaseModel):
     id: str
     name: str
+    color: "RemoveAssetTagsRemoveAssetTagsAssetWorkflowTaskStatusColor"
+    assigned_users: List[
+        Optional["RemoveAssetTagsRemoveAssetTagsAssetWorkflowTaskStatusAssignedUsers"]
+    ] = Field(alias="assignedUsers")
+    checklist_presets: List[
+        Optional[
+            "RemoveAssetTagsRemoveAssetTagsAssetWorkflowTaskStatusChecklistPresets"
+        ]
+    ] = Field(alias="checklistPresets")
+    tasks: "RemoveAssetTagsRemoveAssetTagsAssetWorkflowTaskStatusTasks"
+    enter_rules: List[Optional[WorkflowStatusEnterRule]] = Field(alias="enterRules")
 
 
-class RemoveAssetTagsRemoveAssetTagsAssetLocationLibrary(BaseModel):
+class RemoveAssetTagsRemoveAssetTagsAssetWorkflowTaskStatusColor(BaseModel):
+    red: Any
+    green: Any
+    blue: Any
+    alpha: Any
+
+
+class RemoveAssetTagsRemoveAssetTagsAssetWorkflowTaskStatusAssignedUsers(BaseModel):
+    typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
     name: Optional[str]
 
 
-class RemoveAssetTagsRemoveAssetTagsAssetLocationWorkspaceProject(BaseModel):
+class RemoveAssetTagsRemoveAssetTagsAssetWorkflowTaskStatusChecklistPresets(BaseModel):
     id: str
-    name: Optional[str]
+    content: str
 
 
-class RemoveAssetTagsRemoveAssetTagsAssetLocationFolder(BaseModel):
+class RemoveAssetTagsRemoveAssetTagsAssetWorkflowTaskStatusTasks(BaseModel):
+    total: int
+    page: int
+    limit: int
+    has_next_page: bool = Field(alias="hasNextPage")
+
+
+class RemoveAssetTagsRemoveAssetTagsAssetWorkflowTaskChecklistItem(BaseModel):
+    total: int
+    page: int
+    limit: int
+    has_next_page: bool = Field(alias="hasNextPage")
+    items: Optional[
+        List[
+            Optional[
+                "RemoveAssetTagsRemoveAssetTagsAssetWorkflowTaskChecklistItemItems"
+            ]
+        ]
+    ]
+
+
+class RemoveAssetTagsRemoveAssetTagsAssetWorkflowTaskChecklistItemItems(BaseModel):
     id: str
-    name: str
-    breadcrumbs: List["RemoveAssetTagsRemoveAssetTagsAssetLocationFolderBreadcrumbs"]
-
-
-class RemoveAssetTagsRemoveAssetTagsAssetLocationFolderBreadcrumbs(BaseModel):
-    id: Optional[str]
-    name: Optional[str]
+    content: str
 
 
 RemoveAssetTags.model_rebuild()
@@ -373,5 +477,7 @@ RemoveAssetTagsRemoveAssetTagsAssetComments.model_rebuild()
 RemoveAssetTagsRemoveAssetTagsAssetCommentsItems.model_rebuild()
 RemoveAssetTagsRemoveAssetTagsAssetCustomMetadata.model_rebuild()
 RemoveAssetTagsRemoveAssetTagsAssetCustomMetadataProperty.model_rebuild()
-RemoveAssetTagsRemoveAssetTagsAssetLocation.model_rebuild()
-RemoveAssetTagsRemoveAssetTagsAssetLocationFolder.model_rebuild()
+RemoveAssetTagsRemoveAssetTagsAssetWorkflowTask.model_rebuild()
+RemoveAssetTagsRemoveAssetTagsAssetWorkflowTaskAsset.model_rebuild()
+RemoveAssetTagsRemoveAssetTagsAssetWorkflowTaskStatus.model_rebuild()
+RemoveAssetTagsRemoveAssetTagsAssetWorkflowTaskChecklistItem.model_rebuild()

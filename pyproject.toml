@@ -1,6 +1,6 @@
 [tool.ariadne-codegen]
 queries_path = "queries-mutations"
-schema_path = "public.graphql"
+schema_path = "public-beta.graphql"
 target_package_name = "frontify"
 client_name = "FrontifyClient"
 client_file_name = "frontifyClient"

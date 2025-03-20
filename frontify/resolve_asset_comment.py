@@ -39,25 +39,19 @@ class ResolveAssetCommentResolveAssetCommentComment(BaseModel):
 class ResolveAssetCommentResolveAssetCommentCommentCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class ResolveAssetCommentResolveAssetCommentCommentModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class ResolveAssetCommentResolveAssetCommentCommentMentionedUsers(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class ResolveAssetCommentResolveAssetCommentCommentReplies(BaseModel):
@@ -89,17 +83,13 @@ class ResolveAssetCommentResolveAssetCommentCommentRepliesItems(BaseModel):
 class ResolveAssetCommentResolveAssetCommentCommentRepliesItemsCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class ResolveAssetCommentResolveAssetCommentCommentRepliesItemsModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class ResolveAssetCommentResolveAssetCommentCommentRepliesItemsMentionedUsers(
@@ -107,9 +97,7 @@ class ResolveAssetCommentResolveAssetCommentCommentRepliesItemsMentionedUsers(
 ):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
-    email: Any
     name: Optional[str]
-    avatar: Optional[Any]
 
 
 class ResolveAssetCommentResolveAssetCommentCommentMarking(BaseModel):
