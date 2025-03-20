@@ -25,7 +25,7 @@ jobs:
 
       - name: Generate queries and mutations
         run: |
-          gqlg --schemaFilePath public-beta.graphql --destDirPath ./queries-mutations --depthLimit 5
+          gqlg --schemaFilePath public-beta.graphql --destDirPath ./queries-mutations --depthLimit 4
       
       - name: Install python dependencies
         run: |
