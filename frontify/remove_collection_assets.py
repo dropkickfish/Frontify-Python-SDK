@@ -73,9 +73,6 @@ class RemoveCollectionAssetsRemoveCollectionAssetsCollectionAssetsItems(BaseMode
     copyright: Optional[
         "RemoveCollectionAssetsRemoveCollectionAssetsCollectionAssetsItemsCopyright"
     ]
-    availability: (
-        "RemoveCollectionAssetsRemoveCollectionAssetsCollectionAssetsItemsAvailability"
-    )
     expires_at: Optional[Any] = Field(alias="expiresAt")
     licenses: Optional[
         List[
@@ -94,15 +91,6 @@ class RemoveCollectionAssetsRemoveCollectionAssetsCollectionAssetsItems(BaseMode
     current_user_permissions: (
         "RemoveCollectionAssetsRemoveCollectionAssetsCollectionAssetsItemsCurrentUserPermissions"
     ) = Field(alias="currentUserPermissions")
-    workflow_task: Optional[
-        "RemoveCollectionAssetsRemoveCollectionAssetsCollectionAssetsItemsWorkflowTask"
-    ] = Field(alias="workflowTask")
-    variants: Optional[
-        "RemoveCollectionAssetsRemoveCollectionAssetsCollectionAssetsItemsVariants"
-    ]
-    preview_background_color: Optional[
-        "RemoveCollectionAssetsRemoveCollectionAssetsCollectionAssetsItemsPreviewBackgroundColor"
-    ] = Field(alias="previewBackgroundColor")
 
 
 class RemoveCollectionAssetsRemoveCollectionAssetsCollectionAssetsItemsCreator(
@@ -110,7 +98,9 @@ class RemoveCollectionAssetsRemoveCollectionAssetsCollectionAssetsItemsCreator(
 ):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class RemoveCollectionAssetsRemoveCollectionAssetsCollectionAssetsItemsModifier(
@@ -118,7 +108,9 @@ class RemoveCollectionAssetsRemoveCollectionAssetsCollectionAssetsItemsModifier(
 ):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class RemoveCollectionAssetsRemoveCollectionAssetsCollectionAssetsItemsAttachments(
@@ -146,13 +138,6 @@ class RemoveCollectionAssetsRemoveCollectionAssetsCollectionAssetsItemsCopyright
 ):
     status: CopyrightStatus
     notice: Optional[str]
-
-
-class RemoveCollectionAssetsRemoveCollectionAssetsCollectionAssetsItemsAvailability(
-    BaseModel
-):
-    from_: Optional[Any] = Field(alias="from")
-    to: Optional[Any]
 
 
 class RemoveCollectionAssetsRemoveCollectionAssetsCollectionAssetsItemsLicenses(
@@ -190,32 +175,6 @@ class RemoveCollectionAssetsRemoveCollectionAssetsCollectionAssetsItemsCurrentUs
     can_delete: bool = Field(alias="canDelete")
     can_download: bool = Field(alias="canDownload")
     can_comment: bool = Field(alias="canComment")
-
-
-class RemoveCollectionAssetsRemoveCollectionAssetsCollectionAssetsItemsWorkflowTask(
-    BaseModel
-):
-    id: str
-    title: Optional[str]
-    description: Optional[str]
-
-
-class RemoveCollectionAssetsRemoveCollectionAssetsCollectionAssetsItemsVariants(
-    BaseModel
-):
-    total: int
-    page: int
-    limit: int
-    has_next_page: bool = Field(alias="hasNextPage")
-
-
-class RemoveCollectionAssetsRemoveCollectionAssetsCollectionAssetsItemsPreviewBackgroundColor(
-    BaseModel
-):
-    red: Any
-    green: Any
-    blue: Any
-    alpha: Any
 
 
 class RemoveCollectionAssetsRemoveCollectionAssetsCollectionCurrentUserPermissions(

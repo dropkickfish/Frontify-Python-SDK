@@ -31,13 +31,17 @@ class EditCommentEditCommentComment(BaseModel):
 class EditCommentEditCommentCommentCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class EditCommentEditCommentCommentModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 EditComment.model_rebuild()

@@ -1,5 +1,0 @@
-mutation setCustomMetadata($input: SetCustomMetadataInput!){
-    setCustomMetadata(input: $input){
-        parentIds
-    }
-}

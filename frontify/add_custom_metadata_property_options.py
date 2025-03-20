@@ -42,7 +42,9 @@ class AddCustomMetadataPropertyOptionsAddCustomMetadataPropertyOptionsCustomMeta
 ):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class AddCustomMetadataPropertyOptionsAddCustomMetadataPropertyOptionsCustomMetadataPropertyModifier(
@@ -50,7 +52,9 @@ class AddCustomMetadataPropertyOptionsAddCustomMetadataPropertyOptionsCustomMeta
 ):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class AddCustomMetadataPropertyOptionsAddCustomMetadataPropertyOptionsCustomMetadataPropertyType(

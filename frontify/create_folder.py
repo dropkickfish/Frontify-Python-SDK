@@ -33,13 +33,17 @@ class CreateFolderCreateFolderFolder(BaseModel):
 class CreateFolderCreateFolderFolderCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class CreateFolderCreateFolderFolderModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class CreateFolderCreateFolderFolderBreadcrumbs(BaseModel):
@@ -71,13 +75,17 @@ class CreateFolderCreateFolderFolderFoldersItems(BaseModel):
 class CreateFolderCreateFolderFolderFoldersItemsCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class CreateFolderCreateFolderFolderFoldersItemsModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class CreateFolderCreateFolderFolderFoldersItemsBreadcrumbs(BaseModel):
@@ -122,7 +130,6 @@ class CreateFolderCreateFolderFolderAssetsItems(BaseModel):
     external_id: Optional[str] = Field(alias="externalId")
     tags: Optional[List[Optional["CreateFolderCreateFolderFolderAssetsItemsTags"]]]
     copyright: Optional["CreateFolderCreateFolderFolderAssetsItemsCopyright"]
-    availability: "CreateFolderCreateFolderFolderAssetsItemsAvailability"
     expires_at: Optional[Any] = Field(alias="expiresAt")
     licenses: Optional[
         List[Optional["CreateFolderCreateFolderFolderAssetsItemsLicenses"]]
@@ -135,13 +142,6 @@ class CreateFolderCreateFolderFolderAssetsItems(BaseModel):
     current_user_permissions: (
         "CreateFolderCreateFolderFolderAssetsItemsCurrentUserPermissions"
     ) = Field(alias="currentUserPermissions")
-    workflow_task: Optional["CreateFolderCreateFolderFolderAssetsItemsWorkflowTask"] = (
-        Field(alias="workflowTask")
-    )
-    variants: Optional["CreateFolderCreateFolderFolderAssetsItemsVariants"]
-    preview_background_color: Optional[
-        "CreateFolderCreateFolderFolderAssetsItemsPreviewBackgroundColor"
-    ] = Field(alias="previewBackgroundColor")
 
 
 class CreateFolderCreateFolderFolderAssetsItemsAttachments(BaseModel):
@@ -165,11 +165,6 @@ class CreateFolderCreateFolderFolderAssetsItemsTags(BaseModel):
 class CreateFolderCreateFolderFolderAssetsItemsCopyright(BaseModel):
     status: CopyrightStatus
     notice: Optional[str]
-
-
-class CreateFolderCreateFolderFolderAssetsItemsAvailability(BaseModel):
-    from_: Optional[Any] = Field(alias="from")
-    to: Optional[Any]
 
 
 class CreateFolderCreateFolderFolderAssetsItemsLicenses(BaseModel):
@@ -199,26 +194,6 @@ class CreateFolderCreateFolderFolderAssetsItemsCurrentUserPermissions(BaseModel)
     can_delete: bool = Field(alias="canDelete")
     can_download: bool = Field(alias="canDownload")
     can_comment: bool = Field(alias="canComment")
-
-
-class CreateFolderCreateFolderFolderAssetsItemsWorkflowTask(BaseModel):
-    id: str
-    title: Optional[str]
-    description: Optional[str]
-
-
-class CreateFolderCreateFolderFolderAssetsItemsVariants(BaseModel):
-    total: int
-    page: int
-    limit: int
-    has_next_page: bool = Field(alias="hasNextPage")
-
-
-class CreateFolderCreateFolderFolderAssetsItemsPreviewBackgroundColor(BaseModel):
-    red: Any
-    green: Any
-    blue: Any
-    alpha: Any
 
 
 CreateFolder.model_rebuild()

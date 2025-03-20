@@ -1,5 +1,0 @@
-mutation createAssetSubmissions($input: CreateAssetSubmissionsInput!){
-    createAssetSubmissions(input: $input){
-        assetSubmissionIds
-    }
-}

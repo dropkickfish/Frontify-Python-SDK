@@ -6,7 +6,7 @@ from typing import Any, List, Literal, Optional
 from pydantic import Field
 
 from .base_model import BaseModel
-from .enums import AssetStatusType, CopyrightStatus, TagSource, WorkflowStatusEnterRule
+from .enums import AssetStatusType, CopyrightStatus, TagSource
 
 
 class SyncAssetTags(BaseModel):
@@ -34,7 +34,6 @@ class SyncAssetTagsSyncAssetTagsAsset(BaseModel):
     external_id: Optional[str] = Field(alias="externalId")
     tags: Optional[List[Optional["SyncAssetTagsSyncAssetTagsAssetTags"]]]
     copyright: Optional["SyncAssetTagsSyncAssetTagsAssetCopyright"]
-    availability: "SyncAssetTagsSyncAssetTagsAssetAvailability"
     expires_at: Optional[Any] = Field(alias="expiresAt")
     licenses: Optional[List[Optional["SyncAssetTagsSyncAssetTagsAssetLicenses"]]]
     status: AssetStatusType
@@ -48,21 +47,23 @@ class SyncAssetTagsSyncAssetTagsAsset(BaseModel):
     custom_metadata: List["SyncAssetTagsSyncAssetTagsAssetCustomMetadata"] = Field(
         alias="customMetadata"
     )
-    workflow_task: Optional["SyncAssetTagsSyncAssetTagsAssetWorkflowTask"] = Field(
-        alias="workflowTask"
-    )
+    location: "SyncAssetTagsSyncAssetTagsAssetLocation"
 
 
 class SyncAssetTagsSyncAssetTagsAssetCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class SyncAssetTagsSyncAssetTagsAssetModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class SyncAssetTagsSyncAssetTagsAssetAttachments(BaseModel):
@@ -83,13 +84,17 @@ class SyncAssetTagsSyncAssetTagsAssetAttachments(BaseModel):
 class SyncAssetTagsSyncAssetTagsAssetAttachmentsCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class SyncAssetTagsSyncAssetTagsAssetAttachmentsModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class SyncAssetTagsSyncAssetTagsAssetTags(BaseModel):
@@ -100,11 +105,6 @@ class SyncAssetTagsSyncAssetTagsAssetTags(BaseModel):
 class SyncAssetTagsSyncAssetTagsAssetCopyright(BaseModel):
     status: CopyrightStatus
     notice: Optional[str]
-
-
-class SyncAssetTagsSyncAssetTagsAssetAvailability(BaseModel):
-    from_: Optional[Any] = Field(alias="from")
-    to: Optional[Any]
 
 
 class SyncAssetTagsSyncAssetTagsAssetLicenses(BaseModel):
@@ -142,7 +142,6 @@ class SyncAssetTagsSyncAssetTagsAssetRelatedAssetsItems(BaseModel):
         List[Optional["SyncAssetTagsSyncAssetTagsAssetRelatedAssetsItemsTags"]]
     ]
     copyright: Optional["SyncAssetTagsSyncAssetTagsAssetRelatedAssetsItemsCopyright"]
-    availability: "SyncAssetTagsSyncAssetTagsAssetRelatedAssetsItemsAvailability"
     expires_at: Optional[Any] = Field(alias="expiresAt")
     licenses: Optional[
         List[Optional["SyncAssetTagsSyncAssetTagsAssetRelatedAssetsItemsLicenses"]]
@@ -155,25 +154,22 @@ class SyncAssetTagsSyncAssetTagsAssetRelatedAssetsItems(BaseModel):
     current_user_permissions: (
         "SyncAssetTagsSyncAssetTagsAssetRelatedAssetsItemsCurrentUserPermissions"
     ) = Field(alias="currentUserPermissions")
-    workflow_task: Optional[
-        "SyncAssetTagsSyncAssetTagsAssetRelatedAssetsItemsWorkflowTask"
-    ] = Field(alias="workflowTask")
-    variants: Optional["SyncAssetTagsSyncAssetTagsAssetRelatedAssetsItemsVariants"]
-    preview_background_color: Optional[
-        "SyncAssetTagsSyncAssetTagsAssetRelatedAssetsItemsPreviewBackgroundColor"
-    ] = Field(alias="previewBackgroundColor")
 
 
 class SyncAssetTagsSyncAssetTagsAssetRelatedAssetsItemsCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class SyncAssetTagsSyncAssetTagsAssetRelatedAssetsItemsModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class SyncAssetTagsSyncAssetTagsAssetRelatedAssetsItemsAttachments(BaseModel):
@@ -197,11 +193,6 @@ class SyncAssetTagsSyncAssetTagsAssetRelatedAssetsItemsTags(BaseModel):
 class SyncAssetTagsSyncAssetTagsAssetRelatedAssetsItemsCopyright(BaseModel):
     status: CopyrightStatus
     notice: Optional[str]
-
-
-class SyncAssetTagsSyncAssetTagsAssetRelatedAssetsItemsAvailability(BaseModel):
-    from_: Optional[Any] = Field(alias="from")
-    to: Optional[Any]
 
 
 class SyncAssetTagsSyncAssetTagsAssetRelatedAssetsItemsLicenses(BaseModel):
@@ -235,28 +226,6 @@ class SyncAssetTagsSyncAssetTagsAssetRelatedAssetsItemsCurrentUserPermissions(
     can_comment: bool = Field(alias="canComment")
 
 
-class SyncAssetTagsSyncAssetTagsAssetRelatedAssetsItemsWorkflowTask(BaseModel):
-    id: str
-    title: Optional[str]
-    description: Optional[str]
-
-
-class SyncAssetTagsSyncAssetTagsAssetRelatedAssetsItemsVariants(BaseModel):
-    total: int
-    page: int
-    limit: int
-    has_next_page: bool = Field(alias="hasNextPage")
-
-
-class SyncAssetTagsSyncAssetTagsAssetRelatedAssetsItemsPreviewBackgroundColor(
-    BaseModel
-):
-    red: Any
-    green: Any
-    blue: Any
-    alpha: Any
-
-
 class SyncAssetTagsSyncAssetTagsAssetComments(BaseModel):
     total: int
     page: int
@@ -280,7 +249,9 @@ class SyncAssetTagsSyncAssetTagsAssetCommentsItems(BaseModel):
 class SyncAssetTagsSyncAssetTagsAssetCommentsItemsMentionedUsers(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class SyncAssetTagsSyncAssetTagsAssetCommentsItemsReplies(BaseModel):
@@ -320,13 +291,17 @@ class SyncAssetTagsSyncAssetTagsAssetCustomMetadataProperty(BaseModel):
 class SyncAssetTagsSyncAssetTagsAssetCustomMetadataPropertyCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class SyncAssetTagsSyncAssetTagsAssetCustomMetadataPropertyModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class SyncAssetTagsSyncAssetTagsAssetCustomMetadataPropertyType(BaseModel):
@@ -343,110 +318,39 @@ class SyncAssetTagsSyncAssetTagsAssetCustomMetadataPropertyType(BaseModel):
     name: str
 
 
-class SyncAssetTagsSyncAssetTagsAssetWorkflowTask(BaseModel):
-    id: str
-    assigned_users: List[
-        Optional["SyncAssetTagsSyncAssetTagsAssetWorkflowTaskAssignedUsers"]
-    ] = Field(alias="assignedUsers")
-    asset: Optional["SyncAssetTagsSyncAssetTagsAssetWorkflowTaskAsset"]
-    title: Optional[str]
-    description: Optional[str]
-    status: "SyncAssetTagsSyncAssetTagsAssetWorkflowTaskStatus"
-    checklist_item: "SyncAssetTagsSyncAssetTagsAssetWorkflowTaskChecklistItem" = Field(
-        alias="checklistItem"
-    )
+class SyncAssetTagsSyncAssetTagsAssetLocation(BaseModel):
+    brand: Optional["SyncAssetTagsSyncAssetTagsAssetLocationBrand"]
+    library: Optional["SyncAssetTagsSyncAssetTagsAssetLocationLibrary"]
+    workspace_project: Optional[
+        "SyncAssetTagsSyncAssetTagsAssetLocationWorkspaceProject"
+    ] = Field(alias="workspaceProject")
+    folder: Optional["SyncAssetTagsSyncAssetTagsAssetLocationFolder"]
 
 
-class SyncAssetTagsSyncAssetTagsAssetWorkflowTaskAssignedUsers(BaseModel):
-    typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
-    id: str
-    name: Optional[str]
-
-
-class SyncAssetTagsSyncAssetTagsAssetWorkflowTaskAsset(BaseModel):
-    typename__: Literal[
-        "Asset", "Audio", "Document", "EmbeddedContent", "File", "Image", "Video"
-    ] = Field(alias="__typename")
-    id: str
-    created_at: Any = Field(alias="createdAt")
-    modified_at: Optional[Any] = Field(alias="modifiedAt")
-    title: str
-    description: Optional[str]
-    external_id: Optional[str] = Field(alias="externalId")
-    expires_at: Optional[Any] = Field(alias="expiresAt")
-    status: AssetStatusType
-    variants: Optional["SyncAssetTagsSyncAssetTagsAssetWorkflowTaskAssetVariants"]
-    preview_background_color: Optional[
-        "SyncAssetTagsSyncAssetTagsAssetWorkflowTaskAssetPreviewBackgroundColor"
-    ] = Field(alias="previewBackgroundColor")
-
-
-class SyncAssetTagsSyncAssetTagsAssetWorkflowTaskAssetVariants(BaseModel):
-    total: int
-    page: int
-    limit: int
-    has_next_page: bool = Field(alias="hasNextPage")
-
-
-class SyncAssetTagsSyncAssetTagsAssetWorkflowTaskAssetPreviewBackgroundColor(BaseModel):
-    red: Any
-    green: Any
-    blue: Any
-    alpha: Any
-
-
-class SyncAssetTagsSyncAssetTagsAssetWorkflowTaskStatus(BaseModel):
+class SyncAssetTagsSyncAssetTagsAssetLocationBrand(BaseModel):
     id: str
     name: str
-    color: "SyncAssetTagsSyncAssetTagsAssetWorkflowTaskStatusColor"
-    assigned_users: List[
-        Optional["SyncAssetTagsSyncAssetTagsAssetWorkflowTaskStatusAssignedUsers"]
-    ] = Field(alias="assignedUsers")
-    checklist_presets: List[
-        Optional["SyncAssetTagsSyncAssetTagsAssetWorkflowTaskStatusChecklistPresets"]
-    ] = Field(alias="checklistPresets")
-    tasks: "SyncAssetTagsSyncAssetTagsAssetWorkflowTaskStatusTasks"
-    enter_rules: List[Optional[WorkflowStatusEnterRule]] = Field(alias="enterRules")
 
 
-class SyncAssetTagsSyncAssetTagsAssetWorkflowTaskStatusColor(BaseModel):
-    red: Any
-    green: Any
-    blue: Any
-    alpha: Any
-
-
-class SyncAssetTagsSyncAssetTagsAssetWorkflowTaskStatusAssignedUsers(BaseModel):
-    typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
+class SyncAssetTagsSyncAssetTagsAssetLocationLibrary(BaseModel):
     id: str
     name: Optional[str]
 
 
-class SyncAssetTagsSyncAssetTagsAssetWorkflowTaskStatusChecklistPresets(BaseModel):
+class SyncAssetTagsSyncAssetTagsAssetLocationWorkspaceProject(BaseModel):
     id: str
-    content: str
+    name: Optional[str]
 
 
-class SyncAssetTagsSyncAssetTagsAssetWorkflowTaskStatusTasks(BaseModel):
-    total: int
-    page: int
-    limit: int
-    has_next_page: bool = Field(alias="hasNextPage")
-
-
-class SyncAssetTagsSyncAssetTagsAssetWorkflowTaskChecklistItem(BaseModel):
-    total: int
-    page: int
-    limit: int
-    has_next_page: bool = Field(alias="hasNextPage")
-    items: Optional[
-        List[Optional["SyncAssetTagsSyncAssetTagsAssetWorkflowTaskChecklistItemItems"]]
-    ]
-
-
-class SyncAssetTagsSyncAssetTagsAssetWorkflowTaskChecklistItemItems(BaseModel):
+class SyncAssetTagsSyncAssetTagsAssetLocationFolder(BaseModel):
     id: str
-    content: str
+    name: str
+    breadcrumbs: List["SyncAssetTagsSyncAssetTagsAssetLocationFolderBreadcrumbs"]
+
+
+class SyncAssetTagsSyncAssetTagsAssetLocationFolderBreadcrumbs(BaseModel):
+    id: Optional[str]
+    name: Optional[str]
 
 
 SyncAssetTags.model_rebuild()
@@ -459,7 +363,5 @@ SyncAssetTagsSyncAssetTagsAssetComments.model_rebuild()
 SyncAssetTagsSyncAssetTagsAssetCommentsItems.model_rebuild()
 SyncAssetTagsSyncAssetTagsAssetCustomMetadata.model_rebuild()
 SyncAssetTagsSyncAssetTagsAssetCustomMetadataProperty.model_rebuild()
-SyncAssetTagsSyncAssetTagsAssetWorkflowTask.model_rebuild()
-SyncAssetTagsSyncAssetTagsAssetWorkflowTaskAsset.model_rebuild()
-SyncAssetTagsSyncAssetTagsAssetWorkflowTaskStatus.model_rebuild()
-SyncAssetTagsSyncAssetTagsAssetWorkflowTaskChecklistItem.model_rebuild()
+SyncAssetTagsSyncAssetTagsAssetLocation.model_rebuild()
+SyncAssetTagsSyncAssetTagsAssetLocationFolder.model_rebuild()

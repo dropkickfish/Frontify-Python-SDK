@@ -1,5 +1,0 @@
-mutation deleteAssetVariant($input: DeleteAssetVariantInput!){
-    deleteAssetVariant(input: $input){
-        id
-    }
-}

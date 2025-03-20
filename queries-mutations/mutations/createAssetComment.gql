@@ -4,18 +4,24 @@ mutation createAssetComment($limit: Int, $page: Int, $input: CreateAssetCommentI
             id
             creator{
                 id
+                email
                 name
+                avatar
             }
             createdAt
             modifier{
                 id
+                email
                 name
+                avatar
             }
             modifiedAt
             content
             mentionedUsers{
                 id
+                email
                 name
+                avatar
             }
             isResolved
             replies(limit: $limit, page: $page){
@@ -27,18 +33,24 @@ mutation createAssetComment($limit: Int, $page: Int, $input: CreateAssetCommentI
                     id
                     creator{
                         id
+                        email
                         name
+                        avatar
                     }
                     createdAt
                     modifier{
                         id
+                        email
                         name
+                        avatar
                     }
                     modifiedAt
                     content
                     mentionedUsers{
                         id
+                        email
                         name
+                        avatar
                     }
                 }
             }

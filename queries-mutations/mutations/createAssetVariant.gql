@@ -1,7 +1,0 @@
-mutation createAssetVariant($input: CreateAssetVariantInput!){
-    createAssetVariant(input: $input){
-        job{
-            variantId
-        }
-    }
-}

@@ -33,13 +33,17 @@ class UpdateFolderUpdateFolderFolder(BaseModel):
 class UpdateFolderUpdateFolderFolderCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class UpdateFolderUpdateFolderFolderModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class UpdateFolderUpdateFolderFolderBreadcrumbs(BaseModel):
@@ -71,13 +75,17 @@ class UpdateFolderUpdateFolderFolderFoldersItems(BaseModel):
 class UpdateFolderUpdateFolderFolderFoldersItemsCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class UpdateFolderUpdateFolderFolderFoldersItemsModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class UpdateFolderUpdateFolderFolderFoldersItemsBreadcrumbs(BaseModel):
@@ -122,7 +130,6 @@ class UpdateFolderUpdateFolderFolderAssetsItems(BaseModel):
     external_id: Optional[str] = Field(alias="externalId")
     tags: Optional[List[Optional["UpdateFolderUpdateFolderFolderAssetsItemsTags"]]]
     copyright: Optional["UpdateFolderUpdateFolderFolderAssetsItemsCopyright"]
-    availability: "UpdateFolderUpdateFolderFolderAssetsItemsAvailability"
     expires_at: Optional[Any] = Field(alias="expiresAt")
     licenses: Optional[
         List[Optional["UpdateFolderUpdateFolderFolderAssetsItemsLicenses"]]
@@ -135,13 +142,6 @@ class UpdateFolderUpdateFolderFolderAssetsItems(BaseModel):
     current_user_permissions: (
         "UpdateFolderUpdateFolderFolderAssetsItemsCurrentUserPermissions"
     ) = Field(alias="currentUserPermissions")
-    workflow_task: Optional["UpdateFolderUpdateFolderFolderAssetsItemsWorkflowTask"] = (
-        Field(alias="workflowTask")
-    )
-    variants: Optional["UpdateFolderUpdateFolderFolderAssetsItemsVariants"]
-    preview_background_color: Optional[
-        "UpdateFolderUpdateFolderFolderAssetsItemsPreviewBackgroundColor"
-    ] = Field(alias="previewBackgroundColor")
 
 
 class UpdateFolderUpdateFolderFolderAssetsItemsAttachments(BaseModel):
@@ -165,11 +165,6 @@ class UpdateFolderUpdateFolderFolderAssetsItemsTags(BaseModel):
 class UpdateFolderUpdateFolderFolderAssetsItemsCopyright(BaseModel):
     status: CopyrightStatus
     notice: Optional[str]
-
-
-class UpdateFolderUpdateFolderFolderAssetsItemsAvailability(BaseModel):
-    from_: Optional[Any] = Field(alias="from")
-    to: Optional[Any]
 
 
 class UpdateFolderUpdateFolderFolderAssetsItemsLicenses(BaseModel):
@@ -199,26 +194,6 @@ class UpdateFolderUpdateFolderFolderAssetsItemsCurrentUserPermissions(BaseModel)
     can_delete: bool = Field(alias="canDelete")
     can_download: bool = Field(alias="canDownload")
     can_comment: bool = Field(alias="canComment")
-
-
-class UpdateFolderUpdateFolderFolderAssetsItemsWorkflowTask(BaseModel):
-    id: str
-    title: Optional[str]
-    description: Optional[str]
-
-
-class UpdateFolderUpdateFolderFolderAssetsItemsVariants(BaseModel):
-    total: int
-    page: int
-    limit: int
-    has_next_page: bool = Field(alias="hasNextPage")
-
-
-class UpdateFolderUpdateFolderFolderAssetsItemsPreviewBackgroundColor(BaseModel):
-    red: Any
-    green: Any
-    blue: Any
-    alpha: Any
 
 
 UpdateFolder.model_rebuild()

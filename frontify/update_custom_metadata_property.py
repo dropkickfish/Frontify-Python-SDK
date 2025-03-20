@@ -38,7 +38,9 @@ class UpdateCustomMetadataPropertyUpdateCustomMetadataPropertyPropertyCreator(
 ):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class UpdateCustomMetadataPropertyUpdateCustomMetadataPropertyPropertyModifier(
@@ -46,7 +48,9 @@ class UpdateCustomMetadataPropertyUpdateCustomMetadataPropertyPropertyModifier(
 ):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class UpdateCustomMetadataPropertyUpdateCustomMetadataPropertyPropertyType(BaseModel):

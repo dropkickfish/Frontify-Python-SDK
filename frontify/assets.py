@@ -6,7 +6,7 @@ from typing import Any, List, Literal, Optional
 from pydantic import Field
 
 from .base_model import BaseModel
-from .enums import AssetStatusType, CopyrightStatus, TagSource, WorkflowStatusEnterRule
+from .enums import AssetStatusType, CopyrightStatus, TagSource
 
 
 class Assets(BaseModel):
@@ -28,7 +28,6 @@ class AssetsAssets(BaseModel):
     external_id: Optional[str] = Field(alias="externalId")
     tags: Optional[List[Optional["AssetsAssetsTags"]]]
     copyright: Optional["AssetsAssetsCopyright"]
-    availability: "AssetsAssetsAvailability"
     expires_at: Optional[Any] = Field(alias="expiresAt")
     licenses: Optional[List[Optional["AssetsAssetsLicenses"]]]
     status: AssetStatusType
@@ -37,23 +36,22 @@ class AssetsAssets(BaseModel):
     current_user_permissions: "AssetsAssetsCurrentUserPermissions" = Field(
         alias="currentUserPermissions"
     )
-    workflow_task: Optional["AssetsAssetsWorkflowTask"] = Field(alias="workflowTask")
-    variants: Optional["AssetsAssetsVariants"]
-    preview_background_color: Optional["AssetsAssetsPreviewBackgroundColor"] = Field(
-        alias="previewBackgroundColor"
-    )
 
 
 class AssetsAssetsCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class AssetsAssetsModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class AssetsAssetsAttachments(BaseModel):
@@ -74,13 +72,17 @@ class AssetsAssetsAttachments(BaseModel):
 class AssetsAssetsAttachmentsCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class AssetsAssetsAttachmentsModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class AssetsAssetsTags(BaseModel):
@@ -91,11 +93,6 @@ class AssetsAssetsTags(BaseModel):
 class AssetsAssetsCopyright(BaseModel):
     status: CopyrightStatus
     notice: Optional[str]
-
-
-class AssetsAssetsAvailability(BaseModel):
-    from_: Optional[Any] = Field(alias="from")
-    to: Optional[Any]
 
 
 class AssetsAssetsLicenses(BaseModel):
@@ -129,7 +126,6 @@ class AssetsAssetsRelatedAssetsItems(BaseModel):
     external_id: Optional[str] = Field(alias="externalId")
     tags: Optional[List[Optional["AssetsAssetsRelatedAssetsItemsTags"]]]
     copyright: Optional["AssetsAssetsRelatedAssetsItemsCopyright"]
-    availability: "AssetsAssetsRelatedAssetsItemsAvailability"
     expires_at: Optional[Any] = Field(alias="expiresAt")
     licenses: Optional[List[Optional["AssetsAssetsRelatedAssetsItemsLicenses"]]]
     status: AssetStatusType
@@ -143,26 +139,23 @@ class AssetsAssetsRelatedAssetsItems(BaseModel):
     custom_metadata: List["AssetsAssetsRelatedAssetsItemsCustomMetadata"] = Field(
         alias="customMetadata"
     )
-    workflow_task: Optional["AssetsAssetsRelatedAssetsItemsWorkflowTask"] = Field(
-        alias="workflowTask"
-    )
-    variants: Optional["AssetsAssetsRelatedAssetsItemsVariants"]
     location: "AssetsAssetsRelatedAssetsItemsLocation"
-    preview_background_color: Optional[
-        "AssetsAssetsRelatedAssetsItemsPreviewBackgroundColor"
-    ] = Field(alias="previewBackgroundColor")
 
 
 class AssetsAssetsRelatedAssetsItemsCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class AssetsAssetsRelatedAssetsItemsModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class AssetsAssetsRelatedAssetsItemsAttachments(BaseModel):
@@ -186,11 +179,6 @@ class AssetsAssetsRelatedAssetsItemsTags(BaseModel):
 class AssetsAssetsRelatedAssetsItemsCopyright(BaseModel):
     status: CopyrightStatus
     notice: Optional[str]
-
-
-class AssetsAssetsRelatedAssetsItemsAvailability(BaseModel):
-    from_: Optional[Any] = Field(alias="from")
-    to: Optional[Any]
 
 
 class AssetsAssetsRelatedAssetsItemsLicenses(BaseModel):
@@ -248,67 +236,6 @@ class AssetsAssetsRelatedAssetsItemsCustomMetadataProperty(BaseModel):
     default_value: Optional[Any] = Field(alias="defaultValue")
 
 
-class AssetsAssetsRelatedAssetsItemsWorkflowTask(BaseModel):
-    id: str
-    assigned_users: List[
-        Optional["AssetsAssetsRelatedAssetsItemsWorkflowTaskAssignedUsers"]
-    ] = Field(alias="assignedUsers")
-    asset: Optional["AssetsAssetsRelatedAssetsItemsWorkflowTaskAsset"]
-    title: Optional[str]
-    description: Optional[str]
-    status: "AssetsAssetsRelatedAssetsItemsWorkflowTaskStatus"
-    checklist_item: "AssetsAssetsRelatedAssetsItemsWorkflowTaskChecklistItem" = Field(
-        alias="checklistItem"
-    )
-
-
-class AssetsAssetsRelatedAssetsItemsWorkflowTaskAssignedUsers(BaseModel):
-    typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
-    id: str
-    name: Optional[str]
-
-
-class AssetsAssetsRelatedAssetsItemsWorkflowTaskAsset(BaseModel):
-    typename__: Literal[
-        "Asset", "Audio", "Document", "EmbeddedContent", "File", "Image", "Video"
-    ] = Field(alias="__typename")
-    id: str
-    created_at: Any = Field(alias="createdAt")
-    modified_at: Optional[Any] = Field(alias="modifiedAt")
-    title: str
-    description: Optional[str]
-    external_id: Optional[str] = Field(alias="externalId")
-    expires_at: Optional[Any] = Field(alias="expiresAt")
-    status: AssetStatusType
-
-
-class AssetsAssetsRelatedAssetsItemsWorkflowTaskStatus(BaseModel):
-    id: str
-    name: str
-    enter_rules: List[Optional[WorkflowStatusEnterRule]] = Field(alias="enterRules")
-
-
-class AssetsAssetsRelatedAssetsItemsWorkflowTaskChecklistItem(BaseModel):
-    total: int
-    page: int
-    limit: int
-    has_next_page: bool = Field(alias="hasNextPage")
-
-
-class AssetsAssetsRelatedAssetsItemsVariants(BaseModel):
-    total: int
-    page: int
-    limit: int
-    has_next_page: bool = Field(alias="hasNextPage")
-    items: List[Optional["AssetsAssetsRelatedAssetsItemsVariantsItems"]]
-
-
-class AssetsAssetsRelatedAssetsItemsVariantsItems(BaseModel):
-    key: str
-    filename: Optional[str]
-    download_url: Optional[Any] = Field(alias="downloadUrl")
-
-
 class AssetsAssetsRelatedAssetsItemsLocation(BaseModel):
     brand: Optional["AssetsAssetsRelatedAssetsItemsLocationBrand"]
     library: Optional["AssetsAssetsRelatedAssetsItemsLocationLibrary"]
@@ -338,13 +265,6 @@ class AssetsAssetsRelatedAssetsItemsLocationFolder(BaseModel):
     name: str
 
 
-class AssetsAssetsRelatedAssetsItemsPreviewBackgroundColor(BaseModel):
-    red: Any
-    green: Any
-    blue: Any
-    alpha: Any
-
-
 class AssetsAssetsComments(BaseModel):
     total: int
     page: int
@@ -359,26 +279,6 @@ class AssetsAssetsCurrentUserPermissions(BaseModel):
     can_comment: bool = Field(alias="canComment")
 
 
-class AssetsAssetsWorkflowTask(BaseModel):
-    id: str
-    title: Optional[str]
-    description: Optional[str]
-
-
-class AssetsAssetsVariants(BaseModel):
-    total: int
-    page: int
-    limit: int
-    has_next_page: bool = Field(alias="hasNextPage")
-
-
-class AssetsAssetsPreviewBackgroundColor(BaseModel):
-    red: Any
-    green: Any
-    blue: Any
-    alpha: Any
-
-
 Assets.model_rebuild()
 AssetsAssets.model_rebuild()
 AssetsAssetsAttachments.model_rebuild()
@@ -386,6 +286,4 @@ AssetsAssetsRelatedAssets.model_rebuild()
 AssetsAssetsRelatedAssetsItems.model_rebuild()
 AssetsAssetsRelatedAssetsItemsComments.model_rebuild()
 AssetsAssetsRelatedAssetsItemsCustomMetadata.model_rebuild()
-AssetsAssetsRelatedAssetsItemsWorkflowTask.model_rebuild()
-AssetsAssetsRelatedAssetsItemsVariants.model_rebuild()
 AssetsAssetsRelatedAssetsItemsLocation.model_rebuild()

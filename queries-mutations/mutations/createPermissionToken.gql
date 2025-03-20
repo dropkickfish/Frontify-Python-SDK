@@ -1,5 +1,0 @@
-mutation createPermissionToken($input: CreatePermissionTokenInput!){
-    createPermissionToken(input: $input){
-        permissionToken
-    }
-}

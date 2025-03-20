@@ -31,7 +31,9 @@ class InstallProjectWebhookInstallProjectWebhookWebhook(BaseModel):
 class InstallProjectWebhookInstallProjectWebhookWebhookCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 InstallProjectWebhook.model_rebuild()

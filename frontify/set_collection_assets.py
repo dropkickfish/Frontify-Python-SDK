@@ -67,9 +67,6 @@ class SetCollectionAssetsSetCollectionAssetsCollectionAssetsItems(BaseModel):
     copyright: Optional[
         "SetCollectionAssetsSetCollectionAssetsCollectionAssetsItemsCopyright"
     ]
-    availability: (
-        "SetCollectionAssetsSetCollectionAssetsCollectionAssetsItemsAvailability"
-    )
     expires_at: Optional[Any] = Field(alias="expiresAt")
     licenses: Optional[
         List[
@@ -88,27 +85,22 @@ class SetCollectionAssetsSetCollectionAssetsCollectionAssetsItems(BaseModel):
     current_user_permissions: (
         "SetCollectionAssetsSetCollectionAssetsCollectionAssetsItemsCurrentUserPermissions"
     ) = Field(alias="currentUserPermissions")
-    workflow_task: Optional[
-        "SetCollectionAssetsSetCollectionAssetsCollectionAssetsItemsWorkflowTask"
-    ] = Field(alias="workflowTask")
-    variants: Optional[
-        "SetCollectionAssetsSetCollectionAssetsCollectionAssetsItemsVariants"
-    ]
-    preview_background_color: Optional[
-        "SetCollectionAssetsSetCollectionAssetsCollectionAssetsItemsPreviewBackgroundColor"
-    ] = Field(alias="previewBackgroundColor")
 
 
 class SetCollectionAssetsSetCollectionAssetsCollectionAssetsItemsCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class SetCollectionAssetsSetCollectionAssetsCollectionAssetsItemsModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class SetCollectionAssetsSetCollectionAssetsCollectionAssetsItemsAttachments(BaseModel):
@@ -132,13 +124,6 @@ class SetCollectionAssetsSetCollectionAssetsCollectionAssetsItemsTags(BaseModel)
 class SetCollectionAssetsSetCollectionAssetsCollectionAssetsItemsCopyright(BaseModel):
     status: CopyrightStatus
     notice: Optional[str]
-
-
-class SetCollectionAssetsSetCollectionAssetsCollectionAssetsItemsAvailability(
-    BaseModel
-):
-    from_: Optional[Any] = Field(alias="from")
-    to: Optional[Any]
 
 
 class SetCollectionAssetsSetCollectionAssetsCollectionAssetsItemsLicenses(BaseModel):
@@ -172,30 +157,6 @@ class SetCollectionAssetsSetCollectionAssetsCollectionAssetsItemsCurrentUserPerm
     can_delete: bool = Field(alias="canDelete")
     can_download: bool = Field(alias="canDownload")
     can_comment: bool = Field(alias="canComment")
-
-
-class SetCollectionAssetsSetCollectionAssetsCollectionAssetsItemsWorkflowTask(
-    BaseModel
-):
-    id: str
-    title: Optional[str]
-    description: Optional[str]
-
-
-class SetCollectionAssetsSetCollectionAssetsCollectionAssetsItemsVariants(BaseModel):
-    total: int
-    page: int
-    limit: int
-    has_next_page: bool = Field(alias="hasNextPage")
-
-
-class SetCollectionAssetsSetCollectionAssetsCollectionAssetsItemsPreviewBackgroundColor(
-    BaseModel
-):
-    red: Any
-    green: Any
-    blue: Any
-    alpha: Any
 
 
 class SetCollectionAssetsSetCollectionAssetsCollectionCurrentUserPermissions(BaseModel):

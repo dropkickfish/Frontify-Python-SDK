@@ -1,16 +1,20 @@
-mutation updateFolder($limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: FolderAssetQueryInput, $limit2: Int, $page2: Int, $validityInDays: Int, $permanent: Boolean, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $query1: AssetCommentQueryInput, $limit5: Int, $page5: Int, $limit6: Int, $page6: Int, $query2: FolderAssetQueryInput, $input: UpdateFolderInput!){
+mutation updateFolder($limit: Int, $page: Int, $limit1: Int, $page1: Int, $limit2: Int, $page2: Int, $validityInDays: Int, $permanent: Boolean, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $query: AssetCommentQueryInput, $limit5: Int, $page5: Int, $input: UpdateFolderInput!){
     updateFolder(input: $input){
         folder{
             id
             name
             creator{
                 id
+                email
                 name
+                avatar
             }
             createdAt
             modifier{
                 id
+                email
                 name
+                avatar
             }
             modifiedAt
             breadcrumbs{
@@ -27,12 +31,16 @@ mutation updateFolder($limit: Int, $page: Int, $limit1: Int, $page1: Int, $query
                     name
                     creator{
                         id
+                        email
                         name
+                        avatar
                     }
                     createdAt
                     modifier{
                         id
+                        email
                         name
+                        avatar
                     }
                     modifiedAt
                     breadcrumbs{
@@ -45,7 +53,7 @@ mutation updateFolder($limit: Int, $page: Int, $limit1: Int, $page1: Int, $query
                         limit
                         hasNextPage
                     }
-                    assets(limit: $limit1, page: $page1, query: $query){
+                    assets(limit: $limit1, page: $page1){
                         total
                         page
                         limit
@@ -53,7 +61,7 @@ mutation updateFolder($limit: Int, $page: Int, $limit1: Int, $page1: Int, $query
                     }
                 }
             }
-            assets(limit: $limit6, page: $page6, query: $query2){
+            assets(limit: $limit5, page: $page5){
                 total
                 page
                 limit
@@ -85,10 +93,6 @@ mutation updateFolder($limit: Int, $page: Int, $limit1: Int, $page1: Int, $query
                         status
                         notice
                     }
-                    availability{
-                        from
-                        to
-                    }
                     expiresAt
                     licenses{
                         id
@@ -104,7 +108,7 @@ mutation updateFolder($limit: Int, $page: Int, $limit1: Int, $page1: Int, $query
                         limit
                         hasNextPage
                     }
-                    comments(limit: $limit4, page: $page4, query: $query1){
+                    comments(limit: $limit4, page: $page4, query: $query){
                         total
                         page
                         limit
@@ -115,23 +119,6 @@ mutation updateFolder($limit: Int, $page: Int, $limit1: Int, $page1: Int, $query
                         canDelete
                         canDownload
                         canComment
-                    }
-                    workflowTask{
-                        id
-                        title
-                        description
-                    }
-                    variants(limit: $limit5, page: $page5){
-                        total
-                        page
-                        limit
-                        hasNextPage
-                    }
-                    previewBackgroundColor{
-                        red
-                        green
-                        blue
-                        alpha
                     }
                 }
             }

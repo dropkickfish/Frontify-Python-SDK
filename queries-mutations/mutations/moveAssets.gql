@@ -1,15 +1,19 @@
-mutation moveAssets($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $permanent1: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $limit5: Int, $page5: Int, $query1: AssetCommentQueryInput, $validityInDays2: Int, $permanent2: Boolean, $limit6: Int, $page6: Int, $limit7: Int, $page7: Int, $query2: AssetCommentQueryInput, $limit8: Int, $page8: Int, $limit9: Int, $page9: Int, $limit10: Int, $page10: Int, $validityInDays3: Int, $permanent3: Boolean, $limit11: Int, $page11: Int, $input: MoveAssetsInput!){
+mutation moveAssets($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $permanent1: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $query1: AssetCommentQueryInput, $input: MoveAssetsInput!){
     moveAssets(input: $input){
         assets{
             id
             creator{
                 id
+                email
                 name
+                avatar
             }
             createdAt
             modifier{
                 id
+                email
                 name
+                avatar
             }
             modifiedAt
             title
@@ -18,12 +22,16 @@ mutation moveAssets($validityInDays: Int, $permanent: Boolean, $validityInDays1:
                 id
                 creator{
                     id
+                    email
                     name
+                    avatar
                 }
                 createdAt
                 modifier{
                     id
+                    email
                     name
+                    avatar
                 }
                 modifiedAt
                 name
@@ -43,10 +51,6 @@ mutation moveAssets($validityInDays: Int, $permanent: Boolean, $validityInDays1:
                 status
                 notice
             }
-            availability{
-                from
-                to
-            }
             expiresAt
             licenses{
                 id
@@ -56,7 +60,7 @@ mutation moveAssets($validityInDays: Int, $permanent: Boolean, $validityInDays1:
                 requireConsensus
             }
             status
-            relatedAssets(limit: $limit3, page: $page3){
+            relatedAssets(limit: $limit2, page: $page2){
                 total
                 page
                 limit
@@ -65,12 +69,16 @@ mutation moveAssets($validityInDays: Int, $permanent: Boolean, $validityInDays1:
                     id
                     creator{
                         id
+                        email
                         name
+                        avatar
                     }
                     createdAt
                     modifier{
                         id
+                        email
                         name
+                        avatar
                     }
                     modifiedAt
                     title
@@ -95,10 +103,6 @@ mutation moveAssets($validityInDays: Int, $permanent: Boolean, $validityInDays1:
                     copyright{
                         status
                         notice
-                    }
-                    availability{
-                        from
-                        to
                     }
                     expiresAt
                     licenses{
@@ -127,26 +131,9 @@ mutation moveAssets($validityInDays: Int, $permanent: Boolean, $validityInDays1:
                         canDownload
                         canComment
                     }
-                    workflowTask{
-                        id
-                        title
-                        description
-                    }
-                    variants(limit: $limit2, page: $page2){
-                        total
-                        page
-                        limit
-                        hasNextPage
-                    }
-                    previewBackgroundColor{
-                        red
-                        green
-                        blue
-                        alpha
-                    }
                 }
             }
-            comments(limit: $limit5, page: $page5, query: $query1){
+            comments(limit: $limit4, page: $page4, query: $query1){
                 total
                 page
                 limit
@@ -158,10 +145,12 @@ mutation moveAssets($validityInDays: Int, $permanent: Boolean, $validityInDays1:
                     content
                     mentionedUsers{
                         id
+                        email
                         name
+                        avatar
                     }
                     isResolved
-                    replies(limit: $limit4, page: $page4){
+                    replies(limit: $limit3, page: $page3){
                         total
                         page
                         limit
@@ -180,12 +169,16 @@ mutation moveAssets($validityInDays: Int, $permanent: Boolean, $validityInDays1:
                     id
                     creator{
                         id
+                        email
                         name
+                        avatar
                     }
                     createdAt
                     modifier{
                         id
+                        email
                         name
+                        avatar
                     }
                     modifiedAt
                     name
@@ -195,145 +188,6 @@ mutation moveAssets($validityInDays: Int, $permanent: Boolean, $validityInDays1:
                     helpText
                     isRequired
                     defaultValue
-                }
-            }
-            workflowTask{
-                id
-                assignedUsers{
-                    id
-                    name
-                }
-                asset{
-                    id
-                    creator{
-                        id
-                        name
-                    }
-                    createdAt
-                    modifier{
-                        id
-                        name
-                    }
-                    modifiedAt
-                    title
-                    description
-                    attachments{
-                        id
-                        createdAt
-                        modifiedAt
-                        name
-                        filename
-                        type
-                        externalId
-                        extension
-                        size
-                        downloadUrl(validityInDays: $validityInDays2, permanent: $permanent2)
-                    }
-                    externalId
-                    tags{
-                        value
-                        source
-                    }
-                    copyright{
-                        status
-                        notice
-                    }
-                    availability{
-                        from
-                        to
-                    }
-                    expiresAt
-                    licenses{
-                        id
-                        title
-                        license
-                        addByDefault
-                        requireConsensus
-                    }
-                    status
-                    relatedAssets(limit: $limit6, page: $page6){
-                        total
-                        page
-                        limit
-                        hasNextPage
-                    }
-                    comments(limit: $limit7, page: $page7, query: $query2){
-                        total
-                        page
-                        limit
-                        hasNextPage
-                    }
-                    currentUserPermissions{
-                        canEdit
-                        canDelete
-                        canDownload
-                        canComment
-                    }
-                    workflowTask{
-                        id
-                        title
-                        description
-                    }
-                    variants(limit: $limit8, page: $page8){
-                        total
-                        page
-                        limit
-                        hasNextPage
-                    }
-                    previewBackgroundColor{
-                        red
-                        green
-                        blue
-                        alpha
-                    }
-                }
-                title
-                description
-                status{
-                    id
-                    name
-                    color{
-                        red
-                        green
-                        blue
-                        alpha
-                    }
-                    assignedUsers{
-                        id
-                        name
-                    }
-                    checklistPresets{
-                        id
-                        content
-                    }
-                    tasks(limit: $limit9, page: $page9){
-                        total
-                        page
-                        limit
-                        hasNextPage
-                    }
-                    enterRules
-                }
-                checklistItem(limit: $limit10, page: $page10){
-                    total
-                    page
-                    limit
-                    hasNextPage
-                    items{
-                        id
-                        content
-                    }
-                }
-            }
-            variants(limit: $limit11, page: $page11){
-                total
-                page
-                limit
-                hasNextPage
-                items{
-                    key
-                    filename
-                    downloadUrl(validityInDays: $validityInDays3, permanent: $permanent3)
                 }
             }
             location{
@@ -357,12 +211,6 @@ mutation moveAssets($validityInDays: Int, $permanent: Boolean, $validityInDays1:
                         name
                     }
                 }
-            }
-            previewBackgroundColor{
-                red
-                green
-                blue
-                alpha
             }
         }
     }

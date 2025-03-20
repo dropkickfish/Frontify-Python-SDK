@@ -1,9 +1,9 @@
-mutation updateCollection($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $input: UpdateCollectionInput!){
+mutation updateCollection($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $input: UpdateCollectionInput!){
     updateCollection(input: $input){
         collection{
             id
             name
-            assets(limit: $limit3, page: $page3){
+            assets(limit: $limit2, page: $page2){
                 total
                 page
                 limit
@@ -12,12 +12,16 @@ mutation updateCollection($validityInDays: Int, $permanent: Boolean, $limit: Int
                     id
                     creator{
                         id
+                        email
                         name
+                        avatar
                     }
                     createdAt
                     modifier{
                         id
+                        email
                         name
+                        avatar
                     }
                     modifiedAt
                     title
@@ -42,10 +46,6 @@ mutation updateCollection($validityInDays: Int, $permanent: Boolean, $limit: Int
                     copyright{
                         status
                         notice
-                    }
-                    availability{
-                        from
-                        to
                     }
                     expiresAt
                     licenses{
@@ -73,23 +73,6 @@ mutation updateCollection($validityInDays: Int, $permanent: Boolean, $limit: Int
                         canDelete
                         canDownload
                         canComment
-                    }
-                    workflowTask{
-                        id
-                        title
-                        description
-                    }
-                    variants(limit: $limit2, page: $page2){
-                        total
-                        page
-                        limit
-                        hasNextPage
-                    }
-                    previewBackgroundColor{
-                        red
-                        green
-                        blue
-                        alpha
                     }
                 }
             }

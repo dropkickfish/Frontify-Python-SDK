@@ -6,7 +6,7 @@ from typing import Any, List, Literal, Optional
 from pydantic import Field
 
 from .base_model import BaseModel
-from .enums import AssetStatusType, CopyrightStatus, TagSource, WorkflowStatusEnterRule
+from .enums import AssetStatusType, CopyrightStatus, TagSource
 
 
 class WorkspaceProject(BaseModel):
@@ -21,13 +21,11 @@ class WorkspaceProjectWorkspaceProject(BaseModel):
     color: Optional["WorkspaceProjectWorkspaceProjectColor"]
     assets: "WorkspaceProjectWorkspaceProjectAssets"
     licenses: Optional[List[Optional["WorkspaceProjectWorkspaceProjectLicenses"]]]
-    workflow: "WorkspaceProjectWorkspaceProjectWorkflow"
     browse: "WorkspaceProjectWorkspaceProjectBrowse"
     collaborators: Optional["WorkspaceProjectWorkspaceProjectCollaborators"]
     current_user_permissions: (
         "WorkspaceProjectWorkspaceProjectCurrentUserPermissions"
     ) = Field(alias="currentUserPermissions")
-    is_archived: bool = Field(alias="isArchived")
 
 
 class WorkspaceProjectWorkspaceProjectColor(BaseModel):
@@ -62,7 +60,6 @@ class WorkspaceProjectWorkspaceProjectAssetsItems(BaseModel):
     external_id: Optional[str] = Field(alias="externalId")
     tags: Optional[List[Optional["WorkspaceProjectWorkspaceProjectAssetsItemsTags"]]]
     copyright: Optional["WorkspaceProjectWorkspaceProjectAssetsItemsCopyright"]
-    availability: "WorkspaceProjectWorkspaceProjectAssetsItemsAvailability"
     expires_at: Optional[Any] = Field(alias="expiresAt")
     licenses: Optional[
         List[Optional["WorkspaceProjectWorkspaceProjectAssetsItemsLicenses"]]
@@ -78,26 +75,23 @@ class WorkspaceProjectWorkspaceProjectAssetsItems(BaseModel):
     custom_metadata: List[
         "WorkspaceProjectWorkspaceProjectAssetsItemsCustomMetadata"
     ] = Field(alias="customMetadata")
-    workflow_task: Optional[
-        "WorkspaceProjectWorkspaceProjectAssetsItemsWorkflowTask"
-    ] = Field(alias="workflowTask")
-    variants: Optional["WorkspaceProjectWorkspaceProjectAssetsItemsVariants"]
     location: "WorkspaceProjectWorkspaceProjectAssetsItemsLocation"
-    preview_background_color: Optional[
-        "WorkspaceProjectWorkspaceProjectAssetsItemsPreviewBackgroundColor"
-    ] = Field(alias="previewBackgroundColor")
 
 
 class WorkspaceProjectWorkspaceProjectAssetsItemsCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class WorkspaceProjectWorkspaceProjectAssetsItemsModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class WorkspaceProjectWorkspaceProjectAssetsItemsAttachments(BaseModel):
@@ -118,13 +112,17 @@ class WorkspaceProjectWorkspaceProjectAssetsItemsAttachments(BaseModel):
 class WorkspaceProjectWorkspaceProjectAssetsItemsAttachmentsCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class WorkspaceProjectWorkspaceProjectAssetsItemsAttachmentsModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class WorkspaceProjectWorkspaceProjectAssetsItemsTags(BaseModel):
@@ -135,11 +133,6 @@ class WorkspaceProjectWorkspaceProjectAssetsItemsTags(BaseModel):
 class WorkspaceProjectWorkspaceProjectAssetsItemsCopyright(BaseModel):
     status: CopyrightStatus
     notice: Optional[str]
-
-
-class WorkspaceProjectWorkspaceProjectAssetsItemsAvailability(BaseModel):
-    from_: Optional[Any] = Field(alias="from")
-    to: Optional[Any]
 
 
 class WorkspaceProjectWorkspaceProjectAssetsItemsLicenses(BaseModel):
@@ -216,67 +209,6 @@ class WorkspaceProjectWorkspaceProjectAssetsItemsCustomMetadataProperty(BaseMode
     default_value: Optional[Any] = Field(alias="defaultValue")
 
 
-class WorkspaceProjectWorkspaceProjectAssetsItemsWorkflowTask(BaseModel):
-    id: str
-    assigned_users: List[
-        Optional["WorkspaceProjectWorkspaceProjectAssetsItemsWorkflowTaskAssignedUsers"]
-    ] = Field(alias="assignedUsers")
-    asset: Optional["WorkspaceProjectWorkspaceProjectAssetsItemsWorkflowTaskAsset"]
-    title: Optional[str]
-    description: Optional[str]
-    status: "WorkspaceProjectWorkspaceProjectAssetsItemsWorkflowTaskStatus"
-    checklist_item: (
-        "WorkspaceProjectWorkspaceProjectAssetsItemsWorkflowTaskChecklistItem"
-    ) = Field(alias="checklistItem")
-
-
-class WorkspaceProjectWorkspaceProjectAssetsItemsWorkflowTaskAssignedUsers(BaseModel):
-    typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
-    id: str
-    name: Optional[str]
-
-
-class WorkspaceProjectWorkspaceProjectAssetsItemsWorkflowTaskAsset(BaseModel):
-    typename__: Literal[
-        "Asset", "Audio", "Document", "EmbeddedContent", "File", "Image", "Video"
-    ] = Field(alias="__typename")
-    id: str
-    created_at: Any = Field(alias="createdAt")
-    modified_at: Optional[Any] = Field(alias="modifiedAt")
-    title: str
-    description: Optional[str]
-    external_id: Optional[str] = Field(alias="externalId")
-    expires_at: Optional[Any] = Field(alias="expiresAt")
-    status: AssetStatusType
-
-
-class WorkspaceProjectWorkspaceProjectAssetsItemsWorkflowTaskStatus(BaseModel):
-    id: str
-    name: str
-    enter_rules: List[Optional[WorkflowStatusEnterRule]] = Field(alias="enterRules")
-
-
-class WorkspaceProjectWorkspaceProjectAssetsItemsWorkflowTaskChecklistItem(BaseModel):
-    total: int
-    page: int
-    limit: int
-    has_next_page: bool = Field(alias="hasNextPage")
-
-
-class WorkspaceProjectWorkspaceProjectAssetsItemsVariants(BaseModel):
-    total: int
-    page: int
-    limit: int
-    has_next_page: bool = Field(alias="hasNextPage")
-    items: List[Optional["WorkspaceProjectWorkspaceProjectAssetsItemsVariantsItems"]]
-
-
-class WorkspaceProjectWorkspaceProjectAssetsItemsVariantsItems(BaseModel):
-    key: str
-    filename: Optional[str]
-    download_url: Optional[Any] = Field(alias="downloadUrl")
-
-
 class WorkspaceProjectWorkspaceProjectAssetsItemsLocation(BaseModel):
     brand: Optional["WorkspaceProjectWorkspaceProjectAssetsItemsLocationBrand"]
     library: Optional["WorkspaceProjectWorkspaceProjectAssetsItemsLocationLibrary"]
@@ -306,83 +238,12 @@ class WorkspaceProjectWorkspaceProjectAssetsItemsLocationFolder(BaseModel):
     name: str
 
 
-class WorkspaceProjectWorkspaceProjectAssetsItemsPreviewBackgroundColor(BaseModel):
-    red: Any
-    green: Any
-    blue: Any
-    alpha: Any
-
-
 class WorkspaceProjectWorkspaceProjectLicenses(BaseModel):
     id: str
     title: str
     license: str
     add_by_default: bool = Field(alias="addByDefault")
     require_consensus: bool = Field(alias="requireConsensus")
-
-
-class WorkspaceProjectWorkspaceProjectWorkflow(BaseModel):
-    id: str
-    statuses: List[Optional["WorkspaceProjectWorkspaceProjectWorkflowStatuses"]]
-
-
-class WorkspaceProjectWorkspaceProjectWorkflowStatuses(BaseModel):
-    id: str
-    name: str
-    color: "WorkspaceProjectWorkspaceProjectWorkflowStatusesColor"
-    assigned_users: List[
-        Optional["WorkspaceProjectWorkspaceProjectWorkflowStatusesAssignedUsers"]
-    ] = Field(alias="assignedUsers")
-    checklist_presets: List[
-        Optional["WorkspaceProjectWorkspaceProjectWorkflowStatusesChecklistPresets"]
-    ] = Field(alias="checklistPresets")
-    tasks: "WorkspaceProjectWorkspaceProjectWorkflowStatusesTasks"
-    enter_rules: List[Optional[WorkflowStatusEnterRule]] = Field(alias="enterRules")
-
-
-class WorkspaceProjectWorkspaceProjectWorkflowStatusesColor(BaseModel):
-    red: Any
-    green: Any
-    blue: Any
-    alpha: Any
-
-
-class WorkspaceProjectWorkspaceProjectWorkflowStatusesAssignedUsers(BaseModel):
-    typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
-    id: str
-    name: Optional[str]
-
-
-class WorkspaceProjectWorkspaceProjectWorkflowStatusesChecklistPresets(BaseModel):
-    id: str
-    content: str
-    assigned_user: Optional[
-        "WorkspaceProjectWorkspaceProjectWorkflowStatusesChecklistPresetsAssignedUser"
-    ] = Field(alias="assignedUser")
-
-
-class WorkspaceProjectWorkspaceProjectWorkflowStatusesChecklistPresetsAssignedUser(
-    BaseModel
-):
-    typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
-    id: str
-    name: Optional[str]
-
-
-class WorkspaceProjectWorkspaceProjectWorkflowStatusesTasks(BaseModel):
-    total: int
-    page: int
-    limit: int
-    has_next_page: bool = Field(alias="hasNextPage")
-    items: Optional[
-        List[Optional["WorkspaceProjectWorkspaceProjectWorkflowStatusesTasksItems"]]
-    ]
-
-
-class WorkspaceProjectWorkspaceProjectWorkflowStatusesTasksItems(BaseModel):
-    id: str
-    title: Optional[str]
-    description: Optional[str]
 
 
 class WorkspaceProjectWorkspaceProjectBrowse(BaseModel):
@@ -449,24 +310,14 @@ class WorkspaceProjectWorkspaceProjectCollaboratorsUsers(BaseModel):
     items: Optional[
         List[Optional["WorkspaceProjectWorkspaceProjectCollaboratorsUsersItems"]]
     ]
-    edges: List["WorkspaceProjectWorkspaceProjectCollaboratorsUsersEdges"]
 
 
 class WorkspaceProjectWorkspaceProjectCollaboratorsUsersItems(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
-
-
-class WorkspaceProjectWorkspaceProjectCollaboratorsUsersEdges(BaseModel):
-    node: "WorkspaceProjectWorkspaceProjectCollaboratorsUsersEdgesNode"
-    role: str
-
-
-class WorkspaceProjectWorkspaceProjectCollaboratorsUsersEdgesNode(BaseModel):
-    typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
-    id: str
-    name: Optional[str]
+    avatar: Optional[Any]
 
 
 class WorkspaceProjectWorkspaceProjectCurrentUserPermissions(BaseModel):
@@ -482,16 +333,9 @@ WorkspaceProjectWorkspaceProjectAssetsItemsAttachments.model_rebuild()
 WorkspaceProjectWorkspaceProjectAssetsItemsRelatedAssets.model_rebuild()
 WorkspaceProjectWorkspaceProjectAssetsItemsComments.model_rebuild()
 WorkspaceProjectWorkspaceProjectAssetsItemsCustomMetadata.model_rebuild()
-WorkspaceProjectWorkspaceProjectAssetsItemsWorkflowTask.model_rebuild()
-WorkspaceProjectWorkspaceProjectAssetsItemsVariants.model_rebuild()
 WorkspaceProjectWorkspaceProjectAssetsItemsLocation.model_rebuild()
-WorkspaceProjectWorkspaceProjectWorkflow.model_rebuild()
-WorkspaceProjectWorkspaceProjectWorkflowStatuses.model_rebuild()
-WorkspaceProjectWorkspaceProjectWorkflowStatusesChecklistPresets.model_rebuild()
-WorkspaceProjectWorkspaceProjectWorkflowStatusesTasks.model_rebuild()
 WorkspaceProjectWorkspaceProjectBrowse.model_rebuild()
 WorkspaceProjectWorkspaceProjectBrowseFolders.model_rebuild()
 WorkspaceProjectWorkspaceProjectBrowseFoldersItems.model_rebuild()
 WorkspaceProjectWorkspaceProjectCollaborators.model_rebuild()
 WorkspaceProjectWorkspaceProjectCollaboratorsUsers.model_rebuild()
-WorkspaceProjectWorkspaceProjectCollaboratorsUsersEdges.model_rebuild()

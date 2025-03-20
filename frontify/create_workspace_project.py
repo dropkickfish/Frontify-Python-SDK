@@ -6,7 +6,7 @@ from typing import Any, List, Literal, Optional
 from pydantic import Field
 
 from .base_model import BaseModel
-from .enums import AssetStatusType, CopyrightStatus, TagSource, WorkflowStatusEnterRule
+from .enums import AssetStatusType, CopyrightStatus, TagSource
 
 
 class CreateWorkspaceProject(BaseModel):
@@ -27,7 +27,6 @@ class CreateWorkspaceProjectCreateWorkspaceProjectProject(BaseModel):
     licenses: Optional[
         List[Optional["CreateWorkspaceProjectCreateWorkspaceProjectProjectLicenses"]]
     ]
-    workflow: "CreateWorkspaceProjectCreateWorkspaceProjectProjectWorkflow"
     browse: "CreateWorkspaceProjectCreateWorkspaceProjectProjectBrowse"
     collaborators: Optional[
         "CreateWorkspaceProjectCreateWorkspaceProjectProjectCollaborators"
@@ -35,7 +34,6 @@ class CreateWorkspaceProjectCreateWorkspaceProjectProject(BaseModel):
     current_user_permissions: (
         "CreateWorkspaceProjectCreateWorkspaceProjectProjectCurrentUserPermissions"
     ) = Field(alias="currentUserPermissions")
-    is_archived: bool = Field(alias="isArchived")
     custom_metadata: List[
         "CreateWorkspaceProjectCreateWorkspaceProjectProjectCustomMetadata"
     ] = Field(alias="customMetadata")
@@ -89,9 +87,6 @@ class CreateWorkspaceProjectCreateWorkspaceProjectProjectAssetsItems(BaseModel):
     copyright: Optional[
         "CreateWorkspaceProjectCreateWorkspaceProjectProjectAssetsItemsCopyright"
     ]
-    availability: (
-        "CreateWorkspaceProjectCreateWorkspaceProjectProjectAssetsItemsAvailability"
-    )
     expires_at: Optional[Any] = Field(alias="expiresAt")
     licenses: Optional[
         List[
@@ -110,27 +105,22 @@ class CreateWorkspaceProjectCreateWorkspaceProjectProjectAssetsItems(BaseModel):
     current_user_permissions: (
         "CreateWorkspaceProjectCreateWorkspaceProjectProjectAssetsItemsCurrentUserPermissions"
     ) = Field(alias="currentUserPermissions")
-    workflow_task: Optional[
-        "CreateWorkspaceProjectCreateWorkspaceProjectProjectAssetsItemsWorkflowTask"
-    ] = Field(alias="workflowTask")
-    variants: Optional[
-        "CreateWorkspaceProjectCreateWorkspaceProjectProjectAssetsItemsVariants"
-    ]
-    preview_background_color: Optional[
-        "CreateWorkspaceProjectCreateWorkspaceProjectProjectAssetsItemsPreviewBackgroundColor"
-    ] = Field(alias="previewBackgroundColor")
 
 
 class CreateWorkspaceProjectCreateWorkspaceProjectProjectAssetsItemsCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class CreateWorkspaceProjectCreateWorkspaceProjectProjectAssetsItemsModifier(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class CreateWorkspaceProjectCreateWorkspaceProjectProjectAssetsItemsAttachments(
@@ -158,13 +148,6 @@ class CreateWorkspaceProjectCreateWorkspaceProjectProjectAssetsItemsCopyright(
 ):
     status: CopyrightStatus
     notice: Optional[str]
-
-
-class CreateWorkspaceProjectCreateWorkspaceProjectProjectAssetsItemsAvailability(
-    BaseModel
-):
-    from_: Optional[Any] = Field(alias="from")
-    to: Optional[Any]
 
 
 class CreateWorkspaceProjectCreateWorkspaceProjectProjectAssetsItemsLicenses(BaseModel):
@@ -200,94 +183,12 @@ class CreateWorkspaceProjectCreateWorkspaceProjectProjectAssetsItemsCurrentUserP
     can_comment: bool = Field(alias="canComment")
 
 
-class CreateWorkspaceProjectCreateWorkspaceProjectProjectAssetsItemsWorkflowTask(
-    BaseModel
-):
-    id: str
-    title: Optional[str]
-    description: Optional[str]
-
-
-class CreateWorkspaceProjectCreateWorkspaceProjectProjectAssetsItemsVariants(BaseModel):
-    total: int
-    page: int
-    limit: int
-    has_next_page: bool = Field(alias="hasNextPage")
-
-
-class CreateWorkspaceProjectCreateWorkspaceProjectProjectAssetsItemsPreviewBackgroundColor(
-    BaseModel
-):
-    red: Any
-    green: Any
-    blue: Any
-    alpha: Any
-
-
 class CreateWorkspaceProjectCreateWorkspaceProjectProjectLicenses(BaseModel):
     id: str
     title: str
     license: str
     add_by_default: bool = Field(alias="addByDefault")
     require_consensus: bool = Field(alias="requireConsensus")
-
-
-class CreateWorkspaceProjectCreateWorkspaceProjectProjectWorkflow(BaseModel):
-    id: str
-    statuses: List[
-        Optional["CreateWorkspaceProjectCreateWorkspaceProjectProjectWorkflowStatuses"]
-    ]
-
-
-class CreateWorkspaceProjectCreateWorkspaceProjectProjectWorkflowStatuses(BaseModel):
-    id: str
-    name: str
-    color: "CreateWorkspaceProjectCreateWorkspaceProjectProjectWorkflowStatusesColor"
-    assigned_users: List[
-        Optional[
-            "CreateWorkspaceProjectCreateWorkspaceProjectProjectWorkflowStatusesAssignedUsers"
-        ]
-    ] = Field(alias="assignedUsers")
-    checklist_presets: List[
-        Optional[
-            "CreateWorkspaceProjectCreateWorkspaceProjectProjectWorkflowStatusesChecklistPresets"
-        ]
-    ] = Field(alias="checklistPresets")
-    tasks: "CreateWorkspaceProjectCreateWorkspaceProjectProjectWorkflowStatusesTasks"
-    enter_rules: List[Optional[WorkflowStatusEnterRule]] = Field(alias="enterRules")
-
-
-class CreateWorkspaceProjectCreateWorkspaceProjectProjectWorkflowStatusesColor(
-    BaseModel
-):
-    red: Any
-    green: Any
-    blue: Any
-    alpha: Any
-
-
-class CreateWorkspaceProjectCreateWorkspaceProjectProjectWorkflowStatusesAssignedUsers(
-    BaseModel
-):
-    typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
-    id: str
-    name: Optional[str]
-
-
-class CreateWorkspaceProjectCreateWorkspaceProjectProjectWorkflowStatusesChecklistPresets(
-    BaseModel
-):
-    id: str
-    content: str
-
-
-class CreateWorkspaceProjectCreateWorkspaceProjectProjectWorkflowStatusesTasks(
-    BaseModel
-):
-    total: int
-    page: int
-    limit: int
-    has_next_page: bool = Field(alias="hasNextPage")
 
 
 class CreateWorkspaceProjectCreateWorkspaceProjectProjectBrowse(BaseModel):
@@ -340,9 +241,6 @@ class CreateWorkspaceProjectCreateWorkspaceProjectProjectCollaboratorsUsers(Base
             ]
         ]
     ]
-    edges: List[
-        "CreateWorkspaceProjectCreateWorkspaceProjectProjectCollaboratorsUsersEdges"
-    ]
 
 
 class CreateWorkspaceProjectCreateWorkspaceProjectProjectCollaboratorsUsersItems(
@@ -350,13 +248,9 @@ class CreateWorkspaceProjectCreateWorkspaceProjectProjectCollaboratorsUsersItems
 ):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
-
-
-class CreateWorkspaceProjectCreateWorkspaceProjectProjectCollaboratorsUsersEdges(
-    BaseModel
-):
-    role: str
+    avatar: Optional[Any]
 
 
 class CreateWorkspaceProjectCreateWorkspaceProjectProjectCurrentUserPermissions(
@@ -399,7 +293,9 @@ class CreateWorkspaceProjectCreateWorkspaceProjectProjectCustomMetadataPropertyC
 ):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class CreateWorkspaceProjectCreateWorkspaceProjectProjectCustomMetadataPropertyModifier(
@@ -407,7 +303,9 @@ class CreateWorkspaceProjectCreateWorkspaceProjectProjectCustomMetadataPropertyM
 ):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 class CreateWorkspaceProjectCreateWorkspaceProjectProjectCustomMetadataPropertyType(
@@ -431,8 +329,6 @@ CreateWorkspaceProjectCreateWorkspaceProject.model_rebuild()
 CreateWorkspaceProjectCreateWorkspaceProjectProject.model_rebuild()
 CreateWorkspaceProjectCreateWorkspaceProjectProjectAssets.model_rebuild()
 CreateWorkspaceProjectCreateWorkspaceProjectProjectAssetsItems.model_rebuild()
-CreateWorkspaceProjectCreateWorkspaceProjectProjectWorkflow.model_rebuild()
-CreateWorkspaceProjectCreateWorkspaceProjectProjectWorkflowStatuses.model_rebuild()
 CreateWorkspaceProjectCreateWorkspaceProjectProjectBrowse.model_rebuild()
 CreateWorkspaceProjectCreateWorkspaceProjectProjectBrowseFolders.model_rebuild()
 CreateWorkspaceProjectCreateWorkspaceProjectProjectCollaborators.model_rebuild()

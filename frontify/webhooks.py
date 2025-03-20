@@ -33,7 +33,9 @@ class WebhooksWebhooksItems(BaseModel):
 class WebhooksWebhooksItemsCreator(BaseModel):
     typename__: Literal["AccountUser", "User"] = Field(alias="__typename")
     id: str
+    email: Any
     name: Optional[str]
+    avatar: Optional[Any]
 
 
 Webhooks.model_rebuild()

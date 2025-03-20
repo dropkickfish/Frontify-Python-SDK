@@ -8,7 +8,9 @@ query webhooks($limit: Int, $page: Int){
             id
             creator{
                 id
+                email
                 name
+                avatar
             }
             createdAt
             name

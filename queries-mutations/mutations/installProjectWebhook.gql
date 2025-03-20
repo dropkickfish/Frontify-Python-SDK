@@ -4,7 +4,9 @@ mutation installProjectWebhook($input: InstallProjectWebhookInput!){
             id
             creator{
                 id
+                email
                 name
+                avatar
             }
             createdAt
             name

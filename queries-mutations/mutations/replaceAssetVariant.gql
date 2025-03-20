@@ -1,7 +1,0 @@
-mutation replaceAssetVariant($input: ReplaceAssetVariantInput!){
-    replaceAssetVariant(input: $input){
-        job{
-            variantId
-        }
-    }
-}

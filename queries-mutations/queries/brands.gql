@@ -1,4 +1,4 @@
-query brands($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $query: AssetCommentQueryInput, $limit1: Int, $page1: Int, $limit2: Int, $page2: Int, $validityInDays1: Int, $permanent1: Boolean, $width: Int, $height: Int, $width1: Int, $height1: Int, $page3: Int, $validityInDays2: Int, $permanent2: Boolean, $validityInDays3: Int, $permanent3: Boolean, $width2: Int, $height2: Int, $validityInDays4: Int, $permanent4: Boolean, $width3: Int, $height3: Int, $validityInDays5: Int, $permanent5: Boolean, $validityInDays6: Int, $permanent6: Boolean, $limit3: Int, $page4: Int, $limit4: Int, $page5: Int, $query1: AssetCommentQueryInput, $limit5: Int, $page6: Int, $validityInDays7: Int, $permanent7: Boolean, $limit6: Int, $page7: Int, $validityInDays8: Int, $permanent8: Boolean, $width4: Int, $height4: Int, $width5: Int, $height5: Int, $page8: Int, $validityInDays9: Int, $permanent9: Boolean, $validityInDays10: Int, $permanent10: Boolean, $width6: Int, $height6: Int, $validityInDays11: Int, $permanent11: Boolean, $width7: Int, $height7: Int, $validityInDays12: Int, $permanent12: Boolean, $limit7: Int, $page9: Int, $query2: BrandQueryInput, $limit8: Int, $page10: Int, $query3: AssetQueryInput, $limit9: Int, $page11: Int, $limit10: Int, $page12: Int, $limit11: Int, $page13: Int, $query4: FolderAssetQueryInput, $limit12: Int, $page14: Int, $limit13: Int, $page15: Int, $query5: LibraryQueryInput, $limit14: Int, $page16: Int, $query6: WorkspaceProjectQueryInput, $limit15: Int, $page17: Int, $limit16: Int, $page18: Int, $language: LanguageCode, $limit17: Int, $page19: Int, $key: String!, $limit18: Int, $page20: Int, $query7: CreativeTemplateQueryInput){
+query brands($limit: Int, $page: Int, $query: AssetQueryInput, $limit1: Int, $page1: Int, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $limit5: Int, $page5: Int, $limit6: Int, $page6: Int){
     brands{
         id
         name
@@ -10,518 +10,7 @@ query brands($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int,
         }
         avatar
         slug
-        search(limit: $limit7, page: $page9, query: $query2){
-            total
-            page
-            limit
-            hasNextPage
-            items{
-                __typename
-                ... on Audio {
-                    id
-                    creator{
-                        id
-                        name
-                    }
-                    createdAt
-                    modifier{
-                        id
-                        name
-                    }
-                    modifiedAt
-                    title
-                    description
-                    alternativeText
-                    isDecorative
-                    attachments{
-                        id
-                        creator{
-                            id
-                            name
-                        }
-                        createdAt
-                        modifier{
-                            id
-                            name
-                        }
-                        modifiedAt
-                        name
-                        filename
-                        type
-                        externalId
-                        extension
-                        size
-                        downloadUrl(validityInDays: $validityInDays, permanent: $permanent)
-                    }
-                    externalId
-                    tags{
-                        value
-                        source
-                    }
-                    externalProducts{
-                        id
-                        name
-                        externalId
-                        title
-                    }
-                    copyright{
-                        status
-                        notice
-                    }
-                    availability{
-                        from
-                        to
-                    }
-                    expiresAt
-                    licenses{
-                        id
-                        title
-                        license
-                        addByDefault
-                        requireConsensus
-                    }
-                    author
-                    status
-                    relatedAssets(limit: $limit2, page: $page2){
-                        total
-                        page
-                        limit
-                        hasNextPage
-                        items{
-                            id
-                            createdAt
-                            modifiedAt
-                            title
-                            description
-                            externalId
-                            expiresAt
-                            status
-                            comments(limit: $limit, page: $page, query: $query){
-                                total
-                                page
-                                limit
-                                hasNextPage
-                            }
-                            currentUserPermissions{
-                                canEdit
-                                canDelete
-                                canDownload
-                                canComment
-                            }
-                            workflowTask{
-                                id
-                                title
-                                description
-                            }
-                            variants(limit: $limit1, page: $page1){
-                                total
-                                page
-                                limit
-                                hasNextPage
-                            }
-                            previewBackgroundColor{
-                                red
-                                green
-                                blue
-                                alpha
-                            }
-                        }
-                    }
-                    filename
-                    size
-                    extension
-                    downloadUrl(validityInDays: $validityInDays1, permanent: $permanent1)
-                    previewUrl(width: $width, height: $height)
-                    thumbnailUrl
-                    dynamicPreviewUrl
-                }
-                ... on Document {
-                    id
-                    createdAt
-                    modifiedAt
-                    title
-                    description
-                    alternativeText
-                    isDecorative
-                    externalId
-                    expiresAt
-                    author
-                    status
-                    filename
-                    size
-                    extension
-                    previewUrl(width: $width1, height: $height1, page: $page3)
-                    thumbnailUrl
-                    dynamicPreviewUrl
-                    downloadUrl(validityInDays: $validityInDays2, permanent: $permanent2)
-                    focalPoint
-                    width
-                    height
-                    pageCount
-                }
-                ... on EmbeddedContent {
-                    id
-                    createdAt
-                    modifiedAt
-                    title
-                    description
-                    alternativeText
-                    isDecorative
-                    externalId
-                    expiresAt
-                    author
-                    status
-                    previewUrl
-                    thumbnailUrl
-                }
-                ... on File {
-                    id
-                    createdAt
-                    modifiedAt
-                    title
-                    description
-                    alternativeText
-                    isDecorative
-                    externalId
-                    expiresAt
-                    author
-                    status
-                    filename
-                    size
-                    extension
-                    previewUrl
-                    thumbnailUrl
-                    dynamicPreviewUrl
-                    downloadUrl(validityInDays: $validityInDays3, permanent: $permanent3)
-                }
-                ... on Image {
-                    id
-                    createdAt
-                    modifiedAt
-                    title
-                    description
-                    alternativeText
-                    isDecorative
-                    externalId
-                    expiresAt
-                    author
-                    status
-                    filename
-                    size
-                    extension
-                    previewUrl(width: $width2, height: $height2)
-                    thumbnailUrl
-                    dynamicPreviewUrl
-                    downloadUrl(validityInDays: $validityInDays4, permanent: $permanent4)
-                    focalPoint
-                    width
-                    height
-                }
-                ... on Video {
-                    id
-                    createdAt
-                    modifiedAt
-                    title
-                    description
-                    alternativeText
-                    isDecorative
-                    externalId
-                    expiresAt
-                    author
-                    status
-                    filename
-                    size
-                    extension
-                    previewUrl(width: $width3, height: $height3)
-                    thumbnailUrl
-                    dynamicPreviewUrl
-                    downloadUrl(validityInDays: $validityInDays5, permanent: $permanent5)
-                    width
-                    height
-                    duration
-                    bitrate
-                }
-            }
-            edges{
-                title
-                node{
-                    __typename
-                    ... on Audio {
-                        id
-                        creator{
-                            id
-                            name
-                        }
-                        createdAt
-                        modifier{
-                            id
-                            name
-                        }
-                        modifiedAt
-                        title
-                        description
-                        alternativeText
-                        isDecorative
-                        attachments{
-                            id
-                            createdAt
-                            modifiedAt
-                            name
-                            filename
-                            type
-                            externalId
-                            extension
-                            size
-                            downloadUrl(validityInDays: $validityInDays6, permanent: $permanent6)
-                        }
-                        externalId
-                        tags{
-                            value
-                            source
-                        }
-                        externalProducts{
-                            id
-                            name
-                            externalId
-                            title
-                        }
-                        copyright{
-                            status
-                            notice
-                        }
-                        availability{
-                            from
-                            to
-                        }
-                        expiresAt
-                        licenses{
-                            id
-                            title
-                            license
-                            addByDefault
-                            requireConsensus
-                        }
-                        author
-                        status
-                        relatedAssets(limit: $limit3, page: $page4){
-                            total
-                            page
-                            limit
-                            hasNextPage
-                        }
-                        comments(limit: $limit4, page: $page5, query: $query1){
-                            total
-                            page
-                            limit
-                            hasNextPage
-                            items{
-                                id
-                                createdAt
-                                modifiedAt
-                                content
-                                isResolved
-                            }
-                        }
-                        currentUserPermissions{
-                            canEdit
-                            canDelete
-                            canDownload
-                            canComment
-                        }
-                        customMetadata{
-                            property{
-                                id
-                                createdAt
-                                modifiedAt
-                                name
-                                helpText
-                                isRequired
-                                defaultValue
-                            }
-                        }
-                        workflowTask{
-                            id
-                            assignedUsers{
-                                id
-                                name
-                            }
-                            asset{
-                                id
-                                createdAt
-                                modifiedAt
-                                title
-                                description
-                                externalId
-                                expiresAt
-                                status
-                            }
-                            title
-                            description
-                            status{
-                                id
-                                name
-                                enterRules
-                            }
-                            checklistItem(limit: $limit5, page: $page6){
-                                total
-                                page
-                                limit
-                                hasNextPage
-                            }
-                        }
-                        variants(limit: $limit6, page: $page7){
-                            total
-                            page
-                            limit
-                            hasNextPage
-                            items{
-                                key
-                                filename
-                                downloadUrl(validityInDays: $validityInDays7, permanent: $permanent7)
-                            }
-                        }
-                        location{
-                            brand{
-                                id
-                                name
-                            }
-                            library{
-                                id
-                                name
-                            }
-                            workspaceProject{
-                                id
-                                name
-                            }
-                            folder{
-                                id
-                                name
-                            }
-                        }
-                        previewBackgroundColor{
-                            red
-                            green
-                            blue
-                            alpha
-                        }
-                        filename
-                        size
-                        extension
-                        downloadUrl(validityInDays: $validityInDays8, permanent: $permanent8)
-                        previewUrl(width: $width4, height: $height4)
-                        thumbnailUrl
-                        dynamicPreviewUrl
-                    }
-                    ... on Document {
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        alternativeText
-                        isDecorative
-                        externalId
-                        expiresAt
-                        author
-                        status
-                        filename
-                        size
-                        extension
-                        previewUrl(width: $width5, height: $height5, page: $page8)
-                        thumbnailUrl
-                        dynamicPreviewUrl
-                        downloadUrl(validityInDays: $validityInDays9, permanent: $permanent9)
-                        focalPoint
-                        width
-                        height
-                        pageCount
-                    }
-                    ... on EmbeddedContent {
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        alternativeText
-                        isDecorative
-                        externalId
-                        expiresAt
-                        author
-                        status
-                        previewUrl
-                        thumbnailUrl
-                    }
-                    ... on File {
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        alternativeText
-                        isDecorative
-                        externalId
-                        expiresAt
-                        author
-                        status
-                        filename
-                        size
-                        extension
-                        previewUrl
-                        thumbnailUrl
-                        dynamicPreviewUrl
-                        downloadUrl(validityInDays: $validityInDays10, permanent: $permanent10)
-                    }
-                    ... on Image {
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        alternativeText
-                        isDecorative
-                        externalId
-                        expiresAt
-                        author
-                        status
-                        filename
-                        size
-                        extension
-                        previewUrl(width: $width6, height: $height6)
-                        thumbnailUrl
-                        dynamicPreviewUrl
-                        downloadUrl(validityInDays: $validityInDays11, permanent: $permanent11)
-                        focalPoint
-                        width
-                        height
-                    }
-                    ... on Video {
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        alternativeText
-                        isDecorative
-                        externalId
-                        expiresAt
-                        author
-                        status
-                        filename
-                        size
-                        extension
-                        previewUrl(width: $width7, height: $height7)
-                        thumbnailUrl
-                        dynamicPreviewUrl
-                        downloadUrl(validityInDays: $validityInDays12, permanent: $permanent12)
-                        width
-                        height
-                        duration
-                        bitrate
-                    }
-                }
-            }
-        }
-        libraries(limit: $limit13, page: $page15, query: $query5){
+        libraries(limit: $limit5, page: $page5){
             total
             page
             limit
@@ -535,7 +24,7 @@ query brands($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int,
                     blue
                     alpha
                 }
-                assets(limit: $limit8, page: $page10, query: $query3){
+                assets(limit: $limit, page: $page, query: $query){
                     total
                     page
                     limit
@@ -551,7 +40,14 @@ query brands($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int,
                         status
                     }
                 }
-                collections(limit: $limit9, page: $page11){
+                licenses{
+                    id
+                    title
+                    license
+                    addByDefault
+                    requireConsensus
+                }
+                collections(limit: $limit1, page: $page1){
                     total
                     page
                     limit
@@ -562,13 +58,13 @@ query brands($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int,
                     }
                 }
                 browse{
-                    folders(limit: $limit10, page: $page12){
+                    folders(limit: $limit2, page: $page2){
                         total
                         page
                         limit
                         hasNextPage
                     }
-                    assets(limit: $limit11, page: $page13, query: $query4){
+                    assets(limit: $limit3, page: $page3){
                         total
                         page
                         limit
@@ -576,31 +72,32 @@ query brands($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int,
                     }
                 }
                 collaborators{
-                    users(limit: $limit12, page: $page14){
+                    users(limit: $limit4, page: $page4){
                         total
                         page
                         limit
                         hasNextPage
                     }
                 }
-                workflow{
-                    id
-                    statuses{
-                        id
-                        name
-                        enterRules
-                    }
+                currentUserPermissions{
+                    canCreateAssets
+                    canViewCollaborators
+                    canCreateCollections
                 }
                 customMetadataProperties{
                     id
                     creator{
                         id
+                        email
                         name
+                        avatar
                     }
                     createdAt
                     modifier{
                         id
+                        email
                         name
+                        avatar
                     }
                     modifiedAt
                     name
@@ -611,26 +108,9 @@ query brands($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int,
                     isRequired
                     defaultValue
                 }
-                assetSubmissionRequests{
-                    id
-                    creator{
-                        id
-                        name
-                    }
-                    createdAt
-                    modifier{
-                        id
-                        name
-                    }
-                    modifiedAt
-                    projectId
-                    title
-                    description
-                    configuration
-                }
             }
         }
-        workspaceProjects(limit: $limit14, page: $page16, query: $query6){
+        workspaceProjects(limit: $limit6, page: $page6){
             total
             page
             limit
@@ -638,46 +118,15 @@ query brands($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int,
             items{
                 id
                 name
-                isArchived
-            }
-        }
-        guidelines(language: $language, limit: $limit17, page: $page19){
-            total
-            page
-            limit
-            hasNextPage
-            items{
-                id
-                name
-                url
-                defaultLanguage{
-                    code
-                    name
-                }
-                translationLanguages{
-                    code
-                    name
-                }
-                libraryPages(limit: $limit15, page: $page17){
-                    total
-                    page
-                    limit
-                    hasNextPage
-                    items{
+                customMetadata{
+                    property{
                         id
-                        title
-                        type
-                    }
-                }
-                pages(limit: $limit16, page: $page18){
-                    total
-                    page
-                    limit
-                    hasNextPage
-                    items{
-                        id
-                        title
-                        url
+                        createdAt
+                        modifiedAt
+                        name
+                        helpText
+                        isRequired
+                        defaultValue
                     }
                 }
             }
@@ -690,35 +139,6 @@ query brands($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int,
             helpText
             isRequired
             defaultValue
-        }
-        creativeTemplates(limit: $limit18, page: $page20, query: $query7){
-            total
-            page
-            limit
-            hasNextPage
-            items{
-                id
-                brandId
-                name
-                description
-                variable(key: $key){
-                    key
-                    name
-                    description
-                    type
-                    value
-                    connectionCount
-                }
-                variables{
-                    key
-                    name
-                    description
-                    type
-                    value
-                    connectionCount
-                }
-                assetId
-            }
         }
     }
 }

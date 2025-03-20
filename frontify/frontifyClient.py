@@ -11,56 +11,32 @@ from .add_asset_tags import AddAssetTags
 from .add_collection_assets import AddCollectionAssets
 from .add_custom_metadata import AddCustomMetadata
 from .add_custom_metadata_property_options import AddCustomMetadataPropertyOptions
-from .add_workflow_checklist_item import AddWorkflowChecklistItem
-from .add_workflow_checklist_preset import AddWorkflowChecklistPreset
-from .add_workflow_status_assignees import AddWorkflowStatusAssignees
-from .add_workflow_task_assignees import AddWorkflowTaskAssignees
 from .asset import Asset
 from .assets import Assets
 from .base_client import BaseClient
 from .base_model import UNSET, UnsetType
 from .brand import Brand
 from .brands import Brands
-from .cancel_export_creatives import CancelExportCreatives
 from .client_tracking_id import ClientTrackingId
-from .create_account_user import CreateAccountUser
 from .create_asset import CreateAsset
 from .create_asset_comment import CreateAssetComment
-from .create_asset_submissions import CreateAssetSubmissions
-from .create_asset_variant import CreateAssetVariant
-from .create_asset_workflow_task import CreateAssetWorkflowTask
 from .create_attachment import CreateAttachment
-from .create_brand import CreateBrand
 from .create_collection import CreateCollection
 from .create_custom_metadata_property import CreateCustomMetadataProperty
 from .create_external_asset import CreateExternalAsset
 from .create_folder import CreateFolder
 from .create_license import CreateLicense
-from .create_permission_token import CreatePermissionToken
-from .create_share_link import CreateShareLink
-from .create_workflow_status import CreateWorkflowStatus
 from .create_workspace_project import CreateWorkspaceProject
-from .creative_export import CreativeExport
-from .creative_template import CreativeTemplate
 from .current_user import CurrentUser
-from .delete_account_user import DeleteAccountUser
 from .delete_asset import DeleteAsset
-from .delete_asset_variant import DeleteAssetVariant
 from .delete_attachment import DeleteAttachment
-from .delete_brand import DeleteBrand
 from .delete_collection import DeleteCollection
 from .delete_comment import DeleteComment
 from .delete_custom_metadata_property import DeleteCustomMetadataProperty
 from .delete_folders import DeleteFolders
 from .delete_license import DeleteLicense
-from .delete_workflow_status import DeleteWorkflowStatus
-from .delete_workflow_task import DeleteWorkflowTask
 from .edit_comment import EditComment
-from .enums import LanguageCode
-from .export_creative import ExportCreative
-from .guideline_page import GuidelinePage
 from .input_types import (
-    AccountQueryInput,
     AddAssetLicenseInput,
     AddAssetPreviewImageInput,
     AddAssetRelationsInput,
@@ -68,123 +44,71 @@ from .input_types import (
     AddCollectionAssetsInput,
     AddCustomMetadataInput,
     AddCustomMetadataPropertyOptionsInput,
-    AddWorkflowChecklistItemInput,
-    AddWorkflowChecklistPresetInput,
-    AddWorkflowStatusAssigneesInput,
-    AddWorkflowTaskAssigneesInput,
     AssetCommentQueryInput,
     AssetQueryInput,
-    BrandQueryInput,
-    CancelExportCreativesInput,
-    CreateAccountUserInput,
     CreateAssetCommentInput,
     CreateAssetInput,
-    CreateAssetSubmissionsInput,
-    CreateAssetVariantInput,
-    CreateAssetWorkflowTaskInput,
     CreateAttachmentInput,
-    CreateBrandInput,
     CreateCollectionInput,
     CreateCustomMetadataPropertyInput,
     CreateExternalAssetInput,
     CreateFolderInput,
     CreateLicenseInput,
-    CreatePermissionTokenInput,
-    CreateShareLinkInput,
-    CreateWorkflowStatusInput,
     CreateWorkspaceProjectInput,
-    CreativeTemplateQueryInput,
-    DeleteAccountUserInput,
     DeleteAssetInput,
-    DeleteAssetVariantInput,
     DeleteAttachmentInput,
-    DeleteBrandInput,
     DeleteCollectionInput,
     DeleteCommentInput,
     DeleteCustomMetadataPropertyInput,
     DeleteFoldersInput,
     DeleteLicenseInput,
-    DeleteWorkflowStatusInput,
-    DeleteWorkflowTaskInput,
     EditCommentInput,
-    ExportCreativeInput,
-    FolderAssetQueryInput,
     InstallProjectWebhookInput,
     InviteProjectUserInput,
-    LibraryQueryInput,
     MoveAssetsInput,
     MoveFoldersInput,
-    MoveWorkflowTaskInput,
     RemoveAssetLicenseInput,
     RemoveAssetPreviewImageInput,
-    RemoveAssetRelationsInput,
     RemoveAssetTagsInput,
     RemoveCollectionAssetsInput,
     RemoveCustomMetadataInput,
     RemoveCustomMetadataPropertyOptionsInput,
-    RemoveWorkflowChecklistItemInput,
-    RemoveWorkflowChecklistPresetInput,
-    RemoveWorkflowStatusAssigneesInput,
-    RemoveWorkflowTaskAssigneesInput,
     ReopenAssetCommentInput,
     ReplaceAssetInput,
-    ReplaceAssetVariantInput,
-    ReplaceExternalDataSourceFileInput,
     ReplyToCommentInput,
     ResolveAssetCommentInput,
     SetCollectionAssetsInput,
-    SetCustomMetadataInput,
     SyncAssetTagsInput,
     UninstallWebhookInput,
     UpdateAssetInput,
-    UpdateBrandInput,
     UpdateCollectionInput,
     UpdateCustomMetadataPropertyInput,
     UpdateFolderInput,
-    UpdateWorkflowChecklistItemInput,
-    UpdateWorkflowChecklistPresetInput,
-    UpdateWorkflowStatusInput,
-    UpdateWorkflowTaskInput,
     UploadFileInput,
-    WorkspaceProjectQueryInput,
 )
 from .install_project_webhook import InstallProjectWebhook
 from .invite_project_user import InviteProjectUser
 from .library import Library
 from .move_assets import MoveAssets
 from .move_folders import MoveFolders
-from .move_workflow_task import MoveWorkflowTask
 from .node import Node
 from .remove_asset_license import RemoveAssetLicense
 from .remove_asset_preview_image import RemoveAssetPreviewImage
-from .remove_asset_relations import RemoveAssetRelations
 from .remove_asset_tags import RemoveAssetTags
 from .remove_collection_assets import RemoveCollectionAssets
 from .remove_custom_metadata import RemoveCustomMetadata
 from .remove_custom_metadata_property_options import RemoveCustomMetadataPropertyOptions
-from .remove_workflow_checklist_item import RemoveWorkflowChecklistItem
-from .remove_workflow_checklist_preset import RemoveWorkflowChecklistPreset
-from .remove_workflow_status_assignees import RemoveWorkflowStatusAssignees
-from .remove_workflow_task_assignees import RemoveWorkflowTaskAssignees
 from .reopen_asset_comment import ReopenAssetComment
 from .replace_asset import ReplaceAsset
-from .replace_asset_variant import ReplaceAssetVariant
-from .replace_external_data_source_file import ReplaceExternalDataSourceFile
 from .reply_to_comment import ReplyToComment
 from .resolve_asset_comment import ResolveAssetComment
 from .set_collection_assets import SetCollectionAssets
-from .set_custom_metadata import SetCustomMetadata
 from .sync_asset_tags import SyncAssetTags
 from .uninstall_webhook import UninstallWebhook
 from .update_asset import UpdateAsset
-from .update_brand import UpdateBrand
 from .update_collection import UpdateCollection
 from .update_custom_metadata_property import UpdateCustomMetadataProperty
 from .update_folder import UpdateFolder
-from .update_workflow_checklist_item import UpdateWorkflowChecklistItem
-from .update_workflow_checklist_preset import UpdateWorkflowChecklistPreset
-from .update_workflow_status import UpdateWorkflowStatus
-from .update_workflow_task import UpdateWorkflowTask
 from .upload_file import UploadFile
 from .webhooks import Webhooks
 from .workspace_project import WorkspaceProject
@@ -213,20 +137,12 @@ class FrontifyClient(BaseClient):
         page_3: Union[Optional[int], UnsetType] = UNSET,
         limit_4: Union[Optional[int], UnsetType] = UNSET,
         page_4: Union[Optional[int], UnsetType] = UNSET,
-        limit_5: Union[Optional[int], UnsetType] = UNSET,
-        page_5: Union[Optional[int], UnsetType] = UNSET,
         query_1: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
-        limit_6: Union[Optional[int], UnsetType] = UNSET,
-        page_6: Union[Optional[int], UnsetType] = UNSET,
-        limit_7: Union[Optional[int], UnsetType] = UNSET,
-        page_7: Union[Optional[int], UnsetType] = UNSET,
-        limit_8: Union[Optional[int], UnsetType] = UNSET,
-        page_8: Union[Optional[int], UnsetType] = UNSET,
         **kwargs: Any
     ) -> AddAssetLicense:
         _query = gql(
             """
-            mutation addAssetLicense($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $permanent1: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $limit5: Int, $page5: Int, $query1: AssetCommentQueryInput, $limit6: Int, $page6: Int, $limit7: Int, $page7: Int, $limit8: Int, $page8: Int, $input: AddAssetLicenseInput!) {
+            mutation addAssetLicense($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $permanent1: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $query1: AssetCommentQueryInput, $input: AddAssetLicenseInput!) {
               addAssetLicense(input: $input) {
                 asset {
                   __typename
@@ -234,13 +150,17 @@ class FrontifyClient(BaseClient):
                   creator {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   createdAt
                   modifier {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   modifiedAt
                   title
@@ -250,13 +170,17 @@ class FrontifyClient(BaseClient):
                     creator {
                       __typename
                       id
+                      email
                       name
+                      avatar
                     }
                     createdAt
                     modifier {
                       __typename
                       id
+                      email
                       name
+                      avatar
                     }
                     modifiedAt
                     name
@@ -276,10 +200,6 @@ class FrontifyClient(BaseClient):
                     status
                     notice
                   }
-                  availability {
-                    from
-                    to
-                  }
                   expiresAt
                   licenses {
                     id
@@ -289,7 +209,7 @@ class FrontifyClient(BaseClient):
                     requireConsensus
                   }
                   status
-                  relatedAssets(limit: $limit3, page: $page3) {
+                  relatedAssets(limit: $limit2, page: $page2) {
                     total
                     page
                     limit
@@ -300,13 +220,17 @@ class FrontifyClient(BaseClient):
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       title
@@ -331,10 +255,6 @@ class FrontifyClient(BaseClient):
                       copyright {
                         status
                         notice
-                      }
-                      availability {
-                        from
-                        to
                       }
                       expiresAt
                       licenses {
@@ -363,26 +283,9 @@ class FrontifyClient(BaseClient):
                         canDownload
                         canComment
                       }
-                      workflowTask {
-                        id
-                        title
-                        description
-                      }
-                      variants(limit: $limit2, page: $page2) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      previewBackgroundColor {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
                     }
                   }
-                  comments(limit: $limit5, page: $page5, query: $query1) {
+                  comments(limit: $limit4, page: $page4, query: $query1) {
                     total
                     page
                     limit
@@ -395,10 +298,12 @@ class FrontifyClient(BaseClient):
                       mentionedUsers {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       isResolved
-                      replies(limit: $limit4, page: $page4) {
+                      replies(limit: $limit3, page: $page3) {
                         total
                         page
                         limit
@@ -419,13 +324,17 @@ class FrontifyClient(BaseClient):
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       name
@@ -438,72 +347,25 @@ class FrontifyClient(BaseClient):
                       defaultValue
                     }
                   }
-                  workflowTask {
-                    id
-                    assignedUsers {
-                      __typename
+                  location {
+                    brand {
                       id
                       name
                     }
-                    asset {
-                      __typename
-                      id
-                      createdAt
-                      modifiedAt
-                      title
-                      description
-                      externalId
-                      expiresAt
-                      status
-                      variants(limit: $limit6, page: $page6) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      previewBackgroundColor {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
-                    }
-                    title
-                    description
-                    status {
+                    library {
                       id
                       name
-                      color {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
-                      assignedUsers {
-                        __typename
+                    }
+                    workspaceProject {
+                      id
+                      name
+                    }
+                    folder {
+                      id
+                      name
+                      breadcrumbs {
                         id
                         name
-                      }
-                      checklistPresets {
-                        id
-                        content
-                      }
-                      tasks(limit: $limit7, page: $page7) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      enterRules
-                    }
-                    checklistItem(limit: $limit8, page: $page8) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        id
-                        content
                       }
                     }
                   }
@@ -535,15 +397,7 @@ class FrontifyClient(BaseClient):
             "page3": page_3,
             "limit4": limit_4,
             "page4": page_4,
-            "limit5": limit_5,
-            "page5": page_5,
             "query1": query_1,
-            "limit6": limit_6,
-            "page6": page_6,
-            "limit7": limit_7,
-            "page7": page_7,
-            "limit8": limit_8,
-            "page8": page_8,
             "input": input,
         }
         response = self.execute(
@@ -597,31 +451,19 @@ class FrontifyClient(BaseClient):
         page_3: Union[Optional[int], UnsetType] = UNSET,
         limit_4: Union[Optional[int], UnsetType] = UNSET,
         page_4: Union[Optional[int], UnsetType] = UNSET,
-        limit_5: Union[Optional[int], UnsetType] = UNSET,
-        page_5: Union[Optional[int], UnsetType] = UNSET,
         query_1: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
-        limit_6: Union[Optional[int], UnsetType] = UNSET,
-        page_6: Union[Optional[int], UnsetType] = UNSET,
-        limit_7: Union[Optional[int], UnsetType] = UNSET,
-        page_7: Union[Optional[int], UnsetType] = UNSET,
-        limit_8: Union[Optional[int], UnsetType] = UNSET,
-        page_8: Union[Optional[int], UnsetType] = UNSET,
         validity_in_days_2: Union[Optional[int], UnsetType] = UNSET,
         permanent_2: Union[Optional[bool], UnsetType] = UNSET,
-        limit_9: Union[Optional[int], UnsetType] = UNSET,
-        page_9: Union[Optional[int], UnsetType] = UNSET,
-        limit_10: Union[Optional[int], UnsetType] = UNSET,
-        page_10: Union[Optional[int], UnsetType] = UNSET,
+        limit_5: Union[Optional[int], UnsetType] = UNSET,
+        page_5: Union[Optional[int], UnsetType] = UNSET,
+        limit_6: Union[Optional[int], UnsetType] = UNSET,
+        page_6: Union[Optional[int], UnsetType] = UNSET,
         query_2: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
-        validity_in_days_3: Union[Optional[int], UnsetType] = UNSET,
-        permanent_3: Union[Optional[bool], UnsetType] = UNSET,
-        limit_11: Union[Optional[int], UnsetType] = UNSET,
-        page_11: Union[Optional[int], UnsetType] = UNSET,
         **kwargs: Any
     ) -> AddAssetRelations:
         _query = gql(
             """
-            mutation addAssetRelations($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $permanent1: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $limit5: Int, $page5: Int, $query1: AssetCommentQueryInput, $limit6: Int, $page6: Int, $limit7: Int, $page7: Int, $limit8: Int, $page8: Int, $validityInDays2: Int, $permanent2: Boolean, $limit9: Int, $page9: Int, $limit10: Int, $page10: Int, $query2: AssetCommentQueryInput, $validityInDays3: Int, $permanent3: Boolean, $limit11: Int, $page11: Int, $input: AddAssetRelationsInput!) {
+            mutation addAssetRelations($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $permanent1: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $query1: AssetCommentQueryInput, $validityInDays2: Int, $permanent2: Boolean, $limit5: Int, $page5: Int, $limit6: Int, $page6: Int, $query2: AssetCommentQueryInput, $input: AddAssetRelationsInput!) {
               addAssetRelations(input: $input) {
                 asset {
                   __typename
@@ -629,13 +471,17 @@ class FrontifyClient(BaseClient):
                   creator {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   createdAt
                   modifier {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   modifiedAt
                   title
@@ -645,13 +491,17 @@ class FrontifyClient(BaseClient):
                     creator {
                       __typename
                       id
+                      email
                       name
+                      avatar
                     }
                     createdAt
                     modifier {
                       __typename
                       id
+                      email
                       name
+                      avatar
                     }
                     modifiedAt
                     name
@@ -671,10 +521,6 @@ class FrontifyClient(BaseClient):
                     status
                     notice
                   }
-                  availability {
-                    from
-                    to
-                  }
                   expiresAt
                   licenses {
                     id
@@ -684,7 +530,7 @@ class FrontifyClient(BaseClient):
                     requireConsensus
                   }
                   status
-                  relatedAssets(limit: $limit3, page: $page3) {
+                  relatedAssets(limit: $limit2, page: $page2) {
                     total
                     page
                     limit
@@ -695,13 +541,17 @@ class FrontifyClient(BaseClient):
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       title
@@ -726,10 +576,6 @@ class FrontifyClient(BaseClient):
                       copyright {
                         status
                         notice
-                      }
-                      availability {
-                        from
-                        to
                       }
                       expiresAt
                       licenses {
@@ -758,26 +604,9 @@ class FrontifyClient(BaseClient):
                         canDownload
                         canComment
                       }
-                      workflowTask {
-                        id
-                        title
-                        description
-                      }
-                      variants(limit: $limit2, page: $page2) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      previewBackgroundColor {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
                     }
                   }
-                  comments(limit: $limit5, page: $page5, query: $query1) {
+                  comments(limit: $limit4, page: $page4, query: $query1) {
                     total
                     page
                     limit
@@ -790,10 +619,12 @@ class FrontifyClient(BaseClient):
                       mentionedUsers {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       isResolved
-                      replies(limit: $limit4, page: $page4) {
+                      replies(limit: $limit3, page: $page3) {
                         total
                         page
                         limit
@@ -814,13 +645,17 @@ class FrontifyClient(BaseClient):
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       name
@@ -833,72 +668,25 @@ class FrontifyClient(BaseClient):
                       defaultValue
                     }
                   }
-                  workflowTask {
-                    id
-                    assignedUsers {
-                      __typename
+                  location {
+                    brand {
                       id
                       name
                     }
-                    asset {
-                      __typename
-                      id
-                      createdAt
-                      modifiedAt
-                      title
-                      description
-                      externalId
-                      expiresAt
-                      status
-                      variants(limit: $limit6, page: $page6) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      previewBackgroundColor {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
-                    }
-                    title
-                    description
-                    status {
+                    library {
                       id
                       name
-                      color {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
-                      assignedUsers {
-                        __typename
+                    }
+                    workspaceProject {
+                      id
+                      name
+                    }
+                    folder {
+                      id
+                      name
+                      breadcrumbs {
                         id
                         name
-                      }
-                      checklistPresets {
-                        id
-                        content
-                      }
-                      tasks(limit: $limit7, page: $page7) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      enterRules
-                    }
-                    checklistItem(limit: $limit8, page: $page8) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        id
-                        content
                       }
                     }
                   }
@@ -909,13 +697,17 @@ class FrontifyClient(BaseClient):
                   creator {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   createdAt
                   modifier {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   modifiedAt
                   title
@@ -941,10 +733,6 @@ class FrontifyClient(BaseClient):
                     status
                     notice
                   }
-                  availability {
-                    from
-                    to
-                  }
                   expiresAt
                   licenses {
                     id
@@ -954,13 +742,13 @@ class FrontifyClient(BaseClient):
                     requireConsensus
                   }
                   status
-                  relatedAssets(limit: $limit9, page: $page9) {
+                  relatedAssets(limit: $limit5, page: $page5) {
                     total
                     page
                     limit
                     hasNextPage
                   }
-                  comments(limit: $limit10, page: $page10, query: $query2) {
+                  comments(limit: $limit6, page: $page6, query: $query2) {
                     total
                     page
                     limit
@@ -971,50 +759,6 @@ class FrontifyClient(BaseClient):
                     canDelete
                     canDownload
                     canComment
-                  }
-                  workflowTask {
-                    id
-                    title
-                    description
-                  }
-                  variants(limit: $limit11, page: $page11) {
-                    total
-                    page
-                    limit
-                    hasNextPage
-                    items {
-                      key
-                      filename
-                      downloadUrl(validityInDays: $validityInDays3, permanent: $permanent3)
-                    }
-                  }
-                  location {
-                    brand {
-                      id
-                      name
-                    }
-                    library {
-                      id
-                      name
-                    }
-                    workspaceProject {
-                      id
-                      name
-                    }
-                    folder {
-                      id
-                      name
-                      breadcrumbs {
-                        id
-                        name
-                      }
-                    }
-                  }
-                  previewBackgroundColor {
-                    red
-                    green
-                    blue
-                    alpha
                   }
                 }
               }
@@ -1037,26 +781,14 @@ class FrontifyClient(BaseClient):
             "page3": page_3,
             "limit4": limit_4,
             "page4": page_4,
-            "limit5": limit_5,
-            "page5": page_5,
             "query1": query_1,
-            "limit6": limit_6,
-            "page6": page_6,
-            "limit7": limit_7,
-            "page7": page_7,
-            "limit8": limit_8,
-            "page8": page_8,
             "validityInDays2": validity_in_days_2,
             "permanent2": permanent_2,
-            "limit9": limit_9,
-            "page9": page_9,
-            "limit10": limit_10,
-            "page10": page_10,
+            "limit5": limit_5,
+            "page5": page_5,
+            "limit6": limit_6,
+            "page6": page_6,
             "query2": query_2,
-            "validityInDays3": validity_in_days_3,
-            "permanent3": permanent_3,
-            "limit11": limit_11,
-            "page11": page_11,
             "input": input,
         }
         response = self.execute(
@@ -1086,20 +818,12 @@ class FrontifyClient(BaseClient):
         page_3: Union[Optional[int], UnsetType] = UNSET,
         limit_4: Union[Optional[int], UnsetType] = UNSET,
         page_4: Union[Optional[int], UnsetType] = UNSET,
-        limit_5: Union[Optional[int], UnsetType] = UNSET,
-        page_5: Union[Optional[int], UnsetType] = UNSET,
         query_1: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
-        limit_6: Union[Optional[int], UnsetType] = UNSET,
-        page_6: Union[Optional[int], UnsetType] = UNSET,
-        limit_7: Union[Optional[int], UnsetType] = UNSET,
-        page_7: Union[Optional[int], UnsetType] = UNSET,
-        limit_8: Union[Optional[int], UnsetType] = UNSET,
-        page_8: Union[Optional[int], UnsetType] = UNSET,
         **kwargs: Any
     ) -> AddAssetTags:
         _query = gql(
             """
-            mutation addAssetTags($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $permanent1: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $limit5: Int, $page5: Int, $query1: AssetCommentQueryInput, $limit6: Int, $page6: Int, $limit7: Int, $page7: Int, $limit8: Int, $page8: Int, $input: AddAssetTagsInput!) {
+            mutation addAssetTags($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $permanent1: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $query1: AssetCommentQueryInput, $input: AddAssetTagsInput!) {
               addAssetTags(input: $input) {
                 asset {
                   __typename
@@ -1107,13 +831,17 @@ class FrontifyClient(BaseClient):
                   creator {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   createdAt
                   modifier {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   modifiedAt
                   title
@@ -1123,13 +851,17 @@ class FrontifyClient(BaseClient):
                     creator {
                       __typename
                       id
+                      email
                       name
+                      avatar
                     }
                     createdAt
                     modifier {
                       __typename
                       id
+                      email
                       name
+                      avatar
                     }
                     modifiedAt
                     name
@@ -1149,10 +881,6 @@ class FrontifyClient(BaseClient):
                     status
                     notice
                   }
-                  availability {
-                    from
-                    to
-                  }
                   expiresAt
                   licenses {
                     id
@@ -1162,7 +890,7 @@ class FrontifyClient(BaseClient):
                     requireConsensus
                   }
                   status
-                  relatedAssets(limit: $limit3, page: $page3) {
+                  relatedAssets(limit: $limit2, page: $page2) {
                     total
                     page
                     limit
@@ -1173,13 +901,17 @@ class FrontifyClient(BaseClient):
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       title
@@ -1205,10 +937,6 @@ class FrontifyClient(BaseClient):
                         status
                         notice
                       }
-                      availability {
-                        from
-                        to
-                      }
                       expiresAt
                       licenses {
                         id
@@ -1236,26 +964,9 @@ class FrontifyClient(BaseClient):
                         canDownload
                         canComment
                       }
-                      workflowTask {
-                        id
-                        title
-                        description
-                      }
-                      variants(limit: $limit2, page: $page2) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      previewBackgroundColor {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
                     }
                   }
-                  comments(limit: $limit5, page: $page5, query: $query1) {
+                  comments(limit: $limit4, page: $page4, query: $query1) {
                     total
                     page
                     limit
@@ -1268,10 +979,12 @@ class FrontifyClient(BaseClient):
                       mentionedUsers {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       isResolved
-                      replies(limit: $limit4, page: $page4) {
+                      replies(limit: $limit3, page: $page3) {
                         total
                         page
                         limit
@@ -1292,13 +1005,17 @@ class FrontifyClient(BaseClient):
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       name
@@ -1311,72 +1028,25 @@ class FrontifyClient(BaseClient):
                       defaultValue
                     }
                   }
-                  workflowTask {
-                    id
-                    assignedUsers {
-                      __typename
+                  location {
+                    brand {
                       id
                       name
                     }
-                    asset {
-                      __typename
-                      id
-                      createdAt
-                      modifiedAt
-                      title
-                      description
-                      externalId
-                      expiresAt
-                      status
-                      variants(limit: $limit6, page: $page6) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      previewBackgroundColor {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
-                    }
-                    title
-                    description
-                    status {
+                    library {
                       id
                       name
-                      color {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
-                      assignedUsers {
-                        __typename
+                    }
+                    workspaceProject {
+                      id
+                      name
+                    }
+                    folder {
+                      id
+                      name
+                      breadcrumbs {
                         id
                         name
-                      }
-                      checklistPresets {
-                        id
-                        content
-                      }
-                      tasks(limit: $limit7, page: $page7) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      enterRules
-                    }
-                    checklistItem(limit: $limit8, page: $page8) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        id
-                        content
                       }
                     }
                   }
@@ -1401,15 +1071,7 @@ class FrontifyClient(BaseClient):
             "page3": page_3,
             "limit4": limit_4,
             "page4": page_4,
-            "limit5": limit_5,
-            "page5": page_5,
             "query1": query_1,
-            "limit6": limit_6,
-            "page6": page_6,
-            "limit7": limit_7,
-            "page7": page_7,
-            "limit8": limit_8,
-            "page8": page_8,
             "input": input,
         }
         response = self.execute(
@@ -1430,18 +1092,16 @@ class FrontifyClient(BaseClient):
         query: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
         limit_2: Union[Optional[int], UnsetType] = UNSET,
         page_2: Union[Optional[int], UnsetType] = UNSET,
-        limit_3: Union[Optional[int], UnsetType] = UNSET,
-        page_3: Union[Optional[int], UnsetType] = UNSET,
         **kwargs: Any
     ) -> AddCollectionAssets:
         _query = gql(
             """
-            mutation addCollectionAssets($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $input: AddCollectionAssetsInput!) {
+            mutation addCollectionAssets($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $input: AddCollectionAssetsInput!) {
               addCollectionAssets(input: $input) {
                 collection {
                   id
                   name
-                  assets(limit: $limit3, page: $page3) {
+                  assets(limit: $limit2, page: $page2) {
                     total
                     page
                     limit
@@ -1452,13 +1112,17 @@ class FrontifyClient(BaseClient):
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       title
@@ -1484,10 +1148,6 @@ class FrontifyClient(BaseClient):
                         status
                         notice
                       }
-                      availability {
-                        from
-                        to
-                      }
                       expiresAt
                       licenses {
                         id
@@ -1515,23 +1175,6 @@ class FrontifyClient(BaseClient):
                         canDownload
                         canComment
                       }
-                      workflowTask {
-                        id
-                        title
-                        description
-                      }
-                      variants(limit: $limit2, page: $page2) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      previewBackgroundColor {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
                     }
                   }
                   currentUserPermissions {
@@ -1553,8 +1196,6 @@ class FrontifyClient(BaseClient):
             "query": query,
             "limit2": limit_2,
             "page2": page_2,
-            "limit3": limit_3,
-            "page3": page_3,
             "input": input,
         }
         response = self.execute(
@@ -1600,13 +1241,17 @@ class FrontifyClient(BaseClient):
                   creator {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   createdAt
                   modifier {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   modifiedAt
                   name
@@ -1631,562 +1276,6 @@ class FrontifyClient(BaseClient):
         )
         data = self.get_data(response)
         return AddCustomMetadataPropertyOptions.model_validate(data)
-
-    def add_workflow_checklist_item(
-        self, input: AddWorkflowChecklistItemInput, **kwargs: Any
-    ) -> AddWorkflowChecklistItem:
-        query = gql(
-            """
-            mutation addWorkflowChecklistItem($input: AddWorkflowChecklistItemInput!) {
-              addWorkflowChecklistItem(input: $input) {
-                checklistItem {
-                  id
-                  content
-                  assignedUser {
-                    __typename
-                    id
-                    name
-                  }
-                }
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {"input": input}
-        response = self.execute(
-            query=query,
-            operation_name="addWorkflowChecklistItem",
-            variables=variables,
-            **kwargs
-        )
-        data = self.get_data(response)
-        return AddWorkflowChecklistItem.model_validate(data)
-
-    def add_workflow_checklist_preset(
-        self, input: AddWorkflowChecklistPresetInput, **kwargs: Any
-    ) -> AddWorkflowChecklistPreset:
-        query = gql(
-            """
-            mutation addWorkflowChecklistPreset($input: AddWorkflowChecklistPresetInput!) {
-              addWorkflowChecklistPreset(input: $input) {
-                checklistPreset {
-                  id
-                  content
-                  assignedUser {
-                    __typename
-                    id
-                    name
-                  }
-                }
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {"input": input}
-        response = self.execute(
-            query=query,
-            operation_name="addWorkflowChecklistPreset",
-            variables=variables,
-            **kwargs
-        )
-        data = self.get_data(response)
-        return AddWorkflowChecklistPreset.model_validate(data)
-
-    def add_workflow_status_assignees(
-        self,
-        input: AddWorkflowStatusAssigneesInput,
-        limit: Union[Optional[int], UnsetType] = UNSET,
-        page: Union[Optional[int], UnsetType] = UNSET,
-        limit_1: Union[Optional[int], UnsetType] = UNSET,
-        page_1: Union[Optional[int], UnsetType] = UNSET,
-        **kwargs: Any
-    ) -> AddWorkflowStatusAssignees:
-        query = gql(
-            """
-            mutation addWorkflowStatusAssignees($limit: Int, $page: Int, $limit1: Int, $page1: Int, $input: AddWorkflowStatusAssigneesInput!) {
-              addWorkflowStatusAssignees(input: $input) {
-                workflowStatus {
-                  id
-                  name
-                  color {
-                    red
-                    green
-                    blue
-                    alpha
-                  }
-                  assignedUsers {
-                    __typename
-                    id
-                    name
-                  }
-                  checklistPresets {
-                    id
-                    content
-                    assignedUser {
-                      __typename
-                      id
-                      name
-                    }
-                  }
-                  tasks(limit: $limit1, page: $page1) {
-                    total
-                    page
-                    limit
-                    hasNextPage
-                    items {
-                      id
-                      assignedUsers {
-                        __typename
-                        id
-                        name
-                      }
-                      asset {
-                        __typename
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        externalId
-                        expiresAt
-                        status
-                      }
-                      title
-                      description
-                      status {
-                        id
-                        name
-                        enterRules
-                      }
-                      checklistItem(limit: $limit, page: $page) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                    }
-                  }
-                  enterRules
-                }
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {
-            "limit": limit,
-            "page": page,
-            "limit1": limit_1,
-            "page1": page_1,
-            "input": input,
-        }
-        response = self.execute(
-            query=query,
-            operation_name="addWorkflowStatusAssignees",
-            variables=variables,
-            **kwargs
-        )
-        data = self.get_data(response)
-        return AddWorkflowStatusAssignees.model_validate(data)
-
-    def add_workflow_task_assignees(
-        self,
-        input: AddWorkflowTaskAssigneesInput,
-        validity_in_days: Union[Optional[int], UnsetType] = UNSET,
-        permanent: Union[Optional[bool], UnsetType] = UNSET,
-        limit: Union[Optional[int], UnsetType] = UNSET,
-        page: Union[Optional[int], UnsetType] = UNSET,
-        limit_1: Union[Optional[int], UnsetType] = UNSET,
-        page_1: Union[Optional[int], UnsetType] = UNSET,
-        query: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
-        limit_2: Union[Optional[int], UnsetType] = UNSET,
-        page_2: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_1: Union[Optional[int], UnsetType] = UNSET,
-        permanent_1: Union[Optional[bool], UnsetType] = UNSET,
-        limit_3: Union[Optional[int], UnsetType] = UNSET,
-        page_3: Union[Optional[int], UnsetType] = UNSET,
-        **kwargs: Any
-    ) -> AddWorkflowTaskAssignees:
-        _query = gql(
-            """
-            mutation addWorkflowTaskAssignees($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $validityInDays1: Int, $permanent1: Boolean, $limit3: Int, $page3: Int, $input: AddWorkflowTaskAssigneesInput!) {
-              addWorkflowTaskAssignees(input: $input) {
-                workflowTask {
-                  id
-                  assignedUsers {
-                    __typename
-                    id
-                    name
-                  }
-                  asset {
-                    __typename
-                    id
-                    creator {
-                      __typename
-                      id
-                      name
-                    }
-                    createdAt
-                    modifier {
-                      __typename
-                      id
-                      name
-                    }
-                    modifiedAt
-                    title
-                    description
-                    attachments {
-                      id
-                      creator {
-                        __typename
-                        id
-                        name
-                      }
-                      createdAt
-                      modifier {
-                        __typename
-                        id
-                        name
-                      }
-                      modifiedAt
-                      name
-                      filename
-                      type
-                      externalId
-                      extension
-                      size
-                      downloadUrl(validityInDays: $validityInDays, permanent: $permanent)
-                    }
-                    externalId
-                    tags {
-                      value
-                      source
-                    }
-                    copyright {
-                      status
-                      notice
-                    }
-                    availability {
-                      from
-                      to
-                    }
-                    expiresAt
-                    licenses {
-                      id
-                      title
-                      license
-                      addByDefault
-                      requireConsensus
-                    }
-                    status
-                    relatedAssets(limit: $limit, page: $page) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        __typename
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        externalId
-                        expiresAt
-                        status
-                      }
-                    }
-                    comments(limit: $limit1, page: $page1, query: $query) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        id
-                        createdAt
-                        modifiedAt
-                        content
-                        isResolved
-                      }
-                    }
-                    currentUserPermissions {
-                      canEdit
-                      canDelete
-                      canDownload
-                      canComment
-                    }
-                    customMetadata {
-                      __typename
-                      property {
-                        id
-                        createdAt
-                        modifiedAt
-                        name
-                        helpText
-                        isRequired
-                        defaultValue
-                      }
-                    }
-                    workflowTask {
-                      id
-                      title
-                      description
-                      status {
-                        id
-                        name
-                        enterRules
-                      }
-                      checklistItem(limit: $limit2, page: $page2) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                    }
-                    variants(limit: $limit3, page: $page3) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        key
-                        filename
-                        downloadUrl(validityInDays: $validityInDays1, permanent: $permanent1)
-                      }
-                    }
-                    location {
-                      brand {
-                        id
-                        name
-                      }
-                      library {
-                        id
-                        name
-                      }
-                      workspaceProject {
-                        id
-                        name
-                      }
-                      folder {
-                        id
-                        name
-                      }
-                    }
-                    previewBackgroundColor {
-                      red
-                      green
-                      blue
-                      alpha
-                    }
-                  }
-                  title
-                  description
-                }
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {
-            "validityInDays": validity_in_days,
-            "permanent": permanent,
-            "limit": limit,
-            "page": page,
-            "limit1": limit_1,
-            "page1": page_1,
-            "query": query,
-            "limit2": limit_2,
-            "page2": page_2,
-            "validityInDays1": validity_in_days_1,
-            "permanent1": permanent_1,
-            "limit3": limit_3,
-            "page3": page_3,
-            "input": input,
-        }
-        response = self.execute(
-            query=_query,
-            operation_name="addWorkflowTaskAssignees",
-            variables=variables,
-            **kwargs
-        )
-        data = self.get_data(response)
-        return AddWorkflowTaskAssignees.model_validate(data)
-
-    def cancel_export_creatives(
-        self,
-        input: CancelExportCreativesInput,
-        validity_in_days: Union[Optional[int], UnsetType] = UNSET,
-        permanent: Union[Optional[bool], UnsetType] = UNSET,
-        limit: Union[Optional[int], UnsetType] = UNSET,
-        page: Union[Optional[int], UnsetType] = UNSET,
-        limit_1: Union[Optional[int], UnsetType] = UNSET,
-        page_1: Union[Optional[int], UnsetType] = UNSET,
-        query: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
-        limit_2: Union[Optional[int], UnsetType] = UNSET,
-        page_2: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_1: Union[Optional[int], UnsetType] = UNSET,
-        permanent_1: Union[Optional[bool], UnsetType] = UNSET,
-        **kwargs: Any
-    ) -> CancelExportCreatives:
-        _query = gql(
-            """
-            mutation cancelExportCreatives($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $validityInDays1: Int, $permanent1: Boolean, $input: CancelExportCreativesInput!) {
-              cancelExportCreatives(input: $input) {
-                canceledJobs {
-                  id
-                  status
-                  result {
-                    downloadUrl
-                    pageDownloadUrls
-                    asset {
-                      id
-                      creator {
-                        __typename
-                        id
-                        name
-                      }
-                      createdAt
-                      modifier {
-                        __typename
-                        id
-                        name
-                      }
-                      modifiedAt
-                      title
-                      description
-                      alternativeText
-                      isDecorative
-                      attachments {
-                        id
-                        createdAt
-                        modifiedAt
-                        name
-                        filename
-                        type
-                        externalId
-                        extension
-                        size
-                        downloadUrl(validityInDays: $validityInDays, permanent: $permanent)
-                      }
-                      externalId
-                      tags {
-                        value
-                        source
-                      }
-                      copyright {
-                        status
-                        notice
-                      }
-                      availability {
-                        from
-                        to
-                      }
-                      expiresAt
-                      licenses {
-                        id
-                        title
-                        license
-                        addByDefault
-                        requireConsensus
-                      }
-                      author
-                      status
-                      relatedAssets(limit: $limit, page: $page) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      comments(limit: $limit1, page: $page1, query: $query) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      currentUserPermissions {
-                        canEdit
-                        canDelete
-                        canDownload
-                        canComment
-                      }
-                      workflowTask {
-                        id
-                        title
-                        description
-                      }
-                      variants(limit: $limit2, page: $page2) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      previewBackgroundColor {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
-                      filename
-                      size
-                      extension
-                      previewUrl
-                      thumbnailUrl
-                      dynamicPreviewUrl
-                      downloadUrl(validityInDays: $validityInDays1, permanent: $permanent1)
-                    }
-                  }
-                }
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {
-            "validityInDays": validity_in_days,
-            "permanent": permanent,
-            "limit": limit,
-            "page": page,
-            "limit1": limit_1,
-            "page1": page_1,
-            "query": query,
-            "limit2": limit_2,
-            "page2": page_2,
-            "validityInDays1": validity_in_days_1,
-            "permanent1": permanent_1,
-            "input": input,
-        }
-        response = self.execute(
-            query=_query,
-            operation_name="cancelExportCreatives",
-            variables=variables,
-            **kwargs
-        )
-        data = self.get_data(response)
-        return CancelExportCreatives.model_validate(data)
-
-    def create_account_user(
-        self, input: CreateAccountUserInput, **kwargs: Any
-    ) -> CreateAccountUser:
-        query = gql(
-            """
-            mutation createAccountUser($input: CreateAccountUserInput!) {
-              createAccountUser(input: $input) {
-                accountUser {
-                  id
-                  email
-                  name
-                  avatar
-                }
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {"input": input}
-        response = self.execute(
-            query=query,
-            operation_name="createAccountUser",
-            variables=variables,
-            **kwargs
-        )
-        data = self.get_data(response)
-        return CreateAccountUser.model_validate(data)
 
     def create_asset(self, input: CreateAssetInput, **kwargs: Any) -> CreateAsset:
         query = gql(
@@ -2223,20 +1312,26 @@ class FrontifyClient(BaseClient):
                   creator {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   createdAt
                   modifier {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   modifiedAt
                   content
                   mentionedUsers {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   isResolved
                   replies(limit: $limit, page: $page) {
@@ -2249,20 +1344,26 @@ class FrontifyClient(BaseClient):
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       content
                       mentionedUsers {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                     }
                   }
@@ -2297,274 +1398,6 @@ class FrontifyClient(BaseClient):
         data = self.get_data(response)
         return CreateAssetComment.model_validate(data)
 
-    def create_asset_submissions(
-        self, input: CreateAssetSubmissionsInput, **kwargs: Any
-    ) -> CreateAssetSubmissions:
-        query = gql(
-            """
-            mutation createAssetSubmissions($input: CreateAssetSubmissionsInput!) {
-              createAssetSubmissions(input: $input) {
-                assetSubmissionIds
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {"input": input}
-        response = self.execute(
-            query=query,
-            operation_name="createAssetSubmissions",
-            variables=variables,
-            **kwargs
-        )
-        data = self.get_data(response)
-        return CreateAssetSubmissions.model_validate(data)
-
-    def create_asset_variant(
-        self, input: CreateAssetVariantInput, **kwargs: Any
-    ) -> CreateAssetVariant:
-        query = gql(
-            """
-            mutation createAssetVariant($input: CreateAssetVariantInput!) {
-              createAssetVariant(input: $input) {
-                job {
-                  variantId
-                }
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {"input": input}
-        response = self.execute(
-            query=query,
-            operation_name="createAssetVariant",
-            variables=variables,
-            **kwargs
-        )
-        data = self.get_data(response)
-        return CreateAssetVariant.model_validate(data)
-
-    def create_asset_workflow_task(
-        self,
-        input: CreateAssetWorkflowTaskInput,
-        validity_in_days: Union[Optional[int], UnsetType] = UNSET,
-        permanent: Union[Optional[bool], UnsetType] = UNSET,
-        limit: Union[Optional[int], UnsetType] = UNSET,
-        page: Union[Optional[int], UnsetType] = UNSET,
-        limit_1: Union[Optional[int], UnsetType] = UNSET,
-        page_1: Union[Optional[int], UnsetType] = UNSET,
-        query: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
-        limit_2: Union[Optional[int], UnsetType] = UNSET,
-        page_2: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_1: Union[Optional[int], UnsetType] = UNSET,
-        permanent_1: Union[Optional[bool], UnsetType] = UNSET,
-        limit_3: Union[Optional[int], UnsetType] = UNSET,
-        page_3: Union[Optional[int], UnsetType] = UNSET,
-        **kwargs: Any
-    ) -> CreateAssetWorkflowTask:
-        _query = gql(
-            """
-            mutation createAssetWorkflowTask($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $validityInDays1: Int, $permanent1: Boolean, $limit3: Int, $page3: Int, $input: CreateAssetWorkflowTaskInput!) {
-              createAssetWorkflowTask(input: $input) {
-                workflowTask {
-                  id
-                  assignedUsers {
-                    __typename
-                    id
-                    name
-                  }
-                  asset {
-                    __typename
-                    id
-                    creator {
-                      __typename
-                      id
-                      name
-                    }
-                    createdAt
-                    modifier {
-                      __typename
-                      id
-                      name
-                    }
-                    modifiedAt
-                    title
-                    description
-                    attachments {
-                      id
-                      creator {
-                        __typename
-                        id
-                        name
-                      }
-                      createdAt
-                      modifier {
-                        __typename
-                        id
-                        name
-                      }
-                      modifiedAt
-                      name
-                      filename
-                      type
-                      externalId
-                      extension
-                      size
-                      downloadUrl(validityInDays: $validityInDays, permanent: $permanent)
-                    }
-                    externalId
-                    tags {
-                      value
-                      source
-                    }
-                    copyright {
-                      status
-                      notice
-                    }
-                    availability {
-                      from
-                      to
-                    }
-                    expiresAt
-                    licenses {
-                      id
-                      title
-                      license
-                      addByDefault
-                      requireConsensus
-                    }
-                    status
-                    relatedAssets(limit: $limit, page: $page) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        __typename
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        externalId
-                        expiresAt
-                        status
-                      }
-                    }
-                    comments(limit: $limit1, page: $page1, query: $query) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        id
-                        createdAt
-                        modifiedAt
-                        content
-                        isResolved
-                      }
-                    }
-                    currentUserPermissions {
-                      canEdit
-                      canDelete
-                      canDownload
-                      canComment
-                    }
-                    customMetadata {
-                      __typename
-                      property {
-                        id
-                        createdAt
-                        modifiedAt
-                        name
-                        helpText
-                        isRequired
-                        defaultValue
-                      }
-                    }
-                    workflowTask {
-                      id
-                      title
-                      description
-                      status {
-                        id
-                        name
-                        enterRules
-                      }
-                      checklistItem(limit: $limit2, page: $page2) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                    }
-                    variants(limit: $limit3, page: $page3) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        key
-                        filename
-                        downloadUrl(validityInDays: $validityInDays1, permanent: $permanent1)
-                      }
-                    }
-                    location {
-                      brand {
-                        id
-                        name
-                      }
-                      library {
-                        id
-                        name
-                      }
-                      workspaceProject {
-                        id
-                        name
-                      }
-                      folder {
-                        id
-                        name
-                      }
-                    }
-                    previewBackgroundColor {
-                      red
-                      green
-                      blue
-                      alpha
-                    }
-                  }
-                  title
-                  description
-                }
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {
-            "validityInDays": validity_in_days,
-            "permanent": permanent,
-            "limit": limit,
-            "page": page,
-            "limit1": limit_1,
-            "page1": page_1,
-            "query": query,
-            "limit2": limit_2,
-            "page2": page_2,
-            "validityInDays1": validity_in_days_1,
-            "permanent1": permanent_1,
-            "limit3": limit_3,
-            "page3": page_3,
-            "input": input,
-        }
-        response = self.execute(
-            query=_query,
-            operation_name="createAssetWorkflowTask",
-            variables=variables,
-            **kwargs
-        )
-        data = self.get_data(response)
-        return CreateAssetWorkflowTask.model_validate(data)
-
     def create_attachment(
         self, input: CreateAttachmentInput, **kwargs: Any
     ) -> CreateAttachment:
@@ -2589,875 +1422,6 @@ class FrontifyClient(BaseClient):
         data = self.get_data(response)
         return CreateAttachment.model_validate(data)
 
-    def create_brand(
-        self,
-        key: str,
-        input: CreateBrandInput,
-        validity_in_days: Union[Optional[int], UnsetType] = UNSET,
-        permanent: Union[Optional[bool], UnsetType] = UNSET,
-        limit: Union[Optional[int], UnsetType] = UNSET,
-        page: Union[Optional[int], UnsetType] = UNSET,
-        limit_1: Union[Optional[int], UnsetType] = UNSET,
-        page_1: Union[Optional[int], UnsetType] = UNSET,
-        query: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
-        limit_2: Union[Optional[int], UnsetType] = UNSET,
-        page_2: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_1: Union[Optional[int], UnsetType] = UNSET,
-        permanent_1: Union[Optional[bool], UnsetType] = UNSET,
-        limit_3: Union[Optional[int], UnsetType] = UNSET,
-        page_3: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_2: Union[Optional[int], UnsetType] = UNSET,
-        permanent_2: Union[Optional[bool], UnsetType] = UNSET,
-        width: Union[Optional[int], UnsetType] = UNSET,
-        height: Union[Optional[int], UnsetType] = UNSET,
-        width_1: Union[Optional[int], UnsetType] = UNSET,
-        height_1: Union[Optional[int], UnsetType] = UNSET,
-        page_4: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_3: Union[Optional[int], UnsetType] = UNSET,
-        permanent_3: Union[Optional[bool], UnsetType] = UNSET,
-        validity_in_days_4: Union[Optional[int], UnsetType] = UNSET,
-        permanent_4: Union[Optional[bool], UnsetType] = UNSET,
-        width_2: Union[Optional[int], UnsetType] = UNSET,
-        height_2: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_5: Union[Optional[int], UnsetType] = UNSET,
-        permanent_5: Union[Optional[bool], UnsetType] = UNSET,
-        width_3: Union[Optional[int], UnsetType] = UNSET,
-        height_3: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_6: Union[Optional[int], UnsetType] = UNSET,
-        permanent_6: Union[Optional[bool], UnsetType] = UNSET,
-        validity_in_days_7: Union[Optional[int], UnsetType] = UNSET,
-        permanent_7: Union[Optional[bool], UnsetType] = UNSET,
-        limit_4: Union[Optional[int], UnsetType] = UNSET,
-        page_5: Union[Optional[int], UnsetType] = UNSET,
-        limit_5: Union[Optional[int], UnsetType] = UNSET,
-        page_6: Union[Optional[int], UnsetType] = UNSET,
-        query_1: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
-        limit_6: Union[Optional[int], UnsetType] = UNSET,
-        page_7: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_8: Union[Optional[int], UnsetType] = UNSET,
-        permanent_8: Union[Optional[bool], UnsetType] = UNSET,
-        width_4: Union[Optional[int], UnsetType] = UNSET,
-        height_4: Union[Optional[int], UnsetType] = UNSET,
-        width_5: Union[Optional[int], UnsetType] = UNSET,
-        height_5: Union[Optional[int], UnsetType] = UNSET,
-        page_8: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_9: Union[Optional[int], UnsetType] = UNSET,
-        permanent_9: Union[Optional[bool], UnsetType] = UNSET,
-        validity_in_days_10: Union[Optional[int], UnsetType] = UNSET,
-        permanent_10: Union[Optional[bool], UnsetType] = UNSET,
-        width_6: Union[Optional[int], UnsetType] = UNSET,
-        height_6: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_11: Union[Optional[int], UnsetType] = UNSET,
-        permanent_11: Union[Optional[bool], UnsetType] = UNSET,
-        width_7: Union[Optional[int], UnsetType] = UNSET,
-        height_7: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_12: Union[Optional[int], UnsetType] = UNSET,
-        permanent_12: Union[Optional[bool], UnsetType] = UNSET,
-        limit_7: Union[Optional[int], UnsetType] = UNSET,
-        page_9: Union[Optional[int], UnsetType] = UNSET,
-        query_2: Union[Optional[BrandQueryInput], UnsetType] = UNSET,
-        limit_8: Union[Optional[int], UnsetType] = UNSET,
-        page_10: Union[Optional[int], UnsetType] = UNSET,
-        query_3: Union[Optional[AssetQueryInput], UnsetType] = UNSET,
-        limit_9: Union[Optional[int], UnsetType] = UNSET,
-        page_11: Union[Optional[int], UnsetType] = UNSET,
-        limit_10: Union[Optional[int], UnsetType] = UNSET,
-        page_12: Union[Optional[int], UnsetType] = UNSET,
-        query_4: Union[Optional[LibraryQueryInput], UnsetType] = UNSET,
-        limit_11: Union[Optional[int], UnsetType] = UNSET,
-        page_13: Union[Optional[int], UnsetType] = UNSET,
-        query_5: Union[Optional[WorkspaceProjectQueryInput], UnsetType] = UNSET,
-        limit_12: Union[Optional[int], UnsetType] = UNSET,
-        page_14: Union[Optional[int], UnsetType] = UNSET,
-        limit_13: Union[Optional[int], UnsetType] = UNSET,
-        page_15: Union[Optional[int], UnsetType] = UNSET,
-        language: Union[Optional[LanguageCode], UnsetType] = UNSET,
-        limit_14: Union[Optional[int], UnsetType] = UNSET,
-        page_16: Union[Optional[int], UnsetType] = UNSET,
-        limit_15: Union[Optional[int], UnsetType] = UNSET,
-        page_17: Union[Optional[int], UnsetType] = UNSET,
-        query_6: Union[Optional[CreativeTemplateQueryInput], UnsetType] = UNSET,
-        **kwargs: Any
-    ) -> CreateBrand:
-        _query = gql(
-            """
-            mutation createBrand($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $validityInDays1: Int, $permanent1: Boolean, $limit3: Int, $page3: Int, $validityInDays2: Int, $permanent2: Boolean, $width: Int, $height: Int, $width1: Int, $height1: Int, $page4: Int, $validityInDays3: Int, $permanent3: Boolean, $validityInDays4: Int, $permanent4: Boolean, $width2: Int, $height2: Int, $validityInDays5: Int, $permanent5: Boolean, $width3: Int, $height3: Int, $validityInDays6: Int, $permanent6: Boolean, $validityInDays7: Int, $permanent7: Boolean, $limit4: Int, $page5: Int, $limit5: Int, $page6: Int, $query1: AssetCommentQueryInput, $limit6: Int, $page7: Int, $validityInDays8: Int, $permanent8: Boolean, $width4: Int, $height4: Int, $width5: Int, $height5: Int, $page8: Int, $validityInDays9: Int, $permanent9: Boolean, $validityInDays10: Int, $permanent10: Boolean, $width6: Int, $height6: Int, $validityInDays11: Int, $permanent11: Boolean, $width7: Int, $height7: Int, $validityInDays12: Int, $permanent12: Boolean, $limit7: Int, $page9: Int, $query2: BrandQueryInput, $limit8: Int, $page10: Int, $query3: AssetQueryInput, $limit9: Int, $page11: Int, $limit10: Int, $page12: Int, $query4: LibraryQueryInput, $limit11: Int, $page13: Int, $query5: WorkspaceProjectQueryInput, $limit12: Int, $page14: Int, $limit13: Int, $page15: Int, $language: LanguageCode, $limit14: Int, $page16: Int, $key: String!, $limit15: Int, $page17: Int, $query6: CreativeTemplateQueryInput, $input: CreateBrandInput!) {
-              createBrand(input: $input) {
-                brand {
-                  id
-                  name
-                  rgbaColor {
-                    red
-                    green
-                    blue
-                    alpha
-                  }
-                  avatar
-                  slug
-                  search(limit: $limit7, page: $page9, query: $query2) {
-                    total
-                    page
-                    limit
-                    hasNextPage
-                    items {
-                      __typename
-                      ... on Audio {
-                        id
-                        creator {
-                          __typename
-                          id
-                          name
-                        }
-                        createdAt
-                        modifier {
-                          __typename
-                          id
-                          name
-                        }
-                        modifiedAt
-                        title
-                        description
-                        alternativeText
-                        isDecorative
-                        attachments {
-                          id
-                          creator {
-                            __typename
-                            id
-                            name
-                          }
-                          createdAt
-                          modifier {
-                            __typename
-                            id
-                            name
-                          }
-                          modifiedAt
-                          name
-                          filename
-                          type
-                          externalId
-                          extension
-                          size
-                          downloadUrl(validityInDays: $validityInDays, permanent: $permanent)
-                        }
-                        externalId
-                        tags {
-                          value
-                          source
-                        }
-                        externalProducts {
-                          id
-                          name
-                          externalId
-                          title
-                        }
-                        copyright {
-                          status
-                          notice
-                        }
-                        availability {
-                          from
-                          to
-                        }
-                        expiresAt
-                        licenses {
-                          id
-                          title
-                          license
-                          addByDefault
-                          requireConsensus
-                        }
-                        author
-                        status
-                        relatedAssets(limit: $limit, page: $page) {
-                          total
-                          page
-                          limit
-                          hasNextPage
-                          items {
-                            __typename
-                            id
-                            createdAt
-                            modifiedAt
-                            title
-                            description
-                            externalId
-                            expiresAt
-                            status
-                          }
-                        }
-                        comments(limit: $limit1, page: $page1, query: $query) {
-                          total
-                          page
-                          limit
-                          hasNextPage
-                          items {
-                            id
-                            createdAt
-                            modifiedAt
-                            content
-                            isResolved
-                          }
-                        }
-                        currentUserPermissions {
-                          canEdit
-                          canDelete
-                          canDownload
-                          canComment
-                        }
-                        customMetadata {
-                          __typename
-                          property {
-                            id
-                            createdAt
-                            modifiedAt
-                            name
-                            helpText
-                            isRequired
-                            defaultValue
-                          }
-                        }
-                        workflowTask {
-                          id
-                          assignedUsers {
-                            __typename
-                            id
-                            name
-                          }
-                          asset {
-                            __typename
-                            id
-                            createdAt
-                            modifiedAt
-                            title
-                            description
-                            externalId
-                            expiresAt
-                            status
-                          }
-                          title
-                          description
-                          status {
-                            id
-                            name
-                            enterRules
-                          }
-                          checklistItem(limit: $limit2, page: $page2) {
-                            total
-                            page
-                            limit
-                            hasNextPage
-                          }
-                        }
-                        variants(limit: $limit3, page: $page3) {
-                          total
-                          page
-                          limit
-                          hasNextPage
-                          items {
-                            key
-                            filename
-                            downloadUrl(validityInDays: $validityInDays1, permanent: $permanent1)
-                          }
-                        }
-                        location {
-                          brand {
-                            id
-                            name
-                          }
-                          library {
-                            id
-                            name
-                          }
-                          workspaceProject {
-                            id
-                            name
-                          }
-                          folder {
-                            id
-                            name
-                          }
-                        }
-                        previewBackgroundColor {
-                          red
-                          green
-                          blue
-                          alpha
-                        }
-                        filename
-                        size
-                        extension
-                        downloadUrl(validityInDays: $validityInDays2, permanent: $permanent2)
-                        previewUrl(width: $width, height: $height)
-                        thumbnailUrl
-                        dynamicPreviewUrl
-                      }
-                      ... on Document {
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        alternativeText
-                        isDecorative
-                        externalId
-                        expiresAt
-                        author
-                        status
-                        filename
-                        size
-                        extension
-                        previewUrl(width: $width1, height: $height1, page: $page4)
-                        thumbnailUrl
-                        dynamicPreviewUrl
-                        downloadUrl(validityInDays: $validityInDays3, permanent: $permanent3)
-                        focalPoint
-                        width
-                        height
-                        pageCount
-                      }
-                      ... on EmbeddedContent {
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        alternativeText
-                        isDecorative
-                        externalId
-                        expiresAt
-                        author
-                        status
-                        previewUrl
-                        thumbnailUrl
-                      }
-                      ... on File {
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        alternativeText
-                        isDecorative
-                        externalId
-                        expiresAt
-                        author
-                        status
-                        filename
-                        size
-                        extension
-                        previewUrl
-                        thumbnailUrl
-                        dynamicPreviewUrl
-                        downloadUrl(validityInDays: $validityInDays4, permanent: $permanent4)
-                      }
-                      ... on Image {
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        alternativeText
-                        isDecorative
-                        externalId
-                        expiresAt
-                        author
-                        status
-                        filename
-                        size
-                        extension
-                        previewUrl(width: $width2, height: $height2)
-                        thumbnailUrl
-                        dynamicPreviewUrl
-                        downloadUrl(validityInDays: $validityInDays5, permanent: $permanent5)
-                        focalPoint
-                        width
-                        height
-                      }
-                      ... on Video {
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        alternativeText
-                        isDecorative
-                        externalId
-                        expiresAt
-                        author
-                        status
-                        filename
-                        size
-                        extension
-                        previewUrl(width: $width3, height: $height3)
-                        thumbnailUrl
-                        dynamicPreviewUrl
-                        downloadUrl(validityInDays: $validityInDays6, permanent: $permanent6)
-                        width
-                        height
-                        duration
-                        bitrate
-                      }
-                    }
-                    edges {
-                      title
-                      node {
-                        __typename
-                        ... on Audio {
-                          id
-                          creator {
-                            __typename
-                            id
-                            name
-                          }
-                          createdAt
-                          modifier {
-                            __typename
-                            id
-                            name
-                          }
-                          modifiedAt
-                          title
-                          description
-                          alternativeText
-                          isDecorative
-                          attachments {
-                            id
-                            createdAt
-                            modifiedAt
-                            name
-                            filename
-                            type
-                            externalId
-                            extension
-                            size
-                            downloadUrl(validityInDays: $validityInDays7, permanent: $permanent7)
-                          }
-                          externalId
-                          tags {
-                            value
-                            source
-                          }
-                          externalProducts {
-                            id
-                            name
-                            externalId
-                            title
-                          }
-                          copyright {
-                            status
-                            notice
-                          }
-                          availability {
-                            from
-                            to
-                          }
-                          expiresAt
-                          licenses {
-                            id
-                            title
-                            license
-                            addByDefault
-                            requireConsensus
-                          }
-                          author
-                          status
-                          relatedAssets(limit: $limit4, page: $page5) {
-                            total
-                            page
-                            limit
-                            hasNextPage
-                          }
-                          comments(limit: $limit5, page: $page6, query: $query1) {
-                            total
-                            page
-                            limit
-                            hasNextPage
-                          }
-                          currentUserPermissions {
-                            canEdit
-                            canDelete
-                            canDownload
-                            canComment
-                          }
-                          workflowTask {
-                            id
-                            title
-                            description
-                          }
-                          variants(limit: $limit6, page: $page7) {
-                            total
-                            page
-                            limit
-                            hasNextPage
-                          }
-                          previewBackgroundColor {
-                            red
-                            green
-                            blue
-                            alpha
-                          }
-                          filename
-                          size
-                          extension
-                          downloadUrl(validityInDays: $validityInDays8, permanent: $permanent8)
-                          previewUrl(width: $width4, height: $height4)
-                          thumbnailUrl
-                          dynamicPreviewUrl
-                        }
-                        ... on Document {
-                          id
-                          createdAt
-                          modifiedAt
-                          title
-                          description
-                          alternativeText
-                          isDecorative
-                          externalId
-                          expiresAt
-                          author
-                          status
-                          filename
-                          size
-                          extension
-                          previewUrl(width: $width5, height: $height5, page: $page8)
-                          thumbnailUrl
-                          dynamicPreviewUrl
-                          downloadUrl(validityInDays: $validityInDays9, permanent: $permanent9)
-                          focalPoint
-                          width
-                          height
-                          pageCount
-                        }
-                        ... on EmbeddedContent {
-                          id
-                          createdAt
-                          modifiedAt
-                          title
-                          description
-                          alternativeText
-                          isDecorative
-                          externalId
-                          expiresAt
-                          author
-                          status
-                          previewUrl
-                          thumbnailUrl
-                        }
-                        ... on File {
-                          id
-                          createdAt
-                          modifiedAt
-                          title
-                          description
-                          alternativeText
-                          isDecorative
-                          externalId
-                          expiresAt
-                          author
-                          status
-                          filename
-                          size
-                          extension
-                          previewUrl
-                          thumbnailUrl
-                          dynamicPreviewUrl
-                          downloadUrl(validityInDays: $validityInDays10, permanent: $permanent10)
-                        }
-                        ... on Image {
-                          id
-                          createdAt
-                          modifiedAt
-                          title
-                          description
-                          alternativeText
-                          isDecorative
-                          externalId
-                          expiresAt
-                          author
-                          status
-                          filename
-                          size
-                          extension
-                          previewUrl(width: $width6, height: $height6)
-                          thumbnailUrl
-                          dynamicPreviewUrl
-                          downloadUrl(validityInDays: $validityInDays11, permanent: $permanent11)
-                          focalPoint
-                          width
-                          height
-                        }
-                        ... on Video {
-                          id
-                          createdAt
-                          modifiedAt
-                          title
-                          description
-                          alternativeText
-                          isDecorative
-                          externalId
-                          expiresAt
-                          author
-                          status
-                          filename
-                          size
-                          extension
-                          previewUrl(width: $width7, height: $height7)
-                          thumbnailUrl
-                          dynamicPreviewUrl
-                          downloadUrl(validityInDays: $validityInDays12, permanent: $permanent12)
-                          width
-                          height
-                          duration
-                          bitrate
-                        }
-                      }
-                    }
-                  }
-                  libraries(limit: $limit10, page: $page12, query: $query4) {
-                    total
-                    page
-                    limit
-                    hasNextPage
-                    items {
-                      __typename
-                      id
-                      name
-                      color {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
-                      assets(limit: $limit8, page: $page10, query: $query3) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      collections(limit: $limit9, page: $page11) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      workflow {
-                        id
-                      }
-                      customMetadataProperties {
-                        id
-                        createdAt
-                        modifiedAt
-                        name
-                        helpText
-                        isRequired
-                        defaultValue
-                      }
-                      assetSubmissionRequests {
-                        id
-                        createdAt
-                        modifiedAt
-                        projectId
-                        title
-                        description
-                        configuration
-                      }
-                    }
-                  }
-                  workspaceProjects(limit: $limit11, page: $page13, query: $query5) {
-                    total
-                    page
-                    limit
-                    hasNextPage
-                    items {
-                      id
-                      name
-                      isArchived
-                    }
-                  }
-                  guidelines(language: $language, limit: $limit14, page: $page16) {
-                    total
-                    page
-                    limit
-                    hasNextPage
-                    items {
-                      id
-                      name
-                      url
-                      defaultLanguage {
-                        code
-                        name
-                      }
-                      translationLanguages {
-                        code
-                        name
-                      }
-                      libraryPages(limit: $limit12, page: $page14) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      pages(limit: $limit13, page: $page15) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                    }
-                  }
-                  customMetadataProperties {
-                    id
-                    creator {
-                      __typename
-                      id
-                      name
-                    }
-                    createdAt
-                    modifier {
-                      __typename
-                      id
-                      name
-                    }
-                    modifiedAt
-                    name
-                    type {
-                      __typename
-                      name
-                    }
-                    helpText
-                    isRequired
-                    defaultValue
-                  }
-                  creativeTemplates(limit: $limit15, page: $page17, query: $query6) {
-                    total
-                    page
-                    limit
-                    hasNextPage
-                    items {
-                      id
-                      brandId
-                      name
-                      description
-                      variable(key: $key) {
-                        key
-                        name
-                        description
-                        type
-                        value
-                        connectionCount
-                      }
-                      variables {
-                        key
-                        name
-                        description
-                        type
-                        value
-                        connectionCount
-                      }
-                      assetId
-                    }
-                  }
-                }
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {
-            "validityInDays": validity_in_days,
-            "permanent": permanent,
-            "limit": limit,
-            "page": page,
-            "limit1": limit_1,
-            "page1": page_1,
-            "query": query,
-            "limit2": limit_2,
-            "page2": page_2,
-            "validityInDays1": validity_in_days_1,
-            "permanent1": permanent_1,
-            "limit3": limit_3,
-            "page3": page_3,
-            "validityInDays2": validity_in_days_2,
-            "permanent2": permanent_2,
-            "width": width,
-            "height": height,
-            "width1": width_1,
-            "height1": height_1,
-            "page4": page_4,
-            "validityInDays3": validity_in_days_3,
-            "permanent3": permanent_3,
-            "validityInDays4": validity_in_days_4,
-            "permanent4": permanent_4,
-            "width2": width_2,
-            "height2": height_2,
-            "validityInDays5": validity_in_days_5,
-            "permanent5": permanent_5,
-            "width3": width_3,
-            "height3": height_3,
-            "validityInDays6": validity_in_days_6,
-            "permanent6": permanent_6,
-            "validityInDays7": validity_in_days_7,
-            "permanent7": permanent_7,
-            "limit4": limit_4,
-            "page5": page_5,
-            "limit5": limit_5,
-            "page6": page_6,
-            "query1": query_1,
-            "limit6": limit_6,
-            "page7": page_7,
-            "validityInDays8": validity_in_days_8,
-            "permanent8": permanent_8,
-            "width4": width_4,
-            "height4": height_4,
-            "width5": width_5,
-            "height5": height_5,
-            "page8": page_8,
-            "validityInDays9": validity_in_days_9,
-            "permanent9": permanent_9,
-            "validityInDays10": validity_in_days_10,
-            "permanent10": permanent_10,
-            "width6": width_6,
-            "height6": height_6,
-            "validityInDays11": validity_in_days_11,
-            "permanent11": permanent_11,
-            "width7": width_7,
-            "height7": height_7,
-            "validityInDays12": validity_in_days_12,
-            "permanent12": permanent_12,
-            "limit7": limit_7,
-            "page9": page_9,
-            "query2": query_2,
-            "limit8": limit_8,
-            "page10": page_10,
-            "query3": query_3,
-            "limit9": limit_9,
-            "page11": page_11,
-            "limit10": limit_10,
-            "page12": page_12,
-            "query4": query_4,
-            "limit11": limit_11,
-            "page13": page_13,
-            "query5": query_5,
-            "limit12": limit_12,
-            "page14": page_14,
-            "limit13": limit_13,
-            "page15": page_15,
-            "language": language,
-            "limit14": limit_14,
-            "page16": page_16,
-            "key": key,
-            "limit15": limit_15,
-            "page17": page_17,
-            "query6": query_6,
-            "input": input,
-        }
-        response = self.execute(
-            query=_query, operation_name="createBrand", variables=variables, **kwargs
-        )
-        data = self.get_data(response)
-        return CreateBrand.model_validate(data)
-
     def create_collection(
         self,
         input: CreateCollectionInput,
@@ -3470,18 +1434,16 @@ class FrontifyClient(BaseClient):
         query: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
         limit_2: Union[Optional[int], UnsetType] = UNSET,
         page_2: Union[Optional[int], UnsetType] = UNSET,
-        limit_3: Union[Optional[int], UnsetType] = UNSET,
-        page_3: Union[Optional[int], UnsetType] = UNSET,
         **kwargs: Any
     ) -> CreateCollection:
         _query = gql(
             """
-            mutation createCollection($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $input: CreateCollectionInput!) {
+            mutation createCollection($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $input: CreateCollectionInput!) {
               createCollection(input: $input) {
                 collection {
                   id
                   name
-                  assets(limit: $limit3, page: $page3) {
+                  assets(limit: $limit2, page: $page2) {
                     total
                     page
                     limit
@@ -3492,13 +1454,17 @@ class FrontifyClient(BaseClient):
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       title
@@ -3523,10 +1489,6 @@ class FrontifyClient(BaseClient):
                       copyright {
                         status
                         notice
-                      }
-                      availability {
-                        from
-                        to
                       }
                       expiresAt
                       licenses {
@@ -3555,23 +1517,6 @@ class FrontifyClient(BaseClient):
                         canDownload
                         canComment
                       }
-                      workflowTask {
-                        id
-                        title
-                        description
-                      }
-                      variants(limit: $limit2, page: $page2) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      previewBackgroundColor {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
                     }
                   }
                   currentUserPermissions {
@@ -3593,8 +1538,6 @@ class FrontifyClient(BaseClient):
             "query": query,
             "limit2": limit_2,
             "page2": page_2,
-            "limit3": limit_3,
-            "page3": page_3,
             "input": input,
         }
         response = self.execute(
@@ -3618,13 +1561,17 @@ class FrontifyClient(BaseClient):
                   creator {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   createdAt
                   modifier {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   modifiedAt
                   name
@@ -3681,7 +1628,6 @@ class FrontifyClient(BaseClient):
         page: Union[Optional[int], UnsetType] = UNSET,
         limit_1: Union[Optional[int], UnsetType] = UNSET,
         page_1: Union[Optional[int], UnsetType] = UNSET,
-        query: Union[Optional[FolderAssetQueryInput], UnsetType] = UNSET,
         limit_2: Union[Optional[int], UnsetType] = UNSET,
         page_2: Union[Optional[int], UnsetType] = UNSET,
         validity_in_days: Union[Optional[int], UnsetType] = UNSET,
@@ -3690,17 +1636,14 @@ class FrontifyClient(BaseClient):
         page_3: Union[Optional[int], UnsetType] = UNSET,
         limit_4: Union[Optional[int], UnsetType] = UNSET,
         page_4: Union[Optional[int], UnsetType] = UNSET,
-        query_1: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
+        query: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
         limit_5: Union[Optional[int], UnsetType] = UNSET,
         page_5: Union[Optional[int], UnsetType] = UNSET,
-        limit_6: Union[Optional[int], UnsetType] = UNSET,
-        page_6: Union[Optional[int], UnsetType] = UNSET,
-        query_2: Union[Optional[FolderAssetQueryInput], UnsetType] = UNSET,
         **kwargs: Any
     ) -> CreateFolder:
         _query = gql(
             """
-            mutation createFolder($limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: FolderAssetQueryInput, $limit2: Int, $page2: Int, $validityInDays: Int, $permanent: Boolean, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $query1: AssetCommentQueryInput, $limit5: Int, $page5: Int, $limit6: Int, $page6: Int, $query2: FolderAssetQueryInput, $input: CreateFolderInput!) {
+            mutation createFolder($limit: Int, $page: Int, $limit1: Int, $page1: Int, $limit2: Int, $page2: Int, $validityInDays: Int, $permanent: Boolean, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $query: AssetCommentQueryInput, $limit5: Int, $page5: Int, $input: CreateFolderInput!) {
               createFolder(input: $input) {
                 folder {
                   __typename
@@ -3709,13 +1652,17 @@ class FrontifyClient(BaseClient):
                   creator {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   createdAt
                   modifier {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   modifiedAt
                   breadcrumbs {
@@ -3734,13 +1681,17 @@ class FrontifyClient(BaseClient):
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       breadcrumbs {
@@ -3753,7 +1704,7 @@ class FrontifyClient(BaseClient):
                         limit
                         hasNextPage
                       }
-                      assets(limit: $limit1, page: $page1, query: $query) {
+                      assets(limit: $limit1, page: $page1) {
                         total
                         page
                         limit
@@ -3761,7 +1712,7 @@ class FrontifyClient(BaseClient):
                       }
                     }
                   }
-                  assets(limit: $limit6, page: $page6, query: $query2) {
+                  assets(limit: $limit5, page: $page5) {
                     total
                     page
                     limit
@@ -3794,10 +1745,6 @@ class FrontifyClient(BaseClient):
                         status
                         notice
                       }
-                      availability {
-                        from
-                        to
-                      }
                       expiresAt
                       licenses {
                         id
@@ -3813,7 +1760,7 @@ class FrontifyClient(BaseClient):
                         limit
                         hasNextPage
                       }
-                      comments(limit: $limit4, page: $page4, query: $query1) {
+                      comments(limit: $limit4, page: $page4, query: $query) {
                         total
                         page
                         limit
@@ -3824,23 +1771,6 @@ class FrontifyClient(BaseClient):
                         canDelete
                         canDownload
                         canComment
-                      }
-                      workflowTask {
-                        id
-                        title
-                        description
-                      }
-                      variants(limit: $limit5, page: $page5) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      previewBackgroundColor {
-                        red
-                        green
-                        blue
-                        alpha
                       }
                     }
                   }
@@ -3854,7 +1784,6 @@ class FrontifyClient(BaseClient):
             "page": page,
             "limit1": limit_1,
             "page1": page_1,
-            "query": query,
             "limit2": limit_2,
             "page2": page_2,
             "validityInDays": validity_in_days,
@@ -3863,12 +1792,9 @@ class FrontifyClient(BaseClient):
             "page3": page_3,
             "limit4": limit_4,
             "page4": page_4,
-            "query1": query_1,
+            "query": query,
             "limit5": limit_5,
             "page5": page_5,
-            "limit6": limit_6,
-            "page6": page_6,
-            "query2": query_2,
             "input": input,
         }
         response = self.execute(
@@ -3900,145 +1826,6 @@ class FrontifyClient(BaseClient):
         data = self.get_data(response)
         return CreateLicense.model_validate(data)
 
-    def create_permission_token(
-        self, input: CreatePermissionTokenInput, **kwargs: Any
-    ) -> CreatePermissionToken:
-        query = gql(
-            """
-            mutation createPermissionToken($input: CreatePermissionTokenInput!) {
-              createPermissionToken(input: $input) {
-                permissionToken
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {"input": input}
-        response = self.execute(
-            query=query,
-            operation_name="createPermissionToken",
-            variables=variables,
-            **kwargs
-        )
-        data = self.get_data(response)
-        return CreatePermissionToken.model_validate(data)
-
-    def create_share_link(
-        self, input: CreateShareLinkInput, **kwargs: Any
-    ) -> CreateShareLink:
-        query = gql(
-            """
-            mutation createShareLink($input: CreateShareLinkInput!) {
-              createShareLink(input: $input) {
-                shareLink {
-                  url
-                }
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {"input": input}
-        response = self.execute(
-            query=query, operation_name="createShareLink", variables=variables, **kwargs
-        )
-        data = self.get_data(response)
-        return CreateShareLink.model_validate(data)
-
-    def create_workflow_status(
-        self,
-        input: CreateWorkflowStatusInput,
-        limit: Union[Optional[int], UnsetType] = UNSET,
-        page: Union[Optional[int], UnsetType] = UNSET,
-        limit_1: Union[Optional[int], UnsetType] = UNSET,
-        page_1: Union[Optional[int], UnsetType] = UNSET,
-        **kwargs: Any
-    ) -> CreateWorkflowStatus:
-        query = gql(
-            """
-            mutation createWorkflowStatus($limit: Int, $page: Int, $limit1: Int, $page1: Int, $input: CreateWorkflowStatusInput!) {
-              createWorkflowStatus(input: $input) {
-                workflowStatus {
-                  id
-                  name
-                  color {
-                    red
-                    green
-                    blue
-                    alpha
-                  }
-                  assignedUsers {
-                    __typename
-                    id
-                    name
-                  }
-                  checklistPresets {
-                    id
-                    content
-                    assignedUser {
-                      __typename
-                      id
-                      name
-                    }
-                  }
-                  tasks(limit: $limit1, page: $page1) {
-                    total
-                    page
-                    limit
-                    hasNextPage
-                    items {
-                      id
-                      assignedUsers {
-                        __typename
-                        id
-                        name
-                      }
-                      asset {
-                        __typename
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        externalId
-                        expiresAt
-                        status
-                      }
-                      title
-                      description
-                      status {
-                        id
-                        name
-                        enterRules
-                      }
-                      checklistItem(limit: $limit, page: $page) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                    }
-                  }
-                  enterRules
-                }
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {
-            "limit": limit,
-            "page": page,
-            "limit1": limit_1,
-            "page1": page_1,
-            "input": input,
-        }
-        response = self.execute(
-            query=query,
-            operation_name="createWorkflowStatus",
-            variables=variables,
-            **kwargs
-        )
-        data = self.get_data(response)
-        return CreateWorkflowStatus.model_validate(data)
-
     def create_workspace_project(
         self,
         input: CreateWorkspaceProjectInput,
@@ -4051,23 +1838,18 @@ class FrontifyClient(BaseClient):
         query: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
         limit_2: Union[Optional[int], UnsetType] = UNSET,
         page_2: Union[Optional[int], UnsetType] = UNSET,
+        query_1: Union[Optional[AssetQueryInput], UnsetType] = UNSET,
         limit_3: Union[Optional[int], UnsetType] = UNSET,
         page_3: Union[Optional[int], UnsetType] = UNSET,
-        query_1: Union[Optional[AssetQueryInput], UnsetType] = UNSET,
         limit_4: Union[Optional[int], UnsetType] = UNSET,
         page_4: Union[Optional[int], UnsetType] = UNSET,
         limit_5: Union[Optional[int], UnsetType] = UNSET,
         page_5: Union[Optional[int], UnsetType] = UNSET,
-        limit_6: Union[Optional[int], UnsetType] = UNSET,
-        page_6: Union[Optional[int], UnsetType] = UNSET,
-        query_2: Union[Optional[FolderAssetQueryInput], UnsetType] = UNSET,
-        limit_7: Union[Optional[int], UnsetType] = UNSET,
-        page_7: Union[Optional[int], UnsetType] = UNSET,
         **kwargs: Any
     ) -> CreateWorkspaceProject:
         _query = gql(
             """
-            mutation createWorkspaceProject($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $query1: AssetQueryInput, $limit4: Int, $page4: Int, $limit5: Int, $page5: Int, $limit6: Int, $page6: Int, $query2: FolderAssetQueryInput, $limit7: Int, $page7: Int, $input: CreateWorkspaceProjectInput!) {
+            mutation createWorkspaceProject($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $query1: AssetQueryInput, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $limit5: Int, $page5: Int, $input: CreateWorkspaceProjectInput!) {
               createWorkspaceProject(input: $input) {
                 project {
                   id
@@ -4078,7 +1860,7 @@ class FrontifyClient(BaseClient):
                     blue
                     alpha
                   }
-                  assets(limit: $limit3, page: $page3, query: $query1) {
+                  assets(limit: $limit2, page: $page2, query: $query1) {
                     total
                     page
                     limit
@@ -4089,13 +1871,17 @@ class FrontifyClient(BaseClient):
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       title
@@ -4120,10 +1906,6 @@ class FrontifyClient(BaseClient):
                       copyright {
                         status
                         notice
-                      }
-                      availability {
-                        from
-                        to
                       }
                       expiresAt
                       licenses {
@@ -4152,23 +1934,6 @@ class FrontifyClient(BaseClient):
                         canDownload
                         canComment
                       }
-                      workflowTask {
-                        id
-                        title
-                        description
-                      }
-                      variants(limit: $limit2, page: $page2) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      previewBackgroundColor {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
                     }
                   }
                   licenses {
@@ -4178,37 +1943,8 @@ class FrontifyClient(BaseClient):
                     addByDefault
                     requireConsensus
                   }
-                  workflow {
-                    id
-                    statuses {
-                      id
-                      name
-                      color {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
-                      assignedUsers {
-                        __typename
-                        id
-                        name
-                      }
-                      checklistPresets {
-                        id
-                        content
-                      }
-                      tasks(limit: $limit4, page: $page4) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      enterRules
-                    }
-                  }
                   browse {
-                    folders(limit: $limit5, page: $page5) {
+                    folders(limit: $limit3, page: $page3) {
                       total
                       page
                       limit
@@ -4221,7 +1957,7 @@ class FrontifyClient(BaseClient):
                         modifiedAt
                       }
                     }
-                    assets(limit: $limit6, page: $page6, query: $query2) {
+                    assets(limit: $limit4, page: $page4) {
                       total
                       page
                       limit
@@ -4229,7 +1965,7 @@ class FrontifyClient(BaseClient):
                     }
                   }
                   collaborators {
-                    users(limit: $limit7, page: $page7) {
+                    users(limit: $limit5, page: $page5) {
                       total
                       page
                       limit
@@ -4237,10 +1973,9 @@ class FrontifyClient(BaseClient):
                       items {
                         __typename
                         id
+                        email
                         name
-                      }
-                      edges {
-                        role
+                        avatar
                       }
                     }
                   }
@@ -4248,7 +1983,6 @@ class FrontifyClient(BaseClient):
                     canCreateAssets
                     canViewCollaborators
                   }
-                  isArchived
                   customMetadata {
                     __typename
                     property {
@@ -4256,13 +1990,17 @@ class FrontifyClient(BaseClient):
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       name
@@ -4290,18 +2028,13 @@ class FrontifyClient(BaseClient):
             "query": query,
             "limit2": limit_2,
             "page2": page_2,
+            "query1": query_1,
             "limit3": limit_3,
             "page3": page_3,
-            "query1": query_1,
             "limit4": limit_4,
             "page4": page_4,
             "limit5": limit_5,
             "page5": page_5,
-            "limit6": limit_6,
-            "page6": page_6,
-            "query2": query_2,
-            "limit7": limit_7,
-            "page7": page_7,
             "input": input,
         }
         response = self.execute(
@@ -4312,28 +2045,6 @@ class FrontifyClient(BaseClient):
         )
         data = self.get_data(response)
         return CreateWorkspaceProject.model_validate(data)
-
-    def delete_account_user(
-        self, input: DeleteAccountUserInput, **kwargs: Any
-    ) -> DeleteAccountUser:
-        query = gql(
-            """
-            mutation deleteAccountUser($input: DeleteAccountUserInput!) {
-              deleteAccountUser(input: $input) {
-                id
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {"input": input}
-        response = self.execute(
-            query=query,
-            operation_name="deleteAccountUser",
-            variables=variables,
-            **kwargs
-        )
-        data = self.get_data(response)
-        return DeleteAccountUser.model_validate(data)
 
     def delete_asset(self, input: DeleteAssetInput, **kwargs: Any) -> DeleteAsset:
         query = gql(
@@ -4351,28 +2062,6 @@ class FrontifyClient(BaseClient):
         )
         data = self.get_data(response)
         return DeleteAsset.model_validate(data)
-
-    def delete_asset_variant(
-        self, input: DeleteAssetVariantInput, **kwargs: Any
-    ) -> DeleteAssetVariant:
-        query = gql(
-            """
-            mutation deleteAssetVariant($input: DeleteAssetVariantInput!) {
-              deleteAssetVariant(input: $input) {
-                id
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {"input": input}
-        response = self.execute(
-            query=query,
-            operation_name="deleteAssetVariant",
-            variables=variables,
-            **kwargs
-        )
-        data = self.get_data(response)
-        return DeleteAssetVariant.model_validate(data)
 
     def delete_attachment(
         self, input: DeleteAttachmentInput, **kwargs: Any
@@ -4395,23 +2084,6 @@ class FrontifyClient(BaseClient):
         )
         data = self.get_data(response)
         return DeleteAttachment.model_validate(data)
-
-    def delete_brand(self, input: DeleteBrandInput, **kwargs: Any) -> DeleteBrand:
-        query = gql(
-            """
-            mutation deleteBrand($input: DeleteBrandInput!) {
-              deleteBrand(input: $input) {
-                id
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {"input": input}
-        response = self.execute(
-            query=query, operation_name="deleteBrand", variables=variables, **kwargs
-        )
-        data = self.get_data(response)
-        return DeleteBrand.model_validate(data)
 
     def delete_collection(
         self, input: DeleteCollectionInput, **kwargs: Any
@@ -4508,50 +2180,6 @@ class FrontifyClient(BaseClient):
         data = self.get_data(response)
         return DeleteLicense.model_validate(data)
 
-    def delete_workflow_status(
-        self, input: DeleteWorkflowStatusInput, **kwargs: Any
-    ) -> DeleteWorkflowStatus:
-        query = gql(
-            """
-            mutation deleteWorkflowStatus($input: DeleteWorkflowStatusInput!) {
-              deleteWorkflowStatus(input: $input) {
-                id
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {"input": input}
-        response = self.execute(
-            query=query,
-            operation_name="deleteWorkflowStatus",
-            variables=variables,
-            **kwargs
-        )
-        data = self.get_data(response)
-        return DeleteWorkflowStatus.model_validate(data)
-
-    def delete_workflow_task(
-        self, input: DeleteWorkflowTaskInput, **kwargs: Any
-    ) -> DeleteWorkflowTask:
-        query = gql(
-            """
-            mutation deleteWorkflowTask($input: DeleteWorkflowTaskInput!) {
-              deleteWorkflowTask(input: $input) {
-                id
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {"input": input}
-        response = self.execute(
-            query=query,
-            operation_name="deleteWorkflowTask",
-            variables=variables,
-            **kwargs
-        )
-        data = self.get_data(response)
-        return DeleteWorkflowTask.model_validate(data)
-
     def edit_comment(self, input: EditCommentInput, **kwargs: Any) -> EditComment:
         query = gql(
             """
@@ -4563,13 +2191,17 @@ class FrontifyClient(BaseClient):
                   creator {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   createdAt
                   modifier {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   modifiedAt
                   content
@@ -4585,154 +2217,6 @@ class FrontifyClient(BaseClient):
         data = self.get_data(response)
         return EditComment.model_validate(data)
 
-    def export_creative(
-        self,
-        input: ExportCreativeInput,
-        validity_in_days: Union[Optional[int], UnsetType] = UNSET,
-        permanent: Union[Optional[bool], UnsetType] = UNSET,
-        limit: Union[Optional[int], UnsetType] = UNSET,
-        page: Union[Optional[int], UnsetType] = UNSET,
-        limit_1: Union[Optional[int], UnsetType] = UNSET,
-        page_1: Union[Optional[int], UnsetType] = UNSET,
-        query: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
-        limit_2: Union[Optional[int], UnsetType] = UNSET,
-        page_2: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_1: Union[Optional[int], UnsetType] = UNSET,
-        permanent_1: Union[Optional[bool], UnsetType] = UNSET,
-        **kwargs: Any
-    ) -> ExportCreative:
-        _query = gql(
-            """
-            mutation exportCreative($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $validityInDays1: Int, $permanent1: Boolean, $input: ExportCreativeInput!) {
-              exportCreative(input: $input) {
-                job {
-                  id
-                  status
-                  result {
-                    downloadUrl
-                    pageDownloadUrls
-                    asset {
-                      id
-                      creator {
-                        __typename
-                        id
-                        name
-                      }
-                      createdAt
-                      modifier {
-                        __typename
-                        id
-                        name
-                      }
-                      modifiedAt
-                      title
-                      description
-                      alternativeText
-                      isDecorative
-                      attachments {
-                        id
-                        createdAt
-                        modifiedAt
-                        name
-                        filename
-                        type
-                        externalId
-                        extension
-                        size
-                        downloadUrl(validityInDays: $validityInDays, permanent: $permanent)
-                      }
-                      externalId
-                      tags {
-                        value
-                        source
-                      }
-                      copyright {
-                        status
-                        notice
-                      }
-                      availability {
-                        from
-                        to
-                      }
-                      expiresAt
-                      licenses {
-                        id
-                        title
-                        license
-                        addByDefault
-                        requireConsensus
-                      }
-                      author
-                      status
-                      relatedAssets(limit: $limit, page: $page) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      comments(limit: $limit1, page: $page1, query: $query) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      currentUserPermissions {
-                        canEdit
-                        canDelete
-                        canDownload
-                        canComment
-                      }
-                      workflowTask {
-                        id
-                        title
-                        description
-                      }
-                      variants(limit: $limit2, page: $page2) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      previewBackgroundColor {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
-                      filename
-                      size
-                      extension
-                      previewUrl
-                      thumbnailUrl
-                      dynamicPreviewUrl
-                      downloadUrl(validityInDays: $validityInDays1, permanent: $permanent1)
-                    }
-                  }
-                }
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {
-            "validityInDays": validity_in_days,
-            "permanent": permanent,
-            "limit": limit,
-            "page": page,
-            "limit1": limit_1,
-            "page1": page_1,
-            "query": query,
-            "limit2": limit_2,
-            "page2": page_2,
-            "validityInDays1": validity_in_days_1,
-            "permanent1": permanent_1,
-            "input": input,
-        }
-        response = self.execute(
-            query=_query, operation_name="exportCreative", variables=variables, **kwargs
-        )
-        data = self.get_data(response)
-        return ExportCreative.model_validate(data)
-
     def install_project_webhook(
         self, input: InstallProjectWebhookInput, **kwargs: Any
     ) -> InstallProjectWebhook:
@@ -4746,7 +2230,9 @@ class FrontifyClient(BaseClient):
                   creator {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   createdAt
                   name
@@ -4779,34 +2265,24 @@ class FrontifyClient(BaseClient):
         query: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
         limit_2: Union[Optional[int], UnsetType] = UNSET,
         page_2: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_1: Union[Optional[int], UnsetType] = UNSET,
-        permanent_1: Union[Optional[bool], UnsetType] = UNSET,
+        query_1: Union[Optional[AssetQueryInput], UnsetType] = UNSET,
         limit_3: Union[Optional[int], UnsetType] = UNSET,
         page_3: Union[Optional[int], UnsetType] = UNSET,
         limit_4: Union[Optional[int], UnsetType] = UNSET,
         page_4: Union[Optional[int], UnsetType] = UNSET,
-        query_1: Union[Optional[AssetQueryInput], UnsetType] = UNSET,
         limit_5: Union[Optional[int], UnsetType] = UNSET,
         page_5: Union[Optional[int], UnsetType] = UNSET,
         limit_6: Union[Optional[int], UnsetType] = UNSET,
         page_6: Union[Optional[int], UnsetType] = UNSET,
         limit_7: Union[Optional[int], UnsetType] = UNSET,
         page_7: Union[Optional[int], UnsetType] = UNSET,
-        query_2: Union[Optional[FolderAssetQueryInput], UnsetType] = UNSET,
         limit_8: Union[Optional[int], UnsetType] = UNSET,
         page_8: Union[Optional[int], UnsetType] = UNSET,
-        limit_9: Union[Optional[int], UnsetType] = UNSET,
-        page_9: Union[Optional[int], UnsetType] = UNSET,
-        query_3: Union[Optional[FolderAssetQueryInput], UnsetType] = UNSET,
-        limit_10: Union[Optional[int], UnsetType] = UNSET,
-        page_10: Union[Optional[int], UnsetType] = UNSET,
-        limit_11: Union[Optional[int], UnsetType] = UNSET,
-        page_11: Union[Optional[int], UnsetType] = UNSET,
         **kwargs: Any
     ) -> InviteProjectUser:
         _query = gql(
             """
-            mutation inviteProjectUser($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $validityInDays1: Int, $permanent1: Boolean, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $query1: AssetQueryInput, $limit5: Int, $page5: Int, $limit6: Int, $page6: Int, $limit7: Int, $page7: Int, $query2: FolderAssetQueryInput, $limit8: Int, $page8: Int, $limit9: Int, $page9: Int, $query3: FolderAssetQueryInput, $limit10: Int, $page10: Int, $limit11: Int, $page11: Int, $input: InviteProjectUserInput!) {
+            mutation inviteProjectUser($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $query1: AssetQueryInput, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $limit5: Int, $page5: Int, $limit6: Int, $page6: Int, $limit7: Int, $page7: Int, $limit8: Int, $page8: Int, $input: InviteProjectUserInput!) {
               inviteProjectUser(input: $input) {
                 project {
                   __typename
@@ -4820,7 +2296,7 @@ class FrontifyClient(BaseClient):
                       alpha
                     }
                     assetCount
-                    assets(limit: $limit4, page: $page4, query: $query1) {
+                    assets(limit: $limit2, page: $page2, query: $query1) {
                       total
                       page
                       limit
@@ -4831,13 +2307,17 @@ class FrontifyClient(BaseClient):
                         creator {
                           __typename
                           id
+                          email
                           name
+                          avatar
                         }
                         createdAt
                         modifier {
                           __typename
                           id
+                          email
                           name
+                          avatar
                         }
                         modifiedAt
                         title
@@ -4847,13 +2327,17 @@ class FrontifyClient(BaseClient):
                           creator {
                             __typename
                             id
+                            email
                             name
+                            avatar
                           }
                           createdAt
                           modifier {
                             __typename
                             id
+                            email
                             name
+                            avatar
                           }
                           modifiedAt
                           name
@@ -4872,10 +2356,6 @@ class FrontifyClient(BaseClient):
                         copyright {
                           status
                           notice
-                        }
-                        availability {
-                          from
-                          to
                         }
                         expiresAt
                         licenses {
@@ -4934,49 +2414,6 @@ class FrontifyClient(BaseClient):
                             defaultValue
                           }
                         }
-                        workflowTask {
-                          id
-                          assignedUsers {
-                            __typename
-                            id
-                            name
-                          }
-                          asset {
-                            __typename
-                            id
-                            createdAt
-                            modifiedAt
-                            title
-                            description
-                            externalId
-                            expiresAt
-                            status
-                          }
-                          title
-                          description
-                          status {
-                            id
-                            name
-                            enterRules
-                          }
-                          checklistItem(limit: $limit2, page: $page2) {
-                            total
-                            page
-                            limit
-                            hasNextPage
-                          }
-                        }
-                        variants(limit: $limit3, page: $page3) {
-                          total
-                          page
-                          limit
-                          hasNextPage
-                          items {
-                            key
-                            filename
-                            downloadUrl(validityInDays: $validityInDays1, permanent: $permanent1)
-                          }
-                        }
                         location {
                           brand {
                             id
@@ -4995,12 +2432,6 @@ class FrontifyClient(BaseClient):
                             name
                           }
                         }
-                        previewBackgroundColor {
-                          red
-                          green
-                          blue
-                          alpha
-                        }
                       }
                     }
                     licenses {
@@ -5010,47 +2441,8 @@ class FrontifyClient(BaseClient):
                       addByDefault
                       requireConsensus
                     }
-                    workflow {
-                      id
-                      statuses {
-                        id
-                        name
-                        color {
-                          red
-                          green
-                          blue
-                          alpha
-                        }
-                        assignedUsers {
-                          __typename
-                          id
-                          name
-                        }
-                        checklistPresets {
-                          id
-                          content
-                          assignedUser {
-                            __typename
-                            id
-                            name
-                          }
-                        }
-                        tasks(limit: $limit5, page: $page5) {
-                          total
-                          page
-                          limit
-                          hasNextPage
-                          items {
-                            id
-                            title
-                            description
-                          }
-                        }
-                        enterRules
-                      }
-                    }
                     browse {
-                      folders(limit: $limit8, page: $page8) {
+                      folders(limit: $limit5, page: $page5) {
                         total
                         page
                         limit
@@ -5065,13 +2457,13 @@ class FrontifyClient(BaseClient):
                             id
                             name
                           }
-                          folders(limit: $limit6, page: $page6) {
+                          folders(limit: $limit3, page: $page3) {
                             total
                             page
                             limit
                             hasNextPage
                           }
-                          assets(limit: $limit7, page: $page7, query: $query2) {
+                          assets(limit: $limit4, page: $page4) {
                             total
                             page
                             limit
@@ -5079,7 +2471,7 @@ class FrontifyClient(BaseClient):
                           }
                         }
                       }
-                      assets(limit: $limit9, page: $page9, query: $query3) {
+                      assets(limit: $limit6, page: $page6) {
                         total
                         page
                         limit
@@ -5087,7 +2479,7 @@ class FrontifyClient(BaseClient):
                       }
                     }
                     collaborators {
-                      users(limit: $limit10, page: $page10) {
+                      users(limit: $limit7, page: $page7) {
                         total
                         page
                         limit
@@ -5095,15 +2487,9 @@ class FrontifyClient(BaseClient):
                         items {
                           __typename
                           id
+                          email
                           name
-                        }
-                        edges {
-                          node {
-                            __typename
-                            id
-                            name
-                          }
-                          role
+                          avatar
                         }
                       }
                     }
@@ -5117,13 +2503,17 @@ class FrontifyClient(BaseClient):
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       name
@@ -5135,7 +2525,7 @@ class FrontifyClient(BaseClient):
                       isRequired
                       defaultValue
                     }
-                    collections(limit: $limit11, page: $page11) {
+                    collections(limit: $limit8, page: $page8) {
                       total
                       page
                       limit
@@ -5144,25 +2534,6 @@ class FrontifyClient(BaseClient):
                         id
                         name
                       }
-                    }
-                    assetSubmissionRequests {
-                      id
-                      creator {
-                        __typename
-                        id
-                        name
-                      }
-                      createdAt
-                      modifier {
-                        __typename
-                        id
-                        name
-                      }
-                      modifiedAt
-                      projectId
-                      title
-                      description
-                      configuration
                     }
                   }
                   ... on IconLibrary {
@@ -5184,7 +2555,6 @@ class FrontifyClient(BaseClient):
                     id
                     name
                     assetCount
-                    isArchived
                   }
                 }
               }
@@ -5201,29 +2571,19 @@ class FrontifyClient(BaseClient):
             "query": query,
             "limit2": limit_2,
             "page2": page_2,
-            "validityInDays1": validity_in_days_1,
-            "permanent1": permanent_1,
+            "query1": query_1,
             "limit3": limit_3,
             "page3": page_3,
             "limit4": limit_4,
             "page4": page_4,
-            "query1": query_1,
             "limit5": limit_5,
             "page5": page_5,
             "limit6": limit_6,
             "page6": page_6,
             "limit7": limit_7,
             "page7": page_7,
-            "query2": query_2,
             "limit8": limit_8,
             "page8": page_8,
-            "limit9": limit_9,
-            "page9": page_9,
-            "query3": query_3,
-            "limit10": limit_10,
-            "page10": page_10,
-            "limit11": limit_11,
-            "page11": page_11,
             "input": input,
         }
         response = self.execute(
@@ -5253,31 +2613,12 @@ class FrontifyClient(BaseClient):
         page_3: Union[Optional[int], UnsetType] = UNSET,
         limit_4: Union[Optional[int], UnsetType] = UNSET,
         page_4: Union[Optional[int], UnsetType] = UNSET,
-        limit_5: Union[Optional[int], UnsetType] = UNSET,
-        page_5: Union[Optional[int], UnsetType] = UNSET,
         query_1: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
-        validity_in_days_2: Union[Optional[int], UnsetType] = UNSET,
-        permanent_2: Union[Optional[bool], UnsetType] = UNSET,
-        limit_6: Union[Optional[int], UnsetType] = UNSET,
-        page_6: Union[Optional[int], UnsetType] = UNSET,
-        limit_7: Union[Optional[int], UnsetType] = UNSET,
-        page_7: Union[Optional[int], UnsetType] = UNSET,
-        query_2: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
-        limit_8: Union[Optional[int], UnsetType] = UNSET,
-        page_8: Union[Optional[int], UnsetType] = UNSET,
-        limit_9: Union[Optional[int], UnsetType] = UNSET,
-        page_9: Union[Optional[int], UnsetType] = UNSET,
-        limit_10: Union[Optional[int], UnsetType] = UNSET,
-        page_10: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_3: Union[Optional[int], UnsetType] = UNSET,
-        permanent_3: Union[Optional[bool], UnsetType] = UNSET,
-        limit_11: Union[Optional[int], UnsetType] = UNSET,
-        page_11: Union[Optional[int], UnsetType] = UNSET,
         **kwargs: Any
     ) -> MoveAssets:
         _query = gql(
             """
-            mutation moveAssets($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $permanent1: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $limit5: Int, $page5: Int, $query1: AssetCommentQueryInput, $validityInDays2: Int, $permanent2: Boolean, $limit6: Int, $page6: Int, $limit7: Int, $page7: Int, $query2: AssetCommentQueryInput, $limit8: Int, $page8: Int, $limit9: Int, $page9: Int, $limit10: Int, $page10: Int, $validityInDays3: Int, $permanent3: Boolean, $limit11: Int, $page11: Int, $input: MoveAssetsInput!) {
+            mutation moveAssets($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $permanent1: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $query1: AssetCommentQueryInput, $input: MoveAssetsInput!) {
               moveAssets(input: $input) {
                 assets {
                   __typename
@@ -5285,13 +2626,17 @@ class FrontifyClient(BaseClient):
                   creator {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   createdAt
                   modifier {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   modifiedAt
                   title
@@ -5301,13 +2646,17 @@ class FrontifyClient(BaseClient):
                     creator {
                       __typename
                       id
+                      email
                       name
+                      avatar
                     }
                     createdAt
                     modifier {
                       __typename
                       id
+                      email
                       name
+                      avatar
                     }
                     modifiedAt
                     name
@@ -5327,10 +2676,6 @@ class FrontifyClient(BaseClient):
                     status
                     notice
                   }
-                  availability {
-                    from
-                    to
-                  }
                   expiresAt
                   licenses {
                     id
@@ -5340,7 +2685,7 @@ class FrontifyClient(BaseClient):
                     requireConsensus
                   }
                   status
-                  relatedAssets(limit: $limit3, page: $page3) {
+                  relatedAssets(limit: $limit2, page: $page2) {
                     total
                     page
                     limit
@@ -5351,13 +2696,17 @@ class FrontifyClient(BaseClient):
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       title
@@ -5382,10 +2731,6 @@ class FrontifyClient(BaseClient):
                       copyright {
                         status
                         notice
-                      }
-                      availability {
-                        from
-                        to
                       }
                       expiresAt
                       licenses {
@@ -5414,26 +2759,9 @@ class FrontifyClient(BaseClient):
                         canDownload
                         canComment
                       }
-                      workflowTask {
-                        id
-                        title
-                        description
-                      }
-                      variants(limit: $limit2, page: $page2) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      previewBackgroundColor {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
                     }
                   }
-                  comments(limit: $limit5, page: $page5, query: $query1) {
+                  comments(limit: $limit4, page: $page4, query: $query1) {
                     total
                     page
                     limit
@@ -5446,10 +2774,12 @@ class FrontifyClient(BaseClient):
                       mentionedUsers {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       isResolved
-                      replies(limit: $limit4, page: $page4) {
+                      replies(limit: $limit3, page: $page3) {
                         total
                         page
                         limit
@@ -5470,13 +2800,17 @@ class FrontifyClient(BaseClient):
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       name
@@ -5487,150 +2821,6 @@ class FrontifyClient(BaseClient):
                       helpText
                       isRequired
                       defaultValue
-                    }
-                  }
-                  workflowTask {
-                    id
-                    assignedUsers {
-                      __typename
-                      id
-                      name
-                    }
-                    asset {
-                      __typename
-                      id
-                      creator {
-                        __typename
-                        id
-                        name
-                      }
-                      createdAt
-                      modifier {
-                        __typename
-                        id
-                        name
-                      }
-                      modifiedAt
-                      title
-                      description
-                      attachments {
-                        id
-                        createdAt
-                        modifiedAt
-                        name
-                        filename
-                        type
-                        externalId
-                        extension
-                        size
-                        downloadUrl(validityInDays: $validityInDays2, permanent: $permanent2)
-                      }
-                      externalId
-                      tags {
-                        value
-                        source
-                      }
-                      copyright {
-                        status
-                        notice
-                      }
-                      availability {
-                        from
-                        to
-                      }
-                      expiresAt
-                      licenses {
-                        id
-                        title
-                        license
-                        addByDefault
-                        requireConsensus
-                      }
-                      status
-                      relatedAssets(limit: $limit6, page: $page6) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      comments(limit: $limit7, page: $page7, query: $query2) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      currentUserPermissions {
-                        canEdit
-                        canDelete
-                        canDownload
-                        canComment
-                      }
-                      workflowTask {
-                        id
-                        title
-                        description
-                      }
-                      variants(limit: $limit8, page: $page8) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      previewBackgroundColor {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
-                    }
-                    title
-                    description
-                    status {
-                      id
-                      name
-                      color {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
-                      assignedUsers {
-                        __typename
-                        id
-                        name
-                      }
-                      checklistPresets {
-                        id
-                        content
-                      }
-                      tasks(limit: $limit9, page: $page9) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      enterRules
-                    }
-                    checklistItem(limit: $limit10, page: $page10) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        id
-                        content
-                      }
-                    }
-                  }
-                  variants(limit: $limit11, page: $page11) {
-                    total
-                    page
-                    limit
-                    hasNextPage
-                    items {
-                      key
-                      filename
-                      downloadUrl(validityInDays: $validityInDays3, permanent: $permanent3)
                     }
                   }
                   location {
@@ -5655,12 +2845,6 @@ class FrontifyClient(BaseClient):
                       }
                     }
                   }
-                  previewBackgroundColor {
-                    red
-                    green
-                    blue
-                    alpha
-                  }
                 }
               }
             }
@@ -5682,26 +2866,7 @@ class FrontifyClient(BaseClient):
             "page3": page_3,
             "limit4": limit_4,
             "page4": page_4,
-            "limit5": limit_5,
-            "page5": page_5,
             "query1": query_1,
-            "validityInDays2": validity_in_days_2,
-            "permanent2": permanent_2,
-            "limit6": limit_6,
-            "page6": page_6,
-            "limit7": limit_7,
-            "page7": page_7,
-            "query2": query_2,
-            "limit8": limit_8,
-            "page8": page_8,
-            "limit9": limit_9,
-            "page9": page_9,
-            "limit10": limit_10,
-            "page10": page_10,
-            "validityInDays3": validity_in_days_3,
-            "permanent3": permanent_3,
-            "limit11": limit_11,
-            "page11": page_11,
             "input": input,
         }
         response = self.execute(
@@ -5727,102 +2892,6 @@ class FrontifyClient(BaseClient):
         data = self.get_data(response)
         return MoveFolders.model_validate(data)
 
-    def move_workflow_task(
-        self,
-        input: MoveWorkflowTaskInput,
-        limit: Union[Optional[int], UnsetType] = UNSET,
-        page: Union[Optional[int], UnsetType] = UNSET,
-        limit_1: Union[Optional[int], UnsetType] = UNSET,
-        page_1: Union[Optional[int], UnsetType] = UNSET,
-        **kwargs: Any
-    ) -> MoveWorkflowTask:
-        query = gql(
-            """
-            mutation moveWorkflowTask($limit: Int, $page: Int, $limit1: Int, $page1: Int, $input: MoveWorkflowTaskInput!) {
-              moveWorkflowTask(input: $input) {
-                workflowStatus {
-                  id
-                  name
-                  color {
-                    red
-                    green
-                    blue
-                    alpha
-                  }
-                  assignedUsers {
-                    __typename
-                    id
-                    name
-                  }
-                  checklistPresets {
-                    id
-                    content
-                    assignedUser {
-                      __typename
-                      id
-                      name
-                    }
-                  }
-                  tasks(limit: $limit1, page: $page1) {
-                    total
-                    page
-                    limit
-                    hasNextPage
-                    items {
-                      id
-                      assignedUsers {
-                        __typename
-                        id
-                        name
-                      }
-                      asset {
-                        __typename
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        externalId
-                        expiresAt
-                        status
-                      }
-                      title
-                      description
-                      status {
-                        id
-                        name
-                        enterRules
-                      }
-                      checklistItem(limit: $limit, page: $page) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                    }
-                  }
-                  enterRules
-                }
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {
-            "limit": limit,
-            "page": page,
-            "limit1": limit_1,
-            "page1": page_1,
-            "input": input,
-        }
-        response = self.execute(
-            query=query,
-            operation_name="moveWorkflowTask",
-            variables=variables,
-            **kwargs
-        )
-        data = self.get_data(response)
-        return MoveWorkflowTask.model_validate(data)
-
     def remove_asset_license(
         self,
         input: RemoveAssetLicenseInput,
@@ -5841,20 +2910,12 @@ class FrontifyClient(BaseClient):
         page_3: Union[Optional[int], UnsetType] = UNSET,
         limit_4: Union[Optional[int], UnsetType] = UNSET,
         page_4: Union[Optional[int], UnsetType] = UNSET,
-        limit_5: Union[Optional[int], UnsetType] = UNSET,
-        page_5: Union[Optional[int], UnsetType] = UNSET,
         query_1: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
-        limit_6: Union[Optional[int], UnsetType] = UNSET,
-        page_6: Union[Optional[int], UnsetType] = UNSET,
-        limit_7: Union[Optional[int], UnsetType] = UNSET,
-        page_7: Union[Optional[int], UnsetType] = UNSET,
-        limit_8: Union[Optional[int], UnsetType] = UNSET,
-        page_8: Union[Optional[int], UnsetType] = UNSET,
         **kwargs: Any
     ) -> RemoveAssetLicense:
         _query = gql(
             """
-            mutation removeAssetLicense($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $permanent1: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $limit5: Int, $page5: Int, $query1: AssetCommentQueryInput, $limit6: Int, $page6: Int, $limit7: Int, $page7: Int, $limit8: Int, $page8: Int, $input: RemoveAssetLicenseInput!) {
+            mutation removeAssetLicense($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $permanent1: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $query1: AssetCommentQueryInput, $input: RemoveAssetLicenseInput!) {
               removeAssetLicense(input: $input) {
                 asset {
                   __typename
@@ -5862,13 +2923,17 @@ class FrontifyClient(BaseClient):
                   creator {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   createdAt
                   modifier {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   modifiedAt
                   title
@@ -5878,13 +2943,17 @@ class FrontifyClient(BaseClient):
                     creator {
                       __typename
                       id
+                      email
                       name
+                      avatar
                     }
                     createdAt
                     modifier {
                       __typename
                       id
+                      email
                       name
+                      avatar
                     }
                     modifiedAt
                     name
@@ -5904,10 +2973,6 @@ class FrontifyClient(BaseClient):
                     status
                     notice
                   }
-                  availability {
-                    from
-                    to
-                  }
                   expiresAt
                   licenses {
                     id
@@ -5917,7 +2982,7 @@ class FrontifyClient(BaseClient):
                     requireConsensus
                   }
                   status
-                  relatedAssets(limit: $limit3, page: $page3) {
+                  relatedAssets(limit: $limit2, page: $page2) {
                     total
                     page
                     limit
@@ -5928,13 +2993,17 @@ class FrontifyClient(BaseClient):
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       title
@@ -5959,10 +3028,6 @@ class FrontifyClient(BaseClient):
                       copyright {
                         status
                         notice
-                      }
-                      availability {
-                        from
-                        to
                       }
                       expiresAt
                       licenses {
@@ -5991,26 +3056,9 @@ class FrontifyClient(BaseClient):
                         canDownload
                         canComment
                       }
-                      workflowTask {
-                        id
-                        title
-                        description
-                      }
-                      variants(limit: $limit2, page: $page2) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      previewBackgroundColor {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
                     }
                   }
-                  comments(limit: $limit5, page: $page5, query: $query1) {
+                  comments(limit: $limit4, page: $page4, query: $query1) {
                     total
                     page
                     limit
@@ -6023,10 +3071,12 @@ class FrontifyClient(BaseClient):
                       mentionedUsers {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       isResolved
-                      replies(limit: $limit4, page: $page4) {
+                      replies(limit: $limit3, page: $page3) {
                         total
                         page
                         limit
@@ -6047,13 +3097,17 @@ class FrontifyClient(BaseClient):
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       name
@@ -6066,72 +3120,25 @@ class FrontifyClient(BaseClient):
                       defaultValue
                     }
                   }
-                  workflowTask {
-                    id
-                    assignedUsers {
-                      __typename
+                  location {
+                    brand {
                       id
                       name
                     }
-                    asset {
-                      __typename
-                      id
-                      createdAt
-                      modifiedAt
-                      title
-                      description
-                      externalId
-                      expiresAt
-                      status
-                      variants(limit: $limit6, page: $page6) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      previewBackgroundColor {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
-                    }
-                    title
-                    description
-                    status {
+                    library {
                       id
                       name
-                      color {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
-                      assignedUsers {
-                        __typename
+                    }
+                    workspaceProject {
+                      id
+                      name
+                    }
+                    folder {
+                      id
+                      name
+                      breadcrumbs {
                         id
                         name
-                      }
-                      checklistPresets {
-                        id
-                        content
-                      }
-                      tasks(limit: $limit7, page: $page7) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      enterRules
-                    }
-                    checklistItem(limit: $limit8, page: $page8) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        id
-                        content
                       }
                     }
                   }
@@ -6163,15 +3170,7 @@ class FrontifyClient(BaseClient):
             "page3": page_3,
             "limit4": limit_4,
             "page4": page_4,
-            "limit5": limit_5,
-            "page5": page_5,
             "query1": query_1,
-            "limit6": limit_6,
-            "page6": page_6,
-            "limit7": limit_7,
-            "page7": page_7,
-            "limit8": limit_8,
-            "page8": page_8,
             "input": input,
         }
         response = self.execute(
@@ -6201,20 +3200,12 @@ class FrontifyClient(BaseClient):
         page_3: Union[Optional[int], UnsetType] = UNSET,
         limit_4: Union[Optional[int], UnsetType] = UNSET,
         page_4: Union[Optional[int], UnsetType] = UNSET,
-        limit_5: Union[Optional[int], UnsetType] = UNSET,
-        page_5: Union[Optional[int], UnsetType] = UNSET,
         query_1: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
-        limit_6: Union[Optional[int], UnsetType] = UNSET,
-        page_6: Union[Optional[int], UnsetType] = UNSET,
-        limit_7: Union[Optional[int], UnsetType] = UNSET,
-        page_7: Union[Optional[int], UnsetType] = UNSET,
-        limit_8: Union[Optional[int], UnsetType] = UNSET,
-        page_8: Union[Optional[int], UnsetType] = UNSET,
         **kwargs: Any
     ) -> RemoveAssetPreviewImage:
         _query = gql(
             """
-            mutation removeAssetPreviewImage($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $permanent1: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $limit5: Int, $page5: Int, $query1: AssetCommentQueryInput, $limit6: Int, $page6: Int, $limit7: Int, $page7: Int, $limit8: Int, $page8: Int, $input: RemoveAssetPreviewImageInput!) {
+            mutation removeAssetPreviewImage($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $permanent1: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $query1: AssetCommentQueryInput, $input: RemoveAssetPreviewImageInput!) {
               removeAssetPreviewImage(input: $input) {
                 asset {
                   __typename
@@ -6222,13 +3213,17 @@ class FrontifyClient(BaseClient):
                   creator {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   createdAt
                   modifier {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   modifiedAt
                   title
@@ -6238,13 +3233,17 @@ class FrontifyClient(BaseClient):
                     creator {
                       __typename
                       id
+                      email
                       name
+                      avatar
                     }
                     createdAt
                     modifier {
                       __typename
                       id
+                      email
                       name
+                      avatar
                     }
                     modifiedAt
                     name
@@ -6264,10 +3263,6 @@ class FrontifyClient(BaseClient):
                     status
                     notice
                   }
-                  availability {
-                    from
-                    to
-                  }
                   expiresAt
                   licenses {
                     id
@@ -6277,7 +3272,7 @@ class FrontifyClient(BaseClient):
                     requireConsensus
                   }
                   status
-                  relatedAssets(limit: $limit3, page: $page3) {
+                  relatedAssets(limit: $limit2, page: $page2) {
                     total
                     page
                     limit
@@ -6288,13 +3283,17 @@ class FrontifyClient(BaseClient):
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       title
@@ -6319,10 +3318,6 @@ class FrontifyClient(BaseClient):
                       copyright {
                         status
                         notice
-                      }
-                      availability {
-                        from
-                        to
                       }
                       expiresAt
                       licenses {
@@ -6351,26 +3346,9 @@ class FrontifyClient(BaseClient):
                         canDownload
                         canComment
                       }
-                      workflowTask {
-                        id
-                        title
-                        description
-                      }
-                      variants(limit: $limit2, page: $page2) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      previewBackgroundColor {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
                     }
                   }
-                  comments(limit: $limit5, page: $page5, query: $query1) {
+                  comments(limit: $limit4, page: $page4, query: $query1) {
                     total
                     page
                     limit
@@ -6383,10 +3361,12 @@ class FrontifyClient(BaseClient):
                       mentionedUsers {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       isResolved
-                      replies(limit: $limit4, page: $page4) {
+                      replies(limit: $limit3, page: $page3) {
                         total
                         page
                         limit
@@ -6407,13 +3387,17 @@ class FrontifyClient(BaseClient):
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       name
@@ -6424,525 +3408,6 @@ class FrontifyClient(BaseClient):
                       helpText
                       isRequired
                       defaultValue
-                    }
-                  }
-                  workflowTask {
-                    id
-                    assignedUsers {
-                      __typename
-                      id
-                      name
-                    }
-                    asset {
-                      __typename
-                      id
-                      createdAt
-                      modifiedAt
-                      title
-                      description
-                      externalId
-                      expiresAt
-                      status
-                      variants(limit: $limit6, page: $page6) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      previewBackgroundColor {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
-                    }
-                    title
-                    description
-                    status {
-                      id
-                      name
-                      color {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
-                      assignedUsers {
-                        __typename
-                        id
-                        name
-                      }
-                      checklistPresets {
-                        id
-                        content
-                      }
-                      tasks(limit: $limit7, page: $page7) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      enterRules
-                    }
-                    checklistItem(limit: $limit8, page: $page8) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        id
-                        content
-                      }
-                    }
-                  }
-                }
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {
-            "validityInDays": validity_in_days,
-            "permanent": permanent,
-            "validityInDays1": validity_in_days_1,
-            "permanent1": permanent_1,
-            "limit": limit,
-            "page": page,
-            "limit1": limit_1,
-            "page1": page_1,
-            "query": query,
-            "limit2": limit_2,
-            "page2": page_2,
-            "limit3": limit_3,
-            "page3": page_3,
-            "limit4": limit_4,
-            "page4": page_4,
-            "limit5": limit_5,
-            "page5": page_5,
-            "query1": query_1,
-            "limit6": limit_6,
-            "page6": page_6,
-            "limit7": limit_7,
-            "page7": page_7,
-            "limit8": limit_8,
-            "page8": page_8,
-            "input": input,
-        }
-        response = self.execute(
-            query=_query,
-            operation_name="removeAssetPreviewImage",
-            variables=variables,
-            **kwargs
-        )
-        data = self.get_data(response)
-        return RemoveAssetPreviewImage.model_validate(data)
-
-    def remove_asset_relations(
-        self,
-        input: RemoveAssetRelationsInput,
-        validity_in_days: Union[Optional[int], UnsetType] = UNSET,
-        permanent: Union[Optional[bool], UnsetType] = UNSET,
-        validity_in_days_1: Union[Optional[int], UnsetType] = UNSET,
-        permanent_1: Union[Optional[bool], UnsetType] = UNSET,
-        limit: Union[Optional[int], UnsetType] = UNSET,
-        page: Union[Optional[int], UnsetType] = UNSET,
-        limit_1: Union[Optional[int], UnsetType] = UNSET,
-        page_1: Union[Optional[int], UnsetType] = UNSET,
-        query: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
-        limit_2: Union[Optional[int], UnsetType] = UNSET,
-        page_2: Union[Optional[int], UnsetType] = UNSET,
-        limit_3: Union[Optional[int], UnsetType] = UNSET,
-        page_3: Union[Optional[int], UnsetType] = UNSET,
-        limit_4: Union[Optional[int], UnsetType] = UNSET,
-        page_4: Union[Optional[int], UnsetType] = UNSET,
-        limit_5: Union[Optional[int], UnsetType] = UNSET,
-        page_5: Union[Optional[int], UnsetType] = UNSET,
-        query_1: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
-        limit_6: Union[Optional[int], UnsetType] = UNSET,
-        page_6: Union[Optional[int], UnsetType] = UNSET,
-        limit_7: Union[Optional[int], UnsetType] = UNSET,
-        page_7: Union[Optional[int], UnsetType] = UNSET,
-        limit_8: Union[Optional[int], UnsetType] = UNSET,
-        page_8: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_2: Union[Optional[int], UnsetType] = UNSET,
-        permanent_2: Union[Optional[bool], UnsetType] = UNSET,
-        limit_9: Union[Optional[int], UnsetType] = UNSET,
-        page_9: Union[Optional[int], UnsetType] = UNSET,
-        limit_10: Union[Optional[int], UnsetType] = UNSET,
-        page_10: Union[Optional[int], UnsetType] = UNSET,
-        query_2: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
-        validity_in_days_3: Union[Optional[int], UnsetType] = UNSET,
-        permanent_3: Union[Optional[bool], UnsetType] = UNSET,
-        limit_11: Union[Optional[int], UnsetType] = UNSET,
-        page_11: Union[Optional[int], UnsetType] = UNSET,
-        **kwargs: Any
-    ) -> RemoveAssetRelations:
-        _query = gql(
-            """
-            mutation removeAssetRelations($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $permanent1: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $limit5: Int, $page5: Int, $query1: AssetCommentQueryInput, $limit6: Int, $page6: Int, $limit7: Int, $page7: Int, $limit8: Int, $page8: Int, $validityInDays2: Int, $permanent2: Boolean, $limit9: Int, $page9: Int, $limit10: Int, $page10: Int, $query2: AssetCommentQueryInput, $validityInDays3: Int, $permanent3: Boolean, $limit11: Int, $page11: Int, $input: RemoveAssetRelationsInput!) {
-              removeAssetRelations(input: $input) {
-                asset {
-                  __typename
-                  id
-                  creator {
-                    __typename
-                    id
-                    name
-                  }
-                  createdAt
-                  modifier {
-                    __typename
-                    id
-                    name
-                  }
-                  modifiedAt
-                  title
-                  description
-                  attachments {
-                    id
-                    creator {
-                      __typename
-                      id
-                      name
-                    }
-                    createdAt
-                    modifier {
-                      __typename
-                      id
-                      name
-                    }
-                    modifiedAt
-                    name
-                    filename
-                    type
-                    externalId
-                    extension
-                    size
-                    downloadUrl(validityInDays: $validityInDays, permanent: $permanent)
-                  }
-                  externalId
-                  tags {
-                    value
-                    source
-                  }
-                  copyright {
-                    status
-                    notice
-                  }
-                  availability {
-                    from
-                    to
-                  }
-                  expiresAt
-                  licenses {
-                    id
-                    title
-                    license
-                    addByDefault
-                    requireConsensus
-                  }
-                  status
-                  relatedAssets(limit: $limit3, page: $page3) {
-                    total
-                    page
-                    limit
-                    hasNextPage
-                    items {
-                      __typename
-                      id
-                      creator {
-                        __typename
-                        id
-                        name
-                      }
-                      createdAt
-                      modifier {
-                        __typename
-                        id
-                        name
-                      }
-                      modifiedAt
-                      title
-                      description
-                      attachments {
-                        id
-                        createdAt
-                        modifiedAt
-                        name
-                        filename
-                        type
-                        externalId
-                        extension
-                        size
-                        downloadUrl(validityInDays: $validityInDays1, permanent: $permanent1)
-                      }
-                      externalId
-                      tags {
-                        value
-                        source
-                      }
-                      copyright {
-                        status
-                        notice
-                      }
-                      availability {
-                        from
-                        to
-                      }
-                      expiresAt
-                      licenses {
-                        id
-                        title
-                        license
-                        addByDefault
-                        requireConsensus
-                      }
-                      status
-                      relatedAssets(limit: $limit, page: $page) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      comments(limit: $limit1, page: $page1, query: $query) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      currentUserPermissions {
-                        canEdit
-                        canDelete
-                        canDownload
-                        canComment
-                      }
-                      workflowTask {
-                        id
-                        title
-                        description
-                      }
-                      variants(limit: $limit2, page: $page2) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      previewBackgroundColor {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
-                    }
-                  }
-                  comments(limit: $limit5, page: $page5, query: $query1) {
-                    total
-                    page
-                    limit
-                    hasNextPage
-                    items {
-                      id
-                      createdAt
-                      modifiedAt
-                      content
-                      mentionedUsers {
-                        __typename
-                        id
-                        name
-                      }
-                      isResolved
-                      replies(limit: $limit4, page: $page4) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                    }
-                  }
-                  currentUserPermissions {
-                    canEdit
-                    canDelete
-                    canDownload
-                    canComment
-                  }
-                  customMetadata {
-                    __typename
-                    property {
-                      id
-                      creator {
-                        __typename
-                        id
-                        name
-                      }
-                      createdAt
-                      modifier {
-                        __typename
-                        id
-                        name
-                      }
-                      modifiedAt
-                      name
-                      type {
-                        __typename
-                        name
-                      }
-                      helpText
-                      isRequired
-                      defaultValue
-                    }
-                  }
-                  workflowTask {
-                    id
-                    assignedUsers {
-                      __typename
-                      id
-                      name
-                    }
-                    asset {
-                      __typename
-                      id
-                      createdAt
-                      modifiedAt
-                      title
-                      description
-                      externalId
-                      expiresAt
-                      status
-                      variants(limit: $limit6, page: $page6) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      previewBackgroundColor {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
-                    }
-                    title
-                    description
-                    status {
-                      id
-                      name
-                      color {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
-                      assignedUsers {
-                        __typename
-                        id
-                        name
-                      }
-                      checklistPresets {
-                        id
-                        content
-                      }
-                      tasks(limit: $limit7, page: $page7) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      enterRules
-                    }
-                    checklistItem(limit: $limit8, page: $page8) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        id
-                        content
-                      }
-                    }
-                  }
-                }
-                relatedAssets {
-                  __typename
-                  id
-                  creator {
-                    __typename
-                    id
-                    name
-                  }
-                  createdAt
-                  modifier {
-                    __typename
-                    id
-                    name
-                  }
-                  modifiedAt
-                  title
-                  description
-                  attachments {
-                    id
-                    createdAt
-                    modifiedAt
-                    name
-                    filename
-                    type
-                    externalId
-                    extension
-                    size
-                    downloadUrl(validityInDays: $validityInDays2, permanent: $permanent2)
-                  }
-                  externalId
-                  tags {
-                    value
-                    source
-                  }
-                  copyright {
-                    status
-                    notice
-                  }
-                  availability {
-                    from
-                    to
-                  }
-                  expiresAt
-                  licenses {
-                    id
-                    title
-                    license
-                    addByDefault
-                    requireConsensus
-                  }
-                  status
-                  relatedAssets(limit: $limit9, page: $page9) {
-                    total
-                    page
-                    limit
-                    hasNextPage
-                  }
-                  comments(limit: $limit10, page: $page10, query: $query2) {
-                    total
-                    page
-                    limit
-                    hasNextPage
-                  }
-                  currentUserPermissions {
-                    canEdit
-                    canDelete
-                    canDownload
-                    canComment
-                  }
-                  workflowTask {
-                    id
-                    title
-                    description
-                  }
-                  variants(limit: $limit11, page: $page11) {
-                    total
-                    page
-                    limit
-                    hasNextPage
-                    items {
-                      key
-                      filename
-                      downloadUrl(validityInDays: $validityInDays3, permanent: $permanent3)
                     }
                   }
                   location {
@@ -6967,12 +3432,6 @@ class FrontifyClient(BaseClient):
                       }
                     }
                   }
-                  previewBackgroundColor {
-                    red
-                    green
-                    blue
-                    alpha
-                  }
                 }
               }
             }
@@ -6994,36 +3453,17 @@ class FrontifyClient(BaseClient):
             "page3": page_3,
             "limit4": limit_4,
             "page4": page_4,
-            "limit5": limit_5,
-            "page5": page_5,
             "query1": query_1,
-            "limit6": limit_6,
-            "page6": page_6,
-            "limit7": limit_7,
-            "page7": page_7,
-            "limit8": limit_8,
-            "page8": page_8,
-            "validityInDays2": validity_in_days_2,
-            "permanent2": permanent_2,
-            "limit9": limit_9,
-            "page9": page_9,
-            "limit10": limit_10,
-            "page10": page_10,
-            "query2": query_2,
-            "validityInDays3": validity_in_days_3,
-            "permanent3": permanent_3,
-            "limit11": limit_11,
-            "page11": page_11,
             "input": input,
         }
         response = self.execute(
             query=_query,
-            operation_name="removeAssetRelations",
+            operation_name="removeAssetPreviewImage",
             variables=variables,
             **kwargs
         )
         data = self.get_data(response)
-        return RemoveAssetRelations.model_validate(data)
+        return RemoveAssetPreviewImage.model_validate(data)
 
     def remove_asset_tags(
         self,
@@ -7043,20 +3483,12 @@ class FrontifyClient(BaseClient):
         page_3: Union[Optional[int], UnsetType] = UNSET,
         limit_4: Union[Optional[int], UnsetType] = UNSET,
         page_4: Union[Optional[int], UnsetType] = UNSET,
-        limit_5: Union[Optional[int], UnsetType] = UNSET,
-        page_5: Union[Optional[int], UnsetType] = UNSET,
         query_1: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
-        limit_6: Union[Optional[int], UnsetType] = UNSET,
-        page_6: Union[Optional[int], UnsetType] = UNSET,
-        limit_7: Union[Optional[int], UnsetType] = UNSET,
-        page_7: Union[Optional[int], UnsetType] = UNSET,
-        limit_8: Union[Optional[int], UnsetType] = UNSET,
-        page_8: Union[Optional[int], UnsetType] = UNSET,
         **kwargs: Any
     ) -> RemoveAssetTags:
         _query = gql(
             """
-            mutation removeAssetTags($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $permanent1: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $limit5: Int, $page5: Int, $query1: AssetCommentQueryInput, $limit6: Int, $page6: Int, $limit7: Int, $page7: Int, $limit8: Int, $page8: Int, $input: RemoveAssetTagsInput!) {
+            mutation removeAssetTags($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $permanent1: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $query1: AssetCommentQueryInput, $input: RemoveAssetTagsInput!) {
               removeAssetTags(input: $input) {
                 asset {
                   __typename
@@ -7064,13 +3496,17 @@ class FrontifyClient(BaseClient):
                   creator {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   createdAt
                   modifier {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   modifiedAt
                   title
@@ -7080,13 +3516,17 @@ class FrontifyClient(BaseClient):
                     creator {
                       __typename
                       id
+                      email
                       name
+                      avatar
                     }
                     createdAt
                     modifier {
                       __typename
                       id
+                      email
                       name
+                      avatar
                     }
                     modifiedAt
                     name
@@ -7106,10 +3546,6 @@ class FrontifyClient(BaseClient):
                     status
                     notice
                   }
-                  availability {
-                    from
-                    to
-                  }
                   expiresAt
                   licenses {
                     id
@@ -7119,7 +3555,7 @@ class FrontifyClient(BaseClient):
                     requireConsensus
                   }
                   status
-                  relatedAssets(limit: $limit3, page: $page3) {
+                  relatedAssets(limit: $limit2, page: $page2) {
                     total
                     page
                     limit
@@ -7130,13 +3566,17 @@ class FrontifyClient(BaseClient):
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       title
@@ -7161,10 +3601,6 @@ class FrontifyClient(BaseClient):
                       copyright {
                         status
                         notice
-                      }
-                      availability {
-                        from
-                        to
                       }
                       expiresAt
                       licenses {
@@ -7193,26 +3629,9 @@ class FrontifyClient(BaseClient):
                         canDownload
                         canComment
                       }
-                      workflowTask {
-                        id
-                        title
-                        description
-                      }
-                      variants(limit: $limit2, page: $page2) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      previewBackgroundColor {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
                     }
                   }
-                  comments(limit: $limit5, page: $page5, query: $query1) {
+                  comments(limit: $limit4, page: $page4, query: $query1) {
                     total
                     page
                     limit
@@ -7225,10 +3644,12 @@ class FrontifyClient(BaseClient):
                       mentionedUsers {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       isResolved
-                      replies(limit: $limit4, page: $page4) {
+                      replies(limit: $limit3, page: $page3) {
                         total
                         page
                         limit
@@ -7249,13 +3670,17 @@ class FrontifyClient(BaseClient):
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       name
@@ -7268,72 +3693,25 @@ class FrontifyClient(BaseClient):
                       defaultValue
                     }
                   }
-                  workflowTask {
-                    id
-                    assignedUsers {
-                      __typename
+                  location {
+                    brand {
                       id
                       name
                     }
-                    asset {
-                      __typename
-                      id
-                      createdAt
-                      modifiedAt
-                      title
-                      description
-                      externalId
-                      expiresAt
-                      status
-                      variants(limit: $limit6, page: $page6) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      previewBackgroundColor {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
-                    }
-                    title
-                    description
-                    status {
+                    library {
                       id
                       name
-                      color {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
-                      assignedUsers {
-                        __typename
+                    }
+                    workspaceProject {
+                      id
+                      name
+                    }
+                    folder {
+                      id
+                      name
+                      breadcrumbs {
                         id
                         name
-                      }
-                      checklistPresets {
-                        id
-                        content
-                      }
-                      tasks(limit: $limit7, page: $page7) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      enterRules
-                    }
-                    checklistItem(limit: $limit8, page: $page8) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        id
-                        content
                       }
                     }
                   }
@@ -7358,15 +3736,7 @@ class FrontifyClient(BaseClient):
             "page3": page_3,
             "limit4": limit_4,
             "page4": page_4,
-            "limit5": limit_5,
-            "page5": page_5,
             "query1": query_1,
-            "limit6": limit_6,
-            "page6": page_6,
-            "limit7": limit_7,
-            "page7": page_7,
-            "limit8": limit_8,
-            "page8": page_8,
             "input": input,
         }
         response = self.execute(
@@ -7390,18 +3760,16 @@ class FrontifyClient(BaseClient):
         query: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
         limit_2: Union[Optional[int], UnsetType] = UNSET,
         page_2: Union[Optional[int], UnsetType] = UNSET,
-        limit_3: Union[Optional[int], UnsetType] = UNSET,
-        page_3: Union[Optional[int], UnsetType] = UNSET,
         **kwargs: Any
     ) -> RemoveCollectionAssets:
         _query = gql(
             """
-            mutation removeCollectionAssets($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $input: RemoveCollectionAssetsInput!) {
+            mutation removeCollectionAssets($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $input: RemoveCollectionAssetsInput!) {
               removeCollectionAssets(input: $input) {
                 collection {
                   id
                   name
-                  assets(limit: $limit3, page: $page3) {
+                  assets(limit: $limit2, page: $page2) {
                     total
                     page
                     limit
@@ -7412,13 +3780,17 @@ class FrontifyClient(BaseClient):
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       title
@@ -7444,10 +3816,6 @@ class FrontifyClient(BaseClient):
                         status
                         notice
                       }
-                      availability {
-                        from
-                        to
-                      }
                       expiresAt
                       licenses {
                         id
@@ -7475,23 +3843,6 @@ class FrontifyClient(BaseClient):
                         canDownload
                         canComment
                       }
-                      workflowTask {
-                        id
-                        title
-                        description
-                      }
-                      variants(limit: $limit2, page: $page2) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      previewBackgroundColor {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
                     }
                   }
                   currentUserPermissions {
@@ -7513,8 +3864,6 @@ class FrontifyClient(BaseClient):
             "query": query,
             "limit2": limit_2,
             "page2": page_2,
-            "limit3": limit_3,
-            "page3": page_3,
             "input": input,
         }
         response = self.execute(
@@ -7560,13 +3909,17 @@ class FrontifyClient(BaseClient):
                   creator {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   createdAt
                   modifier {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   modifiedAt
                   name
@@ -7592,384 +3945,6 @@ class FrontifyClient(BaseClient):
         data = self.get_data(response)
         return RemoveCustomMetadataPropertyOptions.model_validate(data)
 
-    def remove_workflow_checklist_item(
-        self, input: RemoveWorkflowChecklistItemInput, **kwargs: Any
-    ) -> RemoveWorkflowChecklistItem:
-        query = gql(
-            """
-            mutation removeWorkflowChecklistItem($input: RemoveWorkflowChecklistItemInput!) {
-              removeWorkflowChecklistItem(input: $input) {
-                checklistItem {
-                  id
-                  content
-                  assignedUser {
-                    __typename
-                    id
-                    name
-                  }
-                }
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {"input": input}
-        response = self.execute(
-            query=query,
-            operation_name="removeWorkflowChecklistItem",
-            variables=variables,
-            **kwargs
-        )
-        data = self.get_data(response)
-        return RemoveWorkflowChecklistItem.model_validate(data)
-
-    def remove_workflow_checklist_preset(
-        self, input: RemoveWorkflowChecklistPresetInput, **kwargs: Any
-    ) -> RemoveWorkflowChecklistPreset:
-        query = gql(
-            """
-            mutation removeWorkflowChecklistPreset($input: RemoveWorkflowChecklistPresetInput!) {
-              removeWorkflowChecklistPreset(input: $input) {
-                checklistPreset {
-                  id
-                  content
-                  assignedUser {
-                    __typename
-                    id
-                    name
-                  }
-                }
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {"input": input}
-        response = self.execute(
-            query=query,
-            operation_name="removeWorkflowChecklistPreset",
-            variables=variables,
-            **kwargs
-        )
-        data = self.get_data(response)
-        return RemoveWorkflowChecklistPreset.model_validate(data)
-
-    def remove_workflow_status_assignees(
-        self,
-        input: RemoveWorkflowStatusAssigneesInput,
-        limit: Union[Optional[int], UnsetType] = UNSET,
-        page: Union[Optional[int], UnsetType] = UNSET,
-        limit_1: Union[Optional[int], UnsetType] = UNSET,
-        page_1: Union[Optional[int], UnsetType] = UNSET,
-        **kwargs: Any
-    ) -> RemoveWorkflowStatusAssignees:
-        query = gql(
-            """
-            mutation removeWorkflowStatusAssignees($limit: Int, $page: Int, $limit1: Int, $page1: Int, $input: RemoveWorkflowStatusAssigneesInput!) {
-              removeWorkflowStatusAssignees(input: $input) {
-                workflowStatus {
-                  id
-                  name
-                  color {
-                    red
-                    green
-                    blue
-                    alpha
-                  }
-                  assignedUsers {
-                    __typename
-                    id
-                    name
-                  }
-                  checklistPresets {
-                    id
-                    content
-                    assignedUser {
-                      __typename
-                      id
-                      name
-                    }
-                  }
-                  tasks(limit: $limit1, page: $page1) {
-                    total
-                    page
-                    limit
-                    hasNextPage
-                    items {
-                      id
-                      assignedUsers {
-                        __typename
-                        id
-                        name
-                      }
-                      asset {
-                        __typename
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        externalId
-                        expiresAt
-                        status
-                      }
-                      title
-                      description
-                      status {
-                        id
-                        name
-                        enterRules
-                      }
-                      checklistItem(limit: $limit, page: $page) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                    }
-                  }
-                  enterRules
-                }
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {
-            "limit": limit,
-            "page": page,
-            "limit1": limit_1,
-            "page1": page_1,
-            "input": input,
-        }
-        response = self.execute(
-            query=query,
-            operation_name="removeWorkflowStatusAssignees",
-            variables=variables,
-            **kwargs
-        )
-        data = self.get_data(response)
-        return RemoveWorkflowStatusAssignees.model_validate(data)
-
-    def remove_workflow_task_assignees(
-        self,
-        input: RemoveWorkflowTaskAssigneesInput,
-        validity_in_days: Union[Optional[int], UnsetType] = UNSET,
-        permanent: Union[Optional[bool], UnsetType] = UNSET,
-        limit: Union[Optional[int], UnsetType] = UNSET,
-        page: Union[Optional[int], UnsetType] = UNSET,
-        limit_1: Union[Optional[int], UnsetType] = UNSET,
-        page_1: Union[Optional[int], UnsetType] = UNSET,
-        query: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
-        limit_2: Union[Optional[int], UnsetType] = UNSET,
-        page_2: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_1: Union[Optional[int], UnsetType] = UNSET,
-        permanent_1: Union[Optional[bool], UnsetType] = UNSET,
-        limit_3: Union[Optional[int], UnsetType] = UNSET,
-        page_3: Union[Optional[int], UnsetType] = UNSET,
-        **kwargs: Any
-    ) -> RemoveWorkflowTaskAssignees:
-        _query = gql(
-            """
-            mutation removeWorkflowTaskAssignees($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $validityInDays1: Int, $permanent1: Boolean, $limit3: Int, $page3: Int, $input: RemoveWorkflowTaskAssigneesInput!) {
-              removeWorkflowTaskAssignees(input: $input) {
-                workflowTask {
-                  id
-                  assignedUsers {
-                    __typename
-                    id
-                    name
-                  }
-                  asset {
-                    __typename
-                    id
-                    creator {
-                      __typename
-                      id
-                      name
-                    }
-                    createdAt
-                    modifier {
-                      __typename
-                      id
-                      name
-                    }
-                    modifiedAt
-                    title
-                    description
-                    attachments {
-                      id
-                      creator {
-                        __typename
-                        id
-                        name
-                      }
-                      createdAt
-                      modifier {
-                        __typename
-                        id
-                        name
-                      }
-                      modifiedAt
-                      name
-                      filename
-                      type
-                      externalId
-                      extension
-                      size
-                      downloadUrl(validityInDays: $validityInDays, permanent: $permanent)
-                    }
-                    externalId
-                    tags {
-                      value
-                      source
-                    }
-                    copyright {
-                      status
-                      notice
-                    }
-                    availability {
-                      from
-                      to
-                    }
-                    expiresAt
-                    licenses {
-                      id
-                      title
-                      license
-                      addByDefault
-                      requireConsensus
-                    }
-                    status
-                    relatedAssets(limit: $limit, page: $page) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        __typename
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        externalId
-                        expiresAt
-                        status
-                      }
-                    }
-                    comments(limit: $limit1, page: $page1, query: $query) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        id
-                        createdAt
-                        modifiedAt
-                        content
-                        isResolved
-                      }
-                    }
-                    currentUserPermissions {
-                      canEdit
-                      canDelete
-                      canDownload
-                      canComment
-                    }
-                    customMetadata {
-                      __typename
-                      property {
-                        id
-                        createdAt
-                        modifiedAt
-                        name
-                        helpText
-                        isRequired
-                        defaultValue
-                      }
-                    }
-                    workflowTask {
-                      id
-                      title
-                      description
-                      status {
-                        id
-                        name
-                        enterRules
-                      }
-                      checklistItem(limit: $limit2, page: $page2) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                    }
-                    variants(limit: $limit3, page: $page3) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        key
-                        filename
-                        downloadUrl(validityInDays: $validityInDays1, permanent: $permanent1)
-                      }
-                    }
-                    location {
-                      brand {
-                        id
-                        name
-                      }
-                      library {
-                        id
-                        name
-                      }
-                      workspaceProject {
-                        id
-                        name
-                      }
-                      folder {
-                        id
-                        name
-                      }
-                    }
-                    previewBackgroundColor {
-                      red
-                      green
-                      blue
-                      alpha
-                    }
-                  }
-                  title
-                  description
-                }
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {
-            "validityInDays": validity_in_days,
-            "permanent": permanent,
-            "limit": limit,
-            "page": page,
-            "limit1": limit_1,
-            "page1": page_1,
-            "query": query,
-            "limit2": limit_2,
-            "page2": page_2,
-            "validityInDays1": validity_in_days_1,
-            "permanent1": permanent_1,
-            "limit3": limit_3,
-            "page3": page_3,
-            "input": input,
-        }
-        response = self.execute(
-            query=_query,
-            operation_name="removeWorkflowTaskAssignees",
-            variables=variables,
-            **kwargs
-        )
-        data = self.get_data(response)
-        return RemoveWorkflowTaskAssignees.model_validate(data)
-
     def reopen_asset_comment(
         self,
         input: ReopenAssetCommentInput,
@@ -7986,20 +3961,26 @@ class FrontifyClient(BaseClient):
                   creator {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   createdAt
                   modifier {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   modifiedAt
                   content
                   mentionedUsers {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   isResolved
                   replies(limit: $limit, page: $page) {
@@ -8012,20 +3993,26 @@ class FrontifyClient(BaseClient):
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       content
                       mentionedUsers {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                     }
                   }
@@ -8079,52 +4066,6 @@ class FrontifyClient(BaseClient):
         data = self.get_data(response)
         return ReplaceAsset.model_validate(data)
 
-    def replace_asset_variant(
-        self, input: ReplaceAssetVariantInput, **kwargs: Any
-    ) -> ReplaceAssetVariant:
-        query = gql(
-            """
-            mutation replaceAssetVariant($input: ReplaceAssetVariantInput!) {
-              replaceAssetVariant(input: $input) {
-                job {
-                  variantId
-                }
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {"input": input}
-        response = self.execute(
-            query=query,
-            operation_name="replaceAssetVariant",
-            variables=variables,
-            **kwargs
-        )
-        data = self.get_data(response)
-        return ReplaceAssetVariant.model_validate(data)
-
-    def replace_external_data_source_file(
-        self, input: ReplaceExternalDataSourceFileInput, **kwargs: Any
-    ) -> ReplaceExternalDataSourceFile:
-        query = gql(
-            """
-            mutation replaceExternalDataSourceFile($input: ReplaceExternalDataSourceFileInput!) {
-              replaceExternalDataSourceFile(input: $input) {
-                externalDataSourceId
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {"input": input}
-        response = self.execute(
-            query=query,
-            operation_name="replaceExternalDataSourceFile",
-            variables=variables,
-            **kwargs
-        )
-        data = self.get_data(response)
-        return ReplaceExternalDataSourceFile.model_validate(data)
-
     def reply_to_comment(
         self, input: ReplyToCommentInput, **kwargs: Any
     ) -> ReplyToComment:
@@ -8137,20 +4078,26 @@ class FrontifyClient(BaseClient):
                   creator {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   createdAt
                   modifier {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   modifiedAt
                   content
                   mentionedUsers {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                 }
               }
@@ -8180,20 +4127,26 @@ class FrontifyClient(BaseClient):
                   creator {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   createdAt
                   modifier {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   modifiedAt
                   content
                   mentionedUsers {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   isResolved
                   replies(limit: $limit, page: $page) {
@@ -8206,20 +4159,26 @@ class FrontifyClient(BaseClient):
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       content
                       mentionedUsers {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                     }
                   }
@@ -8266,18 +4225,16 @@ class FrontifyClient(BaseClient):
         query: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
         limit_2: Union[Optional[int], UnsetType] = UNSET,
         page_2: Union[Optional[int], UnsetType] = UNSET,
-        limit_3: Union[Optional[int], UnsetType] = UNSET,
-        page_3: Union[Optional[int], UnsetType] = UNSET,
         **kwargs: Any
     ) -> SetCollectionAssets:
         _query = gql(
             """
-            mutation setCollectionAssets($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $input: SetCollectionAssetsInput!) {
+            mutation setCollectionAssets($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $input: SetCollectionAssetsInput!) {
               setCollectionAssets(input: $input) {
                 collection {
                   id
                   name
-                  assets(limit: $limit3, page: $page3) {
+                  assets(limit: $limit2, page: $page2) {
                     total
                     page
                     limit
@@ -8288,13 +4245,17 @@ class FrontifyClient(BaseClient):
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       title
@@ -8320,10 +4281,6 @@ class FrontifyClient(BaseClient):
                         status
                         notice
                       }
-                      availability {
-                        from
-                        to
-                      }
                       expiresAt
                       licenses {
                         id
@@ -8351,23 +4308,6 @@ class FrontifyClient(BaseClient):
                         canDownload
                         canComment
                       }
-                      workflowTask {
-                        id
-                        title
-                        description
-                      }
-                      variants(limit: $limit2, page: $page2) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      previewBackgroundColor {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
                     }
                   }
                   currentUserPermissions {
@@ -8389,8 +4329,6 @@ class FrontifyClient(BaseClient):
             "query": query,
             "limit2": limit_2,
             "page2": page_2,
-            "limit3": limit_3,
-            "page3": page_3,
             "input": input,
         }
         response = self.execute(
@@ -8401,28 +4339,6 @@ class FrontifyClient(BaseClient):
         )
         data = self.get_data(response)
         return SetCollectionAssets.model_validate(data)
-
-    def set_custom_metadata(
-        self, input: SetCustomMetadataInput, **kwargs: Any
-    ) -> SetCustomMetadata:
-        query = gql(
-            """
-            mutation setCustomMetadata($input: SetCustomMetadataInput!) {
-              setCustomMetadata(input: $input) {
-                parentIds
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {"input": input}
-        response = self.execute(
-            query=query,
-            operation_name="setCustomMetadata",
-            variables=variables,
-            **kwargs
-        )
-        data = self.get_data(response)
-        return SetCustomMetadata.model_validate(data)
 
     def sync_asset_tags(
         self,
@@ -8442,20 +4358,12 @@ class FrontifyClient(BaseClient):
         page_3: Union[Optional[int], UnsetType] = UNSET,
         limit_4: Union[Optional[int], UnsetType] = UNSET,
         page_4: Union[Optional[int], UnsetType] = UNSET,
-        limit_5: Union[Optional[int], UnsetType] = UNSET,
-        page_5: Union[Optional[int], UnsetType] = UNSET,
         query_1: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
-        limit_6: Union[Optional[int], UnsetType] = UNSET,
-        page_6: Union[Optional[int], UnsetType] = UNSET,
-        limit_7: Union[Optional[int], UnsetType] = UNSET,
-        page_7: Union[Optional[int], UnsetType] = UNSET,
-        limit_8: Union[Optional[int], UnsetType] = UNSET,
-        page_8: Union[Optional[int], UnsetType] = UNSET,
         **kwargs: Any
     ) -> SyncAssetTags:
         _query = gql(
             """
-            mutation syncAssetTags($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $permanent1: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $limit5: Int, $page5: Int, $query1: AssetCommentQueryInput, $limit6: Int, $page6: Int, $limit7: Int, $page7: Int, $limit8: Int, $page8: Int, $input: SyncAssetTagsInput!) {
+            mutation syncAssetTags($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $permanent1: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $query1: AssetCommentQueryInput, $input: SyncAssetTagsInput!) {
               syncAssetTags(input: $input) {
                 asset {
                   __typename
@@ -8463,13 +4371,17 @@ class FrontifyClient(BaseClient):
                   creator {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   createdAt
                   modifier {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   modifiedAt
                   title
@@ -8479,13 +4391,17 @@ class FrontifyClient(BaseClient):
                     creator {
                       __typename
                       id
+                      email
                       name
+                      avatar
                     }
                     createdAt
                     modifier {
                       __typename
                       id
+                      email
                       name
+                      avatar
                     }
                     modifiedAt
                     name
@@ -8505,10 +4421,6 @@ class FrontifyClient(BaseClient):
                     status
                     notice
                   }
-                  availability {
-                    from
-                    to
-                  }
                   expiresAt
                   licenses {
                     id
@@ -8518,7 +4430,7 @@ class FrontifyClient(BaseClient):
                     requireConsensus
                   }
                   status
-                  relatedAssets(limit: $limit3, page: $page3) {
+                  relatedAssets(limit: $limit2, page: $page2) {
                     total
                     page
                     limit
@@ -8529,13 +4441,17 @@ class FrontifyClient(BaseClient):
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       title
@@ -8561,10 +4477,6 @@ class FrontifyClient(BaseClient):
                         status
                         notice
                       }
-                      availability {
-                        from
-                        to
-                      }
                       expiresAt
                       licenses {
                         id
@@ -8592,26 +4504,9 @@ class FrontifyClient(BaseClient):
                         canDownload
                         canComment
                       }
-                      workflowTask {
-                        id
-                        title
-                        description
-                      }
-                      variants(limit: $limit2, page: $page2) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      previewBackgroundColor {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
                     }
                   }
-                  comments(limit: $limit5, page: $page5, query: $query1) {
+                  comments(limit: $limit4, page: $page4, query: $query1) {
                     total
                     page
                     limit
@@ -8624,10 +4519,12 @@ class FrontifyClient(BaseClient):
                       mentionedUsers {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       isResolved
-                      replies(limit: $limit4, page: $page4) {
+                      replies(limit: $limit3, page: $page3) {
                         total
                         page
                         limit
@@ -8648,13 +4545,17 @@ class FrontifyClient(BaseClient):
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       name
@@ -8667,72 +4568,25 @@ class FrontifyClient(BaseClient):
                       defaultValue
                     }
                   }
-                  workflowTask {
-                    id
-                    assignedUsers {
-                      __typename
+                  location {
+                    brand {
                       id
                       name
                     }
-                    asset {
-                      __typename
-                      id
-                      createdAt
-                      modifiedAt
-                      title
-                      description
-                      externalId
-                      expiresAt
-                      status
-                      variants(limit: $limit6, page: $page6) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      previewBackgroundColor {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
-                    }
-                    title
-                    description
-                    status {
+                    library {
                       id
                       name
-                      color {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
-                      assignedUsers {
-                        __typename
+                    }
+                    workspaceProject {
+                      id
+                      name
+                    }
+                    folder {
+                      id
+                      name
+                      breadcrumbs {
                         id
                         name
-                      }
-                      checklistPresets {
-                        id
-                        content
-                      }
-                      tasks(limit: $limit7, page: $page7) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      enterRules
-                    }
-                    checklistItem(limit: $limit8, page: $page8) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        id
-                        content
                       }
                     }
                   }
@@ -8757,15 +4611,7 @@ class FrontifyClient(BaseClient):
             "page3": page_3,
             "limit4": limit_4,
             "page4": page_4,
-            "limit5": limit_5,
-            "page5": page_5,
             "query1": query_1,
-            "limit6": limit_6,
-            "page6": page_6,
-            "limit7": limit_7,
-            "page7": page_7,
-            "limit8": limit_8,
-            "page8": page_8,
             "input": input,
         }
         response = self.execute(
@@ -8787,7 +4633,9 @@ class FrontifyClient(BaseClient):
                   creator {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   createdAt
                   name
@@ -8826,20 +4674,12 @@ class FrontifyClient(BaseClient):
         page_3: Union[Optional[int], UnsetType] = UNSET,
         limit_4: Union[Optional[int], UnsetType] = UNSET,
         page_4: Union[Optional[int], UnsetType] = UNSET,
-        limit_5: Union[Optional[int], UnsetType] = UNSET,
-        page_5: Union[Optional[int], UnsetType] = UNSET,
         query_1: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
-        limit_6: Union[Optional[int], UnsetType] = UNSET,
-        page_6: Union[Optional[int], UnsetType] = UNSET,
-        limit_7: Union[Optional[int], UnsetType] = UNSET,
-        page_7: Union[Optional[int], UnsetType] = UNSET,
-        limit_8: Union[Optional[int], UnsetType] = UNSET,
-        page_8: Union[Optional[int], UnsetType] = UNSET,
         **kwargs: Any
     ) -> UpdateAsset:
         _query = gql(
             """
-            mutation updateAsset($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $permanent1: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $limit5: Int, $page5: Int, $query1: AssetCommentQueryInput, $limit6: Int, $page6: Int, $limit7: Int, $page7: Int, $limit8: Int, $page8: Int, $input: UpdateAssetInput!) {
+            mutation updateAsset($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $permanent1: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $query1: AssetCommentQueryInput, $input: UpdateAssetInput!) {
               updateAsset(input: $input) {
                 asset {
                   __typename
@@ -8847,13 +4687,17 @@ class FrontifyClient(BaseClient):
                   creator {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   createdAt
                   modifier {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   modifiedAt
                   title
@@ -8863,13 +4707,17 @@ class FrontifyClient(BaseClient):
                     creator {
                       __typename
                       id
+                      email
                       name
+                      avatar
                     }
                     createdAt
                     modifier {
                       __typename
                       id
+                      email
                       name
+                      avatar
                     }
                     modifiedAt
                     name
@@ -8889,10 +4737,6 @@ class FrontifyClient(BaseClient):
                     status
                     notice
                   }
-                  availability {
-                    from
-                    to
-                  }
                   expiresAt
                   licenses {
                     id
@@ -8902,7 +4746,7 @@ class FrontifyClient(BaseClient):
                     requireConsensus
                   }
                   status
-                  relatedAssets(limit: $limit3, page: $page3) {
+                  relatedAssets(limit: $limit2, page: $page2) {
                     total
                     page
                     limit
@@ -8913,13 +4757,17 @@ class FrontifyClient(BaseClient):
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       title
@@ -8945,10 +4793,6 @@ class FrontifyClient(BaseClient):
                         status
                         notice
                       }
-                      availability {
-                        from
-                        to
-                      }
                       expiresAt
                       licenses {
                         id
@@ -8976,26 +4820,9 @@ class FrontifyClient(BaseClient):
                         canDownload
                         canComment
                       }
-                      workflowTask {
-                        id
-                        title
-                        description
-                      }
-                      variants(limit: $limit2, page: $page2) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      previewBackgroundColor {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
                     }
                   }
-                  comments(limit: $limit5, page: $page5, query: $query1) {
+                  comments(limit: $limit4, page: $page4, query: $query1) {
                     total
                     page
                     limit
@@ -9008,10 +4835,12 @@ class FrontifyClient(BaseClient):
                       mentionedUsers {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       isResolved
-                      replies(limit: $limit4, page: $page4) {
+                      replies(limit: $limit3, page: $page3) {
                         total
                         page
                         limit
@@ -9032,13 +4861,17 @@ class FrontifyClient(BaseClient):
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       name
@@ -9051,72 +4884,25 @@ class FrontifyClient(BaseClient):
                       defaultValue
                     }
                   }
-                  workflowTask {
-                    id
-                    assignedUsers {
-                      __typename
+                  location {
+                    brand {
                       id
                       name
                     }
-                    asset {
-                      __typename
-                      id
-                      createdAt
-                      modifiedAt
-                      title
-                      description
-                      externalId
-                      expiresAt
-                      status
-                      variants(limit: $limit6, page: $page6) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      previewBackgroundColor {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
-                    }
-                    title
-                    description
-                    status {
+                    library {
                       id
                       name
-                      color {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
-                      assignedUsers {
-                        __typename
+                    }
+                    workspaceProject {
+                      id
+                      name
+                    }
+                    folder {
+                      id
+                      name
+                      breadcrumbs {
                         id
                         name
-                      }
-                      checklistPresets {
-                        id
-                        content
-                      }
-                      tasks(limit: $limit7, page: $page7) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      enterRules
-                    }
-                    checklistItem(limit: $limit8, page: $page8) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        id
-                        content
                       }
                     }
                   }
@@ -9141,15 +4927,7 @@ class FrontifyClient(BaseClient):
             "page3": page_3,
             "limit4": limit_4,
             "page4": page_4,
-            "limit5": limit_5,
-            "page5": page_5,
             "query1": query_1,
-            "limit6": limit_6,
-            "page6": page_6,
-            "limit7": limit_7,
-            "page7": page_7,
-            "limit8": limit_8,
-            "page8": page_8,
             "input": input,
         }
         response = self.execute(
@@ -9157,875 +4935,6 @@ class FrontifyClient(BaseClient):
         )
         data = self.get_data(response)
         return UpdateAsset.model_validate(data)
-
-    def update_brand(
-        self,
-        key: str,
-        input: UpdateBrandInput,
-        validity_in_days: Union[Optional[int], UnsetType] = UNSET,
-        permanent: Union[Optional[bool], UnsetType] = UNSET,
-        limit: Union[Optional[int], UnsetType] = UNSET,
-        page: Union[Optional[int], UnsetType] = UNSET,
-        limit_1: Union[Optional[int], UnsetType] = UNSET,
-        page_1: Union[Optional[int], UnsetType] = UNSET,
-        query: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
-        limit_2: Union[Optional[int], UnsetType] = UNSET,
-        page_2: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_1: Union[Optional[int], UnsetType] = UNSET,
-        permanent_1: Union[Optional[bool], UnsetType] = UNSET,
-        limit_3: Union[Optional[int], UnsetType] = UNSET,
-        page_3: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_2: Union[Optional[int], UnsetType] = UNSET,
-        permanent_2: Union[Optional[bool], UnsetType] = UNSET,
-        width: Union[Optional[int], UnsetType] = UNSET,
-        height: Union[Optional[int], UnsetType] = UNSET,
-        width_1: Union[Optional[int], UnsetType] = UNSET,
-        height_1: Union[Optional[int], UnsetType] = UNSET,
-        page_4: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_3: Union[Optional[int], UnsetType] = UNSET,
-        permanent_3: Union[Optional[bool], UnsetType] = UNSET,
-        validity_in_days_4: Union[Optional[int], UnsetType] = UNSET,
-        permanent_4: Union[Optional[bool], UnsetType] = UNSET,
-        width_2: Union[Optional[int], UnsetType] = UNSET,
-        height_2: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_5: Union[Optional[int], UnsetType] = UNSET,
-        permanent_5: Union[Optional[bool], UnsetType] = UNSET,
-        width_3: Union[Optional[int], UnsetType] = UNSET,
-        height_3: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_6: Union[Optional[int], UnsetType] = UNSET,
-        permanent_6: Union[Optional[bool], UnsetType] = UNSET,
-        validity_in_days_7: Union[Optional[int], UnsetType] = UNSET,
-        permanent_7: Union[Optional[bool], UnsetType] = UNSET,
-        limit_4: Union[Optional[int], UnsetType] = UNSET,
-        page_5: Union[Optional[int], UnsetType] = UNSET,
-        limit_5: Union[Optional[int], UnsetType] = UNSET,
-        page_6: Union[Optional[int], UnsetType] = UNSET,
-        query_1: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
-        limit_6: Union[Optional[int], UnsetType] = UNSET,
-        page_7: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_8: Union[Optional[int], UnsetType] = UNSET,
-        permanent_8: Union[Optional[bool], UnsetType] = UNSET,
-        width_4: Union[Optional[int], UnsetType] = UNSET,
-        height_4: Union[Optional[int], UnsetType] = UNSET,
-        width_5: Union[Optional[int], UnsetType] = UNSET,
-        height_5: Union[Optional[int], UnsetType] = UNSET,
-        page_8: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_9: Union[Optional[int], UnsetType] = UNSET,
-        permanent_9: Union[Optional[bool], UnsetType] = UNSET,
-        validity_in_days_10: Union[Optional[int], UnsetType] = UNSET,
-        permanent_10: Union[Optional[bool], UnsetType] = UNSET,
-        width_6: Union[Optional[int], UnsetType] = UNSET,
-        height_6: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_11: Union[Optional[int], UnsetType] = UNSET,
-        permanent_11: Union[Optional[bool], UnsetType] = UNSET,
-        width_7: Union[Optional[int], UnsetType] = UNSET,
-        height_7: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_12: Union[Optional[int], UnsetType] = UNSET,
-        permanent_12: Union[Optional[bool], UnsetType] = UNSET,
-        limit_7: Union[Optional[int], UnsetType] = UNSET,
-        page_9: Union[Optional[int], UnsetType] = UNSET,
-        query_2: Union[Optional[BrandQueryInput], UnsetType] = UNSET,
-        limit_8: Union[Optional[int], UnsetType] = UNSET,
-        page_10: Union[Optional[int], UnsetType] = UNSET,
-        query_3: Union[Optional[AssetQueryInput], UnsetType] = UNSET,
-        limit_9: Union[Optional[int], UnsetType] = UNSET,
-        page_11: Union[Optional[int], UnsetType] = UNSET,
-        limit_10: Union[Optional[int], UnsetType] = UNSET,
-        page_12: Union[Optional[int], UnsetType] = UNSET,
-        query_4: Union[Optional[LibraryQueryInput], UnsetType] = UNSET,
-        limit_11: Union[Optional[int], UnsetType] = UNSET,
-        page_13: Union[Optional[int], UnsetType] = UNSET,
-        query_5: Union[Optional[WorkspaceProjectQueryInput], UnsetType] = UNSET,
-        limit_12: Union[Optional[int], UnsetType] = UNSET,
-        page_14: Union[Optional[int], UnsetType] = UNSET,
-        limit_13: Union[Optional[int], UnsetType] = UNSET,
-        page_15: Union[Optional[int], UnsetType] = UNSET,
-        language: Union[Optional[LanguageCode], UnsetType] = UNSET,
-        limit_14: Union[Optional[int], UnsetType] = UNSET,
-        page_16: Union[Optional[int], UnsetType] = UNSET,
-        limit_15: Union[Optional[int], UnsetType] = UNSET,
-        page_17: Union[Optional[int], UnsetType] = UNSET,
-        query_6: Union[Optional[CreativeTemplateQueryInput], UnsetType] = UNSET,
-        **kwargs: Any
-    ) -> UpdateBrand:
-        _query = gql(
-            """
-            mutation updateBrand($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $validityInDays1: Int, $permanent1: Boolean, $limit3: Int, $page3: Int, $validityInDays2: Int, $permanent2: Boolean, $width: Int, $height: Int, $width1: Int, $height1: Int, $page4: Int, $validityInDays3: Int, $permanent3: Boolean, $validityInDays4: Int, $permanent4: Boolean, $width2: Int, $height2: Int, $validityInDays5: Int, $permanent5: Boolean, $width3: Int, $height3: Int, $validityInDays6: Int, $permanent6: Boolean, $validityInDays7: Int, $permanent7: Boolean, $limit4: Int, $page5: Int, $limit5: Int, $page6: Int, $query1: AssetCommentQueryInput, $limit6: Int, $page7: Int, $validityInDays8: Int, $permanent8: Boolean, $width4: Int, $height4: Int, $width5: Int, $height5: Int, $page8: Int, $validityInDays9: Int, $permanent9: Boolean, $validityInDays10: Int, $permanent10: Boolean, $width6: Int, $height6: Int, $validityInDays11: Int, $permanent11: Boolean, $width7: Int, $height7: Int, $validityInDays12: Int, $permanent12: Boolean, $limit7: Int, $page9: Int, $query2: BrandQueryInput, $limit8: Int, $page10: Int, $query3: AssetQueryInput, $limit9: Int, $page11: Int, $limit10: Int, $page12: Int, $query4: LibraryQueryInput, $limit11: Int, $page13: Int, $query5: WorkspaceProjectQueryInput, $limit12: Int, $page14: Int, $limit13: Int, $page15: Int, $language: LanguageCode, $limit14: Int, $page16: Int, $key: String!, $limit15: Int, $page17: Int, $query6: CreativeTemplateQueryInput, $input: UpdateBrandInput!) {
-              updateBrand(input: $input) {
-                brand {
-                  id
-                  name
-                  rgbaColor {
-                    red
-                    green
-                    blue
-                    alpha
-                  }
-                  avatar
-                  slug
-                  search(limit: $limit7, page: $page9, query: $query2) {
-                    total
-                    page
-                    limit
-                    hasNextPage
-                    items {
-                      __typename
-                      ... on Audio {
-                        id
-                        creator {
-                          __typename
-                          id
-                          name
-                        }
-                        createdAt
-                        modifier {
-                          __typename
-                          id
-                          name
-                        }
-                        modifiedAt
-                        title
-                        description
-                        alternativeText
-                        isDecorative
-                        attachments {
-                          id
-                          creator {
-                            __typename
-                            id
-                            name
-                          }
-                          createdAt
-                          modifier {
-                            __typename
-                            id
-                            name
-                          }
-                          modifiedAt
-                          name
-                          filename
-                          type
-                          externalId
-                          extension
-                          size
-                          downloadUrl(validityInDays: $validityInDays, permanent: $permanent)
-                        }
-                        externalId
-                        tags {
-                          value
-                          source
-                        }
-                        externalProducts {
-                          id
-                          name
-                          externalId
-                          title
-                        }
-                        copyright {
-                          status
-                          notice
-                        }
-                        availability {
-                          from
-                          to
-                        }
-                        expiresAt
-                        licenses {
-                          id
-                          title
-                          license
-                          addByDefault
-                          requireConsensus
-                        }
-                        author
-                        status
-                        relatedAssets(limit: $limit, page: $page) {
-                          total
-                          page
-                          limit
-                          hasNextPage
-                          items {
-                            __typename
-                            id
-                            createdAt
-                            modifiedAt
-                            title
-                            description
-                            externalId
-                            expiresAt
-                            status
-                          }
-                        }
-                        comments(limit: $limit1, page: $page1, query: $query) {
-                          total
-                          page
-                          limit
-                          hasNextPage
-                          items {
-                            id
-                            createdAt
-                            modifiedAt
-                            content
-                            isResolved
-                          }
-                        }
-                        currentUserPermissions {
-                          canEdit
-                          canDelete
-                          canDownload
-                          canComment
-                        }
-                        customMetadata {
-                          __typename
-                          property {
-                            id
-                            createdAt
-                            modifiedAt
-                            name
-                            helpText
-                            isRequired
-                            defaultValue
-                          }
-                        }
-                        workflowTask {
-                          id
-                          assignedUsers {
-                            __typename
-                            id
-                            name
-                          }
-                          asset {
-                            __typename
-                            id
-                            createdAt
-                            modifiedAt
-                            title
-                            description
-                            externalId
-                            expiresAt
-                            status
-                          }
-                          title
-                          description
-                          status {
-                            id
-                            name
-                            enterRules
-                          }
-                          checklistItem(limit: $limit2, page: $page2) {
-                            total
-                            page
-                            limit
-                            hasNextPage
-                          }
-                        }
-                        variants(limit: $limit3, page: $page3) {
-                          total
-                          page
-                          limit
-                          hasNextPage
-                          items {
-                            key
-                            filename
-                            downloadUrl(validityInDays: $validityInDays1, permanent: $permanent1)
-                          }
-                        }
-                        location {
-                          brand {
-                            id
-                            name
-                          }
-                          library {
-                            id
-                            name
-                          }
-                          workspaceProject {
-                            id
-                            name
-                          }
-                          folder {
-                            id
-                            name
-                          }
-                        }
-                        previewBackgroundColor {
-                          red
-                          green
-                          blue
-                          alpha
-                        }
-                        filename
-                        size
-                        extension
-                        downloadUrl(validityInDays: $validityInDays2, permanent: $permanent2)
-                        previewUrl(width: $width, height: $height)
-                        thumbnailUrl
-                        dynamicPreviewUrl
-                      }
-                      ... on Document {
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        alternativeText
-                        isDecorative
-                        externalId
-                        expiresAt
-                        author
-                        status
-                        filename
-                        size
-                        extension
-                        previewUrl(width: $width1, height: $height1, page: $page4)
-                        thumbnailUrl
-                        dynamicPreviewUrl
-                        downloadUrl(validityInDays: $validityInDays3, permanent: $permanent3)
-                        focalPoint
-                        width
-                        height
-                        pageCount
-                      }
-                      ... on EmbeddedContent {
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        alternativeText
-                        isDecorative
-                        externalId
-                        expiresAt
-                        author
-                        status
-                        previewUrl
-                        thumbnailUrl
-                      }
-                      ... on File {
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        alternativeText
-                        isDecorative
-                        externalId
-                        expiresAt
-                        author
-                        status
-                        filename
-                        size
-                        extension
-                        previewUrl
-                        thumbnailUrl
-                        dynamicPreviewUrl
-                        downloadUrl(validityInDays: $validityInDays4, permanent: $permanent4)
-                      }
-                      ... on Image {
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        alternativeText
-                        isDecorative
-                        externalId
-                        expiresAt
-                        author
-                        status
-                        filename
-                        size
-                        extension
-                        previewUrl(width: $width2, height: $height2)
-                        thumbnailUrl
-                        dynamicPreviewUrl
-                        downloadUrl(validityInDays: $validityInDays5, permanent: $permanent5)
-                        focalPoint
-                        width
-                        height
-                      }
-                      ... on Video {
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        alternativeText
-                        isDecorative
-                        externalId
-                        expiresAt
-                        author
-                        status
-                        filename
-                        size
-                        extension
-                        previewUrl(width: $width3, height: $height3)
-                        thumbnailUrl
-                        dynamicPreviewUrl
-                        downloadUrl(validityInDays: $validityInDays6, permanent: $permanent6)
-                        width
-                        height
-                        duration
-                        bitrate
-                      }
-                    }
-                    edges {
-                      title
-                      node {
-                        __typename
-                        ... on Audio {
-                          id
-                          creator {
-                            __typename
-                            id
-                            name
-                          }
-                          createdAt
-                          modifier {
-                            __typename
-                            id
-                            name
-                          }
-                          modifiedAt
-                          title
-                          description
-                          alternativeText
-                          isDecorative
-                          attachments {
-                            id
-                            createdAt
-                            modifiedAt
-                            name
-                            filename
-                            type
-                            externalId
-                            extension
-                            size
-                            downloadUrl(validityInDays: $validityInDays7, permanent: $permanent7)
-                          }
-                          externalId
-                          tags {
-                            value
-                            source
-                          }
-                          externalProducts {
-                            id
-                            name
-                            externalId
-                            title
-                          }
-                          copyright {
-                            status
-                            notice
-                          }
-                          availability {
-                            from
-                            to
-                          }
-                          expiresAt
-                          licenses {
-                            id
-                            title
-                            license
-                            addByDefault
-                            requireConsensus
-                          }
-                          author
-                          status
-                          relatedAssets(limit: $limit4, page: $page5) {
-                            total
-                            page
-                            limit
-                            hasNextPage
-                          }
-                          comments(limit: $limit5, page: $page6, query: $query1) {
-                            total
-                            page
-                            limit
-                            hasNextPage
-                          }
-                          currentUserPermissions {
-                            canEdit
-                            canDelete
-                            canDownload
-                            canComment
-                          }
-                          workflowTask {
-                            id
-                            title
-                            description
-                          }
-                          variants(limit: $limit6, page: $page7) {
-                            total
-                            page
-                            limit
-                            hasNextPage
-                          }
-                          previewBackgroundColor {
-                            red
-                            green
-                            blue
-                            alpha
-                          }
-                          filename
-                          size
-                          extension
-                          downloadUrl(validityInDays: $validityInDays8, permanent: $permanent8)
-                          previewUrl(width: $width4, height: $height4)
-                          thumbnailUrl
-                          dynamicPreviewUrl
-                        }
-                        ... on Document {
-                          id
-                          createdAt
-                          modifiedAt
-                          title
-                          description
-                          alternativeText
-                          isDecorative
-                          externalId
-                          expiresAt
-                          author
-                          status
-                          filename
-                          size
-                          extension
-                          previewUrl(width: $width5, height: $height5, page: $page8)
-                          thumbnailUrl
-                          dynamicPreviewUrl
-                          downloadUrl(validityInDays: $validityInDays9, permanent: $permanent9)
-                          focalPoint
-                          width
-                          height
-                          pageCount
-                        }
-                        ... on EmbeddedContent {
-                          id
-                          createdAt
-                          modifiedAt
-                          title
-                          description
-                          alternativeText
-                          isDecorative
-                          externalId
-                          expiresAt
-                          author
-                          status
-                          previewUrl
-                          thumbnailUrl
-                        }
-                        ... on File {
-                          id
-                          createdAt
-                          modifiedAt
-                          title
-                          description
-                          alternativeText
-                          isDecorative
-                          externalId
-                          expiresAt
-                          author
-                          status
-                          filename
-                          size
-                          extension
-                          previewUrl
-                          thumbnailUrl
-                          dynamicPreviewUrl
-                          downloadUrl(validityInDays: $validityInDays10, permanent: $permanent10)
-                        }
-                        ... on Image {
-                          id
-                          createdAt
-                          modifiedAt
-                          title
-                          description
-                          alternativeText
-                          isDecorative
-                          externalId
-                          expiresAt
-                          author
-                          status
-                          filename
-                          size
-                          extension
-                          previewUrl(width: $width6, height: $height6)
-                          thumbnailUrl
-                          dynamicPreviewUrl
-                          downloadUrl(validityInDays: $validityInDays11, permanent: $permanent11)
-                          focalPoint
-                          width
-                          height
-                        }
-                        ... on Video {
-                          id
-                          createdAt
-                          modifiedAt
-                          title
-                          description
-                          alternativeText
-                          isDecorative
-                          externalId
-                          expiresAt
-                          author
-                          status
-                          filename
-                          size
-                          extension
-                          previewUrl(width: $width7, height: $height7)
-                          thumbnailUrl
-                          dynamicPreviewUrl
-                          downloadUrl(validityInDays: $validityInDays12, permanent: $permanent12)
-                          width
-                          height
-                          duration
-                          bitrate
-                        }
-                      }
-                    }
-                  }
-                  libraries(limit: $limit10, page: $page12, query: $query4) {
-                    total
-                    page
-                    limit
-                    hasNextPage
-                    items {
-                      __typename
-                      id
-                      name
-                      color {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
-                      assets(limit: $limit8, page: $page10, query: $query3) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      collections(limit: $limit9, page: $page11) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      workflow {
-                        id
-                      }
-                      customMetadataProperties {
-                        id
-                        createdAt
-                        modifiedAt
-                        name
-                        helpText
-                        isRequired
-                        defaultValue
-                      }
-                      assetSubmissionRequests {
-                        id
-                        createdAt
-                        modifiedAt
-                        projectId
-                        title
-                        description
-                        configuration
-                      }
-                    }
-                  }
-                  workspaceProjects(limit: $limit11, page: $page13, query: $query5) {
-                    total
-                    page
-                    limit
-                    hasNextPage
-                    items {
-                      id
-                      name
-                      isArchived
-                    }
-                  }
-                  guidelines(language: $language, limit: $limit14, page: $page16) {
-                    total
-                    page
-                    limit
-                    hasNextPage
-                    items {
-                      id
-                      name
-                      url
-                      defaultLanguage {
-                        code
-                        name
-                      }
-                      translationLanguages {
-                        code
-                        name
-                      }
-                      libraryPages(limit: $limit12, page: $page14) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      pages(limit: $limit13, page: $page15) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                    }
-                  }
-                  customMetadataProperties {
-                    id
-                    creator {
-                      __typename
-                      id
-                      name
-                    }
-                    createdAt
-                    modifier {
-                      __typename
-                      id
-                      name
-                    }
-                    modifiedAt
-                    name
-                    type {
-                      __typename
-                      name
-                    }
-                    helpText
-                    isRequired
-                    defaultValue
-                  }
-                  creativeTemplates(limit: $limit15, page: $page17, query: $query6) {
-                    total
-                    page
-                    limit
-                    hasNextPage
-                    items {
-                      id
-                      brandId
-                      name
-                      description
-                      variable(key: $key) {
-                        key
-                        name
-                        description
-                        type
-                        value
-                        connectionCount
-                      }
-                      variables {
-                        key
-                        name
-                        description
-                        type
-                        value
-                        connectionCount
-                      }
-                      assetId
-                    }
-                  }
-                }
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {
-            "validityInDays": validity_in_days,
-            "permanent": permanent,
-            "limit": limit,
-            "page": page,
-            "limit1": limit_1,
-            "page1": page_1,
-            "query": query,
-            "limit2": limit_2,
-            "page2": page_2,
-            "validityInDays1": validity_in_days_1,
-            "permanent1": permanent_1,
-            "limit3": limit_3,
-            "page3": page_3,
-            "validityInDays2": validity_in_days_2,
-            "permanent2": permanent_2,
-            "width": width,
-            "height": height,
-            "width1": width_1,
-            "height1": height_1,
-            "page4": page_4,
-            "validityInDays3": validity_in_days_3,
-            "permanent3": permanent_3,
-            "validityInDays4": validity_in_days_4,
-            "permanent4": permanent_4,
-            "width2": width_2,
-            "height2": height_2,
-            "validityInDays5": validity_in_days_5,
-            "permanent5": permanent_5,
-            "width3": width_3,
-            "height3": height_3,
-            "validityInDays6": validity_in_days_6,
-            "permanent6": permanent_6,
-            "validityInDays7": validity_in_days_7,
-            "permanent7": permanent_7,
-            "limit4": limit_4,
-            "page5": page_5,
-            "limit5": limit_5,
-            "page6": page_6,
-            "query1": query_1,
-            "limit6": limit_6,
-            "page7": page_7,
-            "validityInDays8": validity_in_days_8,
-            "permanent8": permanent_8,
-            "width4": width_4,
-            "height4": height_4,
-            "width5": width_5,
-            "height5": height_5,
-            "page8": page_8,
-            "validityInDays9": validity_in_days_9,
-            "permanent9": permanent_9,
-            "validityInDays10": validity_in_days_10,
-            "permanent10": permanent_10,
-            "width6": width_6,
-            "height6": height_6,
-            "validityInDays11": validity_in_days_11,
-            "permanent11": permanent_11,
-            "width7": width_7,
-            "height7": height_7,
-            "validityInDays12": validity_in_days_12,
-            "permanent12": permanent_12,
-            "limit7": limit_7,
-            "page9": page_9,
-            "query2": query_2,
-            "limit8": limit_8,
-            "page10": page_10,
-            "query3": query_3,
-            "limit9": limit_9,
-            "page11": page_11,
-            "limit10": limit_10,
-            "page12": page_12,
-            "query4": query_4,
-            "limit11": limit_11,
-            "page13": page_13,
-            "query5": query_5,
-            "limit12": limit_12,
-            "page14": page_14,
-            "limit13": limit_13,
-            "page15": page_15,
-            "language": language,
-            "limit14": limit_14,
-            "page16": page_16,
-            "key": key,
-            "limit15": limit_15,
-            "page17": page_17,
-            "query6": query_6,
-            "input": input,
-        }
-        response = self.execute(
-            query=_query, operation_name="updateBrand", variables=variables, **kwargs
-        )
-        data = self.get_data(response)
-        return UpdateBrand.model_validate(data)
 
     def update_collection(
         self,
@@ -10039,18 +4948,16 @@ class FrontifyClient(BaseClient):
         query: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
         limit_2: Union[Optional[int], UnsetType] = UNSET,
         page_2: Union[Optional[int], UnsetType] = UNSET,
-        limit_3: Union[Optional[int], UnsetType] = UNSET,
-        page_3: Union[Optional[int], UnsetType] = UNSET,
         **kwargs: Any
     ) -> UpdateCollection:
         _query = gql(
             """
-            mutation updateCollection($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $input: UpdateCollectionInput!) {
+            mutation updateCollection($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $input: UpdateCollectionInput!) {
               updateCollection(input: $input) {
                 collection {
                   id
                   name
-                  assets(limit: $limit3, page: $page3) {
+                  assets(limit: $limit2, page: $page2) {
                     total
                     page
                     limit
@@ -10061,13 +4968,17 @@ class FrontifyClient(BaseClient):
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       title
@@ -10093,10 +5004,6 @@ class FrontifyClient(BaseClient):
                         status
                         notice
                       }
-                      availability {
-                        from
-                        to
-                      }
                       expiresAt
                       licenses {
                         id
@@ -10124,23 +5031,6 @@ class FrontifyClient(BaseClient):
                         canDownload
                         canComment
                       }
-                      workflowTask {
-                        id
-                        title
-                        description
-                      }
-                      variants(limit: $limit2, page: $page2) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      previewBackgroundColor {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
                     }
                   }
                   currentUserPermissions {
@@ -10162,8 +5052,6 @@ class FrontifyClient(BaseClient):
             "query": query,
             "limit2": limit_2,
             "page2": page_2,
-            "limit3": limit_3,
-            "page3": page_3,
             "input": input,
         }
         response = self.execute(
@@ -10187,13 +5075,17 @@ class FrontifyClient(BaseClient):
                   creator {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   createdAt
                   modifier {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   modifiedAt
                   name
@@ -10226,7 +5118,6 @@ class FrontifyClient(BaseClient):
         page: Union[Optional[int], UnsetType] = UNSET,
         limit_1: Union[Optional[int], UnsetType] = UNSET,
         page_1: Union[Optional[int], UnsetType] = UNSET,
-        query: Union[Optional[FolderAssetQueryInput], UnsetType] = UNSET,
         limit_2: Union[Optional[int], UnsetType] = UNSET,
         page_2: Union[Optional[int], UnsetType] = UNSET,
         validity_in_days: Union[Optional[int], UnsetType] = UNSET,
@@ -10235,17 +5126,14 @@ class FrontifyClient(BaseClient):
         page_3: Union[Optional[int], UnsetType] = UNSET,
         limit_4: Union[Optional[int], UnsetType] = UNSET,
         page_4: Union[Optional[int], UnsetType] = UNSET,
-        query_1: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
+        query: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
         limit_5: Union[Optional[int], UnsetType] = UNSET,
         page_5: Union[Optional[int], UnsetType] = UNSET,
-        limit_6: Union[Optional[int], UnsetType] = UNSET,
-        page_6: Union[Optional[int], UnsetType] = UNSET,
-        query_2: Union[Optional[FolderAssetQueryInput], UnsetType] = UNSET,
         **kwargs: Any
     ) -> UpdateFolder:
         _query = gql(
             """
-            mutation updateFolder($limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: FolderAssetQueryInput, $limit2: Int, $page2: Int, $validityInDays: Int, $permanent: Boolean, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $query1: AssetCommentQueryInput, $limit5: Int, $page5: Int, $limit6: Int, $page6: Int, $query2: FolderAssetQueryInput, $input: UpdateFolderInput!) {
+            mutation updateFolder($limit: Int, $page: Int, $limit1: Int, $page1: Int, $limit2: Int, $page2: Int, $validityInDays: Int, $permanent: Boolean, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $query: AssetCommentQueryInput, $limit5: Int, $page5: Int, $input: UpdateFolderInput!) {
               updateFolder(input: $input) {
                 folder {
                   __typename
@@ -10254,13 +5142,17 @@ class FrontifyClient(BaseClient):
                   creator {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   createdAt
                   modifier {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   modifiedAt
                   breadcrumbs {
@@ -10279,13 +5171,17 @@ class FrontifyClient(BaseClient):
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       breadcrumbs {
@@ -10298,7 +5194,7 @@ class FrontifyClient(BaseClient):
                         limit
                         hasNextPage
                       }
-                      assets(limit: $limit1, page: $page1, query: $query) {
+                      assets(limit: $limit1, page: $page1) {
                         total
                         page
                         limit
@@ -10306,7 +5202,7 @@ class FrontifyClient(BaseClient):
                       }
                     }
                   }
-                  assets(limit: $limit6, page: $page6, query: $query2) {
+                  assets(limit: $limit5, page: $page5) {
                     total
                     page
                     limit
@@ -10339,10 +5235,6 @@ class FrontifyClient(BaseClient):
                         status
                         notice
                       }
-                      availability {
-                        from
-                        to
-                      }
                       expiresAt
                       licenses {
                         id
@@ -10358,7 +5250,7 @@ class FrontifyClient(BaseClient):
                         limit
                         hasNextPage
                       }
-                      comments(limit: $limit4, page: $page4, query: $query1) {
+                      comments(limit: $limit4, page: $page4, query: $query) {
                         total
                         page
                         limit
@@ -10370,23 +5262,6 @@ class FrontifyClient(BaseClient):
                         canDownload
                         canComment
                       }
-                      workflowTask {
-                        id
-                        title
-                        description
-                      }
-                      variants(limit: $limit5, page: $page5) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                      previewBackgroundColor {
-                        red
-                        green
-                        blue
-                        alpha
-                      }
                     }
                   }
                 }
@@ -10399,7 +5274,6 @@ class FrontifyClient(BaseClient):
             "page": page,
             "limit1": limit_1,
             "page1": page_1,
-            "query": query,
             "limit2": limit_2,
             "page2": page_2,
             "validityInDays": validity_in_days,
@@ -10408,12 +5282,9 @@ class FrontifyClient(BaseClient):
             "page3": page_3,
             "limit4": limit_4,
             "page4": page_4,
-            "query1": query_1,
+            "query": query,
             "limit5": limit_5,
             "page5": page_5,
-            "limit6": limit_6,
-            "page6": page_6,
-            "query2": query_2,
             "input": input,
         }
         response = self.execute(
@@ -10421,384 +5292,6 @@ class FrontifyClient(BaseClient):
         )
         data = self.get_data(response)
         return UpdateFolder.model_validate(data)
-
-    def update_workflow_checklist_item(
-        self, input: UpdateWorkflowChecklistItemInput, **kwargs: Any
-    ) -> UpdateWorkflowChecklistItem:
-        query = gql(
-            """
-            mutation updateWorkflowChecklistItem($input: UpdateWorkflowChecklistItemInput!) {
-              updateWorkflowChecklistItem(input: $input) {
-                checklistItem {
-                  id
-                  content
-                  assignedUser {
-                    __typename
-                    id
-                    name
-                  }
-                }
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {"input": input}
-        response = self.execute(
-            query=query,
-            operation_name="updateWorkflowChecklistItem",
-            variables=variables,
-            **kwargs
-        )
-        data = self.get_data(response)
-        return UpdateWorkflowChecklistItem.model_validate(data)
-
-    def update_workflow_checklist_preset(
-        self, input: UpdateWorkflowChecklistPresetInput, **kwargs: Any
-    ) -> UpdateWorkflowChecklistPreset:
-        query = gql(
-            """
-            mutation updateWorkflowChecklistPreset($input: UpdateWorkflowChecklistPresetInput!) {
-              updateWorkflowChecklistPreset(input: $input) {
-                checklistPreset {
-                  id
-                  content
-                  assignedUser {
-                    __typename
-                    id
-                    name
-                  }
-                }
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {"input": input}
-        response = self.execute(
-            query=query,
-            operation_name="updateWorkflowChecklistPreset",
-            variables=variables,
-            **kwargs
-        )
-        data = self.get_data(response)
-        return UpdateWorkflowChecklistPreset.model_validate(data)
-
-    def update_workflow_status(
-        self,
-        input: UpdateWorkflowStatusInput,
-        limit: Union[Optional[int], UnsetType] = UNSET,
-        page: Union[Optional[int], UnsetType] = UNSET,
-        limit_1: Union[Optional[int], UnsetType] = UNSET,
-        page_1: Union[Optional[int], UnsetType] = UNSET,
-        **kwargs: Any
-    ) -> UpdateWorkflowStatus:
-        query = gql(
-            """
-            mutation updateWorkflowStatus($limit: Int, $page: Int, $limit1: Int, $page1: Int, $input: UpdateWorkflowStatusInput!) {
-              updateWorkflowStatus(input: $input) {
-                workflowStatus {
-                  id
-                  name
-                  color {
-                    red
-                    green
-                    blue
-                    alpha
-                  }
-                  assignedUsers {
-                    __typename
-                    id
-                    name
-                  }
-                  checklistPresets {
-                    id
-                    content
-                    assignedUser {
-                      __typename
-                      id
-                      name
-                    }
-                  }
-                  tasks(limit: $limit1, page: $page1) {
-                    total
-                    page
-                    limit
-                    hasNextPage
-                    items {
-                      id
-                      assignedUsers {
-                        __typename
-                        id
-                        name
-                      }
-                      asset {
-                        __typename
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        externalId
-                        expiresAt
-                        status
-                      }
-                      title
-                      description
-                      status {
-                        id
-                        name
-                        enterRules
-                      }
-                      checklistItem(limit: $limit, page: $page) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                    }
-                  }
-                  enterRules
-                }
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {
-            "limit": limit,
-            "page": page,
-            "limit1": limit_1,
-            "page1": page_1,
-            "input": input,
-        }
-        response = self.execute(
-            query=query,
-            operation_name="updateWorkflowStatus",
-            variables=variables,
-            **kwargs
-        )
-        data = self.get_data(response)
-        return UpdateWorkflowStatus.model_validate(data)
-
-    def update_workflow_task(
-        self,
-        input: UpdateWorkflowTaskInput,
-        validity_in_days: Union[Optional[int], UnsetType] = UNSET,
-        permanent: Union[Optional[bool], UnsetType] = UNSET,
-        limit: Union[Optional[int], UnsetType] = UNSET,
-        page: Union[Optional[int], UnsetType] = UNSET,
-        limit_1: Union[Optional[int], UnsetType] = UNSET,
-        page_1: Union[Optional[int], UnsetType] = UNSET,
-        query: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
-        limit_2: Union[Optional[int], UnsetType] = UNSET,
-        page_2: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_1: Union[Optional[int], UnsetType] = UNSET,
-        permanent_1: Union[Optional[bool], UnsetType] = UNSET,
-        limit_3: Union[Optional[int], UnsetType] = UNSET,
-        page_3: Union[Optional[int], UnsetType] = UNSET,
-        **kwargs: Any
-    ) -> UpdateWorkflowTask:
-        _query = gql(
-            """
-            mutation updateWorkflowTask($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $validityInDays1: Int, $permanent1: Boolean, $limit3: Int, $page3: Int, $input: UpdateWorkflowTaskInput!) {
-              updateWorkflowTask(input: $input) {
-                workflowTask {
-                  id
-                  assignedUsers {
-                    __typename
-                    id
-                    name
-                  }
-                  asset {
-                    __typename
-                    id
-                    creator {
-                      __typename
-                      id
-                      name
-                    }
-                    createdAt
-                    modifier {
-                      __typename
-                      id
-                      name
-                    }
-                    modifiedAt
-                    title
-                    description
-                    attachments {
-                      id
-                      creator {
-                        __typename
-                        id
-                        name
-                      }
-                      createdAt
-                      modifier {
-                        __typename
-                        id
-                        name
-                      }
-                      modifiedAt
-                      name
-                      filename
-                      type
-                      externalId
-                      extension
-                      size
-                      downloadUrl(validityInDays: $validityInDays, permanent: $permanent)
-                    }
-                    externalId
-                    tags {
-                      value
-                      source
-                    }
-                    copyright {
-                      status
-                      notice
-                    }
-                    availability {
-                      from
-                      to
-                    }
-                    expiresAt
-                    licenses {
-                      id
-                      title
-                      license
-                      addByDefault
-                      requireConsensus
-                    }
-                    status
-                    relatedAssets(limit: $limit, page: $page) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        __typename
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        externalId
-                        expiresAt
-                        status
-                      }
-                    }
-                    comments(limit: $limit1, page: $page1, query: $query) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        id
-                        createdAt
-                        modifiedAt
-                        content
-                        isResolved
-                      }
-                    }
-                    currentUserPermissions {
-                      canEdit
-                      canDelete
-                      canDownload
-                      canComment
-                    }
-                    customMetadata {
-                      __typename
-                      property {
-                        id
-                        createdAt
-                        modifiedAt
-                        name
-                        helpText
-                        isRequired
-                        defaultValue
-                      }
-                    }
-                    workflowTask {
-                      id
-                      title
-                      description
-                      status {
-                        id
-                        name
-                        enterRules
-                      }
-                      checklistItem(limit: $limit2, page: $page2) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                    }
-                    variants(limit: $limit3, page: $page3) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        key
-                        filename
-                        downloadUrl(validityInDays: $validityInDays1, permanent: $permanent1)
-                      }
-                    }
-                    location {
-                      brand {
-                        id
-                        name
-                      }
-                      library {
-                        id
-                        name
-                      }
-                      workspaceProject {
-                        id
-                        name
-                      }
-                      folder {
-                        id
-                        name
-                      }
-                    }
-                    previewBackgroundColor {
-                      red
-                      green
-                      blue
-                      alpha
-                    }
-                  }
-                  title
-                  description
-                }
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {
-            "validityInDays": validity_in_days,
-            "permanent": permanent,
-            "limit": limit,
-            "page": page,
-            "limit1": limit_1,
-            "page1": page_1,
-            "query": query,
-            "limit2": limit_2,
-            "page2": page_2,
-            "validityInDays1": validity_in_days_1,
-            "permanent1": permanent_1,
-            "limit3": limit_3,
-            "page3": page_3,
-            "input": input,
-        }
-        response = self.execute(
-            query=_query,
-            operation_name="updateWorkflowTask",
-            variables=variables,
-            **kwargs
-        )
-        data = self.get_data(response)
-        return UpdateWorkflowTask.model_validate(data)
 
     def upload_file(self, input: UploadFileInput, **kwargs: Any) -> UploadFile:
         query = gql(
@@ -10826,42 +5319,11 @@ class FrontifyClient(BaseClient):
         page_1: Union[Optional[int], UnsetType] = UNSET,
         limit_2: Union[Optional[int], UnsetType] = UNSET,
         page_2: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days: Union[Optional[int], UnsetType] = UNSET,
-        permanent: Union[Optional[bool], UnsetType] = UNSET,
-        limit_3: Union[Optional[int], UnsetType] = UNSET,
-        page_3: Union[Optional[int], UnsetType] = UNSET,
-        query: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
-        limit_4: Union[Optional[int], UnsetType] = UNSET,
-        page_4: Union[Optional[int], UnsetType] = UNSET,
-        limit_5: Union[Optional[int], UnsetType] = UNSET,
-        page_5: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_1: Union[Optional[int], UnsetType] = UNSET,
-        permanent_1: Union[Optional[bool], UnsetType] = UNSET,
-        width: Union[Optional[int], UnsetType] = UNSET,
-        height: Union[Optional[int], UnsetType] = UNSET,
-        width_1: Union[Optional[int], UnsetType] = UNSET,
-        height_1: Union[Optional[int], UnsetType] = UNSET,
-        page_6: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_2: Union[Optional[int], UnsetType] = UNSET,
-        permanent_2: Union[Optional[bool], UnsetType] = UNSET,
-        validity_in_days_3: Union[Optional[int], UnsetType] = UNSET,
-        permanent_3: Union[Optional[bool], UnsetType] = UNSET,
-        width_2: Union[Optional[int], UnsetType] = UNSET,
-        height_2: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_4: Union[Optional[int], UnsetType] = UNSET,
-        permanent_4: Union[Optional[bool], UnsetType] = UNSET,
-        width_3: Union[Optional[int], UnsetType] = UNSET,
-        height_3: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_5: Union[Optional[int], UnsetType] = UNSET,
-        permanent_5: Union[Optional[bool], UnsetType] = UNSET,
-        limit_6: Union[Optional[int], UnsetType] = UNSET,
-        page_7: Union[Optional[int], UnsetType] = UNSET,
-        query_1: Union[Optional[AccountQueryInput], UnsetType] = UNSET,
         **kwargs: Any
     ) -> Account:
-        _query = gql(
+        query = gql(
             """
-            query account($limit: Int, $page: Int, $limit1: Int, $page1: Int, $limit2: Int, $page2: Int, $validityInDays: Int, $permanent: Boolean, $limit3: Int, $page3: Int, $query: AssetCommentQueryInput, $limit4: Int, $page4: Int, $limit5: Int, $page5: Int, $validityInDays1: Int, $permanent1: Boolean, $width: Int, $height: Int, $width1: Int, $height1: Int, $page6: Int, $validityInDays2: Int, $permanent2: Boolean, $validityInDays3: Int, $permanent3: Boolean, $width2: Int, $height2: Int, $validityInDays4: Int, $permanent4: Boolean, $width3: Int, $height3: Int, $validityInDays5: Int, $permanent5: Boolean, $limit6: Int, $page7: Int, $query1: AccountQueryInput) {
+            query account($limit: Int, $page: Int, $limit1: Int, $page1: Int, $limit2: Int, $page2: Int) {
               account {
                 id
                 users(limit: $limit, page: $page) {
@@ -10872,7 +5334,9 @@ class FrontifyClient(BaseClient):
                   items {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                 }
                 userGroups(limit: $limit2, page: $page2) {
@@ -10891,244 +5355,6 @@ class FrontifyClient(BaseClient):
                     }
                   }
                 }
-                search(limit: $limit6, page: $page7, query: $query1) {
-                  total
-                  page
-                  limit
-                  hasNextPage
-                  items {
-                    __typename
-                    ... on Audio {
-                      id
-                      creator {
-                        __typename
-                        id
-                        name
-                      }
-                      createdAt
-                      modifier {
-                        __typename
-                        id
-                        name
-                      }
-                      modifiedAt
-                      title
-                      description
-                      alternativeText
-                      isDecorative
-                      attachments {
-                        id
-                        creator {
-                          __typename
-                          id
-                          name
-                        }
-                        createdAt
-                        modifier {
-                          __typename
-                          id
-                          name
-                        }
-                        modifiedAt
-                        name
-                        filename
-                        type
-                        externalId
-                        extension
-                        size
-                        downloadUrl(validityInDays: $validityInDays, permanent: $permanent)
-                      }
-                      externalId
-                      tags {
-                        value
-                        source
-                      }
-                      externalProducts {
-                        id
-                        name
-                        externalId
-                        title
-                      }
-                      copyright {
-                        status
-                        notice
-                      }
-                      availability {
-                        from
-                        to
-                      }
-                      expiresAt
-                      licenses {
-                        id
-                        title
-                        license
-                        addByDefault
-                        requireConsensus
-                      }
-                      author
-                      status
-                      relatedAssets(limit: $limit5, page: $page5) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                        items {
-                          __typename
-                          id
-                          createdAt
-                          modifiedAt
-                          title
-                          description
-                          externalId
-                          expiresAt
-                          status
-                          comments(limit: $limit3, page: $page3, query: $query) {
-                            total
-                            page
-                            limit
-                            hasNextPage
-                          }
-                          currentUserPermissions {
-                            canEdit
-                            canDelete
-                            canDownload
-                            canComment
-                          }
-                          workflowTask {
-                            id
-                            title
-                            description
-                          }
-                          variants(limit: $limit4, page: $page4) {
-                            total
-                            page
-                            limit
-                            hasNextPage
-                          }
-                          previewBackgroundColor {
-                            red
-                            green
-                            blue
-                            alpha
-                          }
-                        }
-                      }
-                      filename
-                      size
-                      extension
-                      downloadUrl(validityInDays: $validityInDays1, permanent: $permanent1)
-                      previewUrl(width: $width, height: $height)
-                      thumbnailUrl
-                      dynamicPreviewUrl
-                    }
-                    ... on Document {
-                      id
-                      createdAt
-                      modifiedAt
-                      title
-                      description
-                      alternativeText
-                      isDecorative
-                      externalId
-                      expiresAt
-                      author
-                      status
-                      filename
-                      size
-                      extension
-                      previewUrl(width: $width1, height: $height1, page: $page6)
-                      thumbnailUrl
-                      dynamicPreviewUrl
-                      downloadUrl(validityInDays: $validityInDays2, permanent: $permanent2)
-                      focalPoint
-                      width
-                      height
-                      pageCount
-                    }
-                    ... on EmbeddedContent {
-                      id
-                      createdAt
-                      modifiedAt
-                      title
-                      description
-                      alternativeText
-                      isDecorative
-                      externalId
-                      expiresAt
-                      author
-                      status
-                      previewUrl
-                      thumbnailUrl
-                    }
-                    ... on File {
-                      id
-                      createdAt
-                      modifiedAt
-                      title
-                      description
-                      alternativeText
-                      isDecorative
-                      externalId
-                      expiresAt
-                      author
-                      status
-                      filename
-                      size
-                      extension
-                      previewUrl
-                      thumbnailUrl
-                      dynamicPreviewUrl
-                      downloadUrl(validityInDays: $validityInDays3, permanent: $permanent3)
-                    }
-                    ... on Image {
-                      id
-                      createdAt
-                      modifiedAt
-                      title
-                      description
-                      alternativeText
-                      isDecorative
-                      externalId
-                      expiresAt
-                      author
-                      status
-                      filename
-                      size
-                      extension
-                      previewUrl(width: $width2, height: $height2)
-                      thumbnailUrl
-                      dynamicPreviewUrl
-                      downloadUrl(validityInDays: $validityInDays4, permanent: $permanent4)
-                      focalPoint
-                      width
-                      height
-                    }
-                    ... on Video {
-                      id
-                      createdAt
-                      modifiedAt
-                      title
-                      description
-                      alternativeText
-                      isDecorative
-                      externalId
-                      expiresAt
-                      author
-                      status
-                      filename
-                      size
-                      extension
-                      previewUrl(width: $width3, height: $height3)
-                      thumbnailUrl
-                      dynamicPreviewUrl
-                      downloadUrl(validityInDays: $validityInDays5, permanent: $permanent5)
-                      width
-                      height
-                      duration
-                      bitrate
-                    }
-                  }
-                }
               }
             }
             """
@@ -11140,40 +5366,9 @@ class FrontifyClient(BaseClient):
             "page1": page_1,
             "limit2": limit_2,
             "page2": page_2,
-            "validityInDays": validity_in_days,
-            "permanent": permanent,
-            "limit3": limit_3,
-            "page3": page_3,
-            "query": query,
-            "limit4": limit_4,
-            "page4": page_4,
-            "limit5": limit_5,
-            "page5": page_5,
-            "validityInDays1": validity_in_days_1,
-            "permanent1": permanent_1,
-            "width": width,
-            "height": height,
-            "width1": width_1,
-            "height1": height_1,
-            "page6": page_6,
-            "validityInDays2": validity_in_days_2,
-            "permanent2": permanent_2,
-            "validityInDays3": validity_in_days_3,
-            "permanent3": permanent_3,
-            "width2": width_2,
-            "height2": height_2,
-            "validityInDays4": validity_in_days_4,
-            "permanent4": permanent_4,
-            "width3": width_3,
-            "height3": height_3,
-            "validityInDays5": validity_in_days_5,
-            "permanent5": permanent_5,
-            "limit6": limit_6,
-            "page7": page_7,
-            "query1": query_1,
         }
         response = self.execute(
-            query=_query, operation_name="account", variables=variables, **kwargs
+            query=query, operation_name="account", variables=variables, **kwargs
         )
         data = self.get_data(response)
         return Account.model_validate(data)
@@ -11192,35 +5387,31 @@ class FrontifyClient(BaseClient):
         query: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
         limit_2: Union[Optional[int], UnsetType] = UNSET,
         page_2: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_2: Union[Optional[int], UnsetType] = UNSET,
-        permanent_2: Union[Optional[bool], UnsetType] = UNSET,
         limit_3: Union[Optional[int], UnsetType] = UNSET,
         page_3: Union[Optional[int], UnsetType] = UNSET,
-        limit_4: Union[Optional[int], UnsetType] = UNSET,
-        page_4: Union[Optional[int], UnsetType] = UNSET,
-        limit_5: Union[Optional[int], UnsetType] = UNSET,
-        page_5: Union[Optional[int], UnsetType] = UNSET,
         query_1: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
-        limit_6: Union[Optional[int], UnsetType] = UNSET,
-        page_6: Union[Optional[int], UnsetType] = UNSET,
         **kwargs: Any
     ) -> Asset:
         _query = gql(
             """
-            query asset($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $permanent1: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $validityInDays2: Int, $permanent2: Boolean, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $limit5: Int, $page5: Int, $query1: AssetCommentQueryInput, $limit6: Int, $page6: Int, $id: ID!) {
+            query asset($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $permanent1: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $query1: AssetCommentQueryInput, $id: ID!) {
               asset(id: $id) {
                 __typename
                 id
                 creator {
                   __typename
                   id
+                  email
                   name
+                  avatar
                 }
                 createdAt
                 modifier {
                   __typename
                   id
+                  email
                   name
+                  avatar
                 }
                 modifiedAt
                 title
@@ -11230,13 +5421,17 @@ class FrontifyClient(BaseClient):
                   creator {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   createdAt
                   modifier {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   modifiedAt
                   name
@@ -11256,10 +5451,6 @@ class FrontifyClient(BaseClient):
                   status
                   notice
                 }
-                availability {
-                  from
-                  to
-                }
                 expiresAt
                 licenses {
                   id
@@ -11269,7 +5460,7 @@ class FrontifyClient(BaseClient):
                   requireConsensus
                 }
                 status
-                relatedAssets(limit: $limit4, page: $page4) {
+                relatedAssets(limit: $limit2, page: $page2) {
                   total
                   page
                   limit
@@ -11280,13 +5471,17 @@ class FrontifyClient(BaseClient):
                     creator {
                       __typename
                       id
+                      email
                       name
+                      avatar
                     }
                     createdAt
                     modifier {
                       __typename
                       id
+                      email
                       name
+                      avatar
                     }
                     modifiedAt
                     title
@@ -11311,10 +5506,6 @@ class FrontifyClient(BaseClient):
                     copyright {
                       status
                       notice
-                    }
-                    availability {
-                      from
-                      to
                     }
                     expiresAt
                     licenses {
@@ -11362,49 +5553,6 @@ class FrontifyClient(BaseClient):
                         defaultValue
                       }
                     }
-                    workflowTask {
-                      id
-                      assignedUsers {
-                        __typename
-                        id
-                        name
-                      }
-                      asset {
-                        __typename
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        externalId
-                        expiresAt
-                        status
-                      }
-                      title
-                      description
-                      status {
-                        id
-                        name
-                        enterRules
-                      }
-                      checklistItem(limit: $limit2, page: $page2) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                    }
-                    variants(limit: $limit3, page: $page3) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        key
-                        filename
-                        downloadUrl(validityInDays: $validityInDays2, permanent: $permanent2)
-                      }
-                    }
                     location {
                       brand {
                         id
@@ -11423,15 +5571,9 @@ class FrontifyClient(BaseClient):
                         name
                       }
                     }
-                    previewBackgroundColor {
-                      red
-                      green
-                      blue
-                      alpha
-                    }
                   }
                 }
-                comments(limit: $limit5, page: $page5, query: $query1) {
+                comments(limit: $limit3, page: $page3, query: $query1) {
                   total
                   page
                   limit
@@ -11442,23 +5584,6 @@ class FrontifyClient(BaseClient):
                   canDelete
                   canDownload
                   canComment
-                }
-                workflowTask {
-                  id
-                  title
-                  description
-                }
-                variants(limit: $limit6, page: $page6) {
-                  total
-                  page
-                  limit
-                  hasNextPage
-                }
-                previewBackgroundColor {
-                  red
-                  green
-                  blue
-                  alpha
                 }
               }
             }
@@ -11476,17 +5601,9 @@ class FrontifyClient(BaseClient):
             "query": query,
             "limit2": limit_2,
             "page2": page_2,
-            "validityInDays2": validity_in_days_2,
-            "permanent2": permanent_2,
             "limit3": limit_3,
             "page3": page_3,
-            "limit4": limit_4,
-            "page4": page_4,
-            "limit5": limit_5,
-            "page5": page_5,
             "query1": query_1,
-            "limit6": limit_6,
-            "page6": page_6,
             "id": id,
         }
         response = self.execute(
@@ -11509,35 +5626,31 @@ class FrontifyClient(BaseClient):
         query: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
         limit_2: Union[Optional[int], UnsetType] = UNSET,
         page_2: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_2: Union[Optional[int], UnsetType] = UNSET,
-        permanent_2: Union[Optional[bool], UnsetType] = UNSET,
         limit_3: Union[Optional[int], UnsetType] = UNSET,
         page_3: Union[Optional[int], UnsetType] = UNSET,
-        limit_4: Union[Optional[int], UnsetType] = UNSET,
-        page_4: Union[Optional[int], UnsetType] = UNSET,
-        limit_5: Union[Optional[int], UnsetType] = UNSET,
-        page_5: Union[Optional[int], UnsetType] = UNSET,
         query_1: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
-        limit_6: Union[Optional[int], UnsetType] = UNSET,
-        page_6: Union[Optional[int], UnsetType] = UNSET,
         **kwargs: Any
     ) -> Assets:
         _query = gql(
             """
-            query assets($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $permanent1: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $validityInDays2: Int, $permanent2: Boolean, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $limit5: Int, $page5: Int, $query1: AssetCommentQueryInput, $limit6: Int, $page6: Int, $ids: [ID!]!) {
+            query assets($validityInDays: Int, $permanent: Boolean, $validityInDays1: Int, $permanent1: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $query1: AssetCommentQueryInput, $ids: [ID!]!) {
               assets(ids: $ids) {
                 __typename
                 id
                 creator {
                   __typename
                   id
+                  email
                   name
+                  avatar
                 }
                 createdAt
                 modifier {
                   __typename
                   id
+                  email
                   name
+                  avatar
                 }
                 modifiedAt
                 title
@@ -11547,13 +5660,17 @@ class FrontifyClient(BaseClient):
                   creator {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   createdAt
                   modifier {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   modifiedAt
                   name
@@ -11573,10 +5690,6 @@ class FrontifyClient(BaseClient):
                   status
                   notice
                 }
-                availability {
-                  from
-                  to
-                }
                 expiresAt
                 licenses {
                   id
@@ -11586,7 +5699,7 @@ class FrontifyClient(BaseClient):
                   requireConsensus
                 }
                 status
-                relatedAssets(limit: $limit4, page: $page4) {
+                relatedAssets(limit: $limit2, page: $page2) {
                   total
                   page
                   limit
@@ -11597,13 +5710,17 @@ class FrontifyClient(BaseClient):
                     creator {
                       __typename
                       id
+                      email
                       name
+                      avatar
                     }
                     createdAt
                     modifier {
                       __typename
                       id
+                      email
                       name
+                      avatar
                     }
                     modifiedAt
                     title
@@ -11628,10 +5745,6 @@ class FrontifyClient(BaseClient):
                     copyright {
                       status
                       notice
-                    }
-                    availability {
-                      from
-                      to
                     }
                     expiresAt
                     licenses {
@@ -11679,49 +5792,6 @@ class FrontifyClient(BaseClient):
                         defaultValue
                       }
                     }
-                    workflowTask {
-                      id
-                      assignedUsers {
-                        __typename
-                        id
-                        name
-                      }
-                      asset {
-                        __typename
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        externalId
-                        expiresAt
-                        status
-                      }
-                      title
-                      description
-                      status {
-                        id
-                        name
-                        enterRules
-                      }
-                      checklistItem(limit: $limit2, page: $page2) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                    }
-                    variants(limit: $limit3, page: $page3) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        key
-                        filename
-                        downloadUrl(validityInDays: $validityInDays2, permanent: $permanent2)
-                      }
-                    }
                     location {
                       brand {
                         id
@@ -11740,15 +5810,9 @@ class FrontifyClient(BaseClient):
                         name
                       }
                     }
-                    previewBackgroundColor {
-                      red
-                      green
-                      blue
-                      alpha
-                    }
                   }
                 }
-                comments(limit: $limit5, page: $page5, query: $query1) {
+                comments(limit: $limit3, page: $page3, query: $query1) {
                   total
                   page
                   limit
@@ -11760,23 +5824,6 @@ class FrontifyClient(BaseClient):
                   canDownload
                   canComment
                 }
-                workflowTask {
-                  id
-                  title
-                  description
-                }
-                variants(limit: $limit6, page: $page6) {
-                  total
-                  page
-                  limit
-                  hasNextPage
-                }
-                previewBackgroundColor {
-                  red
-                  green
-                  blue
-                  alpha
-                }
               }
             }
             """
@@ -11793,17 +5840,9 @@ class FrontifyClient(BaseClient):
             "query": query,
             "limit2": limit_2,
             "page2": page_2,
-            "validityInDays2": validity_in_days_2,
-            "permanent2": permanent_2,
             "limit3": limit_3,
             "page3": page_3,
-            "limit4": limit_4,
-            "page4": page_4,
-            "limit5": limit_5,
-            "page5": page_5,
             "query1": query_1,
-            "limit6": limit_6,
-            "page6": page_6,
             "ids": ids,
         }
         response = self.execute(
@@ -11814,104 +5853,27 @@ class FrontifyClient(BaseClient):
 
     def brand(
         self,
-        key: str,
         id: str,
-        validity_in_days: Union[Optional[int], UnsetType] = UNSET,
-        permanent: Union[Optional[bool], UnsetType] = UNSET,
         limit: Union[Optional[int], UnsetType] = UNSET,
         page: Union[Optional[int], UnsetType] = UNSET,
-        query: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
+        query: Union[Optional[AssetQueryInput], UnsetType] = UNSET,
         limit_1: Union[Optional[int], UnsetType] = UNSET,
         page_1: Union[Optional[int], UnsetType] = UNSET,
         limit_2: Union[Optional[int], UnsetType] = UNSET,
         page_2: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_1: Union[Optional[int], UnsetType] = UNSET,
-        permanent_1: Union[Optional[bool], UnsetType] = UNSET,
-        width: Union[Optional[int], UnsetType] = UNSET,
-        height: Union[Optional[int], UnsetType] = UNSET,
-        width_1: Union[Optional[int], UnsetType] = UNSET,
-        height_1: Union[Optional[int], UnsetType] = UNSET,
-        page_3: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_2: Union[Optional[int], UnsetType] = UNSET,
-        permanent_2: Union[Optional[bool], UnsetType] = UNSET,
-        validity_in_days_3: Union[Optional[int], UnsetType] = UNSET,
-        permanent_3: Union[Optional[bool], UnsetType] = UNSET,
-        width_2: Union[Optional[int], UnsetType] = UNSET,
-        height_2: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_4: Union[Optional[int], UnsetType] = UNSET,
-        permanent_4: Union[Optional[bool], UnsetType] = UNSET,
-        width_3: Union[Optional[int], UnsetType] = UNSET,
-        height_3: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_5: Union[Optional[int], UnsetType] = UNSET,
-        permanent_5: Union[Optional[bool], UnsetType] = UNSET,
-        validity_in_days_6: Union[Optional[int], UnsetType] = UNSET,
-        permanent_6: Union[Optional[bool], UnsetType] = UNSET,
         limit_3: Union[Optional[int], UnsetType] = UNSET,
-        page_4: Union[Optional[int], UnsetType] = UNSET,
+        page_3: Union[Optional[int], UnsetType] = UNSET,
         limit_4: Union[Optional[int], UnsetType] = UNSET,
-        page_5: Union[Optional[int], UnsetType] = UNSET,
-        query_1: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
+        page_4: Union[Optional[int], UnsetType] = UNSET,
         limit_5: Union[Optional[int], UnsetType] = UNSET,
-        page_6: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_7: Union[Optional[int], UnsetType] = UNSET,
-        permanent_7: Union[Optional[bool], UnsetType] = UNSET,
+        page_5: Union[Optional[int], UnsetType] = UNSET,
         limit_6: Union[Optional[int], UnsetType] = UNSET,
-        page_7: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_8: Union[Optional[int], UnsetType] = UNSET,
-        permanent_8: Union[Optional[bool], UnsetType] = UNSET,
-        width_4: Union[Optional[int], UnsetType] = UNSET,
-        height_4: Union[Optional[int], UnsetType] = UNSET,
-        width_5: Union[Optional[int], UnsetType] = UNSET,
-        height_5: Union[Optional[int], UnsetType] = UNSET,
-        page_8: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_9: Union[Optional[int], UnsetType] = UNSET,
-        permanent_9: Union[Optional[bool], UnsetType] = UNSET,
-        validity_in_days_10: Union[Optional[int], UnsetType] = UNSET,
-        permanent_10: Union[Optional[bool], UnsetType] = UNSET,
-        width_6: Union[Optional[int], UnsetType] = UNSET,
-        height_6: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_11: Union[Optional[int], UnsetType] = UNSET,
-        permanent_11: Union[Optional[bool], UnsetType] = UNSET,
-        width_7: Union[Optional[int], UnsetType] = UNSET,
-        height_7: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_12: Union[Optional[int], UnsetType] = UNSET,
-        permanent_12: Union[Optional[bool], UnsetType] = UNSET,
-        limit_7: Union[Optional[int], UnsetType] = UNSET,
-        page_9: Union[Optional[int], UnsetType] = UNSET,
-        query_2: Union[Optional[BrandQueryInput], UnsetType] = UNSET,
-        limit_8: Union[Optional[int], UnsetType] = UNSET,
-        page_10: Union[Optional[int], UnsetType] = UNSET,
-        query_3: Union[Optional[AssetQueryInput], UnsetType] = UNSET,
-        limit_9: Union[Optional[int], UnsetType] = UNSET,
-        page_11: Union[Optional[int], UnsetType] = UNSET,
-        limit_10: Union[Optional[int], UnsetType] = UNSET,
-        page_12: Union[Optional[int], UnsetType] = UNSET,
-        limit_11: Union[Optional[int], UnsetType] = UNSET,
-        page_13: Union[Optional[int], UnsetType] = UNSET,
-        query_4: Union[Optional[FolderAssetQueryInput], UnsetType] = UNSET,
-        limit_12: Union[Optional[int], UnsetType] = UNSET,
-        page_14: Union[Optional[int], UnsetType] = UNSET,
-        limit_13: Union[Optional[int], UnsetType] = UNSET,
-        page_15: Union[Optional[int], UnsetType] = UNSET,
-        query_5: Union[Optional[LibraryQueryInput], UnsetType] = UNSET,
-        limit_14: Union[Optional[int], UnsetType] = UNSET,
-        page_16: Union[Optional[int], UnsetType] = UNSET,
-        query_6: Union[Optional[WorkspaceProjectQueryInput], UnsetType] = UNSET,
-        limit_15: Union[Optional[int], UnsetType] = UNSET,
-        page_17: Union[Optional[int], UnsetType] = UNSET,
-        limit_16: Union[Optional[int], UnsetType] = UNSET,
-        page_18: Union[Optional[int], UnsetType] = UNSET,
-        language: Union[Optional[LanguageCode], UnsetType] = UNSET,
-        limit_17: Union[Optional[int], UnsetType] = UNSET,
-        page_19: Union[Optional[int], UnsetType] = UNSET,
-        limit_18: Union[Optional[int], UnsetType] = UNSET,
-        page_20: Union[Optional[int], UnsetType] = UNSET,
-        query_7: Union[Optional[CreativeTemplateQueryInput], UnsetType] = UNSET,
+        page_6: Union[Optional[int], UnsetType] = UNSET,
         **kwargs: Any
     ) -> Brand:
         _query = gql(
             """
-            query brand($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $query: AssetCommentQueryInput, $limit1: Int, $page1: Int, $limit2: Int, $page2: Int, $validityInDays1: Int, $permanent1: Boolean, $width: Int, $height: Int, $width1: Int, $height1: Int, $page3: Int, $validityInDays2: Int, $permanent2: Boolean, $validityInDays3: Int, $permanent3: Boolean, $width2: Int, $height2: Int, $validityInDays4: Int, $permanent4: Boolean, $width3: Int, $height3: Int, $validityInDays5: Int, $permanent5: Boolean, $validityInDays6: Int, $permanent6: Boolean, $limit3: Int, $page4: Int, $limit4: Int, $page5: Int, $query1: AssetCommentQueryInput, $limit5: Int, $page6: Int, $validityInDays7: Int, $permanent7: Boolean, $limit6: Int, $page7: Int, $validityInDays8: Int, $permanent8: Boolean, $width4: Int, $height4: Int, $width5: Int, $height5: Int, $page8: Int, $validityInDays9: Int, $permanent9: Boolean, $validityInDays10: Int, $permanent10: Boolean, $width6: Int, $height6: Int, $validityInDays11: Int, $permanent11: Boolean, $width7: Int, $height7: Int, $validityInDays12: Int, $permanent12: Boolean, $limit7: Int, $page9: Int, $query2: BrandQueryInput, $limit8: Int, $page10: Int, $query3: AssetQueryInput, $limit9: Int, $page11: Int, $limit10: Int, $page12: Int, $limit11: Int, $page13: Int, $query4: FolderAssetQueryInput, $limit12: Int, $page14: Int, $limit13: Int, $page15: Int, $query5: LibraryQueryInput, $limit14: Int, $page16: Int, $query6: WorkspaceProjectQueryInput, $limit15: Int, $page17: Int, $limit16: Int, $page18: Int, $language: LanguageCode, $limit17: Int, $page19: Int, $key: String!, $limit18: Int, $page20: Int, $query7: CreativeTemplateQueryInput, $id: ID!) {
+            query brand($limit: Int, $page: Int, $query: AssetQueryInput, $limit1: Int, $page1: Int, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $limit5: Int, $page5: Int, $limit6: Int, $page6: Int, $id: ID!) {
               brand(id: $id) {
                 id
                 name
@@ -11923,528 +5885,7 @@ class FrontifyClient(BaseClient):
                 }
                 avatar
                 slug
-                search(limit: $limit7, page: $page9, query: $query2) {
-                  total
-                  page
-                  limit
-                  hasNextPage
-                  items {
-                    __typename
-                    ... on Audio {
-                      id
-                      creator {
-                        __typename
-                        id
-                        name
-                      }
-                      createdAt
-                      modifier {
-                        __typename
-                        id
-                        name
-                      }
-                      modifiedAt
-                      title
-                      description
-                      alternativeText
-                      isDecorative
-                      attachments {
-                        id
-                        creator {
-                          __typename
-                          id
-                          name
-                        }
-                        createdAt
-                        modifier {
-                          __typename
-                          id
-                          name
-                        }
-                        modifiedAt
-                        name
-                        filename
-                        type
-                        externalId
-                        extension
-                        size
-                        downloadUrl(validityInDays: $validityInDays, permanent: $permanent)
-                      }
-                      externalId
-                      tags {
-                        value
-                        source
-                      }
-                      externalProducts {
-                        id
-                        name
-                        externalId
-                        title
-                      }
-                      copyright {
-                        status
-                        notice
-                      }
-                      availability {
-                        from
-                        to
-                      }
-                      expiresAt
-                      licenses {
-                        id
-                        title
-                        license
-                        addByDefault
-                        requireConsensus
-                      }
-                      author
-                      status
-                      relatedAssets(limit: $limit2, page: $page2) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                        items {
-                          __typename
-                          id
-                          createdAt
-                          modifiedAt
-                          title
-                          description
-                          externalId
-                          expiresAt
-                          status
-                          comments(limit: $limit, page: $page, query: $query) {
-                            total
-                            page
-                            limit
-                            hasNextPage
-                          }
-                          currentUserPermissions {
-                            canEdit
-                            canDelete
-                            canDownload
-                            canComment
-                          }
-                          workflowTask {
-                            id
-                            title
-                            description
-                          }
-                          variants(limit: $limit1, page: $page1) {
-                            total
-                            page
-                            limit
-                            hasNextPage
-                          }
-                          previewBackgroundColor {
-                            red
-                            green
-                            blue
-                            alpha
-                          }
-                        }
-                      }
-                      filename
-                      size
-                      extension
-                      downloadUrl(validityInDays: $validityInDays1, permanent: $permanent1)
-                      previewUrl(width: $width, height: $height)
-                      thumbnailUrl
-                      dynamicPreviewUrl
-                    }
-                    ... on Document {
-                      id
-                      createdAt
-                      modifiedAt
-                      title
-                      description
-                      alternativeText
-                      isDecorative
-                      externalId
-                      expiresAt
-                      author
-                      status
-                      filename
-                      size
-                      extension
-                      previewUrl(width: $width1, height: $height1, page: $page3)
-                      thumbnailUrl
-                      dynamicPreviewUrl
-                      downloadUrl(validityInDays: $validityInDays2, permanent: $permanent2)
-                      focalPoint
-                      width
-                      height
-                      pageCount
-                    }
-                    ... on EmbeddedContent {
-                      id
-                      createdAt
-                      modifiedAt
-                      title
-                      description
-                      alternativeText
-                      isDecorative
-                      externalId
-                      expiresAt
-                      author
-                      status
-                      previewUrl
-                      thumbnailUrl
-                    }
-                    ... on File {
-                      id
-                      createdAt
-                      modifiedAt
-                      title
-                      description
-                      alternativeText
-                      isDecorative
-                      externalId
-                      expiresAt
-                      author
-                      status
-                      filename
-                      size
-                      extension
-                      previewUrl
-                      thumbnailUrl
-                      dynamicPreviewUrl
-                      downloadUrl(validityInDays: $validityInDays3, permanent: $permanent3)
-                    }
-                    ... on Image {
-                      id
-                      createdAt
-                      modifiedAt
-                      title
-                      description
-                      alternativeText
-                      isDecorative
-                      externalId
-                      expiresAt
-                      author
-                      status
-                      filename
-                      size
-                      extension
-                      previewUrl(width: $width2, height: $height2)
-                      thumbnailUrl
-                      dynamicPreviewUrl
-                      downloadUrl(validityInDays: $validityInDays4, permanent: $permanent4)
-                      focalPoint
-                      width
-                      height
-                    }
-                    ... on Video {
-                      id
-                      createdAt
-                      modifiedAt
-                      title
-                      description
-                      alternativeText
-                      isDecorative
-                      externalId
-                      expiresAt
-                      author
-                      status
-                      filename
-                      size
-                      extension
-                      previewUrl(width: $width3, height: $height3)
-                      thumbnailUrl
-                      dynamicPreviewUrl
-                      downloadUrl(validityInDays: $validityInDays5, permanent: $permanent5)
-                      width
-                      height
-                      duration
-                      bitrate
-                    }
-                  }
-                  edges {
-                    title
-                    node {
-                      __typename
-                      ... on Audio {
-                        id
-                        creator {
-                          __typename
-                          id
-                          name
-                        }
-                        createdAt
-                        modifier {
-                          __typename
-                          id
-                          name
-                        }
-                        modifiedAt
-                        title
-                        description
-                        alternativeText
-                        isDecorative
-                        attachments {
-                          id
-                          createdAt
-                          modifiedAt
-                          name
-                          filename
-                          type
-                          externalId
-                          extension
-                          size
-                          downloadUrl(validityInDays: $validityInDays6, permanent: $permanent6)
-                        }
-                        externalId
-                        tags {
-                          value
-                          source
-                        }
-                        externalProducts {
-                          id
-                          name
-                          externalId
-                          title
-                        }
-                        copyright {
-                          status
-                          notice
-                        }
-                        availability {
-                          from
-                          to
-                        }
-                        expiresAt
-                        licenses {
-                          id
-                          title
-                          license
-                          addByDefault
-                          requireConsensus
-                        }
-                        author
-                        status
-                        relatedAssets(limit: $limit3, page: $page4) {
-                          total
-                          page
-                          limit
-                          hasNextPage
-                        }
-                        comments(limit: $limit4, page: $page5, query: $query1) {
-                          total
-                          page
-                          limit
-                          hasNextPage
-                          items {
-                            id
-                            createdAt
-                            modifiedAt
-                            content
-                            isResolved
-                          }
-                        }
-                        currentUserPermissions {
-                          canEdit
-                          canDelete
-                          canDownload
-                          canComment
-                        }
-                        customMetadata {
-                          __typename
-                          property {
-                            id
-                            createdAt
-                            modifiedAt
-                            name
-                            helpText
-                            isRequired
-                            defaultValue
-                          }
-                        }
-                        workflowTask {
-                          id
-                          assignedUsers {
-                            __typename
-                            id
-                            name
-                          }
-                          asset {
-                            __typename
-                            id
-                            createdAt
-                            modifiedAt
-                            title
-                            description
-                            externalId
-                            expiresAt
-                            status
-                          }
-                          title
-                          description
-                          status {
-                            id
-                            name
-                            enterRules
-                          }
-                          checklistItem(limit: $limit5, page: $page6) {
-                            total
-                            page
-                            limit
-                            hasNextPage
-                          }
-                        }
-                        variants(limit: $limit6, page: $page7) {
-                          total
-                          page
-                          limit
-                          hasNextPage
-                          items {
-                            key
-                            filename
-                            downloadUrl(validityInDays: $validityInDays7, permanent: $permanent7)
-                          }
-                        }
-                        location {
-                          brand {
-                            id
-                            name
-                          }
-                          library {
-                            id
-                            name
-                          }
-                          workspaceProject {
-                            id
-                            name
-                          }
-                          folder {
-                            id
-                            name
-                          }
-                        }
-                        previewBackgroundColor {
-                          red
-                          green
-                          blue
-                          alpha
-                        }
-                        filename
-                        size
-                        extension
-                        downloadUrl(validityInDays: $validityInDays8, permanent: $permanent8)
-                        previewUrl(width: $width4, height: $height4)
-                        thumbnailUrl
-                        dynamicPreviewUrl
-                      }
-                      ... on Document {
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        alternativeText
-                        isDecorative
-                        externalId
-                        expiresAt
-                        author
-                        status
-                        filename
-                        size
-                        extension
-                        previewUrl(width: $width5, height: $height5, page: $page8)
-                        thumbnailUrl
-                        dynamicPreviewUrl
-                        downloadUrl(validityInDays: $validityInDays9, permanent: $permanent9)
-                        focalPoint
-                        width
-                        height
-                        pageCount
-                      }
-                      ... on EmbeddedContent {
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        alternativeText
-                        isDecorative
-                        externalId
-                        expiresAt
-                        author
-                        status
-                        previewUrl
-                        thumbnailUrl
-                      }
-                      ... on File {
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        alternativeText
-                        isDecorative
-                        externalId
-                        expiresAt
-                        author
-                        status
-                        filename
-                        size
-                        extension
-                        previewUrl
-                        thumbnailUrl
-                        dynamicPreviewUrl
-                        downloadUrl(validityInDays: $validityInDays10, permanent: $permanent10)
-                      }
-                      ... on Image {
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        alternativeText
-                        isDecorative
-                        externalId
-                        expiresAt
-                        author
-                        status
-                        filename
-                        size
-                        extension
-                        previewUrl(width: $width6, height: $height6)
-                        thumbnailUrl
-                        dynamicPreviewUrl
-                        downloadUrl(validityInDays: $validityInDays11, permanent: $permanent11)
-                        focalPoint
-                        width
-                        height
-                      }
-                      ... on Video {
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        alternativeText
-                        isDecorative
-                        externalId
-                        expiresAt
-                        author
-                        status
-                        filename
-                        size
-                        extension
-                        previewUrl(width: $width7, height: $height7)
-                        thumbnailUrl
-                        dynamicPreviewUrl
-                        downloadUrl(validityInDays: $validityInDays12, permanent: $permanent12)
-                        width
-                        height
-                        duration
-                        bitrate
-                      }
-                    }
-                  }
-                }
-                libraries(limit: $limit13, page: $page15, query: $query5) {
+                libraries(limit: $limit5, page: $page5) {
                   total
                   page
                   limit
@@ -12459,7 +5900,7 @@ class FrontifyClient(BaseClient):
                       blue
                       alpha
                     }
-                    assets(limit: $limit8, page: $page10, query: $query3) {
+                    assets(limit: $limit, page: $page, query: $query) {
                       total
                       page
                       limit
@@ -12476,7 +5917,14 @@ class FrontifyClient(BaseClient):
                         status
                       }
                     }
-                    collections(limit: $limit9, page: $page11) {
+                    licenses {
+                      id
+                      title
+                      license
+                      addByDefault
+                      requireConsensus
+                    }
+                    collections(limit: $limit1, page: $page1) {
                       total
                       page
                       limit
@@ -12487,13 +5935,13 @@ class FrontifyClient(BaseClient):
                       }
                     }
                     browse {
-                      folders(limit: $limit10, page: $page12) {
+                      folders(limit: $limit2, page: $page2) {
                         total
                         page
                         limit
                         hasNextPage
                       }
-                      assets(limit: $limit11, page: $page13, query: $query4) {
+                      assets(limit: $limit3, page: $page3) {
                         total
                         page
                         limit
@@ -12501,33 +5949,34 @@ class FrontifyClient(BaseClient):
                       }
                     }
                     collaborators {
-                      users(limit: $limit12, page: $page14) {
+                      users(limit: $limit4, page: $page4) {
                         total
                         page
                         limit
                         hasNextPage
                       }
                     }
-                    workflow {
-                      id
-                      statuses {
-                        id
-                        name
-                        enterRules
-                      }
+                    currentUserPermissions {
+                      canCreateAssets
+                      canViewCollaborators
+                      canCreateCollections
                     }
                     customMetadataProperties {
                       id
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       name
@@ -12539,28 +5988,9 @@ class FrontifyClient(BaseClient):
                       isRequired
                       defaultValue
                     }
-                    assetSubmissionRequests {
-                      id
-                      creator {
-                        __typename
-                        id
-                        name
-                      }
-                      createdAt
-                      modifier {
-                        __typename
-                        id
-                        name
-                      }
-                      modifiedAt
-                      projectId
-                      title
-                      description
-                      configuration
-                    }
                   }
                 }
-                workspaceProjects(limit: $limit14, page: $page16, query: $query6) {
+                workspaceProjects(limit: $limit6, page: $page6) {
                   total
                   page
                   limit
@@ -12568,46 +5998,16 @@ class FrontifyClient(BaseClient):
                   items {
                     id
                     name
-                    isArchived
-                  }
-                }
-                guidelines(language: $language, limit: $limit17, page: $page19) {
-                  total
-                  page
-                  limit
-                  hasNextPage
-                  items {
-                    id
-                    name
-                    url
-                    defaultLanguage {
-                      code
-                      name
-                    }
-                    translationLanguages {
-                      code
-                      name
-                    }
-                    libraryPages(limit: $limit15, page: $page17) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
+                    customMetadata {
+                      __typename
+                      property {
                         id
-                        title
-                        type
-                      }
-                    }
-                    pages(limit: $limit16, page: $page18) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        id
-                        title
-                        url
+                        createdAt
+                        modifiedAt
+                        name
+                        helpText
+                        isRequired
+                        defaultValue
                       }
                     }
                   }
@@ -12621,42 +6021,11 @@ class FrontifyClient(BaseClient):
                   isRequired
                   defaultValue
                 }
-                creativeTemplates(limit: $limit18, page: $page20, query: $query7) {
-                  total
-                  page
-                  limit
-                  hasNextPage
-                  items {
-                    id
-                    brandId
-                    name
-                    description
-                    variable(key: $key) {
-                      key
-                      name
-                      description
-                      type
-                      value
-                      connectionCount
-                    }
-                    variables {
-                      key
-                      name
-                      description
-                      type
-                      value
-                      connectionCount
-                    }
-                    assetId
-                  }
-                }
               }
             }
             """
         )
         variables: Dict[str, object] = {
-            "validityInDays": validity_in_days,
-            "permanent": permanent,
             "limit": limit,
             "page": page,
             "query": query,
@@ -12664,89 +6033,14 @@ class FrontifyClient(BaseClient):
             "page1": page_1,
             "limit2": limit_2,
             "page2": page_2,
-            "validityInDays1": validity_in_days_1,
-            "permanent1": permanent_1,
-            "width": width,
-            "height": height,
-            "width1": width_1,
-            "height1": height_1,
-            "page3": page_3,
-            "validityInDays2": validity_in_days_2,
-            "permanent2": permanent_2,
-            "validityInDays3": validity_in_days_3,
-            "permanent3": permanent_3,
-            "width2": width_2,
-            "height2": height_2,
-            "validityInDays4": validity_in_days_4,
-            "permanent4": permanent_4,
-            "width3": width_3,
-            "height3": height_3,
-            "validityInDays5": validity_in_days_5,
-            "permanent5": permanent_5,
-            "validityInDays6": validity_in_days_6,
-            "permanent6": permanent_6,
             "limit3": limit_3,
-            "page4": page_4,
+            "page3": page_3,
             "limit4": limit_4,
-            "page5": page_5,
-            "query1": query_1,
+            "page4": page_4,
             "limit5": limit_5,
-            "page6": page_6,
-            "validityInDays7": validity_in_days_7,
-            "permanent7": permanent_7,
+            "page5": page_5,
             "limit6": limit_6,
-            "page7": page_7,
-            "validityInDays8": validity_in_days_8,
-            "permanent8": permanent_8,
-            "width4": width_4,
-            "height4": height_4,
-            "width5": width_5,
-            "height5": height_5,
-            "page8": page_8,
-            "validityInDays9": validity_in_days_9,
-            "permanent9": permanent_9,
-            "validityInDays10": validity_in_days_10,
-            "permanent10": permanent_10,
-            "width6": width_6,
-            "height6": height_6,
-            "validityInDays11": validity_in_days_11,
-            "permanent11": permanent_11,
-            "width7": width_7,
-            "height7": height_7,
-            "validityInDays12": validity_in_days_12,
-            "permanent12": permanent_12,
-            "limit7": limit_7,
-            "page9": page_9,
-            "query2": query_2,
-            "limit8": limit_8,
-            "page10": page_10,
-            "query3": query_3,
-            "limit9": limit_9,
-            "page11": page_11,
-            "limit10": limit_10,
-            "page12": page_12,
-            "limit11": limit_11,
-            "page13": page_13,
-            "query4": query_4,
-            "limit12": limit_12,
-            "page14": page_14,
-            "limit13": limit_13,
-            "page15": page_15,
-            "query5": query_5,
-            "limit14": limit_14,
-            "page16": page_16,
-            "query6": query_6,
-            "limit15": limit_15,
-            "page17": page_17,
-            "limit16": limit_16,
-            "page18": page_18,
-            "language": language,
-            "limit17": limit_17,
-            "page19": page_19,
-            "key": key,
-            "limit18": limit_18,
-            "page20": page_20,
-            "query7": query_7,
+            "page6": page_6,
             "id": id,
         }
         response = self.execute(
@@ -12757,103 +6051,26 @@ class FrontifyClient(BaseClient):
 
     def brands(
         self,
-        key: str,
-        validity_in_days: Union[Optional[int], UnsetType] = UNSET,
-        permanent: Union[Optional[bool], UnsetType] = UNSET,
         limit: Union[Optional[int], UnsetType] = UNSET,
         page: Union[Optional[int], UnsetType] = UNSET,
-        query: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
+        query: Union[Optional[AssetQueryInput], UnsetType] = UNSET,
         limit_1: Union[Optional[int], UnsetType] = UNSET,
         page_1: Union[Optional[int], UnsetType] = UNSET,
         limit_2: Union[Optional[int], UnsetType] = UNSET,
         page_2: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_1: Union[Optional[int], UnsetType] = UNSET,
-        permanent_1: Union[Optional[bool], UnsetType] = UNSET,
-        width: Union[Optional[int], UnsetType] = UNSET,
-        height: Union[Optional[int], UnsetType] = UNSET,
-        width_1: Union[Optional[int], UnsetType] = UNSET,
-        height_1: Union[Optional[int], UnsetType] = UNSET,
-        page_3: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_2: Union[Optional[int], UnsetType] = UNSET,
-        permanent_2: Union[Optional[bool], UnsetType] = UNSET,
-        validity_in_days_3: Union[Optional[int], UnsetType] = UNSET,
-        permanent_3: Union[Optional[bool], UnsetType] = UNSET,
-        width_2: Union[Optional[int], UnsetType] = UNSET,
-        height_2: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_4: Union[Optional[int], UnsetType] = UNSET,
-        permanent_4: Union[Optional[bool], UnsetType] = UNSET,
-        width_3: Union[Optional[int], UnsetType] = UNSET,
-        height_3: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_5: Union[Optional[int], UnsetType] = UNSET,
-        permanent_5: Union[Optional[bool], UnsetType] = UNSET,
-        validity_in_days_6: Union[Optional[int], UnsetType] = UNSET,
-        permanent_6: Union[Optional[bool], UnsetType] = UNSET,
         limit_3: Union[Optional[int], UnsetType] = UNSET,
-        page_4: Union[Optional[int], UnsetType] = UNSET,
+        page_3: Union[Optional[int], UnsetType] = UNSET,
         limit_4: Union[Optional[int], UnsetType] = UNSET,
-        page_5: Union[Optional[int], UnsetType] = UNSET,
-        query_1: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
+        page_4: Union[Optional[int], UnsetType] = UNSET,
         limit_5: Union[Optional[int], UnsetType] = UNSET,
-        page_6: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_7: Union[Optional[int], UnsetType] = UNSET,
-        permanent_7: Union[Optional[bool], UnsetType] = UNSET,
+        page_5: Union[Optional[int], UnsetType] = UNSET,
         limit_6: Union[Optional[int], UnsetType] = UNSET,
-        page_7: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_8: Union[Optional[int], UnsetType] = UNSET,
-        permanent_8: Union[Optional[bool], UnsetType] = UNSET,
-        width_4: Union[Optional[int], UnsetType] = UNSET,
-        height_4: Union[Optional[int], UnsetType] = UNSET,
-        width_5: Union[Optional[int], UnsetType] = UNSET,
-        height_5: Union[Optional[int], UnsetType] = UNSET,
-        page_8: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_9: Union[Optional[int], UnsetType] = UNSET,
-        permanent_9: Union[Optional[bool], UnsetType] = UNSET,
-        validity_in_days_10: Union[Optional[int], UnsetType] = UNSET,
-        permanent_10: Union[Optional[bool], UnsetType] = UNSET,
-        width_6: Union[Optional[int], UnsetType] = UNSET,
-        height_6: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_11: Union[Optional[int], UnsetType] = UNSET,
-        permanent_11: Union[Optional[bool], UnsetType] = UNSET,
-        width_7: Union[Optional[int], UnsetType] = UNSET,
-        height_7: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_12: Union[Optional[int], UnsetType] = UNSET,
-        permanent_12: Union[Optional[bool], UnsetType] = UNSET,
-        limit_7: Union[Optional[int], UnsetType] = UNSET,
-        page_9: Union[Optional[int], UnsetType] = UNSET,
-        query_2: Union[Optional[BrandQueryInput], UnsetType] = UNSET,
-        limit_8: Union[Optional[int], UnsetType] = UNSET,
-        page_10: Union[Optional[int], UnsetType] = UNSET,
-        query_3: Union[Optional[AssetQueryInput], UnsetType] = UNSET,
-        limit_9: Union[Optional[int], UnsetType] = UNSET,
-        page_11: Union[Optional[int], UnsetType] = UNSET,
-        limit_10: Union[Optional[int], UnsetType] = UNSET,
-        page_12: Union[Optional[int], UnsetType] = UNSET,
-        limit_11: Union[Optional[int], UnsetType] = UNSET,
-        page_13: Union[Optional[int], UnsetType] = UNSET,
-        query_4: Union[Optional[FolderAssetQueryInput], UnsetType] = UNSET,
-        limit_12: Union[Optional[int], UnsetType] = UNSET,
-        page_14: Union[Optional[int], UnsetType] = UNSET,
-        limit_13: Union[Optional[int], UnsetType] = UNSET,
-        page_15: Union[Optional[int], UnsetType] = UNSET,
-        query_5: Union[Optional[LibraryQueryInput], UnsetType] = UNSET,
-        limit_14: Union[Optional[int], UnsetType] = UNSET,
-        page_16: Union[Optional[int], UnsetType] = UNSET,
-        query_6: Union[Optional[WorkspaceProjectQueryInput], UnsetType] = UNSET,
-        limit_15: Union[Optional[int], UnsetType] = UNSET,
-        page_17: Union[Optional[int], UnsetType] = UNSET,
-        limit_16: Union[Optional[int], UnsetType] = UNSET,
-        page_18: Union[Optional[int], UnsetType] = UNSET,
-        language: Union[Optional[LanguageCode], UnsetType] = UNSET,
-        limit_17: Union[Optional[int], UnsetType] = UNSET,
-        page_19: Union[Optional[int], UnsetType] = UNSET,
-        limit_18: Union[Optional[int], UnsetType] = UNSET,
-        page_20: Union[Optional[int], UnsetType] = UNSET,
-        query_7: Union[Optional[CreativeTemplateQueryInput], UnsetType] = UNSET,
+        page_6: Union[Optional[int], UnsetType] = UNSET,
         **kwargs: Any
     ) -> Brands:
         _query = gql(
             """
-            query brands($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $query: AssetCommentQueryInput, $limit1: Int, $page1: Int, $limit2: Int, $page2: Int, $validityInDays1: Int, $permanent1: Boolean, $width: Int, $height: Int, $width1: Int, $height1: Int, $page3: Int, $validityInDays2: Int, $permanent2: Boolean, $validityInDays3: Int, $permanent3: Boolean, $width2: Int, $height2: Int, $validityInDays4: Int, $permanent4: Boolean, $width3: Int, $height3: Int, $validityInDays5: Int, $permanent5: Boolean, $validityInDays6: Int, $permanent6: Boolean, $limit3: Int, $page4: Int, $limit4: Int, $page5: Int, $query1: AssetCommentQueryInput, $limit5: Int, $page6: Int, $validityInDays7: Int, $permanent7: Boolean, $limit6: Int, $page7: Int, $validityInDays8: Int, $permanent8: Boolean, $width4: Int, $height4: Int, $width5: Int, $height5: Int, $page8: Int, $validityInDays9: Int, $permanent9: Boolean, $validityInDays10: Int, $permanent10: Boolean, $width6: Int, $height6: Int, $validityInDays11: Int, $permanent11: Boolean, $width7: Int, $height7: Int, $validityInDays12: Int, $permanent12: Boolean, $limit7: Int, $page9: Int, $query2: BrandQueryInput, $limit8: Int, $page10: Int, $query3: AssetQueryInput, $limit9: Int, $page11: Int, $limit10: Int, $page12: Int, $limit11: Int, $page13: Int, $query4: FolderAssetQueryInput, $limit12: Int, $page14: Int, $limit13: Int, $page15: Int, $query5: LibraryQueryInput, $limit14: Int, $page16: Int, $query6: WorkspaceProjectQueryInput, $limit15: Int, $page17: Int, $limit16: Int, $page18: Int, $language: LanguageCode, $limit17: Int, $page19: Int, $key: String!, $limit18: Int, $page20: Int, $query7: CreativeTemplateQueryInput) {
+            query brands($limit: Int, $page: Int, $query: AssetQueryInput, $limit1: Int, $page1: Int, $limit2: Int, $page2: Int, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $limit5: Int, $page5: Int, $limit6: Int, $page6: Int) {
               brands {
                 id
                 name
@@ -12865,528 +6082,7 @@ class FrontifyClient(BaseClient):
                 }
                 avatar
                 slug
-                search(limit: $limit7, page: $page9, query: $query2) {
-                  total
-                  page
-                  limit
-                  hasNextPage
-                  items {
-                    __typename
-                    ... on Audio {
-                      id
-                      creator {
-                        __typename
-                        id
-                        name
-                      }
-                      createdAt
-                      modifier {
-                        __typename
-                        id
-                        name
-                      }
-                      modifiedAt
-                      title
-                      description
-                      alternativeText
-                      isDecorative
-                      attachments {
-                        id
-                        creator {
-                          __typename
-                          id
-                          name
-                        }
-                        createdAt
-                        modifier {
-                          __typename
-                          id
-                          name
-                        }
-                        modifiedAt
-                        name
-                        filename
-                        type
-                        externalId
-                        extension
-                        size
-                        downloadUrl(validityInDays: $validityInDays, permanent: $permanent)
-                      }
-                      externalId
-                      tags {
-                        value
-                        source
-                      }
-                      externalProducts {
-                        id
-                        name
-                        externalId
-                        title
-                      }
-                      copyright {
-                        status
-                        notice
-                      }
-                      availability {
-                        from
-                        to
-                      }
-                      expiresAt
-                      licenses {
-                        id
-                        title
-                        license
-                        addByDefault
-                        requireConsensus
-                      }
-                      author
-                      status
-                      relatedAssets(limit: $limit2, page: $page2) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                        items {
-                          __typename
-                          id
-                          createdAt
-                          modifiedAt
-                          title
-                          description
-                          externalId
-                          expiresAt
-                          status
-                          comments(limit: $limit, page: $page, query: $query) {
-                            total
-                            page
-                            limit
-                            hasNextPage
-                          }
-                          currentUserPermissions {
-                            canEdit
-                            canDelete
-                            canDownload
-                            canComment
-                          }
-                          workflowTask {
-                            id
-                            title
-                            description
-                          }
-                          variants(limit: $limit1, page: $page1) {
-                            total
-                            page
-                            limit
-                            hasNextPage
-                          }
-                          previewBackgroundColor {
-                            red
-                            green
-                            blue
-                            alpha
-                          }
-                        }
-                      }
-                      filename
-                      size
-                      extension
-                      downloadUrl(validityInDays: $validityInDays1, permanent: $permanent1)
-                      previewUrl(width: $width, height: $height)
-                      thumbnailUrl
-                      dynamicPreviewUrl
-                    }
-                    ... on Document {
-                      id
-                      createdAt
-                      modifiedAt
-                      title
-                      description
-                      alternativeText
-                      isDecorative
-                      externalId
-                      expiresAt
-                      author
-                      status
-                      filename
-                      size
-                      extension
-                      previewUrl(width: $width1, height: $height1, page: $page3)
-                      thumbnailUrl
-                      dynamicPreviewUrl
-                      downloadUrl(validityInDays: $validityInDays2, permanent: $permanent2)
-                      focalPoint
-                      width
-                      height
-                      pageCount
-                    }
-                    ... on EmbeddedContent {
-                      id
-                      createdAt
-                      modifiedAt
-                      title
-                      description
-                      alternativeText
-                      isDecorative
-                      externalId
-                      expiresAt
-                      author
-                      status
-                      previewUrl
-                      thumbnailUrl
-                    }
-                    ... on File {
-                      id
-                      createdAt
-                      modifiedAt
-                      title
-                      description
-                      alternativeText
-                      isDecorative
-                      externalId
-                      expiresAt
-                      author
-                      status
-                      filename
-                      size
-                      extension
-                      previewUrl
-                      thumbnailUrl
-                      dynamicPreviewUrl
-                      downloadUrl(validityInDays: $validityInDays3, permanent: $permanent3)
-                    }
-                    ... on Image {
-                      id
-                      createdAt
-                      modifiedAt
-                      title
-                      description
-                      alternativeText
-                      isDecorative
-                      externalId
-                      expiresAt
-                      author
-                      status
-                      filename
-                      size
-                      extension
-                      previewUrl(width: $width2, height: $height2)
-                      thumbnailUrl
-                      dynamicPreviewUrl
-                      downloadUrl(validityInDays: $validityInDays4, permanent: $permanent4)
-                      focalPoint
-                      width
-                      height
-                    }
-                    ... on Video {
-                      id
-                      createdAt
-                      modifiedAt
-                      title
-                      description
-                      alternativeText
-                      isDecorative
-                      externalId
-                      expiresAt
-                      author
-                      status
-                      filename
-                      size
-                      extension
-                      previewUrl(width: $width3, height: $height3)
-                      thumbnailUrl
-                      dynamicPreviewUrl
-                      downloadUrl(validityInDays: $validityInDays5, permanent: $permanent5)
-                      width
-                      height
-                      duration
-                      bitrate
-                    }
-                  }
-                  edges {
-                    title
-                    node {
-                      __typename
-                      ... on Audio {
-                        id
-                        creator {
-                          __typename
-                          id
-                          name
-                        }
-                        createdAt
-                        modifier {
-                          __typename
-                          id
-                          name
-                        }
-                        modifiedAt
-                        title
-                        description
-                        alternativeText
-                        isDecorative
-                        attachments {
-                          id
-                          createdAt
-                          modifiedAt
-                          name
-                          filename
-                          type
-                          externalId
-                          extension
-                          size
-                          downloadUrl(validityInDays: $validityInDays6, permanent: $permanent6)
-                        }
-                        externalId
-                        tags {
-                          value
-                          source
-                        }
-                        externalProducts {
-                          id
-                          name
-                          externalId
-                          title
-                        }
-                        copyright {
-                          status
-                          notice
-                        }
-                        availability {
-                          from
-                          to
-                        }
-                        expiresAt
-                        licenses {
-                          id
-                          title
-                          license
-                          addByDefault
-                          requireConsensus
-                        }
-                        author
-                        status
-                        relatedAssets(limit: $limit3, page: $page4) {
-                          total
-                          page
-                          limit
-                          hasNextPage
-                        }
-                        comments(limit: $limit4, page: $page5, query: $query1) {
-                          total
-                          page
-                          limit
-                          hasNextPage
-                          items {
-                            id
-                            createdAt
-                            modifiedAt
-                            content
-                            isResolved
-                          }
-                        }
-                        currentUserPermissions {
-                          canEdit
-                          canDelete
-                          canDownload
-                          canComment
-                        }
-                        customMetadata {
-                          __typename
-                          property {
-                            id
-                            createdAt
-                            modifiedAt
-                            name
-                            helpText
-                            isRequired
-                            defaultValue
-                          }
-                        }
-                        workflowTask {
-                          id
-                          assignedUsers {
-                            __typename
-                            id
-                            name
-                          }
-                          asset {
-                            __typename
-                            id
-                            createdAt
-                            modifiedAt
-                            title
-                            description
-                            externalId
-                            expiresAt
-                            status
-                          }
-                          title
-                          description
-                          status {
-                            id
-                            name
-                            enterRules
-                          }
-                          checklistItem(limit: $limit5, page: $page6) {
-                            total
-                            page
-                            limit
-                            hasNextPage
-                          }
-                        }
-                        variants(limit: $limit6, page: $page7) {
-                          total
-                          page
-                          limit
-                          hasNextPage
-                          items {
-                            key
-                            filename
-                            downloadUrl(validityInDays: $validityInDays7, permanent: $permanent7)
-                          }
-                        }
-                        location {
-                          brand {
-                            id
-                            name
-                          }
-                          library {
-                            id
-                            name
-                          }
-                          workspaceProject {
-                            id
-                            name
-                          }
-                          folder {
-                            id
-                            name
-                          }
-                        }
-                        previewBackgroundColor {
-                          red
-                          green
-                          blue
-                          alpha
-                        }
-                        filename
-                        size
-                        extension
-                        downloadUrl(validityInDays: $validityInDays8, permanent: $permanent8)
-                        previewUrl(width: $width4, height: $height4)
-                        thumbnailUrl
-                        dynamicPreviewUrl
-                      }
-                      ... on Document {
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        alternativeText
-                        isDecorative
-                        externalId
-                        expiresAt
-                        author
-                        status
-                        filename
-                        size
-                        extension
-                        previewUrl(width: $width5, height: $height5, page: $page8)
-                        thumbnailUrl
-                        dynamicPreviewUrl
-                        downloadUrl(validityInDays: $validityInDays9, permanent: $permanent9)
-                        focalPoint
-                        width
-                        height
-                        pageCount
-                      }
-                      ... on EmbeddedContent {
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        alternativeText
-                        isDecorative
-                        externalId
-                        expiresAt
-                        author
-                        status
-                        previewUrl
-                        thumbnailUrl
-                      }
-                      ... on File {
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        alternativeText
-                        isDecorative
-                        externalId
-                        expiresAt
-                        author
-                        status
-                        filename
-                        size
-                        extension
-                        previewUrl
-                        thumbnailUrl
-                        dynamicPreviewUrl
-                        downloadUrl(validityInDays: $validityInDays10, permanent: $permanent10)
-                      }
-                      ... on Image {
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        alternativeText
-                        isDecorative
-                        externalId
-                        expiresAt
-                        author
-                        status
-                        filename
-                        size
-                        extension
-                        previewUrl(width: $width6, height: $height6)
-                        thumbnailUrl
-                        dynamicPreviewUrl
-                        downloadUrl(validityInDays: $validityInDays11, permanent: $permanent11)
-                        focalPoint
-                        width
-                        height
-                      }
-                      ... on Video {
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        alternativeText
-                        isDecorative
-                        externalId
-                        expiresAt
-                        author
-                        status
-                        filename
-                        size
-                        extension
-                        previewUrl(width: $width7, height: $height7)
-                        thumbnailUrl
-                        dynamicPreviewUrl
-                        downloadUrl(validityInDays: $validityInDays12, permanent: $permanent12)
-                        width
-                        height
-                        duration
-                        bitrate
-                      }
-                    }
-                  }
-                }
-                libraries(limit: $limit13, page: $page15, query: $query5) {
+                libraries(limit: $limit5, page: $page5) {
                   total
                   page
                   limit
@@ -13401,7 +6097,7 @@ class FrontifyClient(BaseClient):
                       blue
                       alpha
                     }
-                    assets(limit: $limit8, page: $page10, query: $query3) {
+                    assets(limit: $limit, page: $page, query: $query) {
                       total
                       page
                       limit
@@ -13418,7 +6114,14 @@ class FrontifyClient(BaseClient):
                         status
                       }
                     }
-                    collections(limit: $limit9, page: $page11) {
+                    licenses {
+                      id
+                      title
+                      license
+                      addByDefault
+                      requireConsensus
+                    }
+                    collections(limit: $limit1, page: $page1) {
                       total
                       page
                       limit
@@ -13429,13 +6132,13 @@ class FrontifyClient(BaseClient):
                       }
                     }
                     browse {
-                      folders(limit: $limit10, page: $page12) {
+                      folders(limit: $limit2, page: $page2) {
                         total
                         page
                         limit
                         hasNextPage
                       }
-                      assets(limit: $limit11, page: $page13, query: $query4) {
+                      assets(limit: $limit3, page: $page3) {
                         total
                         page
                         limit
@@ -13443,33 +6146,34 @@ class FrontifyClient(BaseClient):
                       }
                     }
                     collaborators {
-                      users(limit: $limit12, page: $page14) {
+                      users(limit: $limit4, page: $page4) {
                         total
                         page
                         limit
                         hasNextPage
                       }
                     }
-                    workflow {
-                      id
-                      statuses {
-                        id
-                        name
-                        enterRules
-                      }
+                    currentUserPermissions {
+                      canCreateAssets
+                      canViewCollaborators
+                      canCreateCollections
                     }
                     customMetadataProperties {
                       id
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       name
@@ -13481,28 +6185,9 @@ class FrontifyClient(BaseClient):
                       isRequired
                       defaultValue
                     }
-                    assetSubmissionRequests {
-                      id
-                      creator {
-                        __typename
-                        id
-                        name
-                      }
-                      createdAt
-                      modifier {
-                        __typename
-                        id
-                        name
-                      }
-                      modifiedAt
-                      projectId
-                      title
-                      description
-                      configuration
-                    }
                   }
                 }
-                workspaceProjects(limit: $limit14, page: $page16, query: $query6) {
+                workspaceProjects(limit: $limit6, page: $page6) {
                   total
                   page
                   limit
@@ -13510,46 +6195,16 @@ class FrontifyClient(BaseClient):
                   items {
                     id
                     name
-                    isArchived
-                  }
-                }
-                guidelines(language: $language, limit: $limit17, page: $page19) {
-                  total
-                  page
-                  limit
-                  hasNextPage
-                  items {
-                    id
-                    name
-                    url
-                    defaultLanguage {
-                      code
-                      name
-                    }
-                    translationLanguages {
-                      code
-                      name
-                    }
-                    libraryPages(limit: $limit15, page: $page17) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
+                    customMetadata {
+                      __typename
+                      property {
                         id
-                        title
-                        type
-                      }
-                    }
-                    pages(limit: $limit16, page: $page18) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        id
-                        title
-                        url
+                        createdAt
+                        modifiedAt
+                        name
+                        helpText
+                        isRequired
+                        defaultValue
                       }
                     }
                   }
@@ -13563,42 +6218,11 @@ class FrontifyClient(BaseClient):
                   isRequired
                   defaultValue
                 }
-                creativeTemplates(limit: $limit18, page: $page20, query: $query7) {
-                  total
-                  page
-                  limit
-                  hasNextPage
-                  items {
-                    id
-                    brandId
-                    name
-                    description
-                    variable(key: $key) {
-                      key
-                      name
-                      description
-                      type
-                      value
-                      connectionCount
-                    }
-                    variables {
-                      key
-                      name
-                      description
-                      type
-                      value
-                      connectionCount
-                    }
-                    assetId
-                  }
-                }
               }
             }
             """
         )
         variables: Dict[str, object] = {
-            "validityInDays": validity_in_days,
-            "permanent": permanent,
             "limit": limit,
             "page": page,
             "query": query,
@@ -13606,89 +6230,14 @@ class FrontifyClient(BaseClient):
             "page1": page_1,
             "limit2": limit_2,
             "page2": page_2,
-            "validityInDays1": validity_in_days_1,
-            "permanent1": permanent_1,
-            "width": width,
-            "height": height,
-            "width1": width_1,
-            "height1": height_1,
-            "page3": page_3,
-            "validityInDays2": validity_in_days_2,
-            "permanent2": permanent_2,
-            "validityInDays3": validity_in_days_3,
-            "permanent3": permanent_3,
-            "width2": width_2,
-            "height2": height_2,
-            "validityInDays4": validity_in_days_4,
-            "permanent4": permanent_4,
-            "width3": width_3,
-            "height3": height_3,
-            "validityInDays5": validity_in_days_5,
-            "permanent5": permanent_5,
-            "validityInDays6": validity_in_days_6,
-            "permanent6": permanent_6,
             "limit3": limit_3,
-            "page4": page_4,
+            "page3": page_3,
             "limit4": limit_4,
-            "page5": page_5,
-            "query1": query_1,
+            "page4": page_4,
             "limit5": limit_5,
-            "page6": page_6,
-            "validityInDays7": validity_in_days_7,
-            "permanent7": permanent_7,
+            "page5": page_5,
             "limit6": limit_6,
-            "page7": page_7,
-            "validityInDays8": validity_in_days_8,
-            "permanent8": permanent_8,
-            "width4": width_4,
-            "height4": height_4,
-            "width5": width_5,
-            "height5": height_5,
-            "page8": page_8,
-            "validityInDays9": validity_in_days_9,
-            "permanent9": permanent_9,
-            "validityInDays10": validity_in_days_10,
-            "permanent10": permanent_10,
-            "width6": width_6,
-            "height6": height_6,
-            "validityInDays11": validity_in_days_11,
-            "permanent11": permanent_11,
-            "width7": width_7,
-            "height7": height_7,
-            "validityInDays12": validity_in_days_12,
-            "permanent12": permanent_12,
-            "limit7": limit_7,
-            "page9": page_9,
-            "query2": query_2,
-            "limit8": limit_8,
-            "page10": page_10,
-            "query3": query_3,
-            "limit9": limit_9,
-            "page11": page_11,
-            "limit10": limit_10,
-            "page12": page_12,
-            "limit11": limit_11,
-            "page13": page_13,
-            "query4": query_4,
-            "limit12": limit_12,
-            "page14": page_14,
-            "limit13": limit_13,
-            "page15": page_15,
-            "query5": query_5,
-            "limit14": limit_14,
-            "page16": page_16,
-            "query6": query_6,
-            "limit15": limit_15,
-            "page17": page_17,
-            "limit16": limit_16,
-            "page18": page_18,
-            "language": language,
-            "limit17": limit_17,
-            "page19": page_19,
-            "key": key,
-            "limit18": limit_18,
-            "page20": page_20,
-            "query7": query_7,
+            "page6": page_6,
         }
         response = self.execute(
             query=_query, operation_name="brands", variables=variables, **kwargs
@@ -13714,301 +6263,6 @@ class FrontifyClient(BaseClient):
         data = self.get_data(response)
         return ClientTrackingId.model_validate(data)
 
-    def creative_export(
-        self,
-        id: str,
-        validity_in_days: Union[Optional[int], UnsetType] = UNSET,
-        permanent: Union[Optional[bool], UnsetType] = UNSET,
-        limit: Union[Optional[int], UnsetType] = UNSET,
-        page: Union[Optional[int], UnsetType] = UNSET,
-        limit_1: Union[Optional[int], UnsetType] = UNSET,
-        page_1: Union[Optional[int], UnsetType] = UNSET,
-        query: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
-        limit_2: Union[Optional[int], UnsetType] = UNSET,
-        page_2: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_1: Union[Optional[int], UnsetType] = UNSET,
-        permanent_1: Union[Optional[bool], UnsetType] = UNSET,
-        limit_3: Union[Optional[int], UnsetType] = UNSET,
-        page_3: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_2: Union[Optional[int], UnsetType] = UNSET,
-        permanent_2: Union[Optional[bool], UnsetType] = UNSET,
-        **kwargs: Any
-    ) -> CreativeExport:
-        _query = gql(
-            """
-            query creativeExport($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $validityInDays1: Int, $permanent1: Boolean, $limit3: Int, $page3: Int, $validityInDays2: Int, $permanent2: Boolean, $id: ID!) {
-              creativeExport(id: $id) {
-                id
-                status
-                result {
-                  downloadUrl
-                  pageDownloadUrls
-                  asset {
-                    id
-                    creator {
-                      __typename
-                      id
-                      name
-                    }
-                    createdAt
-                    modifier {
-                      __typename
-                      id
-                      name
-                    }
-                    modifiedAt
-                    title
-                    description
-                    alternativeText
-                    isDecorative
-                    attachments {
-                      id
-                      creator {
-                        __typename
-                        id
-                        name
-                      }
-                      createdAt
-                      modifier {
-                        __typename
-                        id
-                        name
-                      }
-                      modifiedAt
-                      name
-                      filename
-                      type
-                      externalId
-                      extension
-                      size
-                      downloadUrl(validityInDays: $validityInDays, permanent: $permanent)
-                    }
-                    externalId
-                    tags {
-                      value
-                      source
-                    }
-                    copyright {
-                      status
-                      notice
-                    }
-                    availability {
-                      from
-                      to
-                    }
-                    expiresAt
-                    licenses {
-                      id
-                      title
-                      license
-                      addByDefault
-                      requireConsensus
-                    }
-                    author
-                    status
-                    relatedAssets(limit: $limit, page: $page) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        __typename
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        externalId
-                        expiresAt
-                        status
-                      }
-                    }
-                    comments(limit: $limit1, page: $page1, query: $query) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        id
-                        createdAt
-                        modifiedAt
-                        content
-                        isResolved
-                      }
-                    }
-                    currentUserPermissions {
-                      canEdit
-                      canDelete
-                      canDownload
-                      canComment
-                    }
-                    customMetadata {
-                      __typename
-                      property {
-                        id
-                        createdAt
-                        modifiedAt
-                        name
-                        helpText
-                        isRequired
-                        defaultValue
-                      }
-                    }
-                    workflowTask {
-                      id
-                      assignedUsers {
-                        __typename
-                        id
-                        name
-                      }
-                      asset {
-                        __typename
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        externalId
-                        expiresAt
-                        status
-                      }
-                      title
-                      description
-                      status {
-                        id
-                        name
-                        enterRules
-                      }
-                      checklistItem(limit: $limit2, page: $page2) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                    }
-                    variants(limit: $limit3, page: $page3) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        key
-                        filename
-                        downloadUrl(validityInDays: $validityInDays1, permanent: $permanent1)
-                      }
-                    }
-                    location {
-                      brand {
-                        id
-                        name
-                      }
-                      library {
-                        id
-                        name
-                      }
-                      workspaceProject {
-                        id
-                        name
-                      }
-                      folder {
-                        id
-                        name
-                      }
-                    }
-                    previewBackgroundColor {
-                      red
-                      green
-                      blue
-                      alpha
-                    }
-                    filename
-                    size
-                    extension
-                    previewUrl
-                    thumbnailUrl
-                    dynamicPreviewUrl
-                    downloadUrl(validityInDays: $validityInDays2, permanent: $permanent2)
-                  }
-                }
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {
-            "validityInDays": validity_in_days,
-            "permanent": permanent,
-            "limit": limit,
-            "page": page,
-            "limit1": limit_1,
-            "page1": page_1,
-            "query": query,
-            "limit2": limit_2,
-            "page2": page_2,
-            "validityInDays1": validity_in_days_1,
-            "permanent1": permanent_1,
-            "limit3": limit_3,
-            "page3": page_3,
-            "validityInDays2": validity_in_days_2,
-            "permanent2": permanent_2,
-            "id": id,
-        }
-        response = self.execute(
-            query=_query, operation_name="creativeExport", variables=variables, **kwargs
-        )
-        data = self.get_data(response)
-        return CreativeExport.model_validate(data)
-
-    def creative_template(self, key: str, id: str, **kwargs: Any) -> CreativeTemplate:
-        query = gql(
-            """
-            query creativeTemplate($key: String!, $id: ID!) {
-              creativeTemplate(id: $id) {
-                id
-                brandId
-                name
-                description
-                pages {
-                  previewUrl
-                  width
-                  height
-                  pageIndex
-                  name
-                }
-                variable(key: $key) {
-                  key
-                  name
-                  description
-                  type
-                  value
-                  connectionCount
-                }
-                variables {
-                  key
-                  name
-                  description
-                  type
-                  value
-                  connectionCount
-                }
-                assetId
-                tags {
-                  value
-                  source
-                }
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {"key": key, "id": id}
-        response = self.execute(
-            query=query,
-            operation_name="creativeTemplate",
-            variables=variables,
-            **kwargs
-        )
-        data = self.get_data(response)
-        return CreativeTemplate.model_validate(data)
-
     def current_user(self, **kwargs: Any) -> CurrentUser:
         query = gql(
             """
@@ -14016,7 +6270,9 @@ class FrontifyClient(BaseClient):
               currentUser {
                 __typename
                 id
+                email
                 name
+                avatar
               }
             }
             """
@@ -14027,79 +6283,6 @@ class FrontifyClient(BaseClient):
         )
         data = self.get_data(response)
         return CurrentUser.model_validate(data)
-
-    def guideline_page(
-        self,
-        id: str,
-        page: Union[Optional[int], UnsetType] = UNSET,
-        limit: Union[Optional[int], UnsetType] = UNSET,
-        limit_1: Union[Optional[int], UnsetType] = UNSET,
-        page_1: Union[Optional[int], UnsetType] = UNSET,
-        language: Union[Optional[LanguageCode], UnsetType] = UNSET,
-        **kwargs: Any
-    ) -> GuidelinePage:
-        query = gql(
-            """
-            query guidelinePage($page: Int, $limit: Int, $limit1: Int, $page1: Int, $id: ID!, $language: LanguageCode) {
-              guidelinePage(id: $id, language: $language) {
-                id
-                title
-                url
-                sections(limit: $limit1, page: $page1) {
-                  total
-                  page
-                  limit
-                  hasNextPage
-                  items {
-                    id
-                    elements(page: $page, limit: $limit) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        __typename
-                        ... on GuidelinePageHeading {
-                          id
-                          title
-                          lastModified
-                        }
-                        ... on GuidelinePageBlock {
-                          id
-                          content
-                          url
-                          lastModified
-                        }
-                        ... on GuidelinePageBlockReference {
-                          id
-                          block {
-                            id
-                            content
-                            url
-                            lastModified
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {
-            "page": page,
-            "limit": limit,
-            "limit1": limit_1,
-            "page1": page_1,
-            "id": id,
-            "language": language,
-        }
-        response = self.execute(
-            query=query, operation_name="guidelinePage", variables=variables, **kwargs
-        )
-        data = self.get_data(response)
-        return GuidelinePage.model_validate(data)
 
     def library(
         self,
@@ -14113,13 +6296,11 @@ class FrontifyClient(BaseClient):
         query: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
         limit_2: Union[Optional[int], UnsetType] = UNSET,
         page_2: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_1: Union[Optional[int], UnsetType] = UNSET,
-        permanent_1: Union[Optional[bool], UnsetType] = UNSET,
+        query_1: Union[Optional[AssetQueryInput], UnsetType] = UNSET,
         limit_3: Union[Optional[int], UnsetType] = UNSET,
         page_3: Union[Optional[int], UnsetType] = UNSET,
         limit_4: Union[Optional[int], UnsetType] = UNSET,
         page_4: Union[Optional[int], UnsetType] = UNSET,
-        query_1: Union[Optional[AssetQueryInput], UnsetType] = UNSET,
         limit_5: Union[Optional[int], UnsetType] = UNSET,
         page_5: Union[Optional[int], UnsetType] = UNSET,
         limit_6: Union[Optional[int], UnsetType] = UNSET,
@@ -14128,18 +6309,11 @@ class FrontifyClient(BaseClient):
         page_7: Union[Optional[int], UnsetType] = UNSET,
         limit_8: Union[Optional[int], UnsetType] = UNSET,
         page_8: Union[Optional[int], UnsetType] = UNSET,
-        limit_9: Union[Optional[int], UnsetType] = UNSET,
-        page_9: Union[Optional[int], UnsetType] = UNSET,
-        query_2: Union[Optional[FolderAssetQueryInput], UnsetType] = UNSET,
-        limit_10: Union[Optional[int], UnsetType] = UNSET,
-        page_10: Union[Optional[int], UnsetType] = UNSET,
-        limit_11: Union[Optional[int], UnsetType] = UNSET,
-        page_11: Union[Optional[int], UnsetType] = UNSET,
         **kwargs: Any
     ) -> Library:
         _query = gql(
             """
-            query library($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $validityInDays1: Int, $permanent1: Boolean, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $query1: AssetQueryInput, $limit5: Int, $page5: Int, $limit6: Int, $page6: Int, $limit7: Int, $page7: Int, $limit8: Int, $page8: Int, $limit9: Int, $page9: Int, $query2: FolderAssetQueryInput, $limit10: Int, $page10: Int, $limit11: Int, $page11: Int, $id: ID!) {
+            query library($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $query1: AssetQueryInput, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $limit5: Int, $page5: Int, $limit6: Int, $page6: Int, $limit7: Int, $page7: Int, $limit8: Int, $page8: Int, $id: ID!) {
               library(id: $id) {
                 __typename
                 id
@@ -14150,7 +6324,7 @@ class FrontifyClient(BaseClient):
                   blue
                   alpha
                 }
-                assets(limit: $limit4, page: $page4, query: $query1) {
+                assets(limit: $limit2, page: $page2, query: $query1) {
                   total
                   page
                   limit
@@ -14161,13 +6335,17 @@ class FrontifyClient(BaseClient):
                     creator {
                       __typename
                       id
+                      email
                       name
+                      avatar
                     }
                     createdAt
                     modifier {
                       __typename
                       id
+                      email
                       name
+                      avatar
                     }
                     modifiedAt
                     title
@@ -14177,13 +6355,17 @@ class FrontifyClient(BaseClient):
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       name
@@ -14202,10 +6384,6 @@ class FrontifyClient(BaseClient):
                     copyright {
                       status
                       notice
-                    }
-                    availability {
-                      from
-                      to
                     }
                     expiresAt
                     licenses {
@@ -14264,49 +6442,6 @@ class FrontifyClient(BaseClient):
                         defaultValue
                       }
                     }
-                    workflowTask {
-                      id
-                      assignedUsers {
-                        __typename
-                        id
-                        name
-                      }
-                      asset {
-                        __typename
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        externalId
-                        expiresAt
-                        status
-                      }
-                      title
-                      description
-                      status {
-                        id
-                        name
-                        enterRules
-                      }
-                      checklistItem(limit: $limit2, page: $page2) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                    }
-                    variants(limit: $limit3, page: $page3) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        key
-                        filename
-                        downloadUrl(validityInDays: $validityInDays1, permanent: $permanent1)
-                      }
-                    }
                     location {
                       brand {
                         id
@@ -14325,12 +6460,6 @@ class FrontifyClient(BaseClient):
                         name
                       }
                     }
-                    previewBackgroundColor {
-                      red
-                      green
-                      blue
-                      alpha
-                    }
                   }
                 }
                 licenses {
@@ -14340,7 +6469,7 @@ class FrontifyClient(BaseClient):
                   addByDefault
                   requireConsensus
                 }
-                collections(limit: $limit6, page: $page6) {
+                collections(limit: $limit4, page: $page4) {
                   total
                   page
                   limit
@@ -14348,7 +6477,7 @@ class FrontifyClient(BaseClient):
                   items {
                     id
                     name
-                    assets(limit: $limit5, page: $page5) {
+                    assets(limit: $limit3, page: $page3) {
                       total
                       page
                       limit
@@ -14357,7 +6486,7 @@ class FrontifyClient(BaseClient):
                   }
                 }
                 browse {
-                  folders(limit: $limit8, page: $page8) {
+                  folders(limit: $limit6, page: $page6) {
                     total
                     page
                     limit
@@ -14372,7 +6501,7 @@ class FrontifyClient(BaseClient):
                         id
                         name
                       }
-                      folders(limit: $limit7, page: $page7) {
+                      folders(limit: $limit5, page: $page5) {
                         total
                         page
                         limit
@@ -14380,7 +6509,7 @@ class FrontifyClient(BaseClient):
                       }
                     }
                   }
-                  assets(limit: $limit9, page: $page9, query: $query2) {
+                  assets(limit: $limit7, page: $page7) {
                     total
                     page
                     limit
@@ -14388,7 +6517,7 @@ class FrontifyClient(BaseClient):
                   }
                 }
                 collaborators {
-                  users(limit: $limit10, page: $page10) {
+                  users(limit: $limit8, page: $page8) {
                     total
                     page
                     limit
@@ -14396,15 +6525,9 @@ class FrontifyClient(BaseClient):
                     items {
                       __typename
                       id
+                      email
                       name
-                    }
-                    edges {
-                      node {
-                        __typename
-                        id
-                        name
-                      }
-                      role
+                      avatar
                     }
                   }
                 }
@@ -14413,86 +6536,46 @@ class FrontifyClient(BaseClient):
                   canViewCollaborators
                   canCreateCollections
                 }
-                workflow {
-                  id
-                  statuses {
-                    id
-                    name
-                    color {
-                      red
-                      green
-                      blue
-                      alpha
-                    }
-                    assignedUsers {
-                      __typename
-                      id
-                      name
-                    }
-                    checklistPresets {
-                      id
-                      content
-                      assignedUser {
-                        __typename
-                        id
-                        name
-                      }
-                    }
-                    tasks(limit: $limit11, page: $page11) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        id
-                        title
-                        description
-                      }
-                    }
-                    enterRules
-                  }
-                }
                 customMetadataProperties {
                   id
                   creator {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   createdAt
                   modifier {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   modifiedAt
                   name
                   type {
-                    __typename
-                    name
+                    ... on CustomMetadataPropertyType {
+                      __typename
+                      name
+                      ... on CustomMetadataPropertyTypeSelect {
+                        options {
+                          id
+                          value
+                        }
+                      }
+                      ... on CustomMetadataPropertyTypeMultiSelect{
+                        options {
+                          id
+                          value
+                        }
+                      }
+                    }
                   }
                   helpText
                   isRequired
                   defaultValue
-                }
-                assetSubmissionRequests {
-                  id
-                  creator {
-                    __typename
-                    id
-                    name
-                  }
-                  createdAt
-                  modifier {
-                    __typename
-                    id
-                    name
-                  }
-                  modifiedAt
-                  projectId
-                  title
-                  description
-                  configuration
                 }
               }
             }
@@ -14508,13 +6591,11 @@ class FrontifyClient(BaseClient):
             "query": query,
             "limit2": limit_2,
             "page2": page_2,
-            "validityInDays1": validity_in_days_1,
-            "permanent1": permanent_1,
+            "query1": query_1,
             "limit3": limit_3,
             "page3": page_3,
             "limit4": limit_4,
             "page4": page_4,
-            "query1": query_1,
             "limit5": limit_5,
             "page5": page_5,
             "limit6": limit_6,
@@ -14523,13 +6604,6 @@ class FrontifyClient(BaseClient):
             "page7": page_7,
             "limit8": limit_8,
             "page8": page_8,
-            "limit9": limit_9,
-            "page9": page_9,
-            "query2": query_2,
-            "limit10": limit_10,
-            "page10": page_10,
-            "limit11": limit_11,
-            "page11": page_11,
             "id": id,
         }
         response = self.execute(
@@ -14576,7 +6650,9 @@ class FrontifyClient(BaseClient):
                   creator {
                     __typename
                     id
+                    email
                     name
+                    avatar
                   }
                   createdAt
                   name
@@ -14606,32 +6682,22 @@ class FrontifyClient(BaseClient):
         query: Union[Optional[AssetCommentQueryInput], UnsetType] = UNSET,
         limit_2: Union[Optional[int], UnsetType] = UNSET,
         page_2: Union[Optional[int], UnsetType] = UNSET,
-        validity_in_days_1: Union[Optional[int], UnsetType] = UNSET,
-        permanent_1: Union[Optional[bool], UnsetType] = UNSET,
+        query_1: Union[Optional[AssetQueryInput], UnsetType] = UNSET,
         limit_3: Union[Optional[int], UnsetType] = UNSET,
         page_3: Union[Optional[int], UnsetType] = UNSET,
         limit_4: Union[Optional[int], UnsetType] = UNSET,
         page_4: Union[Optional[int], UnsetType] = UNSET,
-        query_1: Union[Optional[AssetQueryInput], UnsetType] = UNSET,
         limit_5: Union[Optional[int], UnsetType] = UNSET,
         page_5: Union[Optional[int], UnsetType] = UNSET,
         limit_6: Union[Optional[int], UnsetType] = UNSET,
         page_6: Union[Optional[int], UnsetType] = UNSET,
         limit_7: Union[Optional[int], UnsetType] = UNSET,
         page_7: Union[Optional[int], UnsetType] = UNSET,
-        query_2: Union[Optional[FolderAssetQueryInput], UnsetType] = UNSET,
-        limit_8: Union[Optional[int], UnsetType] = UNSET,
-        page_8: Union[Optional[int], UnsetType] = UNSET,
-        limit_9: Union[Optional[int], UnsetType] = UNSET,
-        page_9: Union[Optional[int], UnsetType] = UNSET,
-        query_3: Union[Optional[FolderAssetQueryInput], UnsetType] = UNSET,
-        limit_10: Union[Optional[int], UnsetType] = UNSET,
-        page_10: Union[Optional[int], UnsetType] = UNSET,
         **kwargs: Any
     ) -> WorkspaceProject:
         _query = gql(
             """
-            query workspaceProject($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $validityInDays1: Int, $permanent1: Boolean, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $query1: AssetQueryInput, $limit5: Int, $page5: Int, $limit6: Int, $page6: Int, $limit7: Int, $page7: Int, $query2: FolderAssetQueryInput, $limit8: Int, $page8: Int, $limit9: Int, $page9: Int, $query3: FolderAssetQueryInput, $limit10: Int, $page10: Int, $id: ID!) {
+            query workspaceProject($validityInDays: Int, $permanent: Boolean, $limit: Int, $page: Int, $limit1: Int, $page1: Int, $query: AssetCommentQueryInput, $limit2: Int, $page2: Int, $query1: AssetQueryInput, $limit3: Int, $page3: Int, $limit4: Int, $page4: Int, $limit5: Int, $page5: Int, $limit6: Int, $page6: Int, $limit7: Int, $page7: Int, $id: ID!) {
               workspaceProject(id: $id) {
                 id
                 name
@@ -14641,7 +6707,7 @@ class FrontifyClient(BaseClient):
                   blue
                   alpha
                 }
-                assets(limit: $limit4, page: $page4, query: $query1) {
+                assets(limit: $limit2, page: $page2, query: $query1) {
                   total
                   page
                   limit
@@ -14652,13 +6718,17 @@ class FrontifyClient(BaseClient):
                     creator {
                       __typename
                       id
+                      email
                       name
+                      avatar
                     }
                     createdAt
                     modifier {
                       __typename
                       id
+                      email
                       name
+                      avatar
                     }
                     modifiedAt
                     title
@@ -14668,13 +6738,17 @@ class FrontifyClient(BaseClient):
                       creator {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       createdAt
                       modifier {
                         __typename
                         id
+                        email
                         name
+                        avatar
                       }
                       modifiedAt
                       name
@@ -14693,10 +6767,6 @@ class FrontifyClient(BaseClient):
                     copyright {
                       status
                       notice
-                    }
-                    availability {
-                      from
-                      to
                     }
                     expiresAt
                     licenses {
@@ -14755,49 +6825,6 @@ class FrontifyClient(BaseClient):
                         defaultValue
                       }
                     }
-                    workflowTask {
-                      id
-                      assignedUsers {
-                        __typename
-                        id
-                        name
-                      }
-                      asset {
-                        __typename
-                        id
-                        createdAt
-                        modifiedAt
-                        title
-                        description
-                        externalId
-                        expiresAt
-                        status
-                      }
-                      title
-                      description
-                      status {
-                        id
-                        name
-                        enterRules
-                      }
-                      checklistItem(limit: $limit2, page: $page2) {
-                        total
-                        page
-                        limit
-                        hasNextPage
-                      }
-                    }
-                    variants(limit: $limit3, page: $page3) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        key
-                        filename
-                        downloadUrl(validityInDays: $validityInDays1, permanent: $permanent1)
-                      }
-                    }
                     location {
                       brand {
                         id
@@ -14816,12 +6843,6 @@ class FrontifyClient(BaseClient):
                         name
                       }
                     }
-                    previewBackgroundColor {
-                      red
-                      green
-                      blue
-                      alpha
-                    }
                   }
                 }
                 licenses {
@@ -14831,47 +6852,8 @@ class FrontifyClient(BaseClient):
                   addByDefault
                   requireConsensus
                 }
-                workflow {
-                  id
-                  statuses {
-                    id
-                    name
-                    color {
-                      red
-                      green
-                      blue
-                      alpha
-                    }
-                    assignedUsers {
-                      __typename
-                      id
-                      name
-                    }
-                    checklistPresets {
-                      id
-                      content
-                      assignedUser {
-                        __typename
-                        id
-                        name
-                      }
-                    }
-                    tasks(limit: $limit5, page: $page5) {
-                      total
-                      page
-                      limit
-                      hasNextPage
-                      items {
-                        id
-                        title
-                        description
-                      }
-                    }
-                    enterRules
-                  }
-                }
                 browse {
-                  folders(limit: $limit8, page: $page8) {
+                  folders(limit: $limit5, page: $page5) {
                     total
                     page
                     limit
@@ -14886,13 +6868,13 @@ class FrontifyClient(BaseClient):
                         id
                         name
                       }
-                      folders(limit: $limit6, page: $page6) {
+                      folders(limit: $limit3, page: $page3) {
                         total
                         page
                         limit
                         hasNextPage
                       }
-                      assets(limit: $limit7, page: $page7, query: $query2) {
+                      assets(limit: $limit4, page: $page4) {
                         total
                         page
                         limit
@@ -14900,7 +6882,7 @@ class FrontifyClient(BaseClient):
                       }
                     }
                   }
-                  assets(limit: $limit9, page: $page9, query: $query3) {
+                  assets(limit: $limit6, page: $page6) {
                     total
                     page
                     limit
@@ -14908,7 +6890,7 @@ class FrontifyClient(BaseClient):
                   }
                 }
                 collaborators {
-                  users(limit: $limit10, page: $page10) {
+                  users(limit: $limit7, page: $page7) {
                     total
                     page
                     limit
@@ -14916,15 +6898,9 @@ class FrontifyClient(BaseClient):
                     items {
                       __typename
                       id
+                      email
                       name
-                    }
-                    edges {
-                      node {
-                        __typename
-                        id
-                        name
-                      }
-                      role
+                      avatar
                     }
                   }
                 }
@@ -14932,7 +6908,6 @@ class FrontifyClient(BaseClient):
                   canCreateAssets
                   canViewCollaborators
                 }
-                isArchived
               }
             }
             """
@@ -14947,27 +6922,17 @@ class FrontifyClient(BaseClient):
             "query": query,
             "limit2": limit_2,
             "page2": page_2,
-            "validityInDays1": validity_in_days_1,
-            "permanent1": permanent_1,
+            "query1": query_1,
             "limit3": limit_3,
             "page3": page_3,
             "limit4": limit_4,
             "page4": page_4,
-            "query1": query_1,
             "limit5": limit_5,
             "page5": page_5,
             "limit6": limit_6,
             "page6": page_6,
             "limit7": limit_7,
             "page7": page_7,
-            "query2": query_2,
-            "limit8": limit_8,
-            "page8": page_8,
-            "limit9": limit_9,
-            "page9": page_9,
-            "query3": query_3,
-            "limit10": limit_10,
-            "page10": page_10,
             "id": id,
         }
         response = self.execute(
